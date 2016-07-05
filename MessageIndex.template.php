@@ -154,7 +154,7 @@ function template_main()
 			</div>
 			<div class="col-xs-12 col-sm-3 text-right fix-margin">
 				<div class="btn-group">
-				<span class="btn btn-success  dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<span class="btn btn-success  dropdown-toggle" id="dLabel" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				 '.$txt['uOrdenby'].' <span class="caret"></span>
 				</span>
 				<ul class="dropdown-menu dropdown-menu-right">';
@@ -187,7 +187,7 @@ function template_main()
 				echo'</ul>
 				</div>
 				<div class="btn-group">
-				  	<span class="btn btn-info  dropdown-toggle"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> '.$txt['uOpciones'].'<span class="caret"></span></span>
+				  	<span class="btn btn-info  dropdown-toggle" id="dLabel"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> '.$txt['uOpciones'].'<span class="caret"></span></span>
 				  	', template_button_strip($normal_buttons, 'right'), '
 		    	</div>
 			</div>	
@@ -401,11 +401,11 @@ function template_main()
 		echo '
 	<div class="panel-body fix-padding">
 		<div class="col-xs-12 col-sm-9 fix-margin">
-		<div class="smfPagination">', $txt['pages'], ': ', $context['page_index'], !empty($modSettings['topbottomEnable']) ? $context['menu_separator'] . '&nbsp;&nbsp;<a href="#top" class="pull-right"><strong>' . $txt['go_up'] . '</strong></a>' : '', '</div></div>
+			<div class="smfPagination">', $txt['pages'], ': ', $context['page_index'], !empty($modSettings['topbottomEnable']) ? $context['menu_separator'] . '&nbsp;&nbsp;<a href="#top" class="pull-right"><strong>' . $txt['go_up'] . '</strong></a>' : '', '</div></div>
 
 			<div class="col-xs-12 col-sm-3 text-right fix-margin">
 			<div class="btn-group pull-right">
-		  	<span class="btn btn-info dropdown-toggle"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">'.$txt['uOpciones'].'<span class="caret"></span></span>
+		  	<span class="btn btn-info dropdown-toggle" id="dLabel" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">',$context['user']['is_logged'] ?  $txt['uOpciones']: $txt['uAnon'],'<span class="caret"></span></span>
 			', template_button_strip($normal_buttons, 'right'), '
 			</div></div>
 	</div>';

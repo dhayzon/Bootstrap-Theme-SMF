@@ -164,7 +164,7 @@ function template_main()
 		'notify' => array('test' => 'can_mark_notify', 'text' => $context['is_marked_notify'] ? 'unnotify' : 'notify', 'image' => ($context['is_marked_notify'] ? 'un' : '') . 'notify.gif', 'lang' => true, 'custom' => 'onclick="return confirm(\'' . ($context['is_marked_notify'] ? $txt['notification_disable_topic'] : $txt['notification_enable_topic']) . '\');"', 'url' => $scripturl . '?action=notify;sa=' . ($context['is_marked_notify'] ? 'off' : 'on') . ';topic=' . $context['current_topic'] . '.' . $context['start'] . ';' . $context['session_var'] . '=' . $context['session_id']),
 		'mark_unread' => array('test' => 'can_mark_unread', 'text' => 'mark_unread', 'image' => 'markunread.gif', 'lang' => true, 'url' => $scripturl . '?action=markasread;sa=topic;t=' . $context['mark_unread_time'] . ';topic=' . $context['current_topic'] . '.' . $context['start'] . ';' . $context['session_var'] . '=' . $context['session_id']),
 		'send' => array('test' => 'can_send_topic', 'text' => 'send_topic', 'image' => 'sendtopic.gif', 'lang' => true, 'url' => $scripturl . '?action=emailuser;sa=sendtopic;topic=' . $context['current_topic'] . '.0'),
-		'print' => array('text' => 'print', 'image' => 'print.gif', 'lang' => true, 'custom' => 'rel="new_win nofollow"', 'url' => $scripturl . '?action=printpage;topic=' . $context['current_topic'] . '.0'),
+		'print' => array('text' => 'print', 'image' => 'print.gif', 'lang' => true, 'custom' => 'rel="nofollow"', 'url' => $scripturl . '?action=printpage;topic=' . $context['current_topic'] . '.0'),
 	);
 
 	// Allow adding new buttons easily.
@@ -178,7 +178,7 @@ function template_main()
 					<div class="smfPagination">', $txt['pages'], ': ', $context['page_index'], !empty($modSettings['topbottomEnable']) ? $context['menu_separator'] . ' <a href="#lastPost" class="pull-right"><strong>' . $txt['go_down'] . '</strong></a>' : '', '</div>
 				</div>
 					<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 fix-padding text-right">
-					<div class="btn-group"><span class="btn btn-info  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">'.$txt['uOpciones'].' <span class="caret"></span></span>', template_button_strip($normal_buttons, 'right'), '
+					<div class="btn-group"><span class="btn btn-info  dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">'.$txt['uOpciones'].' <span class="caret"></span></span>', template_button_strip($normal_buttons, 'right'), '
 					</div>
 	
 					</div>
@@ -190,7 +190,7 @@ function template_main()
 			<div id="forumposts">
 				<div class="panel panel-default">
 					<h3  class="panel-body heading-h">
-						<img src="', $settings['images_url'], '/topic/', $context['class'], '.gif" align="bottom" alt="" />
+						<img src="', $settings['images_url'], '/topic/', $context['class'], '.gif"   alt="" />
 						<span id="author">', $txt['author'], '</span>
 						', $txt['topic'], ': ', $context['subject'], ' <span class="badge pull-right">', $txt['read'], ' ', $context['num_views'], ' ', $txt['times'], '</span>
 					</h3>
@@ -262,7 +262,7 @@ function template_main()
 									</div>';
 				echo' 
 				
-  						<div  id="myPopover" class="popover" style="display:none">
+  						<div    class="popover" style="display:none">
 
 						  ';
 
@@ -351,25 +351,25 @@ function template_main()
 					echo '
 									<div class="profile">
 										<ul>';
-					// Don't show the profile button if you're not allowed to view the profile.
-					if ($message['member']['can_view_profile'])
-						echo '
-											<div><a href="', $message['member']['href'], '">', ($settings['use_image_buttons'] ? '<img src="' . $settings['images_url'] . '/icons/profile_sm.gif" alt="' . $txt['view_profile'] . '" title="' . $txt['view_profile'] . '" />' : $txt['view_profile']), '</a></div>';
+					// // Don't show the profile button if you're not allowed to view the profile.
+					// if ($message['member']['can_view_profile'])
+					// 	echo '
+					// 						<div><a href="', $message['member']['href'], '">', ($settings['use_image_buttons'] ? '<img src="' . $settings['images_url'] . '/icons/profile_sm.gif" alt="' . $txt['view_profile'] . '" title="' . $txt['view_profile'] . '" />' : $txt['view_profile']), '</a></div>';
 
-					// Don't show an icon if they haven't specified a website.
-					if ($message['member']['website']['url'] != '' && !isset($context['disabled_fields']['website']))
-						echo '
-											<div><a href="', $message['member']['website']['url'], '" title="' . $message['member']['website']['title'] . '" target="_blank" class="new_win">', ($settings['use_image_buttons'] ? '<img src="' . $settings['images_url'] . '/www_sm.gif" alt="' . $message['member']['website']['title'] . '" />' : $txt['www']), '</a></div>';
+					// // Don't show an icon if they haven't specified a website.
+					// if ($message['member']['website']['url'] != '' && !isset($context['disabled_fields']['website']))
+					// 	echo '
+					// 						<div><a href="', $message['member']['website']['url'], '" title="' . $message['member']['website']['title'] . '" target="_blank" class="new_win">', ($settings['use_image_buttons'] ? '<img src="' . $settings['images_url'] . '/www_sm.gif" alt="' . $message['member']['website']['title'] . '" />' : $txt['www']), '</a></div>';
 
-					// Don't show the email address if they want it hidden.
-					if (in_array($message['member']['show_email'], array('yes', 'yes_permission_override', 'no_through_forum')))
-						echo '
-											<div><a href="', $scripturl, '?action=emailuser;sa=email;msg=', $message['id'], '" rel="nofollow">', ($settings['use_image_buttons'] ? '<img src="' . $settings['images_url'] . '/email_sm.gif" alt="' . $txt['email'] . '" title="' . $txt['email'] . '" />' : $txt['email']), '</a></div>';
+					// // Don't show the email address if they want it hidden.
+					// if (in_array($message['member']['show_email'], array('yes', 'yes_permission_override', 'no_through_forum')))
+					// 	echo '
+					// 						<div><a href="', $scripturl, '?action=emailuser;sa=email;msg=', $message['id'], '" rel="nofollow">', ($settings['use_image_buttons'] ? '<img src="' . $settings['images_url'] . '/email_sm.gif" alt="' . $txt['email'] . '" title="' . $txt['email'] . '" />' : $txt['email']), '</a></div>';
 
-					// Since we know this person isn't a guest, you *can* message them.
-					if ($context['can_send_pm'])
-						echo '
-											<div><a href="', $scripturl, '?action=pm;sa=send;u=', $message['member']['id'], '" title="', $message['member']['online']['is_online'] ? $txt['pm_online'] : $txt['pm_offline'], '">', $settings['use_image_buttons'] ? '<img src="' . $settings['images_url'] . '/im_' . ($message['member']['online']['is_online'] ? 'on' : 'off') . '.gif" alt="' . ($message['member']['online']['is_online'] ? $txt['pm_online'] : $txt['pm_offline']) . '" />' : ($message['member']['online']['is_online'] ? $txt['pm_online'] : $txt['pm_offline']), '</a></div>';
+					// // Since we know this person isn't a guest, you *can* message them.
+					// if ($context['can_send_pm'])
+					// 	echo '
+					// 						<div><a href="', $scripturl, '?action=pm;sa=send;u=', $message['member']['id'], '" title="', $message['member']['online']['is_online'] ? $txt['pm_online'] : $txt['pm_offline'], '">', $settings['use_image_buttons'] ? '<img src="' . $settings['images_url'] . '/im_' . ($message['member']['online']['is_online'] ? 'on' : 'off') . '.gif" alt="' . ($message['member']['online']['is_online'] ? $txt['pm_online'] : $txt['pm_offline']) . '" />' : ($message['member']['online']['is_online'] ? $txt['pm_online'] : $txt['pm_offline']), '</a></div>';
 
 					echo '
 										</ul>
@@ -411,8 +411,8 @@ function template_main()
 		// If this is the first post, (#0) just say when it was posted - otherwise give the reply #.
 		if ($message['can_approve'] || $context['can_reply'] || $message['can_modify'] || $message['can_remove'] || $context['can_split'] || $context['can_restore_msg'])
 			echo '				<div class="pull-right dropdown badge text-center">
-								<span class="glyphicon glyphicon-cog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></span>
-								<ul class="dropdown-menu" aria-labelledby="dropdownMenu2">';
+								<span class="glyphicon glyphicon-cog" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"></span>
+								<ul class="dropdown-menu" aria-labelledby="dLabel">';
 
 		// Maybe we can approve it, maybe we should?
 		if ($message['can_approve'])
@@ -528,7 +528,7 @@ function template_main()
 										<img src="' . $attachment['href'] . ';image" alt="" width="' . $attachment['width'] . '" height="' . $attachment['height'] . '"/><br />';
 				}
 				echo '
-										<a href="' . $attachment['href'] . '"><img src="' . $settings['images_url'] . '/icons/clip.gif" align="middle" alt="*" />&nbsp;' . $attachment['name'] . '</a> ';
+										<a href="' . $attachment['href'] . '"><img src="' . $settings['images_url'] . '/icons/clip.gif" alt="*" />&nbsp;' . $attachment['name'] . '</a> ';
 
 				if (!$attachment['is_approved'] && $context['can_approve'])
 					echo '
@@ -656,7 +656,7 @@ function template_main()
 				// Show the jumpto box, or actually...let Javascript do it.
 	echo '
 			<div class="col-xs-1 col-sm-4 text-left"><div class="input-group" id="display_jump_to"></div></div>
-			<div class="col-xs-1 col-sm-1  fix-margin"><div class="btn-group"><span class="btn btn-info  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">'.$txt['uOpciones'].'<span class="caret"></span></span>', template_button_strip($normal_buttons, 'right'), '</div></div>			
+			<div class="col-xs-1 col-sm-1  fix-margin"><div class="btn-group"><span id="dLabel" class="btn btn-info  dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">'.$txt['uOpciones'].'<span class="caret"></span></span>', template_button_strip($normal_buttons, 'right'), '</div></div>			
 			</div>
 			<div class="container-fluid"><div class="pager">', $context['previous_next'], '</div></div>
 			';
@@ -681,7 +681,14 @@ function template_main()
 	call_integration_hook('integrate_mod_buttons', array(&$mod_buttons));
 
 	echo '
-			<div id="moderationbuttons">', template_button_strip($mod_buttons, 'bottom', array('id' => 'moderationbuttons_strip')), '</div>';
+			<div class="panel-body">
+			     <div id="moderationbuttons">
+			     	<div class="btn-group pull-right">
+ 						<span class="btn btn-danger  dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Moderar <span class="caret"></span></span>
+			     ', template_button_strip($mod_buttons, 'right', array('id' => 'moderationbuttons_strip')), '
+			    	 </div>
+			   	</div>
+			</div>';
 
 
 
