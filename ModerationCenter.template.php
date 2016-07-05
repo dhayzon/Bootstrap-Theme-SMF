@@ -235,7 +235,7 @@ function template_notes()
 
 		echo '
 					<div class="floatleft post_note">
-						<input type="text" name="new_note" value="', $txt['mc_click_add_note'], '" style="width: 95%;" onclick="if (this.value == \'', $txt['mc_click_add_note'], '\') this.value = \'\';" class="input_text" />
+						<input type="text" name="new_note" value="', $txt['mc_click_add_note'], '" style="width: 95%;" onclick="if (this.value == \'', $txt['mc_click_add_note'], '\') this.value = \'\';" class="form-control" />
 					</div>
 					<div class="floatright">
 						<input type="submit" name="makenote" value="', $txt['mc_add_note'], '" class="btn btn-default" />
@@ -825,7 +825,7 @@ function template_warn_template()
 							<strong><label for="template_title">', $txt['mc_warning_template_title'], '</label>:</strong>
 						</dt>
 						<dd>
-							<input type="text" id="template_title" name="template_title" value="', $context['template_data']['title'], '" size="30" class="input_text" />
+							<input type="text" id="template_title" name="template_title" value="', $context['template_data']['title'], '" size="30" class="form-control" />
 						</dd>
 						<dt>
 							<strong><label for="template_body">', $txt['profile_warning_notify_body'], '</label>:</strong><br />

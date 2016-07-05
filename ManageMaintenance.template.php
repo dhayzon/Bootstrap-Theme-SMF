@@ -286,7 +286,7 @@ function template_maintain_members()
 							<label for="type_name"><input type="radio" name="type" id="type_name" value="name" class="input_radio" />', $txt['reattribute_username'], '</label>
 						</dt>
 						<dd>
-							<input type="text" name="from_name" id="from_name" value="" onclick="document.getElementById(\'type_name\').checked = \'checked\'; document.getElementById(\'from_email\').value = \'\';" class="input_text" />
+							<input type="text" name="from_name" id="from_name" value="" onclick="document.getElementById(\'type_name\').checked = \'checked\'; document.getElementById(\'from_email\').value = \'\';" class="form-control" />
 						</dd>
 					</dl>
 					<dl class="dl-horizontal">
@@ -294,7 +294,7 @@ function template_maintain_members()
 							<label for="to"><strong>', $txt['reattribute_current_member'], ':</strong></label>
 						</dt>
 						<dd>
-							<input type="text" name="to" id="to" value="" class="input_text" />
+							<input type="text" name="to" id="to" value="" class="form-control" />
 						</dd>
 					</dl>
 					<p class="maintain_members">
@@ -322,7 +322,7 @@ function template_maintain_members()
 					<select class="form-control" name="del_type">
 						<option value="activated" selected="selected">', $txt['maintain_members_activated'], '</option>
 						<option value="logged">', $txt['maintain_members_logged_in'], '</option>
-					</select> ', $txt['maintain_members_since2'], ' <input type="text" name="maxdays" value="30" size="3" class="input_text" />', $txt['maintain_members_since3'], '</p>';
+					</select> ', $txt['maintain_members_since2'], ' <input type="text" name="maxdays" value="30" size="3" class="form-control" />', $txt['maintain_members_since3'], '</p>';
 
 	echo '
 					<p><a href="#membersLink" onclick="swapMembers();"><img src="', $settings['images_url'], '/expand.gif" alt="+" id="membersIcon" /></a> <a href="#membersLink" onclick="swapMembers();" id="membersText" style="font-weight: bold;">', $txt['maintain_members_all'], '</a></p>

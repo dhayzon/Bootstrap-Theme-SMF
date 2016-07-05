@@ -546,7 +546,7 @@ function template_editBuddies()
 					<label for="new_buddy">
 						<strong>', $txt['who_member'], ':</strong>
 					</label>
-					<input type="text" name="new_buddy" id="new_buddy" size="25" class="input_text" />
+					<input type="text" name="new_buddy" id="new_buddy" size="25" class="form-control" />
 					<input type="submit" value="', $txt['buddy_add_button'], '" class="btn btn-default" />
 			</div>
 			<span class="lowerframe"><span></span></span>
@@ -632,7 +632,7 @@ function template_editIgnoreList()
 					<label for="new_buddy">
 						<strong>', $txt['who_member'], ':</strong>
 					</label>
-					<input type="text" name="new_ignore" id="new_ignore" size="25" class="input_text" />
+					<input type="text" name="new_ignore" id="new_ignore" size="25" class="form-control" />
 					<input type="submit" value="', $txt['ignore_add_button'], '" class="btn btn-default" />
 			</div>
 			<span class="lowerframe"><span></span></span>
@@ -726,7 +726,7 @@ function template_trackIP()
 		<div class="windowbg2">
 			<span class="topslice"><span></span></span>
 			<form action="', $context['base_url'], '" method="post" accept-charset="', $context['character_set'], '">
-				<div class="padding">', $txt['enter_ip'], ':&nbsp;&nbsp;<input type="text" name="searchip" value="', $context['ip'], '" class="input_text" />&nbsp;&nbsp;<input type="submit" value="', $txt['trackIP'], '" class="btn btn-default" /></div>
+				<div class="padding">', $txt['enter_ip'], ':&nbsp;&nbsp;<input type="text" name="searchip" value="', $context['ip'], '" class="form-control" />&nbsp;&nbsp;<input type="submit" value="', $txt['trackIP'], '" class="btn btn-default" /></div>
 			</form>
 			<span class="botslice"><span></span></span>
 		</div>
@@ -2174,7 +2174,7 @@ function template_issueWarning()
 							<input type="hidden" name="warning_level" id="warning_level" value="SAME" />
 						</div>
 						<div id="warndiv2">
-							<input type="text" name="warning_level_nojs" size="6" maxlength="4" value="', $context['member']['warning'], '" class="input_text" />&nbsp;', $txt['profile_warning_max'], '
+							<input type="text" name="warning_level_nojs" size="6" maxlength="4" value="', $context['member']['warning'], '" class="form-control" />&nbsp;', $txt['profile_warning_max'], '
 							<div class="smalltext">', $txt['profile_warning_impact'], ':<br />';
 	// For non-javascript give a better list.
 	foreach ($context['level_effects'] as $limit => $effect)
@@ -2194,7 +2194,7 @@ function template_issueWarning()
 						<span class="smalltext">', $txt['profile_warning_reason_desc'], '</span>
 					</dt>
 					<dd>
-						<input type="text" name="warn_reason" id="warn_reason" value="', $context['warning_data']['reason'], '" size="50" style="width: 80%;" class="input_text" />
+						<input type="text" name="warn_reason" id="warn_reason" value="', $context['warning_data']['reason'], '" size="50" style="width: 80%;" class="form-control" />
 					</dd>
 				</dl>
 				<hr />
@@ -2209,7 +2209,7 @@ function template_issueWarning()
 						<strong>', $txt['profile_warning_notify_subject'], ':</strong>
 					</dt>
 					<dd>
-						<input type="text" name="warn_sub" id="warn_sub" value="', empty($context['warning_data']['notify_subject']) ? $txt['profile_warning_notify_template_subject'] : $context['warning_data']['notify_subject'], '" size="50" style="width: 80%;" class="input_text" />
+						<input type="text" name="warn_sub" id="warn_sub" value="', empty($context['warning_data']['notify_subject']) ? $txt['profile_warning_notify_template_subject'] : $context['warning_data']['notify_subject'], '" size="50" style="width: 80%;" class="form-control" />
 					</dd>
 					<dt>
 						<strong>', $txt['profile_warning_notify_body'], ':</strong>
@@ -2495,9 +2495,9 @@ function template_profile_birthdate()
 								<span class="smalltext">', $txt['dob_year'], ' - ', $txt['dob_month'], ' - ', $txt['dob_day'], '</span>
 							</dt>
 							<dd>
-								<input type="text" name="bday3" size="4" maxlength="4" value="', $context['member']['birth_date']['year'], '" class="input_text" /> -
-								<input type="text" name="bday1" size="2" maxlength="2" value="', $context['member']['birth_date']['month'], '" class="input_text" /> -
-								<input type="text" name="bday2" size="2" maxlength="2" value="', $context['member']['birth_date']['day'], '" class="input_text" />
+								<input type="text" name="bday3" size="4" maxlength="4" value="', $context['member']['birth_date']['year'], '" class="form-control" /> -
+								<input type="text" name="bday1" size="2" maxlength="2" value="', $context['member']['birth_date']['month'], '" class="form-control" /> -
+								<input type="text" name="bday2" size="2" maxlength="2" value="', $context['member']['birth_date']['day'], '" class="form-control" />
 							</dd>';
 }
 
@@ -2716,7 +2716,7 @@ function template_profile_avatar_select()
 		echo '
 								<div id="avatar_external">
 									<div class="smalltext">', $txt['avatar_by_url'], '</div>
-									<input type="text" name="userpicpersonal" size="45" value="', $context['member']['avatar']['external'], '" onfocus="selectRadioByName(document.forms.creator.avatar_choice, \'external\');" onchange="if (typeof(previewExternalAvatar) != \'undefined\') previewExternalAvatar(this.value);" class="input_text" />
+									<input type="text" name="userpicpersonal" size="45" value="', $context['member']['avatar']['external'], '" onfocus="selectRadioByName(document.forms.creator.avatar_choice, \'external\');" onchange="if (typeof(previewExternalAvatar) != \'undefined\') previewExternalAvatar(this.value);" class="form-control" />
 								</div>';
 	}
 
@@ -2776,7 +2776,7 @@ function template_profile_karma_modify()
 								<strong>', $modSettings['karmaLabel'], '</strong>
 							</dt>
 							<dd>
-								', $modSettings['karmaApplaudLabel'], ' <input type="text" name="karma_good" size="4" value="', $context['member']['karma']['good'], '" onchange="setInnerHTML(document.getElementById(\'karmaTotal\'), this.value - this.form.karma_bad.value);" style="margin-right: 2ex;" class="input_text" /> ', $modSettings['karmaSmiteLabel'], ' <input type="text" name="karma_bad" size="4" value="', $context['member']['karma']['bad'], '" onchange="this.form.karma_good.onchange();" class="input_text" /><br />
+								', $modSettings['karmaApplaudLabel'], ' <input type="text" name="karma_good" size="4" value="', $context['member']['karma']['good'], '" onchange="setInnerHTML(document.getElementById(\'karmaTotal\'), this.value - this.form.karma_bad.value);" style="margin-right: 2ex;" class="form-control" /> ', $modSettings['karmaSmiteLabel'], ' <input type="text" name="karma_bad" size="4" value="', $context['member']['karma']['bad'], '" onchange="this.form.karma_good.onchange();" class="form-control" /><br />
 								(', $txt['total'], ': <span id="karmaTotal">', ($context['member']['karma']['good'] - $context['member']['karma']['bad']), '</span>)
 							</dd>';
 }
@@ -2800,7 +2800,7 @@ function template_profile_timeformat_modify()
 									<option value="', $time_format['format'], '"', $time_format['format'] == $context['member']['time_format'] ? ' selected="selected"' : '', '>', $time_format['title'], '</option>';
 	echo '
 								</select><br />
-								<input type="text" name="time_format" value="', $context['member']['time_format'], '" size="30" class="input_text" />
+								<input type="text" name="time_format" value="', $context['member']['time_format'], '" size="30" class="form-control" />
 							</dd>';
 }
 
@@ -2815,7 +2815,7 @@ function template_profile_timeoffset_modify()
 								<span class="smalltext">', $txt['personal_time_offset'], '</span>
 							</dt>
 							<dd>
-								<input type="text" name="time_offset" id="time_offset" size="5" maxlength="5" value="', $context['member']['time_offset'], '" class="input_text" /> <a href="javascript:void(0);" onclick="currentDate = new Date(', $context['current_forum_time_js'], '); document.getElementById(\'time_offset\').value = autoDetectTimeOffset(currentDate); return false;">', $txt['timeoffset_autodetect'], '</a><br />', $txt['current_time'], ': <em>', $context['current_forum_time'], '</em>
+								<input type="text" name="time_offset" id="time_offset" size="5" maxlength="5" value="', $context['member']['time_offset'], '" class="form-control" /> <a href="javascript:void(0);" onclick="currentDate = new Date(', $context['current_forum_time_js'], '); document.getElementById(\'time_offset\').value = autoDetectTimeOffset(currentDate); return false;">', $txt['timeoffset_autodetect'], '</a><br />', $txt['current_time'], ': <em>', $context['current_forum_time'], '</em>
 							</dd>';
 }
 

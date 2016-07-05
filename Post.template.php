@@ -75,7 +75,7 @@ function template_main()
 				}
 				pollOptionNum++
 
-				setOuterHTML(document.getElementById(\'pollMoreOptions\'), ', JavaScriptEscape('<li><label for="options-'), ' + pollOptionNum + ', JavaScriptEscape('">' . $txt['option'] . ' '), ' + pollOptionNum + ', JavaScriptEscape('</label>: <input type="text" name="options['), ' + pollOptionNum + ', JavaScriptEscape(']" id="options-'), ' + pollOptionNum + ', JavaScriptEscape('" value="" size="80" maxlength="255" tabindex="'), ' + pollTabIndex + ', JavaScriptEscape('" class="input_text" /></li><li id="pollMoreOptions"></li>'), ');
+				setOuterHTML(document.getElementById(\'pollMoreOptions\'), ', JavaScriptEscape('<li><label for="options-'), ' + pollOptionNum + ', JavaScriptEscape('">' . $txt['option'] . ' '), ' + pollOptionNum + ', JavaScriptEscape('</label>: <input type="text" name="options['), ' + pollOptionNum + ', JavaScriptEscape(']" id="options-'), ' + pollOptionNum + ', JavaScriptEscape('" value="" size="80" maxlength="255" tabindex="'), ' + pollTabIndex + ', JavaScriptEscape('" class="form-control" /></li><li id="pollMoreOptions"></li>'), ');
 			}';
 
 	// If we are making a calendar event we want to ensure we show the current days in a month etc... this is done here.
@@ -180,7 +180,7 @@ function template_main()
 							<span', isset($context['post_error']['long_name']) || isset($context['post_error']['no_name']) || isset($context['post_error']['bad_name']) ? ' class="error"' : '', ' id="caption_guestname">', $txt['name'], ':</span>
 						</dt>
 						<dd>
-							<input type="text" name="guestname" size="25" value="', $context['name'], '" tabindex="', $context['tabindex']++, '" class="input_text" />
+							<input type="text" name="guestname" size="25" value="', $context['name'], '" tabindex="', $context['tabindex']++, '" class="form-control" />
 						</dd>';
 
 		if (empty($modSettings['guest_post_no_email']))
@@ -189,7 +189,7 @@ function template_main()
 							<span', isset($context['post_error']['no_email']) || isset($context['post_error']['bad_email']) ? ' class="error"' : '', ' id="caption_email">', $txt['email'], ':</span>
 						</dt>
 						<dd>
-							<input type="text" name="email" size="25" value="', $context['email'], '" tabindex="', $context['tabindex']++, '" class="input_text" />
+							<input type="text" name="email" size="25" value="', $context['email'], '" tabindex="', $context['tabindex']++, '" class="form-control" />
 						</dd>';
 	}
 
@@ -199,7 +199,7 @@ function template_main()
 							<span', isset($context['post_error']['no_subject']) ? ' class="error"' : '', ' id="caption_subject">', $txt['subject'], ':</span>
 						</dt>
 						<dd>
-							<input type="text" name="subject"', $context['subject'] == '' ? '' : ' value="' . $context['subject'] . '"', ' tabindex="', $context['tabindex']++, '" size="80" maxlength="80" class="input_text" />
+							<input type="text" name="subject"', $context['subject'] == '' ? '' : ' value="' . $context['subject'] . '"', ' tabindex="', $context['tabindex']++, '" size="80" maxlength="80" class="form-control" />
 						</dd>
 						<dt class="clear_left">
 							', $txt['message_icon'], ':
@@ -225,7 +225,7 @@ function template_main()
 					<div id="post_event">
 						<fieldset id="event_main">
 							<legend><span', isset($context['post_error']['no_event']) ? ' class="error"' : '', ' id="caption_evtitle">', $txt['calendar_event_title'], '</span></legend>
-							<input type="text" name="evtitle" maxlength="255" size="60" value="', $context['event']['title'], '" tabindex="', $context['tabindex']++, '" class="input_text" />
+							<input type="text" name="evtitle" maxlength="255" size="60" value="', $context['event']['title'], '" tabindex="', $context['tabindex']++, '" class="form-control" />
 							<div class="smalltext">
 								<input type="hidden" name="calendar" value="1" />', $txt['calendar_year'], '
 								<select class="form-control" name="year" id="year" tabindex="', $context['tabindex']++, '" onchange="generateDays();">';
@@ -324,7 +324,7 @@ function template_main()
 					<div id="edit_poll">
 						<fieldset id="poll_main">
 							<legend><span ', (isset($context['poll_error']['no_question']) ? ' class="error"' : ''), '>', $txt['poll_question'], '</span></legend>
-							<input type="text" name="question" value="', isset($context['question']) ? $context['question'] : '', '" tabindex="', $context['tabindex']++, '" size="80" class="input_text" />
+							<input type="text" name="question" value="', isset($context['question']) ? $context['question'] : '', '" tabindex="', $context['tabindex']++, '" size="80" class="form-control" />
 							<ul class="poll_main">';
 
 		// Loop through all the choices and print them out.
@@ -333,7 +333,7 @@ function template_main()
 			echo '
 								<li>
 									<label for="options-', $choice['id'], '">', $txt['option'], ' ', $choice['number'], '</label>:
-									<input type="text" name="options[', $choice['id'], ']" id="options-', $choice['id'], '" value="', $choice['label'], '" tabindex="', $context['tabindex']++, '" size="80" maxlength="255" class="input_text" />
+									<input type="text" name="options[', $choice['id'], ']" id="options-', $choice['id'], '" value="', $choice['label'], '" tabindex="', $context['tabindex']++, '" size="80" maxlength="255" class="form-control" />
 								</li>';
 		}
 
@@ -349,14 +349,14 @@ function template_main()
 									<label for="poll_max_votes">', $txt['poll_max_votes'], ':</label>
 								</dt>
 								<dd>
-									<input type="text" name="poll_max_votes" id="poll_max_votes" size="2" value="', $context['poll_options']['max_votes'], '" class="input_text" />
+									<input type="text" name="poll_max_votes" id="poll_max_votes" size="2" value="', $context['poll_options']['max_votes'], '" class="form-control" />
 								</dd>
 								<dt>
 									<label for="poll_expire">', $txt['poll_run'], ':</label><br />
 									<em class="smalltext">', $txt['poll_run_limit'], '</em>
 								</dt>
 								<dd>
-									<input type="text" name="poll_expire" id="poll_expire" size="2" value="', $context['poll_options']['expire'], '" onchange="pollOptions();" maxlength="4" class="input_text" /> ', $txt['days_word'], '
+									<input type="text" name="poll_expire" id="poll_expire" size="2" value="', $context['poll_options']['expire'], '" onchange="pollOptions();" maxlength="4" class="form-control" /> ', $txt['days_word'], '
 								</dd>
 								<dt>
 									<label for="poll_change_vote">', $txt['poll_do_change_vote'], ':</label>
@@ -930,7 +930,7 @@ function template_spellcheck()
 			<table border="0" cellpadding="4" cellspacing="0" width="100%"><tr class="windowbg">
 				<td width="50%" valign="top">
 					', $txt['spellcheck_change_to'], '<br />
-					<input type="text" name="changeto" style="width: 98%;" class="input_text" />
+					<input type="text" name="changeto" style="width: 98%;" class="form-control" />
 				</td>
 				<td width="50%">
 					', $txt['spellcheck_suggest'], '<br />

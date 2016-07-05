@@ -58,19 +58,19 @@ function template_main()
 								<label for="y_name"><strong>', $txt['sendtopic_sender_name'], ':</strong></label>
 							</dt>
 							<dd>
-								<input type="text" id="y_name" name="y_name" size="30" maxlength="40" value="', $context['user']['name'], '" class="input_text" />
+								<input type="text" id="y_name" name="y_name" size="30" maxlength="40" value="', $context['user']['name'], '" class="form-control" />
 							</dd>
 							<dt>
 								<label for="y_email"><strong>', $txt['sendtopic_sender_email'], ':</strong></label>
 							</dt>
 							<dd>
-								<input type="text" id="y_email" name="y_email" size="30" maxlength="50" value="', $context['user']['email'], '" class="input_text" />
+								<input type="text" id="y_email" name="y_email" size="30" maxlength="50" value="', $context['user']['email'], '" class="form-control" />
 							</dd>
 							<dt>
 								<label for="comment"><strong>', $txt['sendtopic_comment'], ':</strong></label>
 							</dt>
 							<dd>
-								<input type="text" id="comment" name="comment" size="30" maxlength="100" class="input_text" />
+								<input type="text" id="comment" name="comment" size="30" maxlength="100" class="form-control" />
 							</dd>
 						</dl>
 					</fieldset>
@@ -80,13 +80,13 @@ function template_main()
 								<label for="r_name"><strong>', $txt['sendtopic_receiver_name'], ':</strong></label>
 							</dt>
 							<dd>
-								<input type="text" id="r_name" name="r_name" size="30" maxlength="40" class="input_text" />
+								<input type="text" id="r_name" name="r_name" size="30" maxlength="40" class="form-control" />
 							</dd>
 							<dt>
 								<label for="r_email"><strong>', $txt['sendtopic_receiver_email'], ':</strong></label>
 							</dt>
 							<dd>
-								<input type="text" id="r_email" name="r_email" size="30" maxlength="50" class="input_text" />
+								<input type="text" id="r_email" name="r_email" size="30" maxlength="50" class="form-control" />
 							</dd>
 						</dl>
 					</fieldset>
@@ -146,14 +146,14 @@ function template_custom_email()
 							<label for="y_name"><strong>', $txt['sendtopic_sender_name'], ':</strong></label>
 						</dt>
 						<dd>
-							<input type="text" id="y_name" name="y_name" size="24" maxlength="40" value="', $context['user']['name'], '" class="input_text" />
+							<input type="text" id="y_name" name="y_name" size="24" maxlength="40" value="', $context['user']['name'], '" class="form-control" />
 						</dd>
 						<dt>
 							<label for="y_email"><strong>', $txt['sendtopic_sender_email'], ':</strong></label><br />
 							<span class="smalltext">', $txt['send_email_disclosed'], '</span>
 						</dt>
 						<dd>
-							<input type="text" id="y_mail" name="y_email" size="24" maxlength="50" value="', $context['user']['email'], '" class="input_text" />
+							<input type="text" id="y_mail" name="y_email" size="24" maxlength="50" value="', $context['user']['email'], '" class="form-control" />
 						</dt>';
 	// Otherwise show the user that we know their email.
 	else
@@ -171,7 +171,7 @@ function template_custom_email()
 							<label for="email_subject"><strong>', $txt['send_email_subject'], ':</strong></label>
 						</dt>
 						<dd>
-							<input type="text" id="email_subject" name="email_subject" size="50" maxlength="100" class="input_text" />
+							<input type="text" id="email_subject" name="email_subject" size="50" maxlength="100" class="form-control" />
 						</dd>
 						<dt>
 							<label for="email_body"><strong>', $txt['message'], ':</strong></label>

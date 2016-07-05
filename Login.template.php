@@ -43,7 +43,7 @@ function template_login()
 	echo '
 				<dl>
 					<dt>', $txt['username'], ':</dt>
-					<dd><input type="text" name="user" size="20" value="', $context['default_username'], '" class="input_text" /></dd>
+					<dd><input type="text" name="user" size="20" value="', $context['default_username'], '" class="form-control" /></dd>
 					<dt>', $txt['password'], ':</dt>
 					<dd><input type="password" name="passwrd" value="', $context['default_password'], '" size="20" class="input_password" /></dd>
 				</dl>';
@@ -58,7 +58,7 @@ function template_login()
 	echo '
 				<dl>
 					<dt>', $txt['mins_logged_in'], ':</dt>
-					<dd><input type="text" name="cookielength" size="4" maxlength="4" value="', $modSettings['cookieTime'], '"', $context['never_expire'] ? ' disabled="disabled"' : '', ' class="input_text" /></dd>
+					<dd><input type="text" name="cookielength" size="4" maxlength="4" value="', $modSettings['cookieTime'], '"', $context['never_expire'] ? ' disabled="disabled"' : '', ' class="form-control" /></dd>
 					<dt>', $txt['always_logged_in'], ':</dt>
 					<dd><input type="checkbox" name="cookieneverexp"', $context['never_expire'] ? ' checked="checked"' : '', ' class="input_check" onclick="this.form.cookielength.disabled = this.checked;" /></dd>';
 	// If they have deleted their account, give them a chance to change their mind.
@@ -114,7 +114,7 @@ function template_kick_guest()
 			<div class="roundframe">
 				<dl>
 					<dt>', $txt['username'], ':</dt>
-					<dd><input type="text" name="user" size="20" class="input_text" /></dd>
+					<dd><input type="text" name="user" size="20" class="form-control" /></dd>
 					<dt>', $txt['password'], ':</dt>
 					<dd><input type="password" name="passwrd" size="20" class="input_password" /></dd>';
 
@@ -131,7 +131,7 @@ function template_kick_guest()
 
 	echo '
 					<dt>', $txt['mins_logged_in'], ':</dt>
-					<dd><input type="text" name="cookielength" size="4" maxlength="4" value="', $modSettings['cookieTime'], '" class="input_text" /></dd>
+					<dd><input type="text" name="cookielength" size="4" maxlength="4" value="', $modSettings['cookieTime'], '" class="form-control" /></dd>
 					<dt>', $txt['always_logged_in'], ':</dt>
 					<dd><input type="checkbox" name="cookieneverexp" class="input_check" onclick="this.form.cookielength.disabled = this.checked;" /></dd>
 				</dl>
@@ -174,11 +174,11 @@ function template_maintenance()
 		<div class="roundframe">
 			<dl>
 				<dt>', $txt['username'], ':</dt>
-				<dd><input type="text" name="user" size="20" class="input_text" /></dd>
+				<dd><input type="text" name="user" size="20" class="form-control" /></dd>
 				<dt>', $txt['password'], ':</dt>
 				<dd><input type="password" name="passwrd" size="20" class="input_password" /></dd>
 				<dt>', $txt['mins_logged_in'], ':</dt>
-				<dd><input type="text" name="cookielength" size="4" maxlength="4" value="', $modSettings['cookieTime'], '" class="input_text" /></dd>
+				<dd><input type="text" name="cookielength" size="4" maxlength="4" value="', $modSettings['cookieTime'], '" class="form-control" /></dd>
 				<dt>', $txt['always_logged_in'], ':</dt>
 				<dd><input type="checkbox" name="cookieneverexp" class="input_check" /></dd>
 			</dl>
@@ -253,11 +253,11 @@ function template_retry_activate()
 		echo '
 				<dl>
 					<dt>', $txt['invalid_activation_username'], ':</dt>
-					<dd><input type="text" name="user" size="30" class="input_text" /></dd>';
+					<dd><input type="text" name="user" size="30" class="form-control" /></dd>';
 
 	echo '
 					<dt>', $txt['invalid_activation_retry'], ':</dt>
-					<dd><input type="text" name="code" size="30" class="input_text" /></dd>
+					<dd><input type="text" name="code" size="30" class="form-control" /></dd>
 				</dl>
 				<p><input type="submit" value="', $txt['invalid_activation_submit'], '" class="btn btn-default" /></p>
 			</div>
@@ -280,12 +280,12 @@ function template_resend()
 			<div class="roundframe">
 				<dl>
 					<dt>', $txt['invalid_activation_username'], ':</dt>
-					<dd><input type="text" name="user" size="40" value="', $context['default_username'], '" class="input_text" /></dd>
+					<dd><input type="text" name="user" size="40" value="', $context['default_username'], '" class="form-control" /></dd>
 				</dl>
 				<p>', $txt['invalid_activation_new'], '</p>
 				<dl>
 					<dt>', $txt['invalid_activation_new_email'], ':</dt>
-					<dd><input type="text" name="new_email" size="40" class="input_text" /></dd>
+					<dd><input type="text" name="new_email" size="40" class="form-control" /></dd>
 					<dt>', $txt['invalid_activation_password'], ':</dt>
 					<dd><input type="password" name="passwd" size="30" class="input_password" /></dd>
 				</dl>';
@@ -295,7 +295,7 @@ function template_resend()
 				<p>', $txt['invalid_activation_known'], '</p>
 				<dl>
 					<dt>', $txt['invalid_activation_retry'], ':</dt>
-					<dd><input type="text" name="code" size="30" class="input_text" /></dd>
+					<dd><input type="text" name="code" size="30" class="form-control" /></dd>
 				</dl>';
 
 	echo '

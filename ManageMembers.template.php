@@ -41,7 +41,7 @@ function template_search_members()
 									</select>
 								</dt>
 								<dd>
-									<input type="text" name="mem_id" value="" size="6" class="input_text" />
+									<input type="text" name="mem_id" value="" size="6" class="form-control" />
 								</dd>
 								<dt class="righttext">
 									<strong>', $txt['age'], ':</strong>
@@ -54,7 +54,7 @@ function template_search_members()
 									</select>
 								</dt>
 								<dd>
-									<input type="text" name="age" value="" size="6" class="input_text" />
+									<input type="text" name="age" value="" size="6" class="form-control" />
 								</dd>
 								<dt class="righttext">
 									<strong>', $txt['member_postcount'], ':</strong>
@@ -67,7 +67,7 @@ function template_search_members()
 									</select>
 								</dt>
 								<dd>
-									<input type="text" name="posts" value="" size="6" class="input_text" />
+									<input type="text" name="posts" value="" size="6" class="form-control" />
 								</dd>
 								<dt class="righttext">
 									<strong>', $txt['date_registered'], ':</strong>
@@ -80,7 +80,7 @@ function template_search_members()
 									</select>
 								</dt>
 								<dd>
-									<input type="text" name="reg_date" value="" size="10" class="input_text" /><span class="smalltext">', $txt['date_format'], '</span>
+									<input type="text" name="reg_date" value="" size="10" class="form-control" /><span class="smalltext">', $txt['date_format'], '</span>
 								</dd>
 								<dt class="righttext">
 									<strong>', $txt['viewmembers_online'], ':</strong>
@@ -93,7 +93,7 @@ function template_search_members()
 									</select>
 								</dt>
 								<dd>
-									<input type="text" name="last_online" value="" size="10" class="input_text" /><span class="smalltext">', $txt['date_format'], '</span>
+									<input type="text" name="last_online" value="" size="10" class="form-control" /><span class="smalltext">', $txt['date_format'], '</span>
 								</dd>
 							</dl>
 						</div>
@@ -103,37 +103,37 @@ function template_search_members()
 									<strong>', $txt['username'], ':</strong>
 								</dt>
 								<dd>
-									<input type="text" name="membername" value="" class="input_text" />
+									<input type="text" name="membername" value="" class="form-control" />
 								</dd>
 								<dt class="righttext">
 									<strong>', $txt['email_address'], ':</strong>
 								</dt>
 								<dd>
-									<input type="text" name="email" value="" class="input_text" />
+									<input type="text" name="email" value="" class="form-control" />
 								</dd>
 								<dt class="righttext">
 									<strong>', $txt['website'], ':</strong>
 								</dt>
 								<dd>
-									<input type="text" name="website" value="" class="input_text" />
+									<input type="text" name="website" value="" class="form-control" />
 								</dd>
 								<dt class="righttext">
 									<strong>', $txt['location'], ':</strong>
 								</dt>
 								<dd>
-									<input type="text" name="location" value="" class="input_text" />
+									<input type="text" name="location" value="" class="form-control" />
 								</dd>
 								<dt class="righttext">
 									<strong>', $txt['ip_address'], ':</strong>
 								</dt>
 								<dd>
-									<input type="text" name="ip" value="" class="input_text" />
+									<input type="text" name="ip" value="" class="form-control" />
 								</dd>
 								<dt class="righttext">
 									<strong>', $txt['messenger_address'], ':</strong>
 								</dt>
 								<dd>
-									<input type="text" name="messenger" value="" class="input_text" />
+									<input type="text" name="messenger" value="" class="form-control" />
 								</dd>
 							</dl>
 						</div>
@@ -291,7 +291,7 @@ function template_admin_browse()
 							', $txt['admin_browse_outstanding_days_1'], ':
 						</dt>
 						<dd>
-							<input type="text" name="time_passed" value="14" maxlength="4" size="3" class="input_text" /> ', $txt['admin_browse_outstanding_days_2'], '.
+							<input type="text" name="time_passed" value="14" maxlength="4" size="3" class="form-control" /> ', $txt['admin_browse_outstanding_days_2'], '.
 						</dd>
 						<dt>
 							', $txt['admin_browse_outstanding_perform'], ':

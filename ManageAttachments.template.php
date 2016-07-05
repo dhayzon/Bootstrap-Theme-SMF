@@ -100,8 +100,8 @@ function template_maintenance()
 			<span class="topslice"><span></span></span>
 			<div class="content">
 				<form action="', $scripturl, '?action=admin;area=manageattachments" method="post" accept-charset="', $context['character_set'], '" onsubmit="return confirm(\'', $txt['attachment_pruning_warning'], '\');" style="margin: 0 0 2ex 0;">
-					', $txt['attachment_remove_old'], ' <input type="text" name="age" value="25" size="4" class="input_text" /> ', $txt['days_word'], '<br />
-					', $txt['attachment_pruning_message'], ': <input type="text" name="notice" value="', $txt['attachment_delete_admin'], '" size="40" class="input_text" /><br />
+					', $txt['attachment_remove_old'], ' <input type="text" name="age" value="25" size="4" class="form-control" /> ', $txt['days_word'], '<br />
+					', $txt['attachment_pruning_message'], ': <input type="text" name="notice" value="', $txt['attachment_delete_admin'], '" size="40" class="form-control" /><br />
 					<input type="submit" name="submit" value="', $txt['remove'], '" class="btn btn-default" />
 					<input type="hidden" name="type" value="attachments" />
 					<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
@@ -109,8 +109,8 @@ function template_maintenance()
 				</form>
 				<hr />
 				<form action="', $scripturl, '?action=admin;area=manageattachments" method="post" accept-charset="', $context['character_set'], '" onsubmit="return confirm(\'', $txt['attachment_pruning_warning'], '\');" style="margin: 0 0 2ex 0;">
-					', $txt['attachment_remove_size'], ' <input type="text" name="size" id="size" value="100" size="4" class="input_text" /> ', $txt['kilobyte'], '<br />
-					', $txt['attachment_pruning_message'], ': <input type="text" name="notice" value="', $txt['attachment_delete_admin'], '" size="40" class="input_text" /><br />
+					', $txt['attachment_remove_size'], ' <input type="text" name="size" id="size" value="100" size="4" class="form-control" /> ', $txt['kilobyte'], '<br />
+					', $txt['attachment_pruning_message'], ': <input type="text" name="notice" value="', $txt['attachment_delete_admin'], '" size="40" class="form-control" /><br />
 					<input type="submit" name="submit" value="', $txt['remove'], '" class="btn btn-default" />
 					<input type="hidden" name="type" value="attachments" />
 					<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
@@ -118,7 +118,7 @@ function template_maintenance()
 				</form>
 				<hr />
 				<form action="', $scripturl, '?action=admin;area=manageattachments" method="post" accept-charset="', $context['character_set'], '" onsubmit="return confirm(\'', $txt['attachment_pruning_warning'], '\');" style="margin: 0 0 2ex 0;">
-					', $txt['attachment_manager_avatars_older'], ' <input type="text" name="age" value="45" size="4" class="input_text" /> ', $txt['days_word'], '<br />
+					', $txt['attachment_manager_avatars_older'], ' <input type="text" name="age" value="45" size="4" class="form-control" /> ', $txt['days_word'], '<br />
 					<input type="submit" name="submit" value="', $txt['remove'], '" class="btn btn-default" />
 					<input type="hidden" name="type" value="avatars" />
 					<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />

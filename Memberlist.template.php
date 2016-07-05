@@ -188,7 +188,7 @@ function template_search()
 					<div id="mlist_search" class="flow_hidden">
 						<div id="search_term_input"><br />
 							<strong>', $txt['search_for'], ':</strong>
-							<input type="text" name="search" value="', $context['old_search'], '" size="35" class="input_text" /> <input type="submit" name="submit" value="' . $txt['search'] . '" class="btn btn-default" />
+							<input type="text" name="search" value="', $context['old_search'], '" size="35" class="form-control" /> <input type="submit" name="submit" value="' . $txt['search'] . '" class="btn btn-default" />
 						</div>
 						<span class="floatleft">';
 

@@ -26,7 +26,7 @@ function template_admin()
 			<object id="quick_search">
 				<form action="', $scripturl, '?action=admin;area=search" method="post" accept-charset="', $context['character_set'], '" class="floatright">
 					<img src="', $settings['images_url'] , '/filter.gif" alt="" />
-					<input type="text" name="search_term" value="', $txt['admin_search'], '" onclick="if (this.value == \'', $txt['admin_search'], '\') this.value = \'\';" class="input_text" />
+					<input type="text" name="search_term" value="', $txt['admin_search'], '" onclick="if (this.value == \'', $txt['admin_search'], '\') this.value = \'\';" class="form-control" />
 					<select class="form-control" name="search_type">
 						<option value="internal"', (empty($context['admin_preferences']['sb']) || $context['admin_preferences']['sb'] == 'internal' ? ' selected="selected"' : ''), '>', $txt['admin_search_type_internal'], '</option>
 						<option value="member"', (!empty($context['admin_preferences']['sb']) && $context['admin_preferences']['sb'] == 'member' ? ' selected="selected"' : ''), '>', $txt['admin_search_type_member'], '</option>
@@ -617,7 +617,7 @@ function template_edit_censored()
 	// Now provide a way to censor more words.
 	echo '
 					<noscript>
-						<div style="margin-top: 1ex;"><input type="text" name="censor_vulgar[]" size="20" class="input_text" /> => <input type="text" name="censor_proper[]" size="20" class="input_text" /></div>
+						<div style="margin-top: 1ex;"><input type="text" name="censor_vulgar[]" size="20" class="form-control" /> => <input type="text" name="censor_proper[]" size="20" class="form-control" /></div>
 					</noscript>
 					<div id="moreCensoredWords"></div><div style="margin-top: 1ex; display: none;" id="moreCensoredWords_link"><a href="#;" onclick="addNewWord(); return false;">', $txt['censor_clickadd'], '</a></div>
 					<script type="text/javascript"><!-- // --><![CDATA[
@@ -625,7 +625,7 @@ function template_edit_censored()
 
 						function addNewWord()
 						{
-							setOuterHTML(document.getElementById("moreCensoredWords"), \'<div style="margin-top: 1ex;"><input type="text" name="censor_vulgar[]" size="20" class="input_text" /> => <input type="text" name="censor_proper[]" size="20" class="input_text" /><\' + \'/div><div id="moreCensoredWords"><\' + \'/div>\');
+							setOuterHTML(document.getElementById("moreCensoredWords"), \'<div style="margin-top: 1ex;"><input type="text" name="censor_vulgar[]" size="20" class="form-control" /> => <input type="text" name="censor_proper[]" size="20" class="form-control" /><\' + \'/div><div id="moreCensoredWords"><\' + \'/div>\');
 						}
 					// ]]></script>
 					<hr width="100%" size="1" class="hrcolor clear" />
@@ -659,7 +659,7 @@ function template_edit_censored()
 				<span class="topslice"><span></span></span>
 				<div class="content">
 					<p class="centertext">
-						<input type="text" name="censortest" value="', empty($context['censor_test']) ? '' : $context['censor_test'], '" class="input_text" />
+						<input type="text" name="censortest" value="', empty($context['censor_test']) ? '' : $context['censor_test'], '" class="form-control" />
 						<input type="submit" value="', $txt['censor_test_save'], '" class="btn btn-default" />
 					</p>
 				</div>
@@ -938,7 +938,7 @@ function template_show_settings()
 				// Assume it must be a text box.
 				else
 					echo '
-							<input type="text"', $javascript, $disabled, ' name="', $config_var['name'], '" id="', $config_var['name'], '" value="', $config_var['value'], '"', ($config_var['size'] ? ' size="' . $config_var['size'] . '"' : ''), ' class="input_text" />';
+							<input type="text"', $javascript, $disabled, ' name="', $config_var['name'], '" id="', $config_var['name'], '" value="', $config_var['value'], '"', ($config_var['size'] ? ' size="' . $config_var['size'] . '"' : ''), ' class="form-control" />';
 
 				echo isset($config_var['postinput']) ? '
 							' . $config_var['postinput'] : '',
@@ -1054,7 +1054,7 @@ function template_edit_profile_field()
 		var startOptID = ', count($context['field']['options']), ';
 		function addOption()
 		{
-			setOuterHTML(document.getElementById("addopt"), \'<br /><input type="radio" name="default_select" value="\' + startOptID + \'" id="\' + startOptID + \'" class="input_radio" /><input type="text" name="select_option[\' + startOptID + \']" value="" class="input_text" /><span id="addopt"></span>\');
+			setOuterHTML(document.getElementById("addopt"), \'<br /><input type="radio" name="default_select" value="\' + startOptID + \'" id="\' + startOptID + \'" class="input_radio" /><input type="text" name="select_option[\' + startOptID + \']" value="" class="form-control" /><span id="addopt"></span>\');
 			startOptID++;
 		}
 	// ]]></script>';
@@ -1078,7 +1078,7 @@ function template_edit_profile_field()
 								<strong>', $txt['custom_edit_name'], ':</strong>
 							</dt>
 							<dd>
-								<input type="text" name="field_name" value="', $context['field']['name'], '" size="20" maxlength="40" class="input_text" />
+								<input type="text" name="field_name" value="', $context['field']['name'], '" size="20" maxlength="40" class="form-control" />
 							</dd>
 							<dt>
 								<strong>', $txt['custom_edit_desc'], ':</strong>
@@ -1155,14 +1155,14 @@ function template_edit_profile_field()
 								<span class="smalltext">', $txt['custom_edit_max_length_desc'], '</span>
 							</dt>
 							<dd id="max_length_dd">
-								<input type="text" name="max_length" value="', $context['field']['max_length'], '" size="7" maxlength="6" class="input_text" />
+								<input type="text" name="max_length" value="', $context['field']['max_length'], '" size="7" maxlength="6" class="form-control" />
 							</dd>
 							<dt id="dimension_dt">
 								<strong>', $txt['custom_edit_dimension'], ':</strong>
 							</dt>
 							<dd id="dimension_dd">
-								<strong>', $txt['custom_edit_dimension_row'], ':</strong> <input type="text" name="rows" value="', $context['field']['rows'], '" size="5" maxlength="3" class="input_text" />
-								<strong>', $txt['custom_edit_dimension_col'], ':</strong> <input type="text" name="cols" value="', $context['field']['cols'], '" size="5" maxlength="3" class="input_text" />
+								<strong>', $txt['custom_edit_dimension_row'], ':</strong> <input type="text" name="rows" value="', $context['field']['rows'], '" size="5" maxlength="3" class="form-control" />
+								<strong>', $txt['custom_edit_dimension_col'], ':</strong> <input type="text" name="cols" value="', $context['field']['cols'], '" size="5" maxlength="3" class="form-control" />
 							</dd>
 							<dt id="bbc_dt">
 								<strong>', $txt['custom_edit_bbc'], '</strong>
@@ -1181,7 +1181,7 @@ function template_edit_profile_field()
 	foreach ($context['field']['options'] as $k => $option)
 	{
 		echo '
-								', $k == 0 ? '' : '<br />', '<input type="radio" name="default_select" value="', $k, '"', $context['field']['default_select'] == $option ? ' checked="checked"' : '', ' class="input_radio" /><input type="text" name="select_option[', $k, ']" value="', $option, '" class="input_text" />';
+								', $k == 0 ? '' : '<br />', '<input type="radio" name="default_select" value="', $k, '"', $context['field']['default_select'] == $option ? ' checked="checked"' : '', ' class="input_radio" /><input type="text" name="select_option[', $k, ']" value="', $option, '" class="form-control" />';
 	}
 	echo '
 								<span id="addopt"></span>
@@ -1213,7 +1213,7 @@ function template_edit_profile_field()
 								</select>
 								<br />
 								<span id="regex_div">
-									<input type="text" name="regex" value="', $context['field']['regex'], '" size="30" class="input_text" />
+									<input type="text" name="regex" value="', $context['field']['regex'], '" size="30" class="form-control" />
 								</span>
 							</dd>
 							<dt>
@@ -1278,7 +1278,7 @@ function template_admin_search_results()
 			<h3>
 				<object id="quick_search">
 					<form action="', $scripturl, '?action=admin;area=search" method="post" accept-charset="', $context['character_set'], '" class="floatright">
-						<input type="text" name="search_term" value="', $context['search_term'], '" class="input_text" />
+						<input type="text" name="search_term" value="', $context['search_term'], '" class="form-control" />
 						<input type="hidden" name="search_type" value="', $context['search_type'], '" />
 						<input type="submit" name="search_go" value="', $txt['admin_search_results_again'], '" class="btn btn-default" />
 					</form>
@@ -1453,7 +1453,7 @@ function template_add_language()
 					<fieldset>
 						<legend>', $txt['add_language_smf'], '</legend>
 						<label class="smalltext">', $txt['add_language_smf_browse'], '</label>
-						<input type="text" name="smf_add" size="40" value="', !empty($context['smf_search_term']) ? $context['smf_search_term'] : '', '" class="input_text" />';
+						<input type="text" name="smf_add" size="40" value="', !empty($context['smf_search_term']) ? $context['smf_search_term'] : '', '" class="form-control" />';
 
 	if (!empty($context['smf_error']))
 		echo '
@@ -1463,7 +1463,7 @@ function template_add_language()
 
 					</fieldset>
 					<div class="righttext">
-						', $context['browser']['is_ie'] ? '<input type="text" name="ie_fix" style="display: none;" class="input_text" /> ' : '', '
+						', $context['browser']['is_ie'] ? '<input type="text" name="ie_fix" style="display: none;" class="form-control" /> ' : '', '
 						<input type="submit" name="smf_add_sub" value="', $txt['search'], '" class="btn btn-default" />
 					</div>
 				</div>
@@ -1657,29 +1657,29 @@ function template_download_language()
 							<label for="ftp_server">', $txt['package_ftp_server'], ':</label>
 						</dt>
 						<dd>
-							<div class="floatright" style="margin-right: 1px;"><label for="ftp_port" style="padding-top: 2px; padding-right: 2ex;">', $txt['package_ftp_port'], ':&nbsp;</label> <input type="text" size="3" name="ftp_port" id="ftp_port" value="', isset($context['package_ftp']['port']) ? $context['package_ftp']['port'] : (isset($modSettings['package_port']) ? $modSettings['package_port'] : '21'), '" class="input_text" /></div>
-							<input type="text" size="30" name="ftp_server" id="ftp_server" value="', isset($context['package_ftp']['server']) ? $context['package_ftp']['server'] : (isset($modSettings['package_server']) ? $modSettings['package_server'] : 'localhost'), '" style="width: 70%;" class="input_text" />
+							<div class="floatright" style="margin-right: 1px;"><label for="ftp_port" style="padding-top: 2px; padding-right: 2ex;">', $txt['package_ftp_port'], ':&nbsp;</label> <input type="text" size="3" name="ftp_port" id="ftp_port" value="', isset($context['package_ftp']['port']) ? $context['package_ftp']['port'] : (isset($modSettings['package_port']) ? $modSettings['package_port'] : '21'), '" class="form-control" /></div>
+							<input type="text" size="30" name="ftp_server" id="ftp_server" value="', isset($context['package_ftp']['server']) ? $context['package_ftp']['server'] : (isset($modSettings['package_server']) ? $modSettings['package_server'] : 'localhost'), '" style="width: 70%;" class="form-control" />
 						</dd>
 
 						<dt>
 							<label for="ftp_username">', $txt['package_ftp_username'], ':</label>
 						</dt>
 						<dd>
-							<input type="text" size="50" name="ftp_username" id="ftp_username" value="', isset($context['package_ftp']['username']) ? $context['package_ftp']['username'] : (isset($modSettings['package_username']) ? $modSettings['package_username'] : ''), '" style="width: 99%;" class="input_text" />
+							<input type="text" size="50" name="ftp_username" id="ftp_username" value="', isset($context['package_ftp']['username']) ? $context['package_ftp']['username'] : (isset($modSettings['package_username']) ? $modSettings['package_username'] : ''), '" style="width: 99%;" class="form-control" />
 						</dd>
 
 						<dt>
 							<label for="ftp_password">', $txt['package_ftp_password'], ':</label>
 						</dt>
 						<dd>
-							<input type="password" size="50" name="ftp_password" id="ftp_password" style="width: 99%;" class="input_text" />
+							<input type="password" size="50" name="ftp_password" id="ftp_password" style="width: 99%;" class="form-control" />
 						</dd>
 
 						<dt>
 							<label for="ftp_path">', $txt['package_ftp_path'], ':</label>
 						</dt>
 						<dd>
-							<input type="text" size="50" name="ftp_path" id="ftp_path" value="', $context['package_ftp']['path'], '" style="width: 99%;" class="input_text" />
+							<input type="text" size="50" name="ftp_path" id="ftp_path" value="', $context['package_ftp']['path'], '" style="width: 99%;" class="form-control" />
 						</dd>
 					</dl>
 				</div>
@@ -1767,25 +1767,25 @@ function template_modify_language_entries()
 							', $txt['languages_character_set'], ':
 						</dt>
 						<dd>
-							<input type="text" name="character_set" size="20" value="', $context['primary_settings']['character_set'], '"', (empty($context['file_entries']) ? '' : ' disabled="disabled"'), ' class="input_text" />
+							<input type="text" name="character_set" size="20" value="', $context['primary_settings']['character_set'], '"', (empty($context['file_entries']) ? '' : ' disabled="disabled"'), ' class="form-control" />
 						</dd>
 						<dt>
 							', $txt['languages_locale'], ':
 						</dt>
 						<dd>
-							<input type="text" name="locale" size="20" value="', $context['primary_settings']['locale'], '"', (empty($context['file_entries']) ? '' : ' disabled="disabled"'), ' class="input_text" />
+							<input type="text" name="locale" size="20" value="', $context['primary_settings']['locale'], '"', (empty($context['file_entries']) ? '' : ' disabled="disabled"'), ' class="form-control" />
 						</dd>
 						<dt>
 							', $txt['languages_dictionary'], ':
 						</dt>
 						<dd>
-							<input type="text" name="dictionary" size="20" value="', $context['primary_settings']['dictionary'], '"', (empty($context['file_entries']) ? '' : ' disabled="disabled"'), ' class="input_text" />
+							<input type="text" name="dictionary" size="20" value="', $context['primary_settings']['dictionary'], '"', (empty($context['file_entries']) ? '' : ' disabled="disabled"'), ' class="form-control" />
 						</dd>
 						<dt>
 							', $txt['languages_spelling'], ':
 						</dt>
 						<dd>
-							<input type="text" name="spelling" size="20" value="', $context['primary_settings']['spelling'], '"', (empty($context['file_entries']) ? '' : ' disabled="disabled"'), ' class="input_text" />
+							<input type="text" name="spelling" size="20" value="', $context['primary_settings']['spelling'], '"', (empty($context['file_entries']) ? '' : ' disabled="disabled"'), ' class="form-control" />
 						</dd>
 						<dt>
 							', $txt['languages_rtl'], ':

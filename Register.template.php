@@ -136,7 +136,7 @@ function template_registration_form()
 					<dl class="register_form">
 						<dt><strong><label for="smf_autov_username">', $txt['username'], ':</label></strong></dt>
 						<dd>
-							<input type="text" name="user" id="smf_autov_username" size="30" tabindex="', $context['tabindex']++, '" maxlength="25" value="', isset($context['username']) ? $context['username'] : '', '" class="input_text" />
+							<input type="text" name="user" id="smf_autov_username" size="30" tabindex="', $context['tabindex']++, '" maxlength="25" value="', isset($context['username']) ? $context['username'] : '', '" class="form-control" />
 							<span id="smf_autov_username_div" style="display: none;">
 								<a id="smf_autov_username_link" href="#">
 									<img id="smf_autov_username_img" src="', $settings['images_url'], '/icons/field_check.gif" alt="*" />
@@ -145,7 +145,7 @@ function template_registration_form()
 						</dd>
 						<dt><strong><label for="smf_autov_reserve1">', $txt['email'], ':</label></strong></dt>
 						<dd>
-							<input type="text" name="email" id="smf_autov_reserve1" size="30" tabindex="', $context['tabindex']++, '" value="', isset($context['email']) ? $context['email'] : '', '" class="input_text" />
+							<input type="text" name="email" id="smf_autov_reserve1" size="30" tabindex="', $context['tabindex']++, '" value="', isset($context['email']) ? $context['email'] : '', '" class="form-control" />
 						</dd>
 						<dt><strong><label for="allow_email">', $txt['allow_user_email'], ':</label></strong></dt>
 						<dd>
@@ -548,14 +548,14 @@ function template_admin_register()
 						<span class="smalltext">', $txt['admin_register_username_desc'], '</span>
 					</dt>
 					<dd>
-						<input type="text" name="user" id="user_input" tabindex="', $context['tabindex']++, '" size="30" maxlength="25" class="input_text" />
+						<input type="text" name="user" id="user_input" tabindex="', $context['tabindex']++, '" size="30" maxlength="25" class="form-control" />
 					</dd>
 					<dt>
 						<strong><label for="email_input">', $txt['admin_register_email'], ':</label></strong>
 						<span class="smalltext">', $txt['admin_register_email_desc'], '</span>
 					</dt>
 					<dd>
-						<input type="text" name="email" id="email_input" tabindex="', $context['tabindex']++, '" size="30" class="input_text" />
+						<input type="text" name="email" id="email_input" tabindex="', $context['tabindex']++, '" size="30" class="form-control" />
 					</dd>
 					<dt>
 						<strong><label for="password_input">', $txt['admin_register_password'], ':</label></strong>

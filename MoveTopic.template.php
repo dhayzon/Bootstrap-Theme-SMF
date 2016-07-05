@@ -55,7 +55,7 @@ function template_main()
 						<fieldset id="subjectArea" style="display: none;">
 							<dl class="dl-horizontal">
 								<dt><strong>', $txt['moveTopic3'], ':</strong></dt>
-								<dd><input type="text" name="custom_subject" size="30" value="', $context['subject'], '" class="input_text" /></dd>
+								<dd><input type="text" name="custom_subject" size="30" value="', $context['subject'], '" class="form-control" /></dd>
 							</dl>
 							<label for="enforce_subject"><input type="checkbox" name="enforce_subject" id="enforce_subject" class="input_check" /> ', $txt['moveTopic4'], '.</label>
 						</fieldset>

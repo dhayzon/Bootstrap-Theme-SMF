@@ -56,7 +56,7 @@ function template_edit_scheduled_tasks()
 						</dt>
 						<dd>
 							', $txt['scheduled_task_edit_repeat'], '
-							<input type="text" name="regularity" value="', empty($context['task']['regularity']) ? 1 : $context['task']['regularity'], '" onchange="if (this.value < 1) this.value = 1;" size="2" maxlength="2" class="input_text" />
+							<input type="text" name="regularity" value="', empty($context['task']['regularity']) ? 1 : $context['task']['regularity'], '" onchange="if (this.value < 1) this.value = 1;" size="2" maxlength="2" class="form-control" />
 							<select class="form-control" name="unit">
 								<option value="0">', $txt['scheduled_task_edit_pick_unit'], '</option>
 								<option value="0">---------------------</option>
@@ -71,7 +71,7 @@ function template_edit_scheduled_tasks()
 							<span class="smalltext">', $txt['scheduled_task_edit_start_time_desc'], '</span>
 						</dt>
 						<dd>
-							<input type="text" name="offset" value="', $context['task']['offset_formatted'], '" size="6" maxlength="5" class="input_text" />
+							<input type="text" name="offset" value="', $context['task']['offset_formatted'], '" size="6" maxlength="5" class="form-control" />
 						</dd>
 						<dt>
 							<strong>', $txt['scheduled_tasks_enabled'], ':</strong>

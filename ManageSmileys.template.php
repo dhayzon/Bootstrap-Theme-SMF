@@ -107,7 +107,7 @@ function template_modifyset()
 							<strong><label for="smiley_sets_name">', $txt['smiley_sets_name'], '</label>: </strong>
 						</dt>
 						<dd>
-							<input type="text" name="smiley_sets_name" id="smiley_sets_name" value="', $context['current_set']['name'], '" class="input_text" />
+							<input type="text" name="smiley_sets_name" id="smiley_sets_name" value="', $context['current_set']['name'], '" class="form-control" />
 						</dd>
 						<dt>
 							<strong><label for="smiley_sets_path">', $txt['smiley_sets_url'], '</label>: </strong>
@@ -118,7 +118,7 @@ function template_modifyset()
 			echo '<strong>default</strong><input type="hidden" name="smiley_sets_path" id="smiley_sets_path" value="default" />';
 		elseif (empty($context['smiley_set_dirs']))
 			echo '
-							<input type="text" name="smiley_sets_path" id="smiley_sets_path" value="', $context['current_set']['path'], '" class="input_text" /> ';
+							<input type="text" name="smiley_sets_path" id="smiley_sets_path" value="', $context['current_set']['path'], '" class="form-control" /> ';
 		else
 		{
 			echo '
@@ -194,7 +194,7 @@ function template_modifysmiley()
 							<strong><label for="smiley_code">', $txt['smileys_code'], '</label>: </strong>
 						</dt>
 						<dd>
-							<input type="text" name="smiley_code" id="smiley_code" value="', $context['current_smiley']['code'], '" class="input_text" />
+							<input type="text" name="smiley_code" id="smiley_code" value="', $context['current_smiley']['code'], '" class="form-control" />
 						</dd>
 						<dt>
 							<strong><label for="smiley_filename">', $txt['smileys_filename'], '</label>: </strong>
@@ -202,7 +202,7 @@ function template_modifysmiley()
 						<dd>';
 			if (empty($context['filenames']))
 				echo '
-							<input type="text" name="smiley_filename" id="smiley_filename" value="', $context['current_smiley']['filename'], '" class="input_text" />';
+							<input type="text" name="smiley_filename" id="smiley_filename" value="', $context['current_smiley']['filename'], '" class="form-control" />';
 			else
 			{
 				echo '
@@ -219,7 +219,7 @@ function template_modifysmiley()
 							<strong><label for="smiley_description">', $txt['smileys_description'], '</label>: </strong>
 						</dt>
 						<dd>
-							<input type="text" name="smiley_description" id="smiley_description" value="', $context['current_smiley']['description'], '" class="input_text" />
+							<input type="text" name="smiley_description" id="smiley_description" value="', $context['current_smiley']['description'], '" class="form-control" />
 						</dd>
 						<dt>
 							<strong><label for="smiley_location">', $txt['smileys_location'], '</label>: </strong>
@@ -322,7 +322,7 @@ function template_addsmiley()
 							<dd>';
 	if (empty($context['filenames']))
 		echo '
-								<input type="text" name="smiley_filename" id="smiley_filename" value="', $context['current_smiley']['filename'], '" onchange="selectMethod(\'existing\');" class="input_text" />';
+								<input type="text" name="smiley_filename" id="smiley_filename" value="', $context['current_smiley']['filename'], '" onchange="selectMethod(\'existing\');" class="form-control" />';
 	else
 	{
 		echo '
@@ -382,13 +382,13 @@ function template_addsmiley()
 							<strong><label for="smiley_code">', $txt['smileys_code'], '</label>: </strong>
 						</dt>
 						<dd>
-							<input type="text" name="smiley_code" id="smiley_code" value="" class="input_text" />
+							<input type="text" name="smiley_code" id="smiley_code" value="" class="form-control" />
 						</dd>
 						<dt>
 							<strong><label for="smiley_description">', $txt['smileys_description'], '</label>: </strong>
 						</dt>
 						<dd>
-							<input type="text" name="smiley_description" id="smiley_description" value="" class="input_text" />
+							<input type="text" name="smiley_description" id="smiley_description" value="" class="form-control" />
 						</dd>
 						<dt>
 							<strong><label for="smiley_location">', $txt['smileys_location'], '</label>: </strong>
@@ -518,13 +518,13 @@ function template_editicon()
 							<strong><label for="icon_filename">', $txt['smileys_filename'], '</label>: </strong><br /><span class="smalltext">', $txt['icons_filename_all_gif'], '</span>
 						</dt>
 						<dd>
-							<input type="text" name="icon_filename" id="icon_filename" value="', !empty($context['icon']['filename']) ? $context['icon']['filename'] . '.gif' : '', '" class="input_text" />
+							<input type="text" name="icon_filename" id="icon_filename" value="', !empty($context['icon']['filename']) ? $context['icon']['filename'] . '.gif' : '', '" class="form-control" />
 						</dd>
 						<dt>
 							<strong><label for="icon_description">', $txt['smileys_description'], '</label>: </strong>
 						</dt>
 						<dd>
-							<input type="text" name="icon_description" id="icon_description" value="', !empty($context['icon']['title']) ? $context['icon']['title'] : '', '" class="input_text" />
+							<input type="text" name="icon_description" id="icon_description" value="', !empty($context['icon']['title']) ? $context['icon']['title'] : '', '" class="form-control" />
 						</dd>
 						<dt>
 							<strong><label for="icon_board_select">', $txt['icons_board'], '</label>: </strong>

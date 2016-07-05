@@ -26,7 +26,7 @@ function template_main()
 				<p class="smalltext centertext">', $txt['password_reminder_desc'], '</p>
 				<dl>
 					<dt>', $txt['user_email'], ':</dt>
-					<dd><input type="text" name="user" size="30" class="input_text" /></dd>
+					<dd><input type="text" name="user" size="30" class="form-control" /></dd>
 				</dl>
 				<p class="centertext"><input type="submit" value="', $txt['reminder_continue'], '" class="btn btn-default" /></p>
 			</div>
@@ -150,7 +150,7 @@ function template_ask()
 					<dt>', $txt['secret_question'], ':</dt>
 					<dd>', $context['secret_question'], '</dd>
 					<dt>', $txt['secret_answer'], ':</dt>
-					<dd><input type="text" name="secret_answer" size="22" class="input_text" /></dd>';
+					<dd><input type="text" name="secret_answer" size="22" class="form-control" /></dd>';
 
 	if ($context['account_type'] == 'password')
 		echo '

@@ -150,7 +150,7 @@ function template_modify_category()
 							<span class="smalltext">', $txt['name_on_display'], '</span>
 						</dt>
 						<dd>
-							<input type="text" name="cat_name" value="', $context['category']['editable_name'], '" size="30" tabindex="', $context['tabindex']++, '" class="input_text" />
+							<input type="text" name="cat_name" value="', $context['category']['editable_name'], '" size="30" tabindex="', $context['tabindex']++, '" class="form-control" />
 						</dd>
 						<dt>
 							<strong>' . $txt['collapse_enable'] . '</strong><br />
@@ -322,7 +322,7 @@ function template_modify_board()
 							<span class="smalltext">', $txt['name_on_display'], '</span>
 						</dt>
 						<dd>
-							<input type="text" name="board_name" value="', $context['board']['name'], '" size="30" class="input_text" />
+							<input type="text" name="board_name" value="', $context['board']['name'], '" size="30" class="form-control" />
 						</dd>
 						<dt>
 							<strong>', $txt['mboards_description'], ':</strong><br />
@@ -376,7 +376,7 @@ function template_modify_board()
 							<span class="smalltext">', $txt['mboards_moderators_desc'], '</span><br />
 						</dt>
 						<dd>
-							<input type="text" name="moderators" id="moderators" value="', $context['board']['moderator_list'], '" size="30" class="input_text" />
+							<input type="text" name="moderators" id="moderators" value="', $context['board']['moderator_list'], '" size="30" class="form-control" />
 							<div id="moderator_container"></div>
 						</dd>
 					</dl>
@@ -415,7 +415,7 @@ function template_modify_board()
 								<span class="smalltext">', $txt['mboards_redirect_url_desc'], '</span><br />
 							</dt>
 							<dd>
-								<input type="text" name="redirect_address" value="', $context['board']['redirect'], '" size="40" class="input_text" />
+								<input type="text" name="redirect_address" value="', $context['board']['redirect'], '" size="40" class="form-control" />
 							</dd>
 						</dl>
 					</div>';

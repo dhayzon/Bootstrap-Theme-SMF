@@ -26,7 +26,7 @@ function template_ask()
 				<div class="content">
 					<p class="split_topics">
 						<strong><label for="subname">', $txt['subject_new_topic'], '</label>:</strong>
-						<input type="text" name="subname" id="subname" value="', $context['message']['subject'], '" size="25" class="input_text" />
+						<input type="text" name="subname" id="subname" value="', $context['message']['subject'], '" size="25" class="form-control" />
 					</p>
 					<ul class="reset split_topics">
 						<li>
@@ -330,7 +330,7 @@ function template_merge()
 						<dd>
 							<form action="', $scripturl , '?action=mergetopics;sa=options" method="post" accept-charset="', $context['character_set'], '">
 								<input type="hidden" name="topics[]" value="', $context['origin_topic'], '" />
-								<input type="text" name="topics[]" class="input_text" />
+								<input type="text" name="topics[]" class="form-control" />
 								<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
 								<input type="submit" value="', $txt['merge'], '" class="btn btn-default" />
 							</form>
