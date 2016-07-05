@@ -48,7 +48,7 @@ function template_modify_subscription()
 			';
 	echo '
 			<div class="windowbg">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">
 					<dl class="dl-horizontal">
 						<dt>
@@ -227,7 +227,7 @@ function template_delete_subscription()
 				<h3>', $txt['paid_delete_subscription'], '</h3>
 			</div>
 			<div class="windowbg">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">
 					<p>', $txt['paid_mod_delete_warning'], '</p>
 
@@ -285,7 +285,7 @@ function template_modify_user_subscription()
 				</h3>
 			</div>
 			<div class="windowbg">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">
 					<dl class="dl-horizontal">';
 
@@ -413,7 +413,7 @@ function template_modify_user_subscription()
 			<h3>', $txt['pending_payments_value'], '</h3>
 		</div>
 		<div class="windowbg">
-			<span class="topslice"><span></span></span>
+			
 			<div class="content">
 				<ul class="pending_payments">';
 
@@ -480,7 +480,7 @@ function template_user_subscription()
 				<h3>', $subscription['name'], '</h3>
 			</div>
 			<div class="windowbg', $alternate ? '' : '2', '">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">
 					<p><strong>', $subscription['name'], '</strong></p>
 					<p class="smalltext">', $subscription['desc'], '</p>';
@@ -594,7 +594,7 @@ function template_choose_payment()
 			', $txt['paid_confirm_desc'], '
 		</div>
 		<div class="windowbg">
-			<span class="topslice"><span></span></span>
+			
 			<div class="content">
 				<dl class="dl-horizontal">
 					<dt>
@@ -622,7 +622,7 @@ function template_choose_payment()
 			<h3>', $gateway['title'], '</h3>
 		</div>
 		<div class="windowbg">
-			<span class="topslice"><span></span></span>
+			
 			<div class="content">
 				', $gateway['desc'], '<br />
 					<form action="', $gateway['form'], '" method="post">';
@@ -661,7 +661,7 @@ function template_paid_done()
 			<h3 class="titlebg">', $txt['paid_done'], '</h3>
 		</div>
 		<div class="windowbg2">
-			<span class="topslice"><span></span></span>
+			
 			<div class="content">
 				<p>', $txt['paid_done_desc'], '</p>
 				<br />

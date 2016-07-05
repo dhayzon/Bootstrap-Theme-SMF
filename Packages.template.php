@@ -53,7 +53,7 @@ function template_view_package()
 				<h3>', $txt['package_' . ($context['uninstalling'] ? 'un' : '') . 'install_readme'], '</h3>
 			</div>
 			<div class="windowbg2">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">
 					', $context['package_readme'], '
 					<span class="floatright">', $txt['package_available_readme_language'], '
@@ -82,7 +82,7 @@ function template_view_package()
 	{
 		echo '
 			<div class="windowbg2">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">
 					<label for="do_db_changes"><input type="checkbox" name="do_db_changes" id="do_db_changes" class="input_check" />', $txt['package_db_uninstall'], '</label> [<a href="#" onclick="return swap_database_changes();">', $txt['package_db_uninstall_details'], '</a>]
 					<div id="db_changes_div">
@@ -395,7 +395,7 @@ function template_extract_package()
 
 	echo '
 		<div class="windowbg">
-			<span class="topslice"><span></span></span>
+			
 			<div class="content">';
 
 	// If we are going to redirect we have a slightly different agenda.
@@ -454,7 +454,7 @@ function template_list()
 			<h3 class="titlebg">', $txt['files_archive'], ' ', $context['filename'], ':</h3>
 		</div>
 		<div class="windowbg">
-			<span class="topslice"><span></span></span>
+			
 			<div class="content">
 				<ol>';
 
@@ -486,7 +486,7 @@ function template_examine()
 			<h3 class="titlebg">', $txt['package_file_contents'], ' ', $context['filename'], ':</h3>
 		</div>
 		<div class="windowbg">
-			<span class="topslice"><span></span></span>
+			
 			<div class="content">
 				<pre class="file_content">', $context['filedata'], '</pre>
 				<a href="', $scripturl, '?action=admin;area=packages;sa=list;package=', $context['package'], '">[ ', $txt['list_files'], ' ]</a>
@@ -565,7 +565,7 @@ function template_browse()
 			</h3>
 		</div>
 		<div class="windowbg2">
-			<span class="topslice"><span></span></span>
+			
 			<div class="content">
 				<div id="packagesLatest">', $txt['packages_latest_fetch'], '</div>
 			</div>
@@ -861,7 +861,7 @@ function template_browse()
 					<h3>', $txt['package_advanced_options'], '</h3>
 				</div>
 				<div class="windowbg">
-					<span class="topslice"><span></span></span>
+					
 					<div class="content">
 						<p>
 							', $txt['package_emulate_desc'], '
@@ -915,7 +915,7 @@ function template_servers()
 			<h3 class="titlebg">', $txt['package_ftp_necessary'], '</h3>
 		</div>
 		<div class="windowbg">
-			<span class="topslice"><span></span></span>
+			
 			<div class="content">
 				<p>
 					', $txt['package_ftp_why_download'], '
@@ -959,7 +959,7 @@ function template_servers()
 
 	echo '
 		<div class="windowbg2">
-			<span class="topslice"><span></span></span>
+			
 			<div class="content">
 				<fieldset>
 					<legend>' . $txt['package_servers'] . '</legend>
@@ -1028,7 +1028,7 @@ function template_servers()
 			<h3>' . $txt['package_upload_title'] . '</h3>
 		</div>
 		<div class="windowbg">
-			<span class="topslice"><span></span></span>
+			
 			<div class="content">
 				<form action="' . $scripturl . '?action=admin;area=packages;get;sa=upload" method="post" accept-charset="', $context['character_set'], '" enctype="multipart/form-data" style="margin-bottom: 0;">
 					<dl class="dl-horizontal">
@@ -1061,7 +1061,7 @@ function template_package_confirm()
 			<h3>', $context['page_title'], '</h3>
 		</div>
 		<div class="windowbg">
-			<span class="topslice"><span></span></span>
+			
 			<div class="content">
 				<p>', $context['confirm_message'], '</p>
 				<a href="', $context['proceed_href'], '">[ ', $txt['package_confirm_proceed'], ' ]</a> <a href="JavaScript:history.go(-1);">[ ', $txt['package_confirm_go_back'], ' ]</a>
@@ -1082,7 +1082,7 @@ function template_package_list()
 			<h3>' . $context['page_title'] . '</h3>
 		</div>
 		<div class="windowbg">
-			<span class="topslice"><span></span></span>
+			
 			<div class="content">';
 
 	// No packages, as yet.
@@ -1263,7 +1263,7 @@ function template_downloaded()
 			<h3>', $context['page_title'], '</h3>
 		</div>
 		<div class="windowbg">
-			<span class="topslice"><span></span></span>
+			
 			<div class="content">
 				<p>', (empty($context['package_server']) ? $txt['package_uploaded_successfully'] : $txt['package_downloaded_successfully']), '</p>
 				<ul class="reset">
@@ -1295,7 +1295,7 @@ function template_install_options()
 		</div>
 
 		<div class="windowbg">
-			<span class="topslice"><span></span></span>
+			
 			<div class="content">
 				<form action="', $scripturl, '?action=admin;area=packages;sa=options" method="post" accept-charset="', $context['character_set'], '">
 					<dl class="dl-horizontal">
@@ -1888,7 +1888,7 @@ function template_file_permissions()
 			<h3>', $txt['package_file_perms_change'], '</h3>
 		</div>
 		<div class="windowbg">
-			<span class="topslice"><span></span></span>
+			
 			<div class="content">
 				<fieldset>
 					<dl>
@@ -2050,7 +2050,7 @@ function template_action_permissions()
 
 	echo '
 			<div class="windowbg">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">
 					<div style="padding-left: 20%; padding-right: 20%; margin-top: 1ex;">
 						<strong>', $progress_message, '</strong>

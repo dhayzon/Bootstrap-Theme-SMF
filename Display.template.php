@@ -39,7 +39,7 @@ function template_main()
 					</h3>
 				</div>
 				<div class="windowbg">
-					<span class="topslice"><span></span></span>
+					
 					<div class="content" id="poll_options">
 						<h4 id="pollquestion">
 							', $context['poll']['question'], '
@@ -139,7 +139,7 @@ function template_main()
 					<h3 class="titlebg headerpadding">', $txt['calendar_linked_events'], '</h3>
 				</div>
 				<div class="windowbg">
-					<span class="topslice"><span></span></span>
+					
 					<div class="content">
 						<ul class="reset">';
 

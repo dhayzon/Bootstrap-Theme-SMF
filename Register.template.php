@@ -131,7 +131,7 @@ function template_registration_form()
 				<h4 class="titlebg">', $txt['required_info'], '</h4>
 			</div>
 			<div class="windowbg2">
-				<span class="topslice"><span></span></span>
+				
 				<fieldset class="content">
 					<dl class="register_form">
 						<dt><strong><label for="smf_autov_username">', $txt['username'], ':</label></strong></dt>
@@ -222,7 +222,7 @@ function template_registration_form()
 				<h4 class="titlebg">', $txt['additional_information'], '</h4>
 			</div>
 			<div class="windowbg2">
-				<span class="topslice"><span></span></span>
+				
 				<fieldset class="content">
 					<dl class="register_form" id="custom_group">';
 	}
@@ -337,7 +337,7 @@ function template_registration_form()
 				<h4 class="titlebg">', $txt['verification'], '</h4>
 			</div>
 			<div class="windowbg2">
-				<span class="topslice"><span></span></span>
+				
 				<fieldset class="content centertext">
 					', template_control_verification($context['visual_verification_id'], 'all'), '
 				</fieldset>
@@ -380,7 +380,7 @@ function template_after()
 				<h3>', $context['title'], '</h3>
 			</div>
 			<div class="windowbg">
-				<span class="topslice"><span></span></span>
+				
 				<p class="content">', $context['description'], '</p>
 				<span class="botslice"><span></span></span>
 			</div>
@@ -398,7 +398,7 @@ function template_coppa()
 				<h3 class="titlebg">', $context['page_title'], '</h3>
 			</div>
 			<div class="windowbg2">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">
 					<p>', $context['coppa']['body'], '</p>
 					<p>
@@ -520,7 +520,7 @@ function template_admin_register()
 			<h3>', $txt['admin_browse_register_new'], '</h3>
 		</div>
 		<form class="windowbg2" action="', $scripturl, '?action=admin;area=regcenter" method="post" accept-charset="', $context['character_set'], '" name="postForm" id="postForm">
-			<span class="topslice"><span></span></span>
+			
 			<script type="text/javascript"><!-- // --><![CDATA[
 				function onCheckChange()
 				{
@@ -629,7 +629,7 @@ function template_edit_agreement()
 
 	echo '
 		<div class="windowbg2" id="registration_agreement">
-			<span class="topslice"><span></span></span>
+			
 			<div class="content">';
 
 	// Is there more than one language to choose from?
@@ -689,7 +689,7 @@ function template_edit_reserved_words()
 			<h3>', $txt['admin_reserved_set'], '</h3>
 		</div>
 		<form id="registration_agreement" class="windowbg2" action="', $scripturl, '?action=admin;area=regcenter" method="post" accept-charset="', $context['character_set'], '">
-			<span class="topslice"><span></span></span>
+			
 			<div class="content">
 				<h4>', $txt['admin_reserved_line'], '</h4>
 				<p class="reserved_names">

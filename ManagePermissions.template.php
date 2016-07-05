@@ -103,7 +103,7 @@ function template_permission_index()
 				</h3>
 			</div>
 			<div id="permissions_panel_advanced" class="windowbg">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">
 					<fieldset>
 						<legend>', $txt['permissions_with_selection'], '</legend>
@@ -292,7 +292,7 @@ function template_by_board()
 		if (!empty($category['boards']))
 			echo '
 		<div class="windowbg">
-			<span class="topslice"><span></span></span>
+			
 			<div class="content">
 				<ul class="perm_boards flow_hidden">';
 
@@ -422,7 +422,7 @@ function template_edit_profiles()
 				<h3>', $txt['permissions_profile_new'], '</h3>
 			</div>
 			<div class="windowbg">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">
 					<dl class="dl-horizontal">
 						<dt>
@@ -508,7 +508,7 @@ function template_modify_group()
 				</h3>
 			</div>
 			<div class="windowbg">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">
 					', $txt['permissions_change_view'], ': ', ($context['view_type'] == 'simple' ? '<img src="' . $settings['images_url'] . '/selected.gif" alt="*" />' : ''), '<a href="', $scripturl, '?action=admin;area=permissions;sa=modify;group=', $context['group']['id'], ($context['permission_type'] == 'board' ? ';pid=' . $context['profile']['id'] : ''), ';view=simple">', $txt['permissions_view_simple'], '</a> |
 					', ($context['view_type'] == 'classic' ? '<img src="' . $settings['images_url'] . '/selected.gif" alt="*" />' : ''), '<a href="', $scripturl, '?action=admin;area=permissions;sa=modify;group=', $context['group']['id'], ($context['permission_type'] == 'board' ? ';pid=' . $context['profile']['id'] : ''), ';view=classic">', $txt['permissions_view_classic'], '</a>
@@ -856,7 +856,7 @@ function template_modify_group_classic($type)
 
 	echo '
 				<div class="windowbg2">
-					<span class="topslice"><span></span></span>
+					
 					<div class="content">';
 
 	foreach ($permission_type['columns'] as $column)

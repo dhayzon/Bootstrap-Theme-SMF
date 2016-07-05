@@ -43,7 +43,7 @@ function template_browse()
 			<h3>', $txt['attachment_manager_browse_files'], '</h3>
 		</div>
 		<div class="windowbg2">
-			<span class="topslice"><span></span></span>
+			
 			<div class="content">
 				<a href="', $scripturl, '?action=admin;area=manageattachments;sa=browse">', $context['browse_type'] === 'attachments' ? '<img src="' . $settings['images_url'] . '/selected.gif" alt="&gt;" /> ' : '', $txt['attachment_manager_attachments'], '</a> |
 				<a href="', $scripturl, '?action=admin;area=manageattachments;sa=browse;avatars">', $context['browse_type'] === 'avatars' ? '<img src="' . $settings['images_url'] . '/selected.gif" alt="&gt;" /> ' : '', $txt['attachment_manager_avatars'], '</a> |
@@ -69,7 +69,7 @@ function template_maintenance()
 			<h3>', $txt['attachment_stats'], '</h3>
 		</div>
 		<div class="windowbg">
-			<span class="topslice"><span></span></span>
+			
 			<div class="content">
 				<dl class="dl-horizontal">
 					<dt><strong>', $txt['attachment_total'], ':</strong></dt><dd>', $context['num_attachments'], '</dd>
@@ -84,7 +84,7 @@ function template_maintenance()
 			<h3>', $txt['attachment_integrity_check'], '</h3>
 		</div>
 		<div class="windowbg">
-			<span class="topslice"><span></span></span>
+			
 			<div class="content">
 				<form action="', $scripturl, '?action=admin;area=manageattachments;sa=repair;', $context['session_var'], '=', $context['session_id'], '" method="post" accept-charset="', $context['character_set'], '">
 					<p>', $txt['attachment_integrity_check_desc'], '</p>
@@ -97,7 +97,7 @@ function template_maintenance()
 			<h3>', $txt['attachment_pruning'], '</h3>
 		</div>
 		<div class="windowbg">
-			<span class="topslice"><span></span></span>
+			
 			<div class="content">
 				<form action="', $scripturl, '?action=admin;area=manageattachments" method="post" accept-charset="', $context['character_set'], '" onsubmit="return confirm(\'', $txt['attachment_pruning_warning'], '\');" style="margin: 0 0 2ex 0;">
 					', $txt['attachment_remove_old'], ' <input type="text" name="age" value="25" size="4" class="form-control" /> ', $txt['days_word'], '<br />
@@ -144,7 +144,7 @@ function template_attachment_repair()
 			<h3>', $txt['repair_attachments_complete'], '</h3>
 		</div>
 		<div class="windowbg">
-			<span class="topslice"><span></span></span>
+			
 			<div class="content">
 				', $txt['repair_attachments_complete_desc'], '
 			</div>
@@ -163,7 +163,7 @@ function template_attachment_repair()
 			<h3>', $txt['repair_attachments_complete'], '</h3>
 		</div>
 		<div class="windowbg">
-			<span class="topslice"><span></span></span>
+			
 			<div class="content">
 				', $txt['repair_attachments_no_errors'], '
 			</div>
@@ -182,7 +182,7 @@ function template_attachment_repair()
 				<h3>', $txt['repair_attachments'], '</h3>
 			</div>
 			<div class="windowbg">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">
 					<p>', $txt['repair_attachments_error_desc'], '</p>';
 

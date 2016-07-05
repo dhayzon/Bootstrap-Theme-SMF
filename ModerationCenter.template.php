@@ -60,7 +60,7 @@ function template_latest_news()
 			</h3>
 		</div>
 		<div class="windowbg">
-			<span class="topslice"><span></span></span>
+			
 			<div class="content">
 				<div id="smfAnnouncements" class="smalltext">', $txt['mc_cannot_connect_sm'], '</div>
 			</div>
@@ -107,7 +107,7 @@ function template_group_requests_block()
 			</h3>
 		</div>
 		<div class="windowbg">
-			<span class="topslice"><span></span></span>
+			
 			<div class="content modbox">
 				<ul class="reset">';
 
@@ -143,7 +143,7 @@ function template_reported_posts_block()
 			</h3>
 		</div>
 		<div class="windowbg">
-			<span class="topslice"><span></span></span>
+			
 			<div class="content modbox">
 				<ul class="reset">';
 
@@ -178,7 +178,7 @@ function template_watched_users()
 			</h3>
 		</div>
 		<div class="windowbg">
-			<span class="topslice"><span></span></span>
+			
 			<div class="content modbox">
 				<ul class="reset">';
 
@@ -213,7 +213,7 @@ function template_notes()
 				<h3>', $txt['mc_notes'], '</h3>
 			</div>
 			<div class="windowbg">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content modbox">';
 
 		if (!empty($context['notes']))
@@ -273,7 +273,7 @@ function template_reported_posts()
 	{
 		echo '
 		<div class="', $report['alternate'] ? 'windowbg' : 'windowbg2', '">
-			<span class="topslice"><span></span></span>
+			
 			<div class="content">
 				<div>
 					<div class="floatleft">
@@ -308,7 +308,7 @@ function template_reported_posts()
 	if (empty($context['reports']))
 		echo '
 		<div class="windowbg2">
-			<span class="topslice"><span></span></span>
+			
 			<div class="content">
 				<p class="centertext">', $txt['mc_reportedp_none_found'], '</p>
 			</div>
@@ -350,7 +350,7 @@ function template_unapproved_posts()
 	if (empty($context['unapproved_items']))
 		echo '
 		<div class="windowbg2">
-			<span class="topslice"><span></span></span>
+			
 			<div class="content">
 				<p class="centertext">', $txt['mc_unapproved_' . $context['current_view'] . '_none_found'], '</p>
 			</div>
@@ -373,7 +373,7 @@ function template_unapproved_posts()
 			</h3>
 		</div>
 		<div class="', $item['alternate'] ? 'windowbg' : 'windowbg2', '">
-			<span class="topslice"><span></span></span>
+			
 			<div class="content">
 				<div class="post">', $item['body'], '</div>
 				<span class="floatright">
@@ -442,7 +442,7 @@ function template_unapproved_attachments()
 	if (empty($context['unapproved_items']))
 		echo '
 			<div class="windowbg">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">
 					<p class="centertext">', $txt['mc_unapproved_attachments_none_found'], '</p>
 				</div>
@@ -549,7 +549,7 @@ function template_viewmodreport()
 				</h3>
 			</div>
 			<div class="windowbg2">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">
 					', $context['report']['body'], '
 				</div>
@@ -563,7 +563,7 @@ function template_viewmodreport()
 	foreach ($context['report']['comments'] as $comment)
 		echo '
 			<div class="windowbg">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">
 					<p class="smalltext">', sprintf($txt['mc_modreport_whoreported_data'], $comment['member']['link'] . (empty($comment['member']['id']) && !empty($comment['member']['ip']) ? ' (' . $comment['member']['ip'] . ')' : ''), $comment['time']), '</p>
 					<p>', $comment['message'], '</p>
@@ -577,7 +577,7 @@ function template_viewmodreport()
 				<h3>', $txt['mc_modreport_mod_comments'], '</h3>
 			</div>
 			<div class="windowbg2">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">';
 
 	if (empty($context['report']['mod_comments']))
@@ -700,7 +700,7 @@ function template_moderation_settings()
 				', $txt['mc_prefs_desc'], '
 			</div>
 			<div class="windowbg2">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">
 					<dl class="dl-horizontal">
 						<dt>
@@ -785,7 +785,7 @@ function template_show_notice()
 			<h3 class="titlebg">', $txt['show_notice_subject'], ': ', $context['notice_subject'], '</h3>
 		</div>
 		<div class="windowbg">
-			<span class="topslice"><span></span></span>
+			
 			<div class="content">
 				<dl>
 					<dt>
@@ -818,7 +818,7 @@ function template_warn_template()
 				', $txt['mc_warning_template_desc'], '
 			</div>
 			<div class="windowbg">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">
 					<dl class="dl-horizontal">
 						<dt>

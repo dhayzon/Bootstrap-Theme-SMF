@@ -22,7 +22,7 @@ function template_main()
 				<h3>', $txt['move_topic'], '</h3>
 			</div>
 			<div class="windowbg centertext">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">
 					<div class="move_topic">
 						<dl class="dl-horizontal">

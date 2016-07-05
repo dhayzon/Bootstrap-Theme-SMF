@@ -161,7 +161,7 @@ function template_manual()
 			</div>
 			<div id="help_container">
 				<div class="windowbg2">
-					<span class="topslice"><span></span></span>
+					
 					<div id="helpmain">
 						<p>', sprintf($txt['manual_welcome'], $context['forum_name']), '</p>
 						<p>', $txt['manual_introduction'], '</p>

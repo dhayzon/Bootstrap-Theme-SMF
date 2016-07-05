@@ -22,7 +22,7 @@ function template_ask()
 				<h3>', $txt['split'], '</h3>
 			</div>
 			<div class="windowbg">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">
 					<p class="split_topics">
 						<strong><label for="subname">', $txt['subject_new_topic'], '</label>:</strong>
@@ -60,7 +60,7 @@ function template_main()
 			<h3>', $txt['split'], '</h3>
 		</div>
 		<div class="windowbg">
-			<span class="topslice"><span></span></span>
+			
 			<div class="content">
 				<p>', $txt['split_successful'], '</p>
 				<ul class="reset">
@@ -102,7 +102,7 @@ function template_select()
 	foreach ($context['not_selected']['messages'] as $message)
 		echo '
 					<li class="windowbg', $message['alternate'] ? '2' : '', '" id="not_selected_', $message['id'], '">
-						<span class="topslice"><span></span></span>
+						
 						<div class="content">
 							<div class="message_header">
 								<a class="split_icon floatright" href="', $scripturl, '?action=splittopics;sa=selectTopics;subname=', $context['topic']['subject'], ';topic=', $context['topic']['id'], '.', $context['not_selected']['start'], ';start2=', $context['selected']['start'], ';move=down;msg=', $message['id'], '" onclick="return select(\'down\', ', $message['id'], ');"><img src="', $settings['images_url'], '/split_select.gif" alt="-&gt;" /></a>
@@ -136,7 +136,7 @@ function template_select()
 		foreach ($context['selected']['messages'] as $message)
 			echo '
 					<li class="windowbg', $message['alternate'] ? '2' : '', '" id="selected_', $message['id'], '">
-						<span class="topslice"><span></span></span>
+						
 						<div class="content">
 							<div class="message_header">
 								<a class="split_icon floatleft" href="', $scripturl, '?action=splittopics;sa=selectTopics;subname=', $context['topic']['subject'], ';topic=', $context['topic']['id'], '.', $context['not_selected']['start'], ';start2=', $context['selected']['start'], ';move=up;msg=', $message['id'], '" onclick="return select(\'up\', ', $message['id'], ');"><img src="', $settings['images_url'], '/split_deselect.gif" alt="&lt;-" /></a>
@@ -258,7 +258,7 @@ function template_merge_done()
 				<h3>', $txt['merge'], '</h3>
 			</div>
 			<div class="windowbg">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">
 					<p>', $txt['merge_successful'], '</p>
 					<br />
@@ -290,7 +290,7 @@ function template_merge()
 				', $txt['merge_desc'], '
 			</div>
 			<div class="windowbg">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">
 					<dl class="settings merge_topic">
 						<dt>
@@ -348,7 +348,7 @@ function template_merge()
 				<strong>', $txt['pages'], ':</strong> ', $context['page_index'], '
 			</div>
 			<div class="windowbg2">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">
 					<ul class="reset merge_topics">';
 
@@ -420,7 +420,7 @@ function template_merge_extra_options()
 			</table>
 			<br />
 			<div class="windowbg">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">';
 
 	echo '

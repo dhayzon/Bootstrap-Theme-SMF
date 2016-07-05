@@ -64,7 +64,7 @@ function template_admin()
 					</h3>
 				</div>
 				<div class="windowbg nopadding">
-					<span class="topslice"><span></span></span>
+					
 					<div class="content">
 						<div id="smfAnnouncements">', $txt['lfyi'], '</div>
 					</div>
@@ -81,7 +81,7 @@ function template_admin()
 					</h3>
 				</div>
 				<div class="windowbg nopadding">
-					<span class="topslice"><span></span></span>
+					
 					<div class="content">
 						<div id="version_details">
 							<strong>', $txt['support_versions'], ':</strong><br />
@@ -111,7 +111,7 @@ function template_admin()
 
 	echo '
 		<div class="windowbg2 clear_right">
-			<span class="topslice"><span></span></span>
+			
 			<div class="content">
 				<ul id="quick_tasks" class="flow_hidden">';
 
@@ -176,7 +176,7 @@ function template_admin()
 						</h3>
 					</div>
 					<div class="windowbg">
-						<span class="topslice"><span></span></span>
+						
 						<div class="content">
 							<div id="update_message" class="smalltext">
 								%message%
@@ -206,7 +206,7 @@ function template_credits()
 			</h3>
 		</div>
 		<div class="windowbg">
-			<span class="topslice"><span></span></span>
+			
 			<div class="content">
 				<strong>', $txt['support_versions'], ':</strong><br />
 					', $txt['support_versions_forum'], ':
@@ -234,7 +234,7 @@ function template_credits()
 			</h3>
 		</div>
 		<div class="windowbg2">
-			<span class="topslice"><span></span></span>
+			
 			<div class="content">
 				<p>', $txt['support_resources_p1'], '</p>
 				<p>', $txt['support_resources_p2'], '</p>
@@ -250,7 +250,7 @@ function template_credits()
 			</h3>
 		</div>
 		<div class="windowbg2">
-			<span class="topslice"><span></span></span>
+			
 			<div class="content">
 				<div id="latestSupport">', $txt['support_latest_fetch'], '</div>
 			</div>
@@ -265,7 +265,7 @@ function template_credits()
 			</h3>
 		</div>
 		<div class="windowbg">
-			<span class="topslice"><span></span></span>
+			
 			<div class="content">';
 
 	foreach ($context['credits'] as $section)
@@ -605,7 +605,7 @@ function template_edit_censored()
 				</h3>
 			</div>
 			<div class="windowbg2">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">
 					<p>', $txt['admin_censored_where'], '</p>';
 
@@ -656,7 +656,7 @@ function template_edit_censored()
 				</h3>
 			</div>
 			<div class="windowbg">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">
 					<p class="centertext">
 						<input type="text" name="censortest" value="', empty($context['censor_test']) ? '' : $context['censor_test'], '" class="form-control" />
@@ -685,7 +685,7 @@ function template_not_done()
 			</h3>
 		</div>
 		<div class="windowbg">
-			<span class="topslice"><span></span></span>
+			
 			<div class="content">
 				', $txt['not_done_reason'];
 
@@ -835,7 +835,7 @@ function template_show_settings()
 			$is_open = true;
 			echo '
 			<div class="windowbg2">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">
 					<dl class="dl-horizontal">';
 		}
@@ -1068,7 +1068,7 @@ function template_edit_profile_field()
 				</h3>
 			</div>
 			<div class="windowbg">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">
 					<fieldset>
 						<legend>', $txt['custom_edit_general'], '</legend>
@@ -1287,7 +1287,7 @@ function template_admin_search_results()
 			</h3>
 		</div>
 	<div class="windowbg nopadding">
-		<span class="topslice"><span></span></span>
+		
 		<div class="content">';
 
 	if (empty($context['search_results']))
@@ -1391,7 +1391,7 @@ function template_core_features()
 	{
 		echo '
 			<div class="windowbg', $alternate ? '2' : '', '">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content features">
 					<img class="features_image png_fix" src="', $settings['default_images_url'], '/admin/feature_', $id, '.png" alt="', $feature['title'], '" />
 					<div class="features_switch" id="js_feature_', $id, '" style="display: none;">
@@ -1448,7 +1448,7 @@ function template_add_language()
 				</h3>
 			</div>
 			<div class="windowbg">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">
 					<fieldset>
 						<legend>', $txt['add_language_smf'], '</legend>
@@ -1526,7 +1526,7 @@ function template_download_language()
 			</h3>
 		</div>
 		<div class="windowbg">
-			<span class="topslice"><span></span></span>
+			
 			<div class="content">
 				', $context['install_complete'], '
 			</div>
@@ -1554,7 +1554,7 @@ function template_download_language()
 				</h3>
 			</div>
 			<div class="windowbg">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">
 					<p>
 						', $txt['languages_download_note'], '
@@ -1649,7 +1649,7 @@ function template_download_language()
 				</h3>
 			</div>
 			<div class="windowbg">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">
 					<p>', $txt['package_ftp_why'],'</p>
 					<dl class="dl-horizontal">
@@ -1758,7 +1758,7 @@ function template_modify_language_entries()
 				', $txt['edit_language_entries_primary'], '
 			</div>
 			<div class="windowbg">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">
 					<fieldset>
 						<legend>', $context['primary_settings']['name'], '</legend>
@@ -1848,7 +1848,7 @@ function template_modify_language_entries()
 	{
 		echo '
 			<div class="windowbg2">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">
 					<dl class="dl-horizontal">';
 
@@ -2021,7 +2021,7 @@ function template_repair_boards()
 			</h3>
 		</div>
 		<div class="windowbg">
-			<span class="topslice"><span></span></span>
+			
 			<div class="content">';
 
 	// Are we actually fixing them, or is this just a prompt?

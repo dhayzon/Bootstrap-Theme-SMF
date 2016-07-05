@@ -29,7 +29,7 @@ function template_fatal_error()
 			</h3>
 		</div>
 		<div class="windowbg">
-			<span class="topslice"><span></span></span>
+			
 			<div class="padding">', $context['error_message'], '</div>
 			<span class="botslice"><span></span></span>
 		</div>

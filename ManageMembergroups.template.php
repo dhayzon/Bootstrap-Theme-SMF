@@ -31,7 +31,7 @@ function template_new_group()
 				<h3>', $txt['membergroups_new_group'], '</h3>
 			</div>
 			<div class="windowbg">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">
 					<dl class="dl-horizontal">
 						<dt>
@@ -170,7 +170,7 @@ function template_edit_group()
 				</h3>
 			</div>
 			<div class="windowbg2">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">
 					<dl class="dl-horizontal">
 						<dt>
@@ -397,7 +397,7 @@ function template_group_members()
 				<h3>', $context['page_title'], '</h3>
 			</div>
 			<div class="windowbg">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">
 					<dl class="dl-horizontal">
 						<dt>
@@ -529,7 +529,7 @@ function template_group_members()
 				<h3>', $txt['membergroups_members_add_title'], '</h3>
 			</div>
 			<div class="windowbg">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">
 					<strong>', $txt['membergroups_members_add_desc'], ':</strong>
 					<input type="text" name="toAdd" id="toAdd" value="" class="form-control" />
@@ -579,7 +579,7 @@ function template_group_request_reason()
 				<h3>', $txt['mc_groups_reason_title'], '</h3>
 			</div>
 			<div class="windowbg">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">
 					<dl class="dl-horizontal">';
 

@@ -58,7 +58,7 @@ function template_summary()
 	</div>
 	<div id="basicinfo">
 		<div class="windowbg">
-			<span class="topslice"><span></span></span>
+			
 			<div class="content flow_auto">
 				<div class="username"><h4>', $context['member']['name'], ' <span class="position">', (!empty($context['member']['group']) ? $context['member']['group'] : $context['member']['post_group']), '</span></h4></div>
 				', $context['member']['avatar']['image'], '
@@ -117,7 +117,7 @@ function template_summary()
 	</div>
 	<div id="detailedinfo">
 		<div class="windowbg2">
-			<span class="topslice"><span></span></span>
+			
 			<div class="content">
 				<dl>';
 
@@ -356,7 +356,7 @@ function template_showPosts()
 			echo '
 		<div class="topic">
 			<div class="', $post['alternate'] == 0 ? 'windowbg2' : 'windowbg', ' core_posts">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">
 					<div class="counter">', $post['counter'], '</div>
 					<div class="topic_details">
@@ -667,7 +667,7 @@ function template_trackActivity()
 	// The last IP the user used.
 	echo '
 			<div id="tracking" class="windowbg2">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">
 					<dl class="noborder">
 						<dt>', $txt['most_recent_ip'], ':
@@ -724,7 +724,7 @@ function template_trackIP()
 			<h3>', $txt['trackIP'], '</h3>
 		</div>
 		<div class="windowbg2">
-			<span class="topslice"><span></span></span>
+			
 			<form action="', $context['base_url'], '" method="post" accept-charset="', $context['character_set'], '">
 				<div class="padding">', $txt['enter_ip'], ':&nbsp;&nbsp;<input type="text" name="searchip" value="', $context['ip'], '" class="form-control" />&nbsp;&nbsp;<input type="submit" value="', $txt['trackIP'], '" class="btn btn-default" /></div>
 			</form>
@@ -740,7 +740,7 @@ function template_trackIP()
 				<h3 class="titlebg">', $txt['whois_title'], ' ', $context['ip'], '</h3>
 			</div>
 			<div class="windowbg2">
-				<span class="topslice"><span></span></span>
+				
 				<div class="padding">';
 			foreach ($context['whois_servers'] as $server)
 				echo '
@@ -822,7 +822,7 @@ function template_showPermissions()
 					<h3>', $txt['showPermissions_restricted_boards'], '</h3>
 				</div>
 				<div class="windowbg smalltext">
-					<span class="topslice"><span></span></span>
+					
 					<div class="content">', $txt['showPermissions_restricted_boards_desc'], ':<br />';
 				foreach ($context['no_access_boards'] as $no_access_board)
 					echo '
@@ -967,7 +967,7 @@ function template_statPanel()
 				</h3>
 			</div>
 			<div class="windowbg2">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">
 					<dl>
 						<dt>', $txt['statPanel_total_time_online'], ':</dt>
@@ -995,7 +995,7 @@ function template_statPanel()
 				</h3>
 			</div>
 			<div class="windowbg2">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">';
 
 	// If they haven't post at all, don't draw the graph.
@@ -1044,7 +1044,7 @@ function template_statPanel()
 					</h3>
 				</div>
 				<div class="windowbg2">
-					<span class="topslice"><span></span></span>
+					
 					<div class="content">';
 
 	if (empty($context['popular_boards']))
@@ -1085,7 +1085,7 @@ function template_statPanel()
 					</h3>
 				</div>
 				<div class="windowbg2">
-					<span class="topslice"><span></span></span>
+					
 					<div class="content">';
 
 	if (empty($context['board_activity']))
@@ -1156,7 +1156,7 @@ function template_edit_options()
 
 	echo '
 			<div class="windowbg2">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">';
 
 	// Any bits at the start?
@@ -1595,7 +1595,7 @@ function template_notification()
 			</div>
 			<p class="windowbg description">', $txt['notification_info'], '</p>
 			<div class="windowbg2">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">
 					<form action="', $scripturl, '?action=profile;area=notification;save" method="post" accept-charset="', $context['character_set'], '" id="notify_options" class="flow_hidden">';
 
@@ -1846,7 +1846,7 @@ function template_ignoreboards()
 		</div>
 		<p class="description">', $txt['ignoreboards_info'], '</p>
 		<div class="windowbg2">
-			<span class="topslice"><span></span></span>
+			
 			<div class="content flow_hidden">
 				<ul class="ignoreboards floatleft">';
 
@@ -1944,7 +1944,7 @@ function template_viewWarning()
 			</h3>
 		</div>
 		<div class="windowbg">
-			<span class="topslice"><span></span></span>
+			
 			<div class="content">
 				<dl class="dl-horizontal">
 					<dt>
@@ -2136,7 +2136,7 @@ function template_issueWarning()
 
 	echo '
 		<div class="windowbg">
-			<span class="topslice"><span></span></span>
+			
 			<div class="content">
 				<dl class="dl-horizontal">';
 
@@ -2329,7 +2329,7 @@ function template_deleteAccount()
 			<p class="windowbg2 description">', $txt['deleteAccount_desc'], '</p>';
 	echo '
 			<div class="windowbg2">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">';
 
 	// If they are deleting their account AND the admin needs to approve it - give them another piece of info ;)
@@ -2868,7 +2868,7 @@ function template_authentication_method()
 			</div>
 			<p class="windowbg description">', $txt['change_authentication'], '</p>
 			<div class="windowbg2">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">
 					<dl>
 						<dt>

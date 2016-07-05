@@ -30,7 +30,7 @@ function template_main()
 				', $txt['themeadmin_explain'], '
 			</div>
 			<div class="windowbg2">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">
 					<dl class="dl-horizontal">
 						<dt>
@@ -107,7 +107,7 @@ function template_main()
 			</h3>
 		</div>
 		<div class="windowbg">
-			<span class="topslice"><span></span></span>
+			
 			<div class="content">
 				<div id="themeLatest">
 					', $txt['theme_latest_fetch'], '
@@ -130,7 +130,7 @@ function template_main()
 				</h3>
 			</div>
 			<div class="windowbg">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">
 					<dl class="dl-horizontal">';
 
@@ -243,7 +243,7 @@ function template_list_themes()
 				</h3>
 			</div>
 			<div class="windowbg">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">
 					<dl class="settings themes_list">
 						<dt>', $txt['themeadmin_list_theme_dir'], ':</dt>
@@ -265,7 +265,7 @@ function template_list_themes()
 				<h3>', $txt['themeadmin_list_reset'], '</h3>
 			</div>
 			<div class="windowbg">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">
 					<dl class="dl-horizontal">
 						<dt>
@@ -317,7 +317,7 @@ function template_reset_list()
 			<h3 class="titlebg">', $theme['name'], '</h3>
 		</div>
 		<div class="windowbg', $alternate ? '' : '2','">
-			<span class="topslice"><span></span></span>
+			
 			<div class="content">
 				<ul class="reset">
 					<li>
@@ -355,7 +355,7 @@ function template_set_options()
 				', $context['theme_options_reset'] ? $txt['themeadmin_reset_options_info'] : $txt['theme_options_defaults'], '
 			</div>
 			<div class="windowbg2">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">
 					<ul class="theme_options">';
 
@@ -442,7 +442,7 @@ function template_set_settings()
 				</h3>
 			</div>
 			<div class="windowbg">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">
 					<ul class="reset">
 						<li>
@@ -463,7 +463,7 @@ function template_set_settings()
 				</h3>
 			</div>
 			<div class="windowbg2">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">
 					<dl class="dl-horizontal">
 						<dt>
@@ -505,7 +505,7 @@ function template_set_settings()
 				</h3>
 			</div>
 			<div class="windowbg2">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">
 					<dl class="dl-horizontal">
 						<dt>
@@ -542,7 +542,7 @@ function template_set_settings()
 				</h3>
 			</div>
 			<div class="windowbg">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">
 					<dl class="settings flow_auto">';
 
@@ -675,7 +675,7 @@ function template_pick()
 				</h3>
 			</div>
 			<div class="', $theme['selected'] ? 'windowbg' : 'windowbg2', '">
-				<span class="topslice"><span></span></span>
+				
 				<div class="flow_hidden content">
 					<div class="floatright"><a href="', $scripturl, '?action=theme;sa=pick;u=', $context['current_member'], ';theme=', $theme['id'], ';', $context['session_var'], '=', $context['session_id'], '" id="theme_thumb_preview_', $theme['id'], '" title="', $txt['theme_preview'], '"><img src="', $theme['thumbnail_href'], '" id="theme_thumb_', $theme['id'], '" alt="" class="padding" /></a></div>
 					<p>', $theme['description'], '</p>';
@@ -765,7 +765,7 @@ function template_installed()
 			<h3>', $context['page_title'], '</h3>
 		</div>
 		<div class="windowbg">
-			<span class="topslice"><span></span></span>
+			
 			<div class="content">
 				<p>
 					<a href="', $scripturl, '?action=admin;area=theme;sa=settings;th=', $context['installed_theme']['id'], ';', $context['session_var'], '=', $context['session_id'], '">', $context['installed_theme']['name'], '</a> ', $txt['theme_installed_message'], '
@@ -804,7 +804,7 @@ function template_edit_list()
 			</h3>
 		</div>
 		<div class="windowbg', $alternate ? '' : '2','">
-			<span class="topslice"><span></span></span>
+			
 			<div class="content">
 				<ul class="reset">
 					<li><a href="', $scripturl, '?action=admin;area=theme;th=', $theme['id'], ';', $context['session_var'], '=', $context['session_id'], ';sa=edit">', $txt['themeadmin_edit_browse'], '</a></li>', $theme['can_edit_style'] ? '
@@ -834,7 +834,7 @@ function template_copy_template()
 			', $txt['themeadmin_edit_copy_warning'], '
 		</div>
 		<div class="windowbg">
-			<span class="topslice"><span></span></span>
+			
 			<div class="content">
 				<ul class="theme_options">';
 
@@ -1061,7 +1061,7 @@ function template_edit_style()
 				<h3>', $txt['theme_edit'], ' - ', $context['edit_filename'], '</h3>
 			</div>
 			<div class="windowbg">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">';
 
 	if (!$context['allow_save'])
@@ -1110,7 +1110,7 @@ function template_edit_template()
 				<h3>', $txt['theme_edit'], ' - ', $context['edit_filename'], '</h3>
 			</div>
 			<div class="windowbg">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">';
 
 	if (!$context['allow_save'])
@@ -1162,7 +1162,7 @@ function template_edit_file()
 				<h3>', $txt['theme_edit'], ' - ', $context['edit_filename'], '</h3>
 			</div>
 			<div class="windowbg">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">
 					<textarea name="entire_file" id="entire_file" cols="80" rows="20" class="edit_file">', $context['entire_file'], '</textarea><br />
 					<input type="submit" name="submit" value="', $txt['theme_edit_save'], '"', $context['allow_save'] ? '' : ' disabled="disabled"', ' class="btn btn-default" />

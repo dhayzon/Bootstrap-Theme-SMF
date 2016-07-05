@@ -50,7 +50,7 @@ function template_main()
 				</h3>
 			</div>
 			<div class="windowbg2">
-			<span class="topslice"><span></span></span>
+			
 				<div class="content">
 					<fieldset id="sender" class="send_topic">
 						<dl class="settings send_topic">
@@ -116,7 +116,7 @@ function template_custom_email()
 				</h3>
 			</div>
 			<div class="windowbg">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">
 					<dl class="settings send_mail">
 						<dt>
@@ -210,7 +210,7 @@ function template_report()
 					<h3>', $txt['report_to_mod'], '</h3>
 				</div>
 				<div class="windowbg">
-					<span class="topslice"><span></span></span>
+					
 					<div class="content">';
 
 	if (!empty($context['post_errors']))

@@ -25,7 +25,7 @@ function template_search_members()
 			</div>
 			<input type="hidden" name="sa" value="query" />
 			<div class="windowbg">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">
 					<div class="flow_hidden">
 						<div class="msearch_details floatleft">
@@ -284,7 +284,7 @@ function template_admin_browse()
 			// ]]></script>
 
 			<div class="windowbg">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">
 					<dl class="dl-horizontal">
 						<dt>

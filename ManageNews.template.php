@@ -106,7 +106,7 @@ function template_email_members()
 				', $txt['admin_news_select_recipients'], '
 			</div>
 			<div class="windowbg">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">
 					<dl class="dl-horizontal">
 						<dt>
@@ -141,7 +141,7 @@ function template_email_members()
 			</div>
 
 			<div class="windowbg2" id="advanced_settings_div" style="display: none;">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">
 					<dl class="dl-horizontal">
 						<dt>
@@ -258,7 +258,7 @@ function template_email_members_compose()
 				', $txt['email_variables'], '
 			</div>
 			<div class="windowbg">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">
 					<p>
 						<input type="text" name="subject" size="60" value="', $context['default_subject'], '" class="form-control" />
@@ -305,7 +305,7 @@ function template_email_members_send()
 				</h3>
 			</div>
 			<div class="windowbg">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">
 					<p>
 						<strong>', $context['percentage_done'], '% ', $txt['email_done'], '</strong>

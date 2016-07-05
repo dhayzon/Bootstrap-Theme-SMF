@@ -32,7 +32,7 @@ function template_main()
 	if (empty($context['categories']))
 		echo '
 		<div class="windowbg">
-			<span class="topslice"><span></span></span>
+			
 			<div class="content centertext">
 				', $txt['mboards_no_cats'], '
 			</div>
@@ -54,7 +54,7 @@ function template_main()
 		echo '
 		<form action="', $scripturl, '?action=admin;area=manageboards;sa=newboard;cat=', $category['id'], '" method="post" accept-charset="', $context['character_set'], '">
 			<div class="windowbg">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">
 					<ul id="category_', $category['id'], '" style="float:left; width:100%;">';
 
@@ -125,7 +125,7 @@ function template_modify_category()
 					</h3>
 				</div>
 				<div class="windowbg">
-					<span class="topslice"><span></span></span>
+					
 					<div class="content">
 						<dl class="dl-horizontal">';
 	// If this isn't the only category, let the user choose where this category should be positioned down the board index.
@@ -204,7 +204,7 @@ function template_confirm_category_delete()
 				<h3>', $txt['mboards_delete_cat'], '</h3>
 			</div>
 			<div class="windowbg">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">
 					<p>', $txt['mboards_delete_cat_contains'], ':</p>
 					<ul>';
@@ -222,7 +222,7 @@ function template_confirm_category_delete()
 				<h3>', $txt['mboards_delete_what_do'], '</h3>
 			</div>
 			<div class="windowbg">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">
 					<p>
 						<label for="delete_action0"><input type="radio" id="delete_action0" name="delete_action" value="0" class="input_radio" checked="checked" />', $txt['mboards_delete_option1'], '</label><br />
@@ -265,7 +265,7 @@ function template_modify_board()
 				</h3>
 			</div>
 			<div class="windowbg">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">
 					<dl class="dl-horizontal">';
 
@@ -585,7 +585,7 @@ function template_confirm_board_delete()
 				<h3>', $txt['mboards_delete_board'], '</h3>
 			</div>
 			<div class="windowbg">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">
 					<p>', $txt['mboards_delete_board_contains'], '</p>
 						<ul>';
@@ -603,7 +603,7 @@ function template_confirm_board_delete()
 				<h3>', $txt['mboards_delete_what_do'], '</h3>
 			</div>
 			<div class="windowbg">
-				<span class="topslice"><span></span></span>
+				
 				<div class="content">
 					<p>
 						<label for="delete_action0"><input type="radio" id="delete_action0" name="delete_action" value="0" class="input_radio" checked="checked" />', $txt['mboards_delete_board_option1'], '</label><br />
