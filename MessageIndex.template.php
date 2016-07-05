@@ -145,14 +145,53 @@ function template_main()
 	if (!$context['no_topic_listing'])
 	{
 		echo '
-	<div class="panel-body">
-		<div class="pagination">', $txt['pages'], ': ', $context['page_index'], !empty($modSettings['topbottomEnable']) ? $context['menu_separator'] . ' 
-		<a href="#bot"><strong>' . $txt['go_down'] . '</strong></a>' : '', '</div>
-		<div class="btn-group pull-right">
-		  	<span class="btn btn-info btn-sm dropdown-toggle"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> '.$txt['uOpciones'].'<span class="caret"></span></span>
-		  	', template_button_strip($normal_buttons, ''), '
-    	</div>
-	</div>';
+	<div class="panel-body fix-padding">
+ 			<div class="col-xs-12 col-sm-9 fix-margin">
+ 			<div class="smfPagination">
+				<a  href="#">', $txt['pages'], '</a>', $context['page_index'], !empty($modSettings['topbottomEnable']) ? $context['menu_separator'] . ' 
+				<a href="#bot" class="pull-right"><strong>' . $txt['go_down'] . '</strong></a>' : '', '
+			</div>
+			</div>
+			<div class="col-xs-12 col-sm-3 text-right fix-margin">
+				<div class="btn-group">
+				<span class="btn btn-success  dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				 '.$txt['uOrdenby'].' <span class="caret"></span>
+				</span>
+				<ul class="dropdown-menu dropdown-menu-right">';
+		// Are there actually any topics to show?
+		if (!empty($context['topics']))
+		{
+			echo '
+					 <li><a href="', $scripturl, '?board=', $context['current_board'], '.', $context['start'], ';sort=subject', $context['sort_by'] == 'subject' && $context['sort_direction'] == 'up' ? ';desc' : '', '">', $txt['subject'], $context['sort_by'] == 'subject' ? ' <img src="' . $settings['images_url'] . '/sort_' . $context['sort_direction'] . '.gif" alt="" />' : '', '</a></li><li><a href="', $scripturl, '?board=', $context['current_board'], '.', $context['start'], ';sort=starter', $context['sort_by'] == 'starter' && $context['sort_direction'] == 'up' ? ';desc' : '', '">', $txt['started_by'], $context['sort_by'] == 'starter' ? ' <img src="' . $settings['images_url'] . '/sort_' . $context['sort_direction'] . '.gif" alt="" />' : '', '</a></li>
+
+					 <li><a href="', $scripturl, '?board=', $context['current_board'], '.', $context['start'], ';sort=replies', $context['sort_by'] == 'replies' && $context['sort_direction'] == 'up' ? ';desc' : '', '">', $txt['replies'], $context['sort_by'] == 'replies' ? ' <img src="' . $settings['images_url'] . '/sort_' . $context['sort_direction'] . '.gif" alt="" />' : '', '</a></li><li><a href="', $scripturl, '?board=', $context['current_board'], '.', $context['start'], ';sort=views', $context['sort_by'] == 'views' && $context['sort_direction'] == 'up' ? ';desc' : '', '">', $txt['views'], $context['sort_by'] == 'views' ? ' <img src="' . $settings['images_url'] . '/sort_' . $context['sort_direction'] . '.gif" alt="" />' : '', '</a></li>';
+			// Show a "select all" box for quick moderation?
+			echo'<li>';
+		 	if (empty($context['can_quick_mod']))
+				echo '
+					<a href="', $scripturl, '?board=', $context['current_board'], '.', $context['start'], ';sort=last_post', $context['sort_by'] == 'last_post' && $context['sort_direction'] == 'up' ? ';desc' : '', '">', $txt['last_post'], $context['sort_by'] == 'last_post' ? ' <img src="' . $settings['images_url'] . '/sort_' . $context['sort_direction'] . '.gif" alt="" />' : '', '</a>';
+			else
+				echo '
+					 <a href="', $scripturl, '?board=', $context['current_board'], '.', $context['start'], ';sort=last_post', $context['sort_by'] == 'last_post' && $context['sort_direction'] == 'up' ? ';desc' : '', '">', $txt['last_post'], $context['sort_by'] == 'last_post' ? ' <img src="' . $settings['images_url'] . '/sort_' . $context['sort_direction'] . '.gif" alt="" />' : '', '</a>';
+
+
+			echo'</li>';
+			// If it's on in "image" mode, don't show anything but the column.
+ 
+		}
+		// No topics.... just say, "sorry bub".
+		else
+			echo '
+					<div class="col-xs-12 col-sm-6">', $txt['msg_alert_none'], '</div>';
+
+				echo'</ul>
+				</div>
+				<div class="btn-group">
+				  	<span class="btn btn-info  dropdown-toggle"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> '.$txt['uOpciones'].'<span class="caret"></span></span>
+				  	', template_button_strip($normal_buttons, 'right'), '
+		    	</div>
+			</div>	
+ 	</div>';
 
 		// If Quick Moderation is enabled start the form.
 		 if (!empty($context['can_quick_mod']) && $options['display_quick_mod'] > 0 && !empty($context['topics']))
@@ -163,39 +202,20 @@ function template_main()
 	<div id="messageindex">
 		
 			<div class="panel panel-default">
-				<div class="panel-heading"><div class="row">';
-
-		// Are there actually any topics to show?
-		if (!empty($context['topics']))
-		{
-			echo '
-					<div  class="col-xs-12 col-sm-8"><a href="', $scripturl, '?board=', $context['current_board'], '.', $context['start'], ';sort=subject', $context['sort_by'] == 'subject' && $context['sort_direction'] == 'up' ? ';desc' : '', '">', $txt['subject'], $context['sort_by'] == 'subject' ? ' <img src="' . $settings['images_url'] . '/sort_' . $context['sort_direction'] . '.gif" alt="" />' : '', '</a> / <a href="', $scripturl, '?board=', $context['current_board'], '.', $context['start'], ';sort=starter', $context['sort_by'] == 'starter' && $context['sort_direction'] == 'up' ? ';desc' : '', '">', $txt['started_by'], $context['sort_by'] == 'starter' ? ' <img src="' . $settings['images_url'] . '/sort_' . $context['sort_direction'] . '.gif" alt="" />' : '', '</a></div>
-
-					<div class="col-xs-12 col-sm-2"><a href="', $scripturl, '?board=', $context['current_board'], '.', $context['start'], ';sort=replies', $context['sort_by'] == 'replies' && $context['sort_direction'] == 'up' ? ';desc' : '', '">', $txt['replies'], $context['sort_by'] == 'replies' ? ' <img src="' . $settings['images_url'] . '/sort_' . $context['sort_direction'] . '.gif" alt="" />' : '', '</a> / <a href="', $scripturl, '?board=', $context['current_board'], '.', $context['start'], ';sort=views', $context['sort_by'] == 'views' && $context['sort_direction'] == 'up' ? ';desc' : '', '">', $txt['views'], $context['sort_by'] == 'views' ? ' <img src="' . $settings['images_url'] . '/sort_' . $context['sort_direction'] . '.gif" alt="" />' : '', '</a></div>';
+				 ';
 			// Show a "select all" box for quick moderation?
-			echo'<div class="col-xs-12 col-sm-2 text-center">';
-			 if (empty($context['can_quick_mod']))
-				echo '
-					<a href="', $scripturl, '?board=', $context['current_board'], '.', $context['start'], ';sort=last_post', $context['sort_by'] == 'last_post' && $context['sort_direction'] == 'up' ? ';desc' : '', '">', $txt['last_post'], $context['sort_by'] == 'last_post' ? ' <img src="' . $settings['images_url'] . '/sort_' . $context['sort_direction'] . '.gif" alt="" />' : '', '</a>';
-			 else
-				echo '
-					 <a href="', $scripturl, '?board=', $context['current_board'], '.', $context['start'], ';sort=last_post', $context['sort_by'] == 'last_post' && $context['sort_direction'] == 'up' ? ';desc' : '', '">', $txt['last_post'], $context['sort_by'] == 'last_post' ? ' <img src="' . $settings['images_url'] . '/sort_' . $context['sort_direction'] . '.gif" alt="" />' : '', '</a>';
+		 if (!empty($context['can_quick_mod']) && $options['display_quick_mod'] == 1)
+				echo '<div class="row">
+							<div class="col-sm-2 col-sm-offset-10 text-center">
+								<div class="panel-body text-right">								 
+									'.$txt['uCheckAll'].' <input type="checkbox" onclick="invertAll(this, this.form, \'topics[]\');"   />
+								</div>
+							</div>
+					</div>';
 
-			// Show a "select all" box for quick moderation?
-			 if (!empty($context['can_quick_mod']) && $options['display_quick_mod'] == 1)
-				echo '
-					<span class="pull-right"><input type="checkbox" onclick="invertAll(this, this.form, \'topics[]\');" class="input_check" /></span>';
-			echo'</div>';
-			// If it's on in "image" mode, don't show anything but the column.
- 
-		}
-		// No topics.... just say, "sorry bub".
-		else
-			echo '
-					<div class="col-xs-12 col-sm-6">', $txt['msg_alert_none'], '</div>';
 
 		echo '
-				</div></div>
+				 
 			 
 		<ul class="list-group">
 			 ';
@@ -323,7 +343,8 @@ function template_main()
 			echo '
 				<div class="panel-body">
 					<div  class="input-group">
-						<select class="form-control sfix"  name="qaction"', $context['can_move'] ? ' onchange="this.form.moveItTo.disabled = (this.options[this.selectedIndex].value != \'move\');"' : '', '>
+					<div class="col-xs-4 col-sm-6">
+						<select class="form-control sfix"  name="qaction"', $context['can_move'] ? ' onchange="this.form.moveItTo.disabled = (this.options[this.selectedIndex].value != \'move\');"' : '', ' style="widht:50%">
 							<option value="">--------</option>', $context['can_remove'] ? '
 							<option value="remove">' . $txt['quick_mod_remove'] . '</option>' : '', $context['can_lock'] ? '
 							<option value="lock">' . $txt['quick_mod_lock'] . '</option>' : '', $context['can_sticky'] ? '
@@ -333,13 +354,15 @@ function template_main()
 							<option value="restore">' . $txt['quick_mod_restore'] . '</option>' : '', $context['can_approve'] ? '
 							<option value="approve">' . $txt['quick_mod_approve'] . '</option>' : '', $context['user']['is_logged'] ? '
 							<option value="markread">' . $txt['quick_mod_markread'] . '</option>' : '', '
-						</select>';
+						</select>
+					</div>';
 
 			// Show a list of boards they can move the topic to.
 			if ($context['can_move'])
 			{
 					echo '
-						<selectclass="form-control sfix"  id="moveItTo" name="move_to" disabled="disabled">';
+					<div class="col-xs-8  col-sm-6">
+						<select class="form-control sfix"  id="moveItTo" name="move_to" disabled="disabled" style="widht:50%">';
 
 					foreach ($context['move_to_boards'] as $category)
 					{
@@ -352,7 +375,8 @@ function template_main()
 							</optgroup>';
 					}
 					echo '
-						</select>';
+						</select>
+					</div>';
 			}
 
 			echo ' <span class="input-group-btn">
@@ -375,12 +399,15 @@ function template_main()
 	</form>';
 
 		echo '
-	<div class="panel-body">
-		<div class="pagination">', $txt['pages'], ': ', $context['page_index'], !empty($modSettings['topbottomEnable']) ? $context['menu_separator'] . '&nbsp;&nbsp;<a href="#top"><strong>' . $txt['go_up'] . '</strong></a>' : '', '</div>
+	<div class="panel-body fix-padding">
+		<div class="col-xs-12 col-sm-9 fix-margin">
+		<div class="smfPagination">', $txt['pages'], ': ', $context['page_index'], !empty($modSettings['topbottomEnable']) ? $context['menu_separator'] . '&nbsp;&nbsp;<a href="#top" class="pull-right"><strong>' . $txt['go_up'] . '</strong></a>' : '', '</div></div>
+
+			<div class="col-xs-12 col-sm-3 text-right fix-margin">
 			<div class="btn-group pull-right">
-		  	<span class="btn btn-info btn-sm dropdown-toggle"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">'.$txt['uOpciones'].'<span class="caret"></span></span>
+		  	<span class="btn btn-info dropdown-toggle"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">'.$txt['uOpciones'].'<span class="caret"></span></span>
 			', template_button_strip($normal_buttons, 'right'), '
-			</div>
+			</div></div>
 	</div>';
 	}
 

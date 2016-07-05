@@ -95,6 +95,9 @@ function template_html_above()
 	echo '
 	<link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/css/index', $context['theme_variant'], '.css?fin20" />';
 
+	echo' 
+	<link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/css/responsive.css"/>';
+
 	// Some browsers need an extra stylesheet due to bugs/compatibility issues.
 	foreach (array('ie7', 'ie6', 'webkit') as $cssfix)
 		if ($context['browser']['is_' . $cssfix])
@@ -528,7 +531,7 @@ function template_button_strip($button_strip, $direction = 'top', $strip_options
 	$buttons[count($buttons) - 1] = str_replace('<span>', '<span class="last">', $buttons[count($buttons) - 1]);
 
 	echo ' 
-		<ul class="dropdown-menu ', !empty($direction) ? '' . $direction : '', '"', (empty($buttons) ? ' style="display: none;"' : ''), (!empty($strip_options['id']) ? ' id="' . $strip_options['id'] . '"': ''), '>
+		<ul class="dropdown-menu dropdown-menu-', !empty($direction) ? '' . $direction : '', '"', (empty($buttons) ? ' style="display: none;"' : ''), (!empty($strip_options['id']) ? ' id="' . $strip_options['id'] . '"': ''), ' aria-labelledby="dLabel">
 			 ',
 				implode('', $buttons), '
 			</ul>

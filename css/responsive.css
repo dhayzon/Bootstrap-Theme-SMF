@@ -1,0 +1,79 @@
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 480px){
+    .container-fluid{
+       padding: 0;
+    }
+    .container-fluid [class^=col-xs-] {
+        /* padding: 0; */
+    }
+    .col-xs-2 .avatar {
+        width: 32px;
+        height: 32px;
+    }
+
+    .poster h4 {
+        font-size: 11px;
+        text-overflow: ellipsis;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+    .smfPagination {
+    margin: 10px 0;
+    }
+}
+
+/* Smartphones (landscape) ----------- */
+@media only screen
+and (max-width : 316px) {
+ 
+}
+
+@media only screen
+and (max-width : 800px)
+  {
+
+  }
+/* Smartphones (portrait) ----------- */
+@media only screen and (max-width: 768px)
+  {
+
+  }
+
+ 
+
+/* iPads (landscape) ----------- */
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : landscape) {
+/* Styles */
+}
+
+/* iPads (portrait) ----------- */
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : portrait) {
+/* Styles */
+}
+
+/* Desktops and laptops ----------- */
+@media only screen
+and (min-width : 1224px) {
+/* Styles */
+}
+
+/* Large screens ----------- */
+@media only screen
+and (min-width : 1824px) {
+/* Styles */
+}
+
+/* iPhone 4 ----------- */
+@media
+only screen and (-webkit-min-device-pixel-ratio : 1.5),
+only screen and (min-device-pixel-ratio : 1.5) {
+/* Styles */
+}
