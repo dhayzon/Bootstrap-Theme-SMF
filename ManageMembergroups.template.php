@@ -33,7 +33,7 @@ function template_new_group()
 			<div class="windowbg">
 				<span class="topslice"><span></span></span>
 				<div class="content">
-					<dl class="settings">
+					<dl class="dl-horizontal">
 						<dt>
 							<label for="group_name_input"><strong>', $txt['membergroups_group_name'], ':</strong></label>
 						</dt>
@@ -172,7 +172,7 @@ function template_edit_group()
 			<div class="windowbg2">
 				<span class="topslice"><span></span></span>
 				<div class="content">
-					<dl class="settings">
+					<dl class="dl-horizontal">
 						<dt>
 							<label for="group_name_input"><strong>', $txt['membergroups_edit_name'], ':</strong></label>
 						</dt>
@@ -399,7 +399,7 @@ function template_group_members()
 			<div class="windowbg">
 				<span class="topslice"><span></span></span>
 				<div class="content">
-					<dl class="settings">
+					<dl class="dl-horizontal">
 						<dt>
 							<strong>', $txt['name'], ':</strong>
 						</dt>
@@ -581,7 +581,7 @@ function template_group_request_reason()
 			<div class="windowbg">
 				<span class="topslice"><span></span></span>
 				<div class="content">
-					<dl class="settings">';
+					<dl class="dl-horizontal">';
 
 	// Loop through and print out a reason box for each...
 	foreach ($context['group_requests'] as $request)

@@ -231,7 +231,7 @@ function template_report()
 	echo '
 						<p>', $txt['report_to_mod_func'], '</p>
 						<br />
-						<dl class="settings" id="report_post">';
+						<dl class="dl-horizontal" id="report_post">';
 
 	if ($context['user']['is_guest'])
 	{

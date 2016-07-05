@@ -71,7 +71,7 @@ function template_maintenance()
 		<div class="windowbg">
 			<span class="topslice"><span></span></span>
 			<div class="content">
-				<dl class="settings">
+				<dl class="dl-horizontal">
 					<dt><strong>', $txt['attachment_total'], ':</strong></dt><dd>', $context['num_attachments'], '</dd>
 					<dt><strong>', $txt['attachment_manager_total_avatars'], ':</strong></dt><dd>', $context['num_avatars'], '</dd>
 					<dt><strong>', $txt['attachmentdir_size' . ($context['attach_multiple_dirs'] ? '_current' : '')], ':</strong></dt><dd>', $context['attachment_total_size'], ' ', $txt['kilobyte'], '</dd>

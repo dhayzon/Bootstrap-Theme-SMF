@@ -25,7 +25,7 @@ function template_main()
 				<span class="topslice"><span></span></span>
 				<div class="content">
 					<div class="move_topic">
-						<dl class="settings">
+						<dl class="dl-horizontal">
 							<dt>
 								<strong>', $txt['move_to'], ':</strong>
 							</dt>
@@ -53,7 +53,7 @@ function template_main()
 						</dl>
 						<label for="reset_subject"><input type="checkbox" name="reset_subject" id="reset_subject" onclick="document.getElementById(\'subjectArea\').style.display = this.checked ? \'block\' : \'none\';" class="input_check" /> ', $txt['moveTopic2'], '.</label><br />
 						<fieldset id="subjectArea" style="display: none;">
-							<dl class="settings">
+							<dl class="dl-horizontal">
 								<dt><strong>', $txt['moveTopic3'], ':</strong></dt>
 								<dd><input type="text" name="custom_subject" size="30" value="', $context['subject'], '" class="input_text" /></dd>
 							</dl>
@@ -61,7 +61,7 @@ function template_main()
 						</fieldset>
 						<label for="postRedirect"><input type="checkbox" name="postRedirect" id="postRedirect" ', $context['is_approved'] ? 'checked="checked"' : '', ' onclick="', $context['is_approved'] ? '' : 'if (this.checked && !confirm(\'' . $txt['move_topic_unapproved_js'] . '\')) return false; ', 'document.getElementById(\'reasonArea\').style.display = this.checked ? \'block\' : \'none\';" class="input_check" /> ', $txt['moveTopic1'], '.</label>
 						<fieldset id="reasonArea" style="margin-top: 1ex;', $context['is_approved'] ? '' : 'display: none;', '">
-							<dl class="settings">
+							<dl class="dl-horizontal">
 								<dt>
 									', $txt['moved_why'], '
 								</dt>

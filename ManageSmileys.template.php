@@ -102,7 +102,7 @@ function template_modifyset()
 			<div class="windowbg">
 				<span class="topslice"><span></span></span>
 				<div class="content">
-					<dl class="settings">
+					<dl class="dl-horizontal">
 						<dt>
 							<strong><label for="smiley_sets_name">', $txt['smiley_sets_name'], '</label>: </strong>
 						</dt>
@@ -176,7 +176,7 @@ function template_modifysmiley()
 			<div class="windowbg">
 				<span class="topslice"><span></span></span>
 				<div class="content">
-					<dl class="settings">
+					<dl class="dl-horizontal">
 						<dt>
 							<strong>', $txt['smiley_preview'], ': </strong>
 						</dt>
@@ -300,7 +300,7 @@ function template_addsmiley()
 					</ul>
 					<br />
 					<fieldset id="ex_settings">
-						<dl class="settings">
+						<dl class="dl-horizontal">
 							<dt>
 								<img src="', $modSettings['smileys_url'], '/', $modSettings['smiley_sets_default'], '/', $context['filenames'][0]['id'], '" id="preview" alt="" />
 							</dt>
@@ -339,7 +339,7 @@ function template_addsmiley()
 						</dl>
 					</fieldset>
 					<fieldset id="ul_settings" style="display: none;">
-						<dl class="settings">
+						<dl class="dl-horizontal">
 							<dt>
 								<strong>', $txt['smileys_add_upload_choose'], ':</strong><br />
 								<span class="smalltext">', $txt['smileys_add_upload_choose_desc'], '</span>
@@ -356,7 +356,7 @@ function template_addsmiley()
 						</dl>
 					</fieldset>
 
-					<dl id="uploadMore" style="display: none;" class="settings">';
+					<dl id="uploadMore" style="display: none;" class="dl-horizontal">';
 	foreach ($context['smiley_sets'] as $smiley_set)
 		echo '
 						<dt>
@@ -377,7 +377,7 @@ function template_addsmiley()
 			<div class="windowbg">
 				<span class="topslice"><span></span></span>
 				<div class="content">
-					<dl class="settings">
+					<dl class="dl-horizontal">
 						<dt>
 							<strong><label for="smiley_code">', $txt['smileys_code'], '</label>: </strong>
 						</dt>
@@ -504,7 +504,7 @@ function template_editicon()
 			<div class="windowbg">
 				<span class="topslice"><span></span></span>
 				<div class="content">
-					<dl class="settings">';
+					<dl class="dl-horizontal">';
 	if (!$context['new_icon'])
 		echo '
 						<dt>

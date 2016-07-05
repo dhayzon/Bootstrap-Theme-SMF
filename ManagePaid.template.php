@@ -50,7 +50,7 @@ function template_modify_subscription()
 			<div class="windowbg">
 				<span class="topslice"><span></span></span>
 				<div class="content">
-					<dl class="settings">
+					<dl class="dl-horizontal">
 						<dt>
 							', $txt['paid_mod_name'], ':
 						</dt>
@@ -77,7 +77,7 @@ function template_modify_subscription()
 						</dd>
 					</dl>
 					<hr class="hrcolor" />
-					<dl class="settings">
+					<dl class="dl-horizontal">
 						<dt>
 							', $txt['paid_mod_prim_group'], ':<br /><span class="smalltext">', $txt['paid_mod_prim_group_desc'], '</span>
 						</dt>
@@ -124,7 +124,7 @@ function template_modify_subscription()
 					<br />
 					<div id="fixed_area" ', empty($context['sub']['duration']) || $context['sub']['duration'] == 'fixed' ? '' : 'style="display: none;"', '>
 						<fieldset>
-							<dl class="settings">
+							<dl class="dl-horizontal">
 								<dt>
 									', $txt['paid_cost'], ' (', str_replace('%1.2f', '', $modSettings['paid_currency_symbol']), '):
 								</dt>
@@ -155,7 +155,7 @@ function template_modify_subscription()
 	//!! Removed until implemented
 	if (!empty($sdflsdhglsdjgs))
 		echo '
-							<dl class="settings">
+							<dl class="dl-horizontal">
 								<dt>
 									<label for="allow_partial_check">', $txt['paid_mod_allow_partial'], '</label>:<br /><span class="smalltext">', $txt['paid_mod_allow_partial_desc'], '</span>
 								</dt>
@@ -169,7 +169,7 @@ function template_modify_subscription()
 								<strong>', $txt['paid_mod_price_breakdown'], '</strong><br />
 								', $txt['paid_mod_price_breakdown_desc'], '
 							</div>
-							<dl class="settings">
+							<dl class="dl-horizontal">
 								<dt>
 									<strong>', $txt['paid_duration'], '</strong>
 								</dt>
@@ -287,7 +287,7 @@ function template_modify_user_subscription()
 			<div class="windowbg">
 				<span class="topslice"><span></span></span>
 				<div class="content">
-					<dl class="settings">';
+					<dl class="dl-horizontal">';
 
 	// Do we need a username?
 	if ($context['action_type'] == 'add')
@@ -596,7 +596,7 @@ function template_choose_payment()
 		<div class="windowbg">
 			<span class="topslice"><span></span></span>
 			<div class="content">
-				<dl class="settings">
+				<dl class="dl-horizontal">
 					<dt>
 						<strong>', $txt['subscription'], ':</strong>
 					</dt>

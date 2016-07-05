@@ -424,7 +424,7 @@ function template_edit_profiles()
 			<div class="windowbg">
 				<span class="topslice"><span></span></span>
 				<div class="content">
-					<dl class="settings">
+					<dl class="dl-horizontal">
 						<dt>
 							<strong>', $txt['permissions_profile_name'], ':</strong>
 						</dt>
@@ -1023,7 +1023,7 @@ function template_inline_permissions()
 	else
 		echo '
 			<div class="information">', $txt['permissions_option_desc'], '</div>
-			<dl class="settings">
+			<dl class="dl-horizontal">
 				<dt>
 					<span class="perms"><strong>', $txt['permissions_option_on'], '</strong></span>
 					<span class="perms"><strong>', $txt['permissions_option_off'], '</strong></span>

@@ -286,7 +286,7 @@ function template_admin_browse()
 			<div class="windowbg">
 				<span class="topslice"><span></span></span>
 				<div class="content">
-					<dl class="settings">
+					<dl class="dl-horizontal">
 						<dt>
 							', $txt['admin_browse_outstanding_days_1'], ':
 						</dt>

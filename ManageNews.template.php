@@ -108,7 +108,7 @@ function template_email_members()
 			<div class="windowbg">
 				<span class="topslice"><span></span></span>
 				<div class="content">
-					<dl class="settings">
+					<dl class="dl-horizontal">
 						<dt>
 							<strong>', $txt['admin_news_select_group'], ':</strong><br />
 							<span class="smalltext">', $txt['admin_news_select_group_desc'], '</span>
@@ -143,7 +143,7 @@ function template_email_members()
 			<div class="windowbg2" id="advanced_settings_div" style="display: none;">
 				<span class="topslice"><span></span></span>
 				<div class="content">
-					<dl class="settings">
+					<dl class="dl-horizontal">
 						<dt>
 							<strong>', $txt['admin_news_select_email'], ':</strong><br />
 							<span class="smalltext">', $txt['admin_news_select_email_desc'], '</span>
@@ -161,7 +161,7 @@ function template_email_members()
 						</dd>
 					</dl>
 					<hr class="bordercolor" />
-					<dl class="settings">
+					<dl class="dl-horizontal">
 						<dt>
 							<strong>', $txt['admin_news_select_excluded_groups'], ':</strong><br />
 							<span class="smalltext">', $txt['admin_news_select_excluded_groups_desc'], '</span>
@@ -186,7 +186,7 @@ function template_email_members()
 						</dd>
 					</dl>
 					<hr class="bordercolor" />
-					<dl class="settings">
+					<dl class="dl-horizontal">
 						<dt>
 							<label for="email_force"><strong>', $txt['admin_news_select_override_notify'], ':</strong></label><br />
 							<span class="smalltext">', $txt['email_force'], '</span>

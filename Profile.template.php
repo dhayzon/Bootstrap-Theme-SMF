@@ -1946,7 +1946,7 @@ function template_viewWarning()
 		<div class="windowbg">
 			<span class="topslice"><span></span></span>
 			<div class="content">
-				<dl class="settings">
+				<dl class="dl-horizontal">
 					<dt>
 						<strong>', $txt['profile_warning_name'], ':</strong>
 					</dt>
@@ -2138,7 +2138,7 @@ function template_issueWarning()
 		<div class="windowbg">
 			<span class="topslice"><span></span></span>
 			<div class="content">
-				<dl class="settings">';
+				<dl class="dl-horizontal">';
 
 	if (!$context['user']['is_owner'])
 		echo '
@@ -2198,7 +2198,7 @@ function template_issueWarning()
 					</dd>
 				</dl>
 				<hr />
-				<dl class="settings">
+				<dl class="dl-horizontal">
 					<dt>
 						<strong>', $txt['profile_warning_notify'], ':</strong>
 					</dt>

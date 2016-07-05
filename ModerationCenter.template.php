@@ -702,7 +702,7 @@ function template_moderation_settings()
 			<div class="windowbg2">
 				<span class="topslice"><span></span></span>
 				<div class="content">
-					<dl class="settings">
+					<dl class="dl-horizontal">
 						<dt>
 							<strong>', $txt['mc_prefs_homepage'], ':</strong>
 						</dt>
@@ -820,7 +820,7 @@ function template_warn_template()
 			<div class="windowbg">
 				<span class="topslice"><span></span></span>
 				<div class="content">
-					<dl class="settings">
+					<dl class="dl-horizontal">
 						<dt>
 							<strong><label for="template_title">', $txt['mc_warning_template_title'], '</label>:</strong>
 						</dt>

@@ -1242,7 +1242,7 @@ function template_labels()
 		<div class="windowbg">
 			<span class="topslice"><span></span></span>
 			<div class="content">
-				<dl class="settings">
+				<dl class="dl-horizontal">
 					<dt>
 						<strong><label for="add_label">', $txt['pm_label_name'], '</label>:</strong>
 					</dt>
@@ -1277,7 +1277,7 @@ function template_report_message()
 		<div class="windowbg">
 			<span class="topslice"><span></span></span>
 			<div class="content">
-				<dl class="settings">';
+				<dl class="dl-horizontal">';
 
 	// If there is more than one admin on the forum, allow the user to choose the one they want to direct to.
 	// !!! Why?

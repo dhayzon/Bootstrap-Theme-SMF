@@ -53,7 +53,7 @@ function template_edit_holiday()
 			<div class="windowbg">
 				<span class="topslice"><span></span></span>
 				<div class="content">
-					<dl class="settings">
+					<dl class="dl-horizontal">
 						<dt class="small_caption">
 							<strong>', $txt['holidays_title_label'], ':</strong>
 						</dt>

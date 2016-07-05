@@ -866,7 +866,7 @@ function template_browse()
 						<p>
 							', $txt['package_emulate_desc'], '
 						</p>
-						<dl class="settings">
+						<dl class="dl-horizontal">
 							<dt>
 								<strong>', $txt['package_emulate'], ':</strong><br />
 								<span class="smalltext">
@@ -921,7 +921,7 @@ function template_servers()
 					', $txt['package_ftp_why_download'], '
 				</p>
 				<form action="', $scripturl, '?action=admin;area=packages;get" method="post" accept-charset="', $context['character_set'], '">
-					<dl class="settings">
+					<dl class="dl-horizontal">
 						<dt>
 							<label for="ftp_server">', $txt['package_ftp_server'], ':</label>
 						</dt>
@@ -977,7 +977,7 @@ function template_servers()
 				<fieldset>
 					<legend>' . $txt['add_server'] . '</legend>
 					<form action="' . $scripturl . '?action=admin;area=packages;get;sa=add" method="post" accept-charset="', $context['character_set'], '">
-						<dl class="settings">
+						<dl class="dl-horizontal">
 							<dt>
 								<strong>' . $txt['server_name'] . ':</strong>
 							</dt>
@@ -1000,7 +1000,7 @@ function template_servers()
 				<fieldset>
 					<legend>', $txt['package_download_by_url'], '</legend>
 					<form action="', $scripturl, '?action=admin;area=packages;get;sa=download;byurl;', $context['session_var'], '=', $context['session_id'], '" method="post" accept-charset="', $context['character_set'], '">
-						<dl class="settings">
+						<dl class="dl-horizontal">
 							<dt>
 								<strong>' . $txt['serverurl'] . ':</strong>
 							</dt>
@@ -1031,7 +1031,7 @@ function template_servers()
 			<span class="topslice"><span></span></span>
 			<div class="content">
 				<form action="' . $scripturl . '?action=admin;area=packages;get;sa=upload" method="post" accept-charset="', $context['character_set'], '" enctype="multipart/form-data" style="margin-bottom: 0;">
-					<dl class="settings">
+					<dl class="dl-horizontal">
 						<dt>
 							<strong>' . $txt['package_upload_select'] . ':</strong>
 						</dt>
@@ -1298,7 +1298,7 @@ function template_install_options()
 			<span class="topslice"><span></span></span>
 			<div class="content">
 				<form action="', $scripturl, '?action=admin;area=packages;sa=options" method="post" accept-charset="', $context['character_set'], '">
-					<dl class="settings">
+					<dl class="dl-horizontal">
 						<dt>
 							<label for="pack_server"><strong>', $txt['package_install_options_ftp_server'], ':</strong></label>
 						</dt>
@@ -1367,7 +1367,7 @@ function template_control_chmod()
 
 	echo '
 					<fieldset>
-					<dl class="settings">
+					<dl class="dl-horizontal">
 						<dt>
 							<label for="ftp_server">', $txt['package_ftp_server'], ':</label>
 						</dt>

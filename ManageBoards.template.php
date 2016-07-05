@@ -127,7 +127,7 @@ function template_modify_category()
 				<div class="windowbg">
 					<span class="topslice"><span></span></span>
 					<div class="content">
-						<dl class="settings">';
+						<dl class="dl-horizontal">';
 	// If this isn't the only category, let the user choose where this category should be positioned down the board index.
 	if (count($context['category_order']) > 1)
 	{
@@ -267,7 +267,7 @@ function template_modify_board()
 			<div class="windowbg">
 				<span class="topslice"><span></span></span>
 				<div class="content">
-					<dl class="settings">';
+					<dl class="dl-horizontal">';
 
 	// Option for choosing the category the board lives in.
 	echo '
@@ -384,7 +384,7 @@ function template_modify_board()
 
 	if (empty($context['board']['is_recycle']) && empty($context['board']['topics']))
 		echo '
-					<dl class="settings">
+					<dl class="dl-horizontal">
 						<dt>
 							<strong', $context['board']['topics'] ? ' style="color: gray;"' : '', '>', $txt['mboards_redirect'], ':</strong><br />
 							<span class="smalltext">', $txt['mboards_redirect_desc'], '</span><br />
@@ -409,7 +409,7 @@ function template_modify_board()
 	{
 		echo '
 					<div id="redirect_address_div">
-						<dl class="settings">
+						<dl class="dl-horizontal">
 							<dt>
 								<strong>', $txt['mboards_redirect_url'], ':</strong><br />
 								<span class="smalltext">', $txt['mboards_redirect_url_desc'], '</span><br />
@@ -423,7 +423,7 @@ function template_modify_board()
 		if ($context['board']['redirect'])
 			echo '
 					<div id="reset_redirect_div">
-						<dl class="settings">
+						<dl class="dl-horizontal">
 							<dt>
 								<strong>', $txt['mboards_redirect_reset'], ':</strong><br />
 								<span class="smalltext">', $txt['mboards_redirect_reset_desc'], '</span><br />
@@ -438,7 +438,7 @@ function template_modify_board()
 
 	echo '
 					<div id="count_posts_div">
-						<dl class="settings">
+						<dl class="dl-horizontal">
 							<dt>
 								<strong>', $txt['mboards_count_posts'], ':</strong><br />
 								<span class="smalltext">', $txt['mboards_count_posts_desc'], '</span><br />
@@ -452,7 +452,7 @@ function template_modify_board()
 	// Here the user can choose to force this board to use a theme other than the default theme for the forum.
 	echo '
 					<div id="board_theme_div">
-						<dl class="settings">
+						<dl class="dl-horizontal">
 							<dt>
 								<strong>', $txt['mboards_theme'], ':</strong><br />
 								<span class="smalltext">', $txt['mboards_theme_desc'], '</span><br />
@@ -471,7 +471,7 @@ function template_modify_board()
 						</dl>
 					</div>
 					<div id="override_theme_div">
-						<dl class="settings">
+						<dl class="dl-horizontal">
 							<dt>
 								<strong>', $txt['mboards_override_theme'], ':</strong><br />
 								<span class="smalltext">', $txt['mboards_override_theme_desc'], '</span><br />

@@ -50,7 +50,7 @@ function template_generic_menu_sidebar_above()
 		echo '
 					</h4>
 				</div>
-				<ul class="smalltext left_admmenu">';
+				<ul class="list-inline">';
 
 		// For every area of this section show a link to that area (bold if it's currently selected.)
 		foreach ($section['areas'] as $i => $area)
@@ -306,7 +306,7 @@ function template_generic_menu_tabs(&$menu_context)
 		// The admin tabs.
 		echo '
 	<div id="adm_submenus">
-		<ul class="dropmenu">';
+		<ul class="list-inline">';
 
 		// Print out all the items in this tab.
 		foreach ($tab_context['tabs'] as $sa => $tab)

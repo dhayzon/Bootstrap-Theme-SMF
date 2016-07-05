@@ -629,7 +629,7 @@ function template_edit_censored()
 						}
 					// ]]></script>
 					<hr width="100%" size="1" class="hrcolor clear" />
-					<dl class="settings">
+					<dl class="dl-horizontal">
 						<dt>
 							<strong><label for="censorWholeWord_check">', $txt['censor_whole_words'], ':</label></strong>
 						</dt>
@@ -837,7 +837,7 @@ function template_show_settings()
 			<div class="windowbg2">
 				<span class="topslice"><span></span></span>
 				<div class="content">
-					<dl class="settings">';
+					<dl class="dl-horizontal">';
 		}
 
 		// Hang about? Are you pulling my leg - a callback?!
@@ -953,7 +953,7 @@ function template_show_settings()
 				echo '
 					</dl>
 					<hr class="hrcolor clear" />
-					<dl class="settings">';
+					<dl class="dl-horizontal">';
 			else
 				echo '
 						<dd>
@@ -1073,7 +1073,7 @@ function template_edit_profile_field()
 					<fieldset>
 						<legend>', $txt['custom_edit_general'], '</legend>
 
-						<dl class="settings">
+						<dl class="dl-horizontal">
 							<dt>
 								<strong>', $txt['custom_edit_name'], ':</strong>
 							</dt>
@@ -1137,7 +1137,7 @@ function template_edit_profile_field()
 					</fieldset>
 					<fieldset>
 						<legend>', $txt['custom_edit_input'], '</legend>
-						<dl class="settings">
+						<dl class="dl-horizontal">
 							<dt>
 								<strong>', $txt['custom_edit_picktype'], ':</strong>
 							</dt>
@@ -1198,7 +1198,7 @@ function template_edit_profile_field()
 					</fieldset>
 					<fieldset>
 						<legend>', $txt['custom_edit_advanced'], '</legend>
-						<dl class="settings">
+						<dl class="dl-horizontal">
 							<dt id="mask_dt">
 								<a id="custom_mask" href="', $scripturl, '?action=helpadmin;help=custom_mask" onclick="return reqWin(this.href);" class="help"><img src="', $settings['images_url'], '/helptopics.gif" class="icon" alt="', $txt['help'], '" align="top" /></a>
 								<strong>', $txt['custom_edit_mask'], ':</strong><br />
@@ -1652,7 +1652,7 @@ function template_download_language()
 				<span class="topslice"><span></span></span>
 				<div class="content">
 					<p>', $txt['package_ftp_why'],'</p>
-					<dl class="settings">
+					<dl class="dl-horizontal">
 						<dt
 							<label for="ftp_server">', $txt['package_ftp_server'], ':</label>
 						</dt>
@@ -1762,7 +1762,7 @@ function template_modify_language_entries()
 				<div class="content">
 					<fieldset>
 						<legend>', $context['primary_settings']['name'], '</legend>
-					<dl class="settings">
+					<dl class="dl-horizontal">
 						<dt>
 							', $txt['languages_character_set'], ':
 						</dt>
@@ -1850,7 +1850,7 @@ function template_modify_language_entries()
 			<div class="windowbg2">
 				<span class="topslice"><span></span></span>
 				<div class="content">
-					<dl class="settings">';
+					<dl class="dl-horizontal">';
 
 		$cached = array();
 		foreach ($context['file_entries'] as $entry)

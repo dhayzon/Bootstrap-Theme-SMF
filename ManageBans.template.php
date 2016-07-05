@@ -32,7 +32,7 @@ function template_ban_edit()
 			<span class="topslice"><span></span></span>
 			<div class="content">
 				<form action="', $scripturl, '?action=admin;area=ban;sa=edit" method="post" accept-charset="', $context['character_set'], '" onsubmit="if (this.ban_name.value == \'\') {alert(\'', $txt['ban_name_empty'], '\'); return false;} if (this.partial_ban.checked &amp;&amp; !(this.cannot_post.checked || this.cannot_register.checked || this.cannot_login.checked)) {alert(\'', $txt['ban_restriction_empty'], '\'); return false;}">
-					<dl class="settings">
+					<dl class="dl-horizontal">
 						<dt>
 							<strong>', $txt['ban_name'], ':</strong>
 						</dt>
@@ -81,7 +81,7 @@ function template_ban_edit()
 						<legend>
 							', $txt['ban_triggers'], '
 						</legend>
-						<dl class="settings">
+						<dl class="dl-horizontal">
 							<dt>
 								<input type="checkbox" name="ban_suggestion[]" id="main_ip_check" value="main_ip" class="input_check" />
 								<label for="main_ip_check">', $txt['ban_on_ip'], '</label>
@@ -129,7 +129,7 @@ function template_ban_edit()
 			echo '
 						</dl>
 						<div>', $txt['ips_in_messages'], ':</div>
-						<dl class="settings">';
+						<dl class="dl-horizontal">';
 
 			foreach ($context['ban_suggestions']['message_ips'] as $ip)
 				echo '
@@ -146,7 +146,7 @@ function template_ban_edit()
 			echo '
 						</dl>
 						<div>', $txt['ips_in_errors'], '</div>
-						<dl class="settings">';
+						<dl class="dl-horizontal">';
 
 			foreach ($context['ban_suggestions']['error_ips'] as $ip)
 				echo '
@@ -294,7 +294,7 @@ function template_ban_edit_trigger()
 						<legend>
 							', $txt['ban_triggers'], '
 						</legend>
-						<dl class="settings">
+						<dl class="dl-horizontal">
 							<dt>
 								<input type="radio" name="bantype" value="ip_ban"', $context['ban_trigger']['ip']['selected'] ? ' checked="checked"' : '', ' class="input_radio" />
 								', $txt['ban_on_ip'], '

@@ -23,7 +23,7 @@ function template_modify_weights()
 			<div class="windowbg">
 				<span class="topslice"><span></span></span>
 				<div class="content">
-					<dl class="settings">
+					<dl class="dl-horizontal">
 						<dt class="large_caption">
 							<a href="', $scripturl, '?action=helpadmin;help=search_weight_frequency" onclick="return reqWin(this.href);" class="help"><img src="', $settings['images_url'], '/helptopics.gif" alt="', $txt['help'], '" align="top" /></a>
 							', $txt['search_weight_frequency'], ':
@@ -121,7 +121,7 @@ function template_select_search_method()
 			<div class="windowbg">
 				<span class="topslice"><span></span></span>
 				<div class="content">
-					<dl class="settings">
+					<dl class="dl-horizontal">
 
 			';
 	if (!empty($context['table_info']))
@@ -247,7 +247,7 @@ function template_create_index()
 			<div class="windowbg">
 				<span class="topslice"><span></span></span>
 				<div class="content">
-					<dl class="settings">
+					<dl class="dl-horizontal">
 						<dt>
 							<label for="predefine_select">', $txt['search_predefined'], ':</label>
 						</dt>
@@ -357,7 +357,7 @@ function template_spider_edit()
 			<div class="windowbg">
 				<span class="topslice"><span></span></span>
 				<div class="content">
-					<dl class="settings">
+					<dl class="dl-horizontal">
 						<dt>
 							<strong>', $txt['spider_name'], ':</strong><br />
 							<span class="smalltext">', $txt['spider_name_desc'], '</span>

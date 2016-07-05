@@ -275,7 +275,7 @@ function template_maintain_members()
 			<div class="content">
 				<form action="', $scripturl, '?action=admin;area=maintain;sa=members;activity=reattribute" method="post" accept-charset="', $context['character_set'], '">
 					<p><strong>', $txt['reattribute_guest_posts'], '</strong></p>
-					<dl class="settings">
+					<dl class="dl-horizontal">
 						<dt>
 							<label for="type_email"><input type="radio" name="type" id="type_email" value="email" checked="checked" class="input_radio" />', $txt['reattribute_email'], '</label>
 						</dt>
@@ -289,7 +289,7 @@ function template_maintain_members()
 							<input type="text" name="from_name" id="from_name" value="" onclick="document.getElementById(\'type_name\').checked = \'checked\'; document.getElementById(\'from_email\').value = \'\';" class="input_text" />
 						</dd>
 					</dl>
-					<dl class="settings">
+					<dl class="dl-horizontal">
 						<dt>
 							<label for="to"><strong>', $txt['reattribute_current_member'], ':</strong></label>
 						</dt>
@@ -572,7 +572,7 @@ function template_convert_utf8()
 					<p>', $txt['utf8_introduction'], '</p>
 					<div>', $txt['utf8_warning'], '</div>
 
-					<dl class="settings">
+					<dl class="dl-horizontal">
 						<dt><strong>', $txt['utf8_source_charset'], ':</strong></dt>
 						<dd><select class="form-control" name="src_charset">';
 	foreach ($context['charset_list'] as $charset)

@@ -43,7 +43,7 @@ function template_edit_scheduled_tasks()
 			<div class="windowbg">
 				<span class="topslice"><span></span></span>
 				<div class="content">
-					<dl class="settings">
+					<dl class="dl-horizontal">
 						<dt>
 							<strong>', $txt['scheduled_tasks_name'], ':</strong>
 						</dt>

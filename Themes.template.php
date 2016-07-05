@@ -32,7 +32,7 @@ function template_main()
 			<div class="windowbg2">
 				<span class="topslice"><span></span></span>
 				<div class="content">
-					<dl class="settings">
+					<dl class="dl-horizontal">
 						<dt>
 							<label for="options-theme_allow"> ', $txt['theme_allow'], '</label>
 						</dt>
@@ -132,7 +132,7 @@ function template_main()
 			<div class="windowbg">
 				<span class="topslice"><span></span></span>
 				<div class="content">
-					<dl class="settings">';
+					<dl class="dl-horizontal">';
 
 	// Here's a little box for installing a new theme.
 	// !!! Should the value="theme_gz" be there?!
@@ -267,7 +267,7 @@ function template_list_themes()
 			<div class="windowbg">
 				<span class="topslice"><span></span></span>
 				<div class="content">
-					<dl class="settings">
+					<dl class="dl-horizontal">
 						<dt>
 							<label for="reset_dir">', $txt['themeadmin_list_reset_dir'], '</label>:
 						</dt>
@@ -465,7 +465,7 @@ function template_set_settings()
 			<div class="windowbg2">
 				<span class="topslice"><span></span></span>
 				<div class="content">
-					<dl class="settings">
+					<dl class="dl-horizontal">
 						<dt>
 							<label for="theme_name">', $txt['actual_theme_name'], '</label>
 						</dt>
@@ -507,7 +507,7 @@ function template_set_settings()
 			<div class="windowbg2">
 				<span class="topslice"><span></span></span>
 				<div class="content">
-					<dl class="settings">
+					<dl class="dl-horizontal">
 						<dt>
 							<label for="variant">', $txt['theme_variants_default'], '</label>:
 						</dt>
