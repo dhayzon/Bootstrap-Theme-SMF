@@ -34,7 +34,7 @@ function template_main()
 		echo '
 			<div id="poll">
 				<div class="cat_bar">
-					<h3 class="catbg">
+					<h3>
 						<span class="ie6_header floatleft"><img src="', $settings['images_url'], '/topic/', $context['poll']['is_locked'] ? 'normal_poll_locked' : 'normal_poll', '.gif" alt="" class="icon" /> ', $txt['poll'], '</span>
 					</h3>
 				</div>
@@ -96,7 +96,7 @@ function template_main()
 			echo '
 							</ul>
 							<div class="submitbutton">
-								<input type="submit" value="', $txt['poll_vote'], '" class="button_submit" />
+								<input type="submit" value="', $txt['poll_vote'], '" class="btn btn-default" />
 								<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
 							</div>
 						</form>';
@@ -824,7 +824,7 @@ function template_main()
 									<input type="hidden" name="topic" value="' . $context['current_topic'] . '" />
 									<input type="hidden" name="msg" value="%msg_id%" />
 									<div class="righttext">
-										<input type="submit" name="post" value="' . $txt['save'] . '" tabindex="' . $context['tabindex']++ . '" onclick="return oQuickModify.modifySave(\'' . $context['session_id'] . '\', \'' . $context['session_var'] . '\');" accesskey="s" class="button_submit" />&nbsp;&nbsp;' . ($context['show_spellchecking'] ? '<input type="button" value="' . $txt['spell_check'] . '" tabindex="' . $context['tabindex']++ . '" onclick="spellCheck(\'quickModForm\', \'message\');" class="button_submit" />&nbsp;&nbsp;' : '') . '<input type="submit" name="cancel" value="' . $txt['modify_cancel'] . '" tabindex="' . $context['tabindex']++ . '" onclick="return oQuickModify.modifyCancel();" class="button_submit" />
+										<input type="submit" name="post" value="' . $txt['save'] . '" tabindex="' . $context['tabindex']++ . '" onclick="return oQuickModify.modifySave(\'' . $context['session_id'] . '\', \'' . $context['session_var'] . '\');" accesskey="s" class="btn btn-default" />&nbsp;&nbsp;' . ($context['show_spellchecking'] ? '<input type="button" value="' . $txt['spell_check'] . '" tabindex="' . $context['tabindex']++ . '" onclick="spellCheck(\'quickModForm\', \'message\');" class="btn btn-default" />&nbsp;&nbsp;' : '') . '<input type="submit" name="cancel" value="' . $txt['modify_cancel'] . '" tabindex="' . $context['tabindex']++ . '" onclick="return oQuickModify.modifyCancel();" class="btn btn-default" />
 									</div>
 								</div>'), ',
 							sTemplateSubjectEdit: ', JavaScriptEscape('<input type="text" style="width: 90%;" name="subject" value="%subject%" size="80" maxlength="80" tabindex="' . $context['tabindex']++ . '" class="input_text" />'), ',

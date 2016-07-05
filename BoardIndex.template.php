@@ -291,7 +291,7 @@ function template_info_center()
 	// This is the "Recent Posts" bar.
 	if (!empty($settings['number_recent_posts']) && (!empty($context['latest_posts']) || !empty($context['latest_post'])))
 	{
-		echo '<div class="col-xs-6 col-md-4">
+		echo '<div class="col-xs-12 col-md-4">
 		 <div class="list-group">
 			 <div class="list-group-item list-group-item-default">
 				<h4 class="panel-title">
@@ -338,12 +338,13 @@ function template_info_center()
 		echo '
 			</div></div>';
 	}
-	echo'<div class="col-xs-6 col-md-8">';
+	echo'<div class="',!empty($settings['number_recent_posts'])? 'col-xs-12 col-md-8': 'col-xs-12 col-md-12',' fix-padding">';
 
 	// Show information about events, birthdays, and holidays on the calendar.
-	//if ($context['show_calendar'])
-	//{
+		if ($context['show_calendar'])
+		{
 		echo '
+		<div class="',!empty($settings['number_recent_posts'])? 'col-xs-12 col-md-12': 'col-xs-12 col-md-12','">
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				<h4>
@@ -383,33 +384,36 @@ function template_info_center()
 					', $event['can_edit'] ? '<a href="' . $event['modify_href'] . '" title="' . $txt['calendar_edit'] . '"><img src="' . $settings['images_url'] . '/icons/modify_small.gif" alt="*" /></a> ' : '', $event['href'] == '' ? '' : '<a href="' . $event['href'] . '">', $event['is_today'] ? '<strong>' . $event['title'] . '</strong>' : $event['title'], $event['href'] == '' ? '' : '</a>', $event['is_last'] ? '<br />' : ', ';
 		}
 		echo '
-			</span></div>';
-	//}
+			</span></div></div>';
+		}
 
 	// Show statistical style information...
-	//if ($settings['show_stats_index'])
-	//{
-		echo '
-		<div class="panel panel-default">
-			<div class="panel-heading">
-				<h4>
-					<span class="ie6_header floatleft">
-						<a href="', $scripturl, '?action=stats"><span class="glyphicon glyphicon-stats" aria-hidden="true"></span></a>
-						', $txt['forum_stats'], '
-					</span>
-				</h4>
-			</div>
-			<div class="panel-body">
-				', $context['common_stats']['total_posts'], ' ', $txt['posts_made'], ' ', $txt['in'], ' ', $context['common_stats']['total_topics'], ' ', $txt['topics'], ' ', $txt['by'], ' ', $context['common_stats']['total_members'], ' ', $txt['members'], '. ', !empty($settings['show_latest_member']) ? $txt['latest_member'] . ': <strong> ' . $context['common_stats']['latest_member']['link'] . '</strong>' : '', '<br />
-				', (!empty($context['latest_post']) ? $txt['latest_post'] . ': <strong>&quot;' . $context['latest_post']['link'] . '&quot;</strong>  ( ' . $context['latest_post']['time'] . ' )<br />' : ''), '
-				<a href="', $scripturl, '?action=recent">', $txt['recent_view'], '</a>', $context['show_stats'] ? '<br />
-				<a href="' . $scripturl . '?action=stats">' . $txt['more_stats'] . '</a>' : '', '
-			</div>
+	if ($settings['show_stats_index'])
+	{
+		echo '<div class="',!empty($settings['number_recent_posts'])? 'col-xs-12 col-md-12': 'col-xs-12 col-md-6','">
+
+				<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4>
+						<span class="ie6_header floatleft">
+							<a href="', $scripturl, '?action=stats"><span class="glyphicon glyphicon-stats" aria-hidden="true"></span></a>
+							', $txt['forum_stats'], '
+						</span>
+					</h4>
+				</div>
+				<div class="panel-body">
+					', $context['common_stats']['total_posts'], ' ', $txt['posts_made'], ' ', $txt['in'], ' ', $context['common_stats']['total_topics'], ' ', $txt['topics'], ' ', $txt['by'], ' ', $context['common_stats']['total_members'], ' ', $txt['members'], '. ', !empty($settings['show_latest_member']) ? $txt['latest_member'] . ': <strong> ' . $context['common_stats']['latest_member']['link'] . '</strong>' : '', '<br />
+					', (!empty($context['latest_post']) ? $txt['latest_post'] . ': <strong>&quot;' . $context['latest_post']['link'] . '&quot;</strong>  ( ' . $context['latest_post']['time'] . ' )<br />' : ''), '
+					<a href="', $scripturl, '?action=recent">', $txt['recent_view'], '</a>', $context['show_stats'] ? '<br />
+					<a href="' . $scripturl . '?action=stats">' . $txt['more_stats'] . '</a>' : '', '
+				</div>
+				</div>
 			</div>';
-	//}
+	}
 
 	// "Users online" - in order of activity.
-	echo '<div class="panel  panel-default">
+	echo '<div class="',!empty($settings['number_recent_posts'])? 'col-xs-12 col-md-12': 'col-xs-12 col-md-6','">
+		<div class="panel panel-default">
 			<div class="panel-heading">
 				<h4 class="titlebg">
 					<span class="ie6_header floatleft">
@@ -453,12 +457,13 @@ function template_info_center()
 			<p class="last smalltext">
 				', $txt['most_online_today'], ': <strong>', comma_format($modSettings['mostOnlineToday']), '</strong>.
 				', $txt['most_online_ever'], ': ', comma_format($modSettings['mostOnline']), ' (', timeformat($modSettings['mostDate']), ')
-			</p></div></div>';
+			</p></div></div></div>';
 
 	// If they are logged in, but statistical information is off... show a personal message bar.
-	//if ($context['user']['is_logged'] && !$settings['show_stats_index'])
-	//{
+		if ($context['user']['is_logged'] && !$settings['show_stats_index'])
+		{
 		echo '
+		<div class="',!empty($settings['number_recent_posts'])? 'col-xs-12 col-md-12': 'col-xs-12 col-md-12','">
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				<h4>
@@ -473,8 +478,8 @@ function template_info_center()
 				<span class="smalltext">
 					', $txt['you_have'], ' ', comma_format($context['user']['messages']), ' ', $context['user']['messages'] == 1 ? $txt['message_lowercase'] : $txt['msg_alert_messages'], '.... ', $txt['click'], ' <a href="', $scripturl, '?action=pm">', $txt['here'], '</a> ', $txt['to_view'], '
 				</span>
-			</div></div>';
-	//}
+			</div></div></div>';
+		}
 
 	echo '</div>
 		</div>

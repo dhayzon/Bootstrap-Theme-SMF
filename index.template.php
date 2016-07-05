@@ -257,7 +257,7 @@ function template_body_above()
 	 					</div>					
 					</div>
 					<div class="col-xs-12 col-md-12 form-inline">
-					<select name="cookielength" class="form-control">
+					<select class="form-control" name="cookielength" class="form-control">
 						<option value="60">', $txt['one_hour'], '</option>
 						<option value="1440">', $txt['one_day'], '</option>
 						<option value="10080">', $txt['one_week'], '</option>

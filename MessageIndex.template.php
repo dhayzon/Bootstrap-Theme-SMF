@@ -344,7 +344,7 @@ function template_main()
 				<div class="panel-body">
 					<div  class="input-group">
 					<div class="col-xs-4 col-sm-6">
-						<select class="form-control sfix"  name="qaction"', $context['can_move'] ? ' onchange="this.form.moveItTo.disabled = (this.options[this.selectedIndex].value != \'move\');"' : '', ' style="widht:50%">
+						<select class="form-control" class="form-control sfix"  name="qaction"', $context['can_move'] ? ' onchange="this.form.moveItTo.disabled = (this.options[this.selectedIndex].value != \'move\');"' : '', ' style="widht:50%">
 							<option value="">--------</option>', $context['can_remove'] ? '
 							<option value="remove">' . $txt['quick_mod_remove'] . '</option>' : '', $context['can_lock'] ? '
 							<option value="lock">' . $txt['quick_mod_lock'] . '</option>' : '', $context['can_sticky'] ? '
@@ -362,7 +362,7 @@ function template_main()
 			{
 					echo '
 					<div class="col-xs-8  col-sm-6">
-						<select class="form-control sfix"  id="moveItTo" name="move_to" disabled="disabled" style="widht:50%">';
+						<select class="form-control" class="form-control sfix"  id="moveItTo" name="move_to" disabled="disabled" style="widht:50%">';
 
 					foreach ($context['move_to_boards'] as $category)
 					{

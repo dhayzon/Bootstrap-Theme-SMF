@@ -110,7 +110,7 @@ function template_main()
 	echo '
 			<div id="preview_section"', isset($context['preview_message']) ? '' : ' style="display: none;"', '>
 				<div class="cat_bar">
-					<h3 class="catbg">
+					<h3>
 						<span id="preview_subject">', empty($context['preview_subject']) ? '' : $context['preview_subject'], '</span>
 					</h3>
 				</div>
@@ -132,7 +132,7 @@ function template_main()
 	// Start the main table.
 	echo '
 			<div class="cat_bar">
-				<h3 class="catbg">', $context['page_title'], '</h3>
+				<h3>', $context['page_title'], '</h3>
 			</div>
 			<div>
 				<span class="upperframe"><span></span></span>
@@ -205,7 +205,7 @@ function template_main()
 							', $txt['message_icon'], ':
 						</dt>
 						<dd>
-							<select name="icon" id="icon" onchange="showimage()">';
+							<select class="form-control" name="icon" id="icon" onchange="showimage()">';
 
 	// Loop through each message icon allowed, adding it to the drop down list.
 	foreach ($context['icons'] as $icon)
@@ -228,7 +228,7 @@ function template_main()
 							<input type="text" name="evtitle" maxlength="255" size="60" value="', $context['event']['title'], '" tabindex="', $context['tabindex']++, '" class="input_text" />
 							<div class="smalltext">
 								<input type="hidden" name="calendar" value="1" />', $txt['calendar_year'], '
-								<select name="year" id="year" tabindex="', $context['tabindex']++, '" onchange="generateDays();">';
+								<select class="form-control" name="year" id="year" tabindex="', $context['tabindex']++, '" onchange="generateDays();">';
 
 		// Show a list of all the years we allow...
 		for ($year = $modSettings['cal_minyear']; $year <= $modSettings['cal_maxyear']; $year++)
@@ -238,7 +238,7 @@ function template_main()
 		echo '
 								</select>
 								', $txt['calendar_month'], '
-								<select name="month" id="month" onchange="generateDays();">';
+								<select class="form-control" name="month" id="month" onchange="generateDays();">';
 
 		// There are 12 months per year - ensure that they all get listed.
 		for ($month = 1; $month <= 12; $month++)
@@ -248,7 +248,7 @@ function template_main()
 		echo '
 								</select>
 								', $txt['calendar_day'], '
-								<select name="day" id="day">';
+								<select class="form-control" name="day" id="day">';
 
 		// This prints out all the days in the current month - this changes dynamically as we switch months.
 		for ($day = 1; $day <= $context['event']['last_day']; $day++)
@@ -274,7 +274,7 @@ function template_main()
 				echo '
 									<li>
 										', $txt['calendar_numb_days'], '
-										<select name="span">';
+										<select class="form-control" name="span">';
 
 				for ($days = 1; $days <= $modSettings['cal_maxspan']; $days++)
 					echo '
@@ -291,7 +291,7 @@ function template_main()
 				echo '
 									<li>
 										', $txt['calendar_post_in'], '
-										<select name="board">';
+										<select class="form-control" name="board">';
 				foreach ($context['event']['categories'] as $category)
 				{
 					echo '
@@ -531,7 +531,7 @@ function template_main()
 	// Option to delete an event if user is editing one.
 	if ($context['make_event'] && !$context['event']['new'])
 		echo '
-						<input type="submit" name="deleteevent" value="', $txt['event_delete'], '" onclick="return confirm(\'', $txt['event_delete_confirm'], '\');" class="button_submit" />';
+						<input type="submit" name="deleteevent" value="', $txt['event_delete'], '" onclick="return confirm(\'', $txt['event_delete_confirm'], '\');" class="btn btn-default" />';
 
 	echo '
 					</p>
@@ -782,7 +782,7 @@ function template_main()
 		echo '
 		<div id="recent" class="flow_hidden main_section">
 			<div class="cat_bar">
-				<h3 class="catbg">', $txt['topic_summary'], '</h3>
+				<h3>', $txt['topic_summary'], '</h3>
 			</div>
 			<span id="new_replies"></span>';
 
@@ -934,15 +934,15 @@ function template_spellcheck()
 				</td>
 				<td width="50%">
 					', $txt['spellcheck_suggest'], '<br />
-					<select name="suggestions" style="width: 98%;" size="5" onclick="if (this.selectedIndex != -1) this.form.changeto.value = this.options[this.selectedIndex].text;" ondblclick="replaceWord();">
+					<select class="form-control" name="suggestions" style="width: 98%;" size="5" onclick="if (this.selectedIndex != -1) this.form.changeto.value = this.options[this.selectedIndex].text;" ondblclick="replaceWord();">
 					</select>
 				</td>
 			</tr></table>
 			<div class="righttext" style="padding: 4px;">
-				<input type="button" name="change" value="', $txt['spellcheck_change'], '" onclick="replaceWord();" class="button_submit" />
-				<input type="button" name="changeall" value="', $txt['spellcheck_change_all'], '" onclick="replaceAll();" class="button_submit" />
-				<input type="button" name="ignore" value="', $txt['spellcheck_ignore'], '" onclick="nextWord(false);" class="button_submit" />
-				<input type="button" name="ignoreall" value="', $txt['spellcheck_ignore_all'], '" onclick="nextWord(true);" class="button_submit" />
+				<input type="button" name="change" value="', $txt['spellcheck_change'], '" onclick="replaceWord();" class="btn btn-default" />
+				<input type="button" name="changeall" value="', $txt['spellcheck_change_all'], '" onclick="replaceAll();" class="btn btn-default" />
+				<input type="button" name="ignore" value="', $txt['spellcheck_ignore'], '" onclick="nextWord(false);" class="btn btn-default" />
+				<input type="button" name="ignoreall" value="', $txt['spellcheck_ignore_all'], '" onclick="nextWord(true);" class="btn btn-default" />
 			</div>
 		</form>
 	</body>
@@ -1008,7 +1008,7 @@ function template_announce()
 	<div id="announcement">
 		<form action="', $scripturl, '?action=announce;sa=send" method="post" accept-charset="', $context['character_set'], '">
 			<div class="cat_bar">
-				<h3 class="catbg">', $txt['announce_title'], '</h3>
+				<h3>', $txt['announce_title'], '</h3>
 			</div>
 			<div class="information">
 				', $txt['announce_desc'], '
@@ -1033,7 +1033,7 @@ function template_announce()
 						</li>
 					</ul>
 					<div id="confirm_buttons">
-						<input type="submit" value="', $txt['post'], '" class="button_submit" />
+						<input type="submit" value="', $txt['post'], '" class="btn btn-default" />
 						<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
 						<input type="hidden" name="topic" value="', $context['current_topic'], '" />
 						<input type="hidden" name="move" value="', $context['move'], '" />
@@ -1060,7 +1060,7 @@ function template_announcement_send()
 					<p>', $txt['announce_sending'], ' <a href="', $scripturl, '?topic=', $context['current_topic'], '.0" target="_blank" class="new_win">', $context['topic_subject'], '</a></p>
 					<p><strong>', $context['percentage_done'], '% ', $txt['announce_done'], '</strong></p>
 					<div id="confirm_buttons">
-						<input type="submit" name="b" value="', $txt['announce_continue'], '" class="button_submit" />
+						<input type="submit" name="b" value="', $txt['announce_continue'], '" class="btn btn-default" />
 						<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
 						<input type="hidden" name="topic" value="', $context['current_topic'], '" />
 						<input type="hidden" name="move" value="', $context['move'], '" />
