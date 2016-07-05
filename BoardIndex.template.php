@@ -151,7 +151,7 @@ function template_main()
 						</a>
 					</div><!--fix icon
 			    --><div class="col-xs-12 col-sm-6 info">
-						<a class="subject" href="', $board['href'], '" name="b', $board['id'], '">', $board['name'], '</a>';
+						<a class="subject" href="', $board['href'], '" id="b', $board['id'], '">', $board['name'], '</a>';
 
 				// Has it outstanding posts for approval?
 				if ($board['can_approve_posts'] && ($board['unapproved_posts'] || $board['unapproved_topics']))
@@ -239,7 +239,13 @@ function template_main()
 			);
 			// Show the mark all as read button?
 			if ($settings['show_mark_read'] && !empty($context['categories']))
-				echo '<div class="mark_read btn btn-default btn-sm pull-right">', template_button_strip($mark_read_button, ''), '</div>';
+				echo '<div class="dropdown pull-right">
+								<span  class="btn btn-default dropdown-toggle" id="dLabel"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+								 '.$txt['uOpciones'].'
+								<span class="caret"></span>
+								</span>
+							', template_button_strip($mark_read_button, ''), '
+					 </div>';
 
 			echo '
 			<ul class="list-inline">
@@ -298,7 +304,7 @@ function template_info_center()
 			<div id="recent_posts_content">
 				<div class="entry-title" style="display: none;">', $context['forum_name_html_safe'], ' - ', $txt['recent_posts'], '</div>
 				<div class="entry-content" style="display: none;">
-					<a rel="feedurl" href="', $scripturl, '?action=.xml;type=webslice">', $txt['subscribe_webslice'], '</a>
+					<a rel="author" href="', $scripturl, '?action=.xml;type=webslice">', $txt['subscribe_webslice'], '</a>
 				</div></div>';
 
 		// Only show one post.
