@@ -825,7 +825,6 @@ function template_main()
 			echo '
 					<div class="list_posts smalltext" id="msg_', $post['id'], '_body">', $post['message'], '</div>
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>';
 		}
 
@@ -1040,7 +1039,6 @@ function template_announce()
 						<input type="hidden" name="goback" value="', $context['go_back'], '" />
 					</div>
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 		</form>
 	</div>
@@ -1069,7 +1067,6 @@ function template_announcement_send()
 						<input type="hidden" name="membergroups" value="', $context['membergroups'], '" />
 					</div>
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 		</form>
 	</div>

@@ -208,7 +208,6 @@ function template_modify_subscription()
 						<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
 					</div>
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 		</form>
 	</div>
@@ -234,7 +233,6 @@ function template_delete_subscription()
 					<input type="submit" name="delete_confirm" value="', $txt['paid_delete_subscription'], '" class="btn btn-default" />
 					<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 		</form>
 	</div>
@@ -382,7 +380,6 @@ function template_modify_user_subscription()
 					</fieldset>
 					<input type="submit" name="save_sub" value="', $txt['paid_settings_save'], '" class="btn btn-default" />
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 			<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
 		</form>
@@ -521,7 +518,6 @@ function template_user_subscription()
 
 			echo '
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>';
 		}
 	}

@@ -93,7 +93,6 @@ function template_main()
 						<input type="submit" name="submit" value="' . $txt['save'] . '" class="btn btn-default" />
 					</div>
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 			<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
 		</form>';
@@ -168,7 +167,6 @@ function template_main()
 						<input type="submit" name="submit" value="', $txt['theme_install_go'], '" class="btn btn-default" />
 					</div>
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 			<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
 		</form>
@@ -254,7 +252,6 @@ function template_list_themes()
 						<dd>', $theme['images_url'], '</dd>
 					</dl>
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>';
 	}
 
@@ -284,7 +281,6 @@ function template_list_themes()
 					<input type="submit" name="submit" value="', $txt['themeadmin_list_reset_go'], '" class="btn btn-default" />
 					<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 
 		</form>
@@ -413,7 +409,6 @@ function template_set_options()
 						<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
 					</div>
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 		</form>
 	</div>
@@ -453,7 +448,6 @@ function template_set_settings()
 						</li>
 					</ul>
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>';
 
 	echo '
@@ -492,7 +486,6 @@ function template_set_settings()
 						</dd>
 					</dl>
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>';
 
 	// Do we allow theme variants?
@@ -531,7 +524,6 @@ function template_set_settings()
 					</dl>
 					<img src="', $context['theme_variants'][$context['default_variant']]['thumbnail'], '" id="variant_preview" alt="" />
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>';
 	}
 
@@ -623,7 +615,6 @@ function template_set_settings()
 						<input type="submit" name="submit" value="', $txt['save'], '" class="btn btn-default" />
 					</div>
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 			<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
 		</form>
@@ -713,7 +704,6 @@ function template_pick()
 						</li>
 					</ul>
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>';
 
 		if (!empty($theme['variants']))
@@ -1075,7 +1065,6 @@ function template_edit_style()
 						<input type="button" value="', $txt['themeadmin_edit_preview'], '" onclick="refreshPreview(false);" class="btn btn-default" />
 					</div>
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 			<input type="hidden" name="filename" value="', $context['edit_filename'], '" />
 			<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
@@ -1131,7 +1120,6 @@ function template_edit_template()
 						<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
 					</div>
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 		</form>
 	</div>';
@@ -1169,7 +1157,6 @@ function template_edit_file()
 					<input type="hidden" name="filename" value="', $context['edit_filename'], '" />
 					<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 
 		</form>

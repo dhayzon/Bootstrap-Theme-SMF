@@ -153,7 +153,6 @@ function template_modifyset()
 					</dl>
 					<input type="submit" value="', $txt['smiley_sets_save'], '" class="btn btn-default" />
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 			<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
 			<input type="hidden" name="set" value="', $context['current_set']['id'], '" />
@@ -241,7 +240,6 @@ function template_modifysmiley()
 					<input type="submit" value="', $txt['smileys_save'], '" class="btn btn-default" />
 					<input type="submit" name="deletesmiley" value="', $txt['smileys_delete'], '" onclick="return confirm(\'', $txt['smileys_delete_confirm'], '\');" class="btn btn-default" />
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 			<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
 			<input type="hidden" name="smiley" value="', $context['current_smiley']['id'], '" />
@@ -368,7 +366,6 @@ function template_addsmiley()
 	echo '
 					</dl>
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 			<br />
 			<div class="cat_bar">
@@ -409,7 +406,6 @@ function template_addsmiley()
 					</dl>
 					<input type="submit" value="', $txt['smileys_save'], '" class="btn btn-default" />
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 			<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
 		</form>
@@ -469,7 +465,6 @@ function template_setorder()
 					<a href="', $scripturl, '?action=admin;area=smileys;sa=setorder;location=', $location['id'], ';source=', $context['move_smiley'], ';row=', $location['last_row'], ';reorder=1;', $context['session_var'], '=', $context['session_id'], '"><img src="', $settings['images_url'], '/smiley_select_spot.gif" alt="', $txt['smileys_move_here'], '" /></a>';
 		echo '
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 		<input type="hidden" name="reorder" value="1" />
 	</form>
@@ -573,7 +568,6 @@ function template_editicon()
 					<input type="submit" value="', $txt['smileys_save'], '" class="btn btn-default" />
 					<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 		</form>
 	</div>

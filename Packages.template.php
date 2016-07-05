@@ -64,7 +64,6 @@ function template_view_package()
 						</select>
 					</span>
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 			<br />';
 	}
@@ -96,7 +95,6 @@ function template_view_package()
 						</ul>
 					</div>
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>';
 	}
 
@@ -2111,7 +2109,6 @@ function template_action_permissions()
 						<input type="submit" name="go" id="cont" value="', $txt['not_done_continue'], '" class="btn btn-default" />
 					</div>
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 		</form>
 	</div>

@@ -43,7 +43,6 @@ function template_ask()
 						<input type="submit" value="', $txt['split'], '" class="btn btn-default" />
 					</div>
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 			<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
 		</form>
@@ -271,7 +270,6 @@ function template_merge_done()
 						</li>
 					</ul>
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 		</div>
 	<br class="clear" />';
@@ -339,7 +337,6 @@ function template_merge()
 		echo '
 					</dl>
 				</div>
-				<span class="botslice"><span></span></span>
 			</div><br />
 			<div class="cat_bar">
 				<h3>', $txt['target_topic'], '</h3>
@@ -364,7 +361,6 @@ function template_merge()
 		echo '
 					</ul>
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 			<div class="pagesection">
 				<strong>', $txt['pages'], ':</strong> ', $context['page_index'], '
@@ -476,7 +472,6 @@ function template_merge_extra_options()
 					<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
 					<input type="hidden" name="sa" value="execute" /><br class="clear" />
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 		</form>
 	</div>

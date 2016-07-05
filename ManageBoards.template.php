@@ -100,7 +100,6 @@ function template_main()
 						<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
 					</div>
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 		</form>';
 	}
@@ -183,7 +182,6 @@ function template_modify_category()
 	echo '
 					</div>
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 		</form>
 	</div>
@@ -216,7 +214,6 @@ function template_confirm_category_delete()
 	echo '
 					</ul>
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 			<div class="cat_bar">
 				<h3>', $txt['mboards_delete_what_do'], '</h3>
@@ -242,7 +239,6 @@ function template_confirm_category_delete()
 					<input type="hidden" name="confirmation" value="1" />
 					<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 		</form>
 	</div>
@@ -507,7 +503,6 @@ function template_modify_board()
 					<span', $context['board']['is_recycle'] ? ' style="visibility:hidden">' : '>', '<input type="submit" name="delete" value="', $txt['mboards_delete_board'], '" onclick="return confirm(\'', $txt['boardConfirm'], '\');"', ' class="btn btn-default" /></span>';
 	echo '
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 		</form>
 	</div>
@@ -597,7 +592,6 @@ function template_confirm_board_delete()
 	echo '
 						</ul>
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 			<div class="cat_bar">
 				<h3>', $txt['mboards_delete_what_do'], '</h3>
@@ -623,7 +617,6 @@ function template_confirm_board_delete()
 					<input type="hidden" name="confirmation" value="1" />
 					<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 		</form>
 	</div>

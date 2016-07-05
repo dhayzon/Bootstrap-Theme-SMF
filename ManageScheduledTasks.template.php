@@ -85,7 +85,6 @@ function template_edit_scheduled_tasks()
 						<input type="submit" name="save" value="', $txt['scheduled_tasks_save_changes'], '" class="btn btn-default" />
 					</div>
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 		</form>
 	</div>

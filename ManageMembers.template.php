@@ -318,7 +318,6 @@ function template_admin_browse()
 					<input type="hidden" name="sa" value="approve" />', !empty($context['approve_list']['sort']['desc']) ? '
 					<input type="hidden" name="desc" value="1" />' : '', '
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 			<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
 		</form>';

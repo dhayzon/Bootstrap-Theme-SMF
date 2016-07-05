@@ -136,7 +136,6 @@ function template_new_group()
 						<input type="submit" value="', $txt['membergroups_add_group'], '" class="btn btn-default" />
 					</div>
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>';
 	if ($context['undefined_group'])
 	{
@@ -329,7 +328,6 @@ function template_edit_group()
 						<input type="submit" name="delete" value="' . $txt['membergroups_delete'] . '" onclick="return confirm(\'' . $txt['membergroups_confirm_delete'] . '\');" class="btn btn-default" />' : '', '
 					</div>
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 			<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
 		</form>
@@ -442,7 +440,6 @@ function template_group_members()
 	echo '
 					</dl>
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 
 			<br />
@@ -536,7 +533,6 @@ function template_group_members()
 					<div id="toAddItemContainer"></div>
 					<input type="submit" name="add" value="', $txt['membergroups_members_add'], '" class="btn btn-default" />
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>';
 	}
 
@@ -600,7 +596,6 @@ function template_group_request_reason()
 					<input type="hidden" name="req_action" value="got_reason" />
 					<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 		</form>
 	</div>

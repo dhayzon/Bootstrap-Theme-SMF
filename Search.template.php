@@ -363,7 +363,6 @@ function template_results()
 
 			echo '
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 		</div>';
 

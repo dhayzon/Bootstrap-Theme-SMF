@@ -94,7 +94,6 @@ function template_main()
 						<input type="submit" name="send" value="', $txt['sendtopic_send'], '" class="btn btn-default" />
 					</div>
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 			<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
 		</form>
@@ -184,7 +183,6 @@ function template_custom_email()
 						<input type="submit" name="send" value="', $txt['sendtopic_send'], '" class="btn btn-default" />
 					</div>
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>';
 
 	foreach ($context['form_hidden_vars'] as $key => $value)

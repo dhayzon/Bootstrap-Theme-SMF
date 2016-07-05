@@ -75,7 +75,6 @@ function template_main()
 						</div>
 					</div>
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>';
 
 	if ($context['back_to_topic'])

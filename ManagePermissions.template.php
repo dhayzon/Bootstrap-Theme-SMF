@@ -188,7 +188,6 @@ function template_permission_index()
 						<input type="submit" value="', $txt['permissions_set_permissions'], '" onclick="return checkSubmit();" class="btn btn-default" />
 					</div>
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>';
 
 		// Javascript for the advanced stuff.
@@ -450,7 +449,6 @@ function template_edit_profiles()
 						<input type="submit" name="create" value="', $txt['permissions_profile_new_create'], '" class="btn btn-default" />
 					</div>
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 		</form>
 	</div>
@@ -513,7 +511,6 @@ function template_modify_group()
 					', $txt['permissions_change_view'], ': ', ($context['view_type'] == 'simple' ? '<img src="' . $settings['images_url'] . '/selected.gif" alt="*" />' : ''), '<a href="', $scripturl, '?action=admin;area=permissions;sa=modify;group=', $context['group']['id'], ($context['permission_type'] == 'board' ? ';pid=' . $context['profile']['id'] : ''), ';view=simple">', $txt['permissions_view_simple'], '</a> |
 					', ($context['view_type'] == 'classic' ? '<img src="' . $settings['images_url'] . '/selected.gif" alt="*" />' : ''), '<a href="', $scripturl, '?action=admin;area=permissions;sa=modify;group=', $context['group']['id'], ($context['permission_type'] == 'board' ? ';pid=' . $context['profile']['id'] : ''), ';view=classic">', $txt['permissions_view_classic'], '</a>
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 			<div class="flow_hidden">';
 
@@ -1006,7 +1003,6 @@ function template_modify_group_classic($type)
 	echo '
 				<br class="clear" />
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>';
 }
 

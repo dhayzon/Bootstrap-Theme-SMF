@@ -83,7 +83,6 @@ function template_modify_weights()
 					<input type="submit" name="save" value="', $txt['search_weights_save'], '" class="button_submit floatright" />
 					<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" /><br class="clear" />
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 		</form>
 	</div>
@@ -262,7 +261,6 @@ function template_create_index()
 					<input type="submit" name="save" value="', $txt['search_create_index_start'], '" class="btn btn-default" />
 					<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 
 	</form>
@@ -290,7 +288,6 @@ function template_create_index_progress()
 					</p>
 					<input type="submit" name="b" value="', $txt['search_create_index_continue'], '" class="btn btn-default" />
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 			<input type="hidden" name="step" value="', $context['step'], '" />
 			<input type="hidden" name="start" value="', $context['start'], '" />
@@ -383,7 +380,6 @@ function template_spider_edit()
 					<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
 					<input type="submit" name="save" value="', $context['page_title'], '" class="btn btn-default" />
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 		</form>
 	</div>
@@ -418,7 +414,6 @@ function template_show_spider_logs()
 					<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
 					<input type="submit" name="delete_entries" value="', $txt['spider_logs_delete_submit'], '" onclick="if (document.getElementById(\'older\').value &lt; 1 &amp;&amp; !confirm(\'' . addcslashes($txt['spider_logs_delete_confirm'], "'") . '\')) return false; return true;" class="btn btn-default" />
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 		</form>
 	</div>

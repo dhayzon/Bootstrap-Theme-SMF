@@ -851,7 +851,6 @@ function template_search_results()
 				echo '
 					</p>
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>';
 		}
 		// Otherwise just a simple list!
@@ -915,7 +914,6 @@ function template_send()
 						echo '<span class="error">', $log_entry, '</span><br />';
 				echo '
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 			<br />';
 	}

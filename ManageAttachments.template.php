@@ -199,7 +199,6 @@ function template_attachment_repair()
 					<input type="submit" value="', $txt['repair_attachments_continue'], '" class="btn btn-default" />
 					<input type="submit" name="cancel" value="', $txt['repair_attachments_cancel'], '" class="btn btn-default" />
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 		</form>
 	</div>

@@ -645,7 +645,6 @@ function template_edit_censored()
 					</dl>
 					<input type="submit" name="save_censor" value="', $txt['save'], '" class="btn btn-default" />
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>';
 
 	// This table lets you test out your filters by typing in rude words and seeing what comes out.
@@ -663,7 +662,6 @@ function template_edit_censored()
 						<input type="submit" value="', $txt['censor_test_save'], '" class="btn btn-default" />
 					</p>
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 
 			<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
@@ -802,7 +800,6 @@ function template_show_settings()
 				echo '
 					</dl>
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>';
 			}
 
@@ -976,7 +973,6 @@ function template_show_settings()
 	if ($is_open)
 		echo '
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>';
 
 	echo '
@@ -1254,7 +1250,6 @@ function template_edit_profile_field()
 	echo '
 					</div>
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 			<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
 		</form>
@@ -1467,7 +1462,6 @@ function template_add_language()
 						<input type="submit" name="smf_add_sub" value="', $txt['search'], '" class="btn btn-default" />
 					</div>
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 		';
 
@@ -1563,7 +1557,6 @@ function template_download_language()
 						', $txt['languages_download_info'], '
 					</div>
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>';
 
 	// Show the main files.
@@ -1683,7 +1676,6 @@ function template_download_language()
 						</dd>
 					</dl>
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>';
 	}
 
@@ -1807,7 +1799,6 @@ function template_modify_language_entries()
 	echo '
 					</div>
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 		</form>
 
@@ -1902,7 +1893,6 @@ function template_modify_language_entries()
 
 		echo '
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>';
 	}
 	echo '

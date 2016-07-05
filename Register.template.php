@@ -211,7 +211,6 @@ function template_registration_form()
 
 	echo '
 				</fieldset>
-				<span class="botslice"><span></span></span>
 			</div>';
 
 	// If we have either of these, show the extra group.
@@ -326,7 +325,6 @@ function template_registration_form()
 		echo '
 					</dl>
 				</fieldset>
-				<span class="botslice"><span></span></span>
 			</div>';
 	}
 
@@ -341,7 +339,6 @@ function template_registration_form()
 				<fieldset class="content centertext">
 					', template_control_verification($context['visual_verification_id'], 'all'), '
 				</fieldset>
-				<span class="botslice"><span></span></span>
 			</div>';
 	}
 
@@ -382,7 +379,6 @@ function template_after()
 			<div class="windowbg">
 				
 				<p class="content">', $context['description'], '</p>
-				<span class="botslice"><span></span></span>
 			</div>
 		</div>';
 }
@@ -434,7 +430,6 @@ function template_coppa()
 	}
 	echo '
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>';
 }
 

@@ -408,7 +408,6 @@ function template_showPosts()
 
 			echo '
 				<br class="clear" />
-				<span class="botslice"><span></span></span>
 			</div>
 		</div>';
 		}
@@ -704,7 +703,6 @@ function template_trackActivity()
 						</dd>
 					</dl>
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 		<br />';
 
@@ -747,7 +745,6 @@ function template_trackIP()
 					<a href="', $server['url'], '" target="_blank" class="new_win"', isset($context['auto_whois_server']) && $context['auto_whois_server']['name'] == $server['name'] ? ' style="font-weight: bold;"' : '', '>', $server['name'], '</a><br />';
 			echo '
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 		<br />';
 	}
@@ -982,7 +979,6 @@ function template_statPanel()
 						<dd>', $context['num_votes'], ' ', $txt['statPanel_votes'], '</dd>
 					</dl>
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 		</div>';
 
@@ -1030,7 +1026,6 @@ function template_statPanel()
 	echo '
 					<span class="clear" />
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 		</div>';
 
@@ -1329,7 +1324,6 @@ function template_edit_options()
 						<input type="hidden" name="sa" value="', $context['menu_item_selected'], '" />
 					</div>
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 			<br />
 		</form>';
@@ -1641,7 +1635,6 @@ function template_notification()
 						</div><br class="clear" />
 					</form>
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 			<br />';
 
@@ -2382,7 +2375,6 @@ function template_deleteAccount()
 	}
 	echo '
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 			<br />
 		</form>';
@@ -2924,7 +2916,6 @@ echo '
 						<input type="submit" value="', $txt['change_profile'], '" class="btn btn-default" />
 					</div>
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 		</form>';
 

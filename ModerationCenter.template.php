@@ -242,7 +242,6 @@ function template_notes()
 					</div>
 					<br class="clear" />
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 			<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
 		</form>';
@@ -446,7 +445,6 @@ function template_unapproved_attachments()
 				<div class="content">
 					<p class="centertext">', $txt['mc_unapproved_attachments_none_found'], '</p>
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>';
 	else
 		echo '
@@ -553,7 +551,6 @@ function template_viewmodreport()
 				<div class="content">
 					', $context['report']['body'], '
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 			<br />
 			<div class="cat_bar">
@@ -568,7 +565,6 @@ function template_viewmodreport()
 					<p class="smalltext">', sprintf($txt['mc_modreport_whoreported_data'], $comment['member']['link'] . (empty($comment['member']['id']) && !empty($comment['member']['ip']) ? ' (' . $comment['member']['ip'] . ')' : ''), $comment['time']), '</p>
 					<p>', $comment['message'], '</p>
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>';
 
 	echo '
@@ -594,7 +590,6 @@ function template_viewmodreport()
 						<input type="submit" name="add_comment" value="', $txt['mc_modreport_add_mod_comment'], '" class="btn btn-default" />
 					</div>
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 			<br />';
 
@@ -757,7 +752,6 @@ function template_moderation_settings()
 						<input type="submit" name="save" value="', $txt['save'], '" class="btn btn-default" />
 					</div>
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 		</form>
 	</div>
@@ -849,7 +843,6 @@ function template_warn_template()
 	echo '
 					<input type="submit" name="save" value="', $context['page_title'], '" class="btn btn-default" />
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 			<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
 		</form>

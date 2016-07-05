@@ -172,7 +172,6 @@ function template_ban_edit()
 						</div>
 					</form>
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>';
 
 	if (!$context['ban']['is_new'] && empty($context['ban_suggestions']))
@@ -332,7 +331,6 @@ function template_ban_edit_trigger()
 						<input type="submit" name="', $context['ban_trigger']['is_new'] ? 'add_new_trigger' : 'edit_trigger', '" value="', $context['ban_trigger']['is_new'] ? $txt['ban_add_trigger_submit'] : $txt['ban_edit_trigger_submit'], '" class="btn btn-default" />
 					</div>
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 			<input type="hidden" name="bi" value="' . $context['ban_trigger']['id'] . '" />
 			<input type="hidden" name="bg" value="' . $context['ban_trigger']['group'] . '" />

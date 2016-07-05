@@ -127,7 +127,6 @@ function template_email_members()
 						</dd>
 					</dl><br class="clear" />
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 			<br />
 
@@ -196,7 +195,6 @@ function template_email_members()
 						</dd>
 					</dl><br class="clear" />
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 			<div class="righttext">
 				<input type="submit" value="', $txt['admin_next'], '" class="btn btn-default" />
@@ -275,7 +273,6 @@ function template_email_members_compose()
 						<input type="submit" value="', $txt['sendtopic_send'], '" class="btn btn-default" />
 					</p>
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 			<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
 			<input type="hidden" name="email_force" value="', $context['email_force'], '" />
@@ -328,7 +325,6 @@ function template_email_members_send()
 
 	echo '
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 		</form>
 	</div>
