@@ -24,7 +24,7 @@ function template_modify_weights()
 			<div class="cat_bar">
 				<h3>', $txt['search_weights'], '</h3>
 			</div>
-			<div class="windowbg">
+			<div class="panel-body">
 				
 				<div class="content">
 					<dl class="dl-horizontal">
@@ -121,7 +121,7 @@ function template_select_search_method()
 			<div class="information">
 				<div class="smalltext" style="font-weight: normal;"><a href="', $scripturl, '?action=helpadmin;help=search_why_use_index" onclick="return reqWin(this.href);">', $txt['search_create_index_why'], '</a></div>
 			</div>
-			<div class="windowbg">
+			<div class="panel-body">
 				
 				<div class="content">
 					<dl class="dl-horizontal">
@@ -247,7 +247,7 @@ function template_create_index()
 			<div class="cat_bar">
 				<h3>', $txt['search_create_index'], '</h3>
 			</div>
-			<div class="windowbg">
+			<div class="panel-body">
 				
 				<div class="content">
 					<dl class="dl-horizontal">
@@ -281,7 +281,7 @@ function template_create_index_progress()
 			<div class="cat_bar">
 				<h3>', $txt['search_create_index'], '</h3>
 			</div>
-			<div class="windowbg">
+			<div class="panel-body">
 				
 				<div class="content">
 					<p>
@@ -328,7 +328,7 @@ function template_create_index_done()
 		<div class="cat_bar">
 			<h3>', $txt['search_create_index'], '</h3>
 		</div>
-		<div class="windowbg">
+		<div class="panel-body">
 			
 			<div class="content">
 				<p>', $txt['search_create_index_done'], '</p>
@@ -355,7 +355,7 @@ function template_spider_edit()
 			<div class="information">
 				', $txt['add_spider_desc'], '
 			</div>
-			<div class="windowbg">
+			<div class="panel-body">
 				
 				<div class="content">
 					<dl class="dl-horizontal">
@@ -407,7 +407,7 @@ function template_show_spider_logs()
 			<h3>', $txt['spider_logs_delete'], '</h3>
 		</div>
 		<form action="', $scripturl, '?action=admin;area=sengines;sa=logs;', $context['session_var'], '=', $context['session_id'], '" method="post" accept-charset="', $context['character_set'], '">
-			<div class="windowbg">
+			<div class="panel-body">
 				
 				<div class="content">
 					<p>

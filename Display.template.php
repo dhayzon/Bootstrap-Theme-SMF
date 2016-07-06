@@ -22,7 +22,7 @@ function template_main()
 	if ($context['report_sent'])
 	{
 		echo '
-			<div class="windowbg" id="profile_success">
+			<div class="panel-body" id="profile_success">
 				', $txt['report_sent'], '
 			</div>';
 	}
@@ -42,7 +42,7 @@ function template_main()
 						<span class="ie6_header floatleft"><img src="', $settings['images_url'], '/topic/', $context['poll']['is_locked'] ? 'normal_poll_locked' : 'normal_poll', '.gif" alt="" class="icon" /> ', $txt['poll'], '</span>
 					</h3>
 				</div>
-				<div class="windowbg">
+				<div class="panel-body">
 					
 					<div class="content" id="poll_options">
 						<h4 id="pollquestion">
@@ -139,10 +139,10 @@ function template_main()
 	{
 		echo '
 			<div class="linked_events">
-				<div class="title_bar">
+				<div class="panel panel-danger">
 					<h3 class="titlebg headerpadding">', $txt['calendar_linked_events'], '</h3>
 				</div>
-				<div class="windowbg">
+				<div class="panel-body">
 					
 					<div class="content">
 						<ul class="reset">';

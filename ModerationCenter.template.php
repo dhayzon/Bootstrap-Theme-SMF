@@ -63,7 +63,7 @@ function template_latest_news()
 				<span class="ie6_header floatleft"><a href="', $scripturl, '?action=helpadmin;help=live_news" onclick="return reqWin(this.href);" class="help"><img src="', $settings['images_url'], '/helptopics.gif" alt="', $txt['help'], '" class="icon" /></a> ', $txt['mc_latest_news'], '</span>
 			</h3>
 		</div>
-		<div class="windowbg">
+		<div class="panel-body">
 			
 			<div class="content">
 				<div id="smfAnnouncements" class="smalltext">', $txt['mc_cannot_connect_sm'], '</div>
@@ -110,7 +110,7 @@ function template_group_requests_block()
 				<a href="', $scripturl, '?action=groups;sa=requests">', $txt['mc_group_requests'], '</a>
 			</h3>
 		</div>
-		<div class="windowbg">
+		<div class="panel-body">
 			
 			<div class="content modbox">
 				<ul class="reset">';
@@ -146,7 +146,7 @@ function template_reported_posts_block()
 				<a href="', $scripturl, '?action=moderate;area=reports">', $txt['mc_recent_reports'], '</a>
 			</h3>
 		</div>
-		<div class="windowbg">
+		<div class="panel-body">
 			
 			<div class="content modbox">
 				<ul class="reset">';
@@ -181,7 +181,7 @@ function template_watched_users()
 				<a href="', $scripturl, '?action=moderate;area=userwatch">', $txt['mc_watched_users'], '</a>
 			</h3>
 		</div>
-		<div class="windowbg">
+		<div class="panel-body">
 			
 			<div class="content modbox">
 				<ul class="reset">';
@@ -216,7 +216,7 @@ function template_notes()
 			<div class="cat_bar">
 				<h3>', $txt['mc_notes'], '</h3>
 			</div>
-			<div class="windowbg">
+			<div class="panel-body">
 				
 				<div class="content modbox">';
 
@@ -310,7 +310,7 @@ function template_reported_posts()
 	// Were none found?
 	if (empty($context['reports']))
 		echo '
-		<div class="windowbg2">
+		<div class="panel-body">
 			
 			<div class="content">
 				<p class="centertext">', $txt['mc_reportedp_none_found'], '</p>
@@ -352,7 +352,7 @@ function template_unapproved_posts()
 	// No posts?
 	if (empty($context['unapproved_items']))
 		echo '
-		<div class="windowbg2">
+		<div class="panel-body">
 			
 			<div class="content">
 				<p class="centertext">', $txt['mc_unapproved_' . $context['current_view'] . '_none_found'], '</p>
@@ -444,7 +444,7 @@ function template_unapproved_attachments()
 	// None awaiting?
 	if (empty($context['unapproved_items']))
 		echo '
-			<div class="windowbg">
+			<div class="panel-body">
 				
 				<div class="content">
 					<p class="centertext">', $txt['mc_unapproved_attachments_none_found'], '</p>
@@ -535,8 +535,8 @@ function template_viewmodreport()
 					', sprintf($txt['mc_viewmodreport'], $context['report']['message_link'], $context['report']['author']['link']), '
 				</h3>
 			</div>
-			<div class="title_bar">
-				<h3 class="titlebg">
+			<div class="panel panel-danger">
+				<h3 class="panel-heading">
 					<span class="floatleft">
 						', sprintf($txt['mc_modreport_summary'], $context['report']['num_reports'], $context['report']['last_updated']), '
 					</span>
@@ -553,7 +553,7 @@ function template_viewmodreport()
 					</span>
 				</h3>
 			</div>
-			<div class="windowbg2">
+			<div class="panel-body">
 				
 				<div class="content">
 					', $context['report']['body'], '
@@ -566,7 +566,7 @@ function template_viewmodreport()
 
 	foreach ($context['report']['comments'] as $comment)
 		echo '
-			<div class="windowbg">
+			<div class="panel-body">
 				
 				<div class="content">
 					<p class="smalltext">', sprintf($txt['mc_modreport_whoreported_data'], $comment['member']['link'] . (empty($comment['member']['id']) && !empty($comment['member']['ip']) ? ' (' . $comment['member']['ip'] . ')' : ''), $comment['time']), '</p>
@@ -579,7 +579,7 @@ function template_viewmodreport()
 			<div class="cat_bar">
 				<h3>', $txt['mc_modreport_mod_comments'], '</h3>
 			</div>
-			<div class="windowbg2">
+			<div class="panel-body">
 				
 				<div class="content">';
 
@@ -704,7 +704,7 @@ function template_moderation_settings()
 			<div class="information">
 				', $txt['mc_prefs_desc'], '
 			</div>
-			<div class="windowbg2">
+			<div class="panel-body">
 				
 				<div class="content">
 					<dl class="dl-horizontal">
@@ -785,10 +785,10 @@ function template_show_notice()
 		<div class="cat_bar">
 			<h3>', $txt['show_notice'], '</h3>
 		</div>
-		<div class="title_bar">
-			<h3 class="titlebg">', $txt['show_notice_subject'], ': ', $context['notice_subject'], '</h3>
+		<div class="panel panel-danger">
+			<h3 class="panel-heading">', $txt['show_notice_subject'], ': ', $context['notice_subject'], '</h3>
 		</div>
-		<div class="windowbg">
+		<div class="panel-body">
 			
 			<div class="content">
 				<dl>
@@ -821,7 +821,7 @@ function template_warn_template()
 			<div class="information">
 				', $txt['mc_warning_template_desc'], '
 			</div>
-			<div class="windowbg">
+			<div class="panel-body">
 				
 				<div class="content">
 					<dl class="dl-horizontal">

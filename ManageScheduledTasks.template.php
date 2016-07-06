@@ -44,7 +44,7 @@ function template_edit_scheduled_tasks()
 			<div class="information">
 				<em>', sprintf($txt['scheduled_task_time_offset'], $context['server_time']), ' </em>
 			</div>
-			<div class="windowbg">
+			<div class="panel-body">
 				
 				<div class="content">
 					<dl class="dl-horizontal">

@@ -37,7 +37,7 @@ function template_profile_above()
 	// If the profile was update successfully, let the user know this.
 	if (!empty($context['profile_updated']))
 		echo '
-					<div class="windowbg" id="profile_success">
+					<div class="panel-body" id="profile_success">
 						', $context['profile_updated'], '
 					</div>';
 }
@@ -61,7 +61,7 @@ function template_summary()
 		</h3>
 	</div>
 	<div id="basicinfo">
-		<div class="windowbg">
+		<div class="panel-body">
 			
 			<div class="content flow_auto">
 				<div class="username"><h4>', $context['member']['name'], ' <span class="position">', (!empty($context['member']['group']) ? $context['member']['group'] : $context['member']['post_group']), '</span></h4></div>
@@ -120,7 +120,7 @@ function template_summary()
 		</div>
 	</div>
 	<div id="detailedinfo">
-		<div class="windowbg2">
+		<div class="panel-body">
 			
 			<div class="content">
 				<dl>';
@@ -493,8 +493,8 @@ function template_editBuddies()
 	global $context, $settings, $options, $scripturl, $modSettings, $txt;
 
 	echo '
-		<div class="title_bar">
-			<h3 class="titlebg">
+		<div class="panel panel-danger">
+			<h3 class="panel-heading">
 				<span class="ie6_header floatleft"><img src="', $settings['images_url'], '/icons/online.gif" alt="" class="icon" />', $txt['editBuddies'], '</span>
 			</h3>
 		</div>
@@ -514,7 +514,7 @@ function template_editBuddies()
 	// If they don't have any buddies don't list them!
 	if (empty($context['buddies']))
 		echo '
-			<tr class="windowbg2">
+			<tr class="panel-body">
 				<td colspan="8" align="center"><strong>', $txt['no_buddies'], '</strong></td>
 			</tr>';
 
@@ -547,8 +547,8 @@ function template_editBuddies()
 	<br />
 	<form action="', $scripturl, '?action=profile;u=', $context['id_member'], ';area=lists;sa=buddies" method="post" accept-charset="', $context['character_set'], '">
 		<div class="tborder add_buddy">
-			<div class="title_bar">
-				<h3 class="titlebg">', $txt['buddy_add'], '</h3>
+			<div class="panel panel-danger">
+				<h3 class="panel-heading">', $txt['buddy_add'], '</h3>
 			</div>
 			<span class="upperframe"><span></span></span>
 			<div class="roundframe">
@@ -582,8 +582,8 @@ function template_editIgnoreList()
 	global $context, $settings, $options, $scripturl, $modSettings, $txt;
 
 	echo '
-		<div class="title_bar">
-			<h3 class="titlebg">
+		<div class="panel panel-danger">
+			<h3 class="panel-heading">
 				<span class="ie6_header floatleft"><img src="', $settings['images_url'], '/icons/profile_sm.gif" alt="" class="icon" />', $txt['editIgnoreList'], '</span>
 			</h3>
 		</div>
@@ -603,7 +603,7 @@ function template_editIgnoreList()
 	// If they don't have anyone on their ignore list, don't list it!
 	if (empty($context['ignore_list']))
 		echo '
-			<tr class="windowbg2">
+			<tr class="panel-body">
 				<td colspan="8" align="center"><strong>', $txt['no_ignore'], '</strong></td>
 			</tr>';
 
@@ -636,8 +636,8 @@ function template_editIgnoreList()
 	<br />
 	<form action="', $scripturl, '?action=profile;u=', $context['id_member'], ';area=lists;sa=ignore" method="post" accept-charset="', $context['character_set'], '">
 		<div class="tborder add_buddy">
-			<div class="title_bar">
-				<h3 class="titlebg">', $txt['ignore_add'], '</h3>
+			<div class="panel panel-danger">
+				<h3 class="panel-heading">', $txt['ignore_add'], '</h3>
 			</div>
 			<span class="upperframe"><span></span></span>
 			<div class="roundframe">
@@ -672,13 +672,13 @@ function template_trackActivity()
 
 	// The first table shows IP information about the user.
 	echo '
-			<div class="title_bar">
-				<h3 class="titlebg"><strong>', $txt['view_ips_by'], ' ', $context['member']['name'], '</strong></h3>
+			<div class="panel panel-danger">
+				<h3 class="panel-heading"><strong>', $txt['view_ips_by'], ' ', $context['member']['name'], '</strong></h3>
 			</div>';
 
 	// The last IP the user used.
 	echo '
-			<div id="tracking" class="windowbg2">
+			<div id="tracking" class="panel-body">
 				
 				<div class="content">
 					<dl class="noborder">
@@ -734,7 +734,7 @@ function template_trackIP()
 		<div class="cat_bar">
 			<h3>', $txt['trackIP'], '</h3>
 		</div>
-		<div class="windowbg2">
+		<div class="panel-body">
 			
 			<form action="', $context['base_url'], '" method="post" accept-charset="', $context['character_set'], '">
 				<div class="padding">', $txt['enter_ip'], ':&nbsp;&nbsp;<input type="text" name="searchip" value="', $context['ip'], '" class="form-control" />&nbsp;&nbsp;<input type="submit" value="', $txt['trackIP'], '" class="btn btn-default" /></div>
@@ -747,10 +747,10 @@ function template_trackIP()
 	if ($context['single_ip'])
 	{
 		echo '
-			<div class="title_bar">
-				<h3 class="titlebg">', $txt['whois_title'], ' ', $context['ip'], '</h3>
+			<div class="panel panel-danger">
+				<h3 class="panel-heading">', $txt['whois_title'], ' ', $context['ip'], '</h3>
 			</div>
-			<div class="windowbg2">
+			<div class="panel-body">
 				
 				<div class="padding">';
 			foreach ($context['whois_servers'] as $server)
@@ -764,8 +764,8 @@ function template_trackIP()
 
 	// The second table lists all the members who have been logged as using this IP address.
 	echo '
-		<div class="title_bar">
-			<h3 class="titlebg">', $txt['members_from_ip'], ' ', $context['ip'], '</h3>
+		<div class="panel panel-danger">
+			<h3 class="panel-heading">', $txt['members_from_ip'], ' ', $context['ip'], '</h3>
 		</div>';
 	if (empty($context['ips']))
 		echo '
@@ -787,8 +787,8 @@ function template_trackIP()
 		foreach ($context['ips'] as $ip => $memberlist)
 			echo '
 				<tr>
-					<td class="windowbg2"><a href="', $context['base_url'], ';searchip=', $ip, '">', $ip, '</a></td>
-					<td class="windowbg2">', implode(', ', $memberlist), '</td>
+					<td class="panel-body"><a href="', $context['base_url'], ';searchip=', $ip, '">', $ip, '</a></td>
+					<td class="panel-body">', implode(', ', $memberlist), '</td>
 				</tr>';
 
 		echo '
@@ -869,7 +869,7 @@ function template_showPermissions()
 			{
 				echo '
 							<tr>
-								<td class="windowbg" title="', $permission['id'], '">
+								<td class="panel-body" title="', $permission['id'], '">
 									', $permission['is_denied'] ? '<del>' . $permission['name'] . '</del>' : $permission['name'], '
 								</td>
 								<td class="windowbg2 smalltext">';
@@ -935,7 +935,7 @@ function template_showPermissions()
 			{
 				echo '
 						<tr>
-							<td class="windowbg" title="', $permission['id'], '">
+							<td class="panel-body" title="', $permission['id'], '">
 								', $permission['is_denied'] ? '<del>' . $permission['name'] . '</del>' : $permission['name'], '
 							</td>
 							<td class="windowbg2 smalltext">';
@@ -985,7 +985,7 @@ function template_statPanel()
 					</span>
 				</h3>
 			</div>
-			<div class="windowbg2">
+			<div class="panel-body">
 				
 				<div class="content">
 					<dl>
@@ -1012,7 +1012,7 @@ function template_statPanel()
 				<span class="ie6_header floatleft"><img src="', $settings['images_url'], '/stats_history.gif" alt="" class="icon" />', $txt['statPanel_activityTime'], '</span>
 				</h3>
 			</div>
-			<div class="windowbg2">
+			<div class="panel-body">
 				
 				<div class="content">';
 
@@ -1060,7 +1060,7 @@ function template_statPanel()
 						<span class="ie6_header floatleft"><img src="', $settings['images_url'], '/stats_replies.gif" alt="" class="icon" />', $txt['statPanel_topBoards'], '</span>
 					</h3>
 				</div>
-				<div class="windowbg2">
+				<div class="panel-body">
 					
 					<div class="content">';
 
@@ -1101,7 +1101,7 @@ function template_statPanel()
 					<span class="ie6_header floatleft"><img src="', $settings['images_url'], '/stats_replies.gif" alt="" class="icon" />', $txt['statPanel_topBoardsActivity'], '</span>
 					</h3>
 				</div>
-				<div class="windowbg2">
+				<div class="panel-body">
 					
 					<div class="content">';
 
@@ -1172,7 +1172,7 @@ function template_edit_options()
 			<p class="windowbg description">', $context['page_desc'], '</p>';
 
 	echo '
-			<div class="windowbg2">
+			<div class="panel-body">
 				
 				<div class="content">';
 
@@ -1325,7 +1325,7 @@ function template_edit_options()
 							<span class="smalltext">', $txt['required_security_reasons'], '</span>
 						</dt>
 						<dd>
-							<input type="password" name="oldpasswrd" size="20" style="margin-right: 4ex;" class="input_password" />
+							<input type="password" name="oldpasswrd" size="20" style="margin-right: 4ex;" class="form-control" />
 						</dd>
 					</dl>';
 
@@ -1610,7 +1610,7 @@ function template_notification()
 				</h3>
 			</div>
 			<p class="windowbg description">', $txt['notification_info'], '</p>
-			<div class="windowbg2">
+			<div class="panel-body">
 				
 				<div class="content">
 					<form action="', $scripturl, '?action=profile;area=notification;save" method="post" accept-charset="', $context['character_set'], '" id="notify_options" class="flow_hidden">';
@@ -1866,7 +1866,7 @@ function template_ignoreboards()
 			</h3>
 		</div>
 		<p class="description">', $txt['ignoreboards_info'], '</p>
-		<div class="windowbg2">
+		<div class="panel-body">
 			
 			<div class="content flow_hidden">
 				<ul class="ignoreboards floatleft">';
@@ -1957,14 +1957,14 @@ function template_viewWarning()
 	template_load_warning_variables();
 
 	echo '
-		<div class="title_bar">
-			<h3 class="titlebg">
+		<div class="panel panel-danger">
+			<h3 class="panel-heading">
 				<span class="ie6_header floatleft"><img src="', $settings['images_url'], '/icons/profile_sm.gif" alt="" class="icon" />
 				', sprintf($txt['profile_viewwarning_for_user'], $context['member']['name']), '
 				</span>
 			</h3>
 		</div>
-		<div class="windowbg">
+		<div class="panel-body">
 			
 			<div class="content">
 				<dl class="dl-horizontal">
@@ -2156,7 +2156,7 @@ function template_issueWarning()
 		<p class="description">', $txt['profile_warning_desc'], '</p>';
 
 	echo '
-		<div class="windowbg">
+		<div class="panel-body">
 			
 			<div class="content">
 				<dl class="dl-horizontal">';
@@ -2307,7 +2307,7 @@ function template_issueWarning()
 
 	if (empty($context['previous_warnings']))
 		echo '
-				<tr class="windowbg2">
+				<tr class="panel-body">
 					<td align="center" colspan="4">
 						', $txt['profile_warning_previous_none'], '
 					</td>
@@ -2342,8 +2342,8 @@ function template_deleteAccount()
 	// The main containing header.
 	echo '
 		<form action="', $scripturl, '?action=profile;area=deleteaccount;save" method="post" accept-charset="', $context['character_set'], '" name="creator" id="creator">
-			<div class="title_bar">
-				<h3 class="titlebg">
+			<div class="panel panel-danger">
+				<h3 class="panel-heading">
 					<span class="ie6_header floatleft"><img src="', $settings['images_url'], '/icons/profile_sm.gif" alt="" class="icon" />', $txt['deleteAccount'], '</span>
 				</h3>
 			</div>';
@@ -2352,7 +2352,7 @@ function template_deleteAccount()
 		echo '
 			<p class="windowbg2 description">', $txt['deleteAccount_desc'], '</p>';
 	echo '
-			<div class="windowbg2">
+			<div class="panel-body">
 				
 				<div class="content">';
 
@@ -2368,7 +2368,7 @@ function template_deleteAccount()
 					<div class="alert">', $txt['own_profile_confirm'], '</div>
 					<div>
 						<strong', (isset($context['modify_error']['bad_password']) || isset($context['modify_error']['no_password']) ? ' class="error"' : ''), '>', $txt['current_password'], ': </strong>
-						<input type="password" name="oldpasswrd" size="20" class="input_password" />&nbsp;&nbsp;&nbsp;&nbsp;
+						<input type="password" name="oldpasswrd" size="20" class="form-control" />&nbsp;&nbsp;&nbsp;&nbsp;
 						<input type="submit" value="', $txt['yes'], '" class="btn btn-default" />
 						<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
 						<input type="hidden" name="u" value="', $context['id_member'], '" />
@@ -2429,7 +2429,7 @@ function template_profile_save()
 							<span class="smalltext">', $txt['required_security_reasons'], '</span>
 						</dt>
 						<dd>
-							<input type="password" name="oldpasswrd" size="20" style="margin-right: 4ex;" class="input_password" />
+							<input type="password" name="oldpasswrd" size="20" style="margin-right: 4ex;" class="form-control" />
 						</dd>
 					</dl>';
 
@@ -2448,7 +2448,7 @@ function template_error_message()
 	global $context, $txt;
 
 	echo '
-		<div class="windowbg" id="profile_error">
+		<div class="panel-body" id="profile_error">
 			<span>', !empty($context['custom_error_title']) ? $context['custom_error_title'] : $txt['profile_errors_occurred'], ':</span>
 			<ul class="reset">';
 
@@ -2890,7 +2890,7 @@ function template_authentication_method()
 				</h3>
 			</div>
 			<p class="windowbg description">', $txt['change_authentication'], '</p>
-			<div class="windowbg2">
+			<div class="panel-body">
 				
 				<div class="content">
 					<dl>
@@ -2912,14 +2912,14 @@ function template_authentication_method()
 									<em>', $txt['choose_pass'], ':</em>
 								</dt>
 								<dd>
-									<input type="password" name="passwrd1" id="smf_autov_pwmain" size="30" tabindex="', $context['tabindex']++, '" class="input_password" />
+									<input type="password" name="passwrd1" id="smf_autov_pwmain" size="30" tabindex="', $context['tabindex']++, '" class="form-control" />
 									<span id="smf_autov_pwmain_div" style="display: none;"><img id="smf_autov_pwmain_img" src="', $settings['images_url'], '/icons/field_invalid.gif" alt="*" /></span>
 								</dd>
 								<dt>
 									<em>', $txt['verify_pass'], ':</em>
 								</dt>
 								<dd>
-									<input type="password" name="passwrd2" id="smf_autov_pwverify" size="30" tabindex="', $context['tabindex']++, '" class="input_password" />
+									<input type="password" name="passwrd2" id="smf_autov_pwverify" size="30" tabindex="', $context['tabindex']++, '" class="form-control" />
 									<span id="smf_autov_pwverify_div" style="display: none;"><img id="smf_autov_pwverify_img" src="', $settings['images_url'], '/icons/field_valid.gif" alt="*" /></span>
 								</dd>
 							</dl>
@@ -2935,7 +2935,7 @@ function template_authentication_method()
 							<span class="smalltext">', $txt['required_security_reasons'], '</span>
 						</dt>
 						<dd>
-							<input type="password" name="oldpasswrd" size="20" style="margin-right: 4ex;" class="input_password" />
+							<input type="password" name="oldpasswrd" size="20" style="margin-right: 4ex;" class="form-control" />
 						</dd>
 					</dl>';
 

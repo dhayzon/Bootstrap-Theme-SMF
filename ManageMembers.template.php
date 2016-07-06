@@ -28,7 +28,7 @@ function template_search_members()
 				</h3>
 			</div>
 			<input type="hidden" name="sa" value="query" />
-			<div class="windowbg">
+			<div class="panel-body">
 				
 				<div class="content">
 					<div class="flow_hidden">
@@ -163,8 +163,8 @@ function template_search_members()
 				<span class="botslice clear_right"><span></span></span>
 			</div>
 			<br />
-			<div class="title_bar">
-				<h3 class="titlebg">', $txt['member_part_of_these_membergroups'], '</h3>
+			<div class="panel panel-danger">
+				<h3 class="panel-heading">', $txt['member_part_of_these_membergroups'], '</h3>
 			</div>
 			<div class="flow_hidden">
 							<div class="table-responsive">
@@ -180,7 +180,7 @@ function template_search_members()
 
 			foreach ($context['membergroups'] as $membergroup)
 				echo '
-						<tr class="windowbg2">
+						<tr class="panel-body">
 							<td>', $membergroup['name'], '</td>
 							<td align="center">
 								<input type="checkbox" name="membergroups[1][]" value="', $membergroup['id'], '" checked="checked" class="input_check" />
@@ -191,7 +191,7 @@ function template_search_members()
 						</tr>';
 
 			echo '
-						<tr class="windowbg2">
+						<tr class="panel-body">
 							<td>
 								<em>', $txt['check_all'], '</em>
 							</td>
@@ -221,7 +221,7 @@ function template_search_members()
 
 			foreach ($context['postgroups'] as $postgroup)
 				echo '
-						<tr class="windowbg2">
+						<tr class="panel-body">
 							<td>
 								', $postgroup['name'], '
 							</td>
@@ -231,7 +231,7 @@ function template_search_members()
 						</tr>';
 
 			echo '
-						<tr class="windowbg2">
+						<tr class="panel-body">
 							<td>
 								<em>', $txt['check_all'], '</em>
 							</td>
@@ -293,7 +293,7 @@ function template_admin_browse()
 				}
 			// ]]></script>
 
-			<div class="windowbg">
+			<div class="panel-body">
 				
 				<div class="content">
 					<dl class="dl-horizontal">

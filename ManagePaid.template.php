@@ -51,7 +51,7 @@ function template_modify_subscription()
 			</div>
 			';
 	echo '
-			<div class="windowbg">
+			<div class="panel-body">
 				
 				<div class="content">
 					<dl class="dl-horizontal">
@@ -229,7 +229,7 @@ function template_delete_subscription()
 			<div class="cat_bar">
 				<h3>', $txt['paid_delete_subscription'], '</h3>
 			</div>
-			<div class="windowbg">
+			<div class="panel-body">
 				
 				<div class="content">
 					<p>', $txt['paid_mod_delete_warning'], '</p>
@@ -286,7 +286,7 @@ function template_modify_user_subscription()
 					', empty($context['sub']['username']) ? '' : ' (' . $txt['user'] . ': ' . $context['sub']['username'] . ')', '
 				</h3>
 			</div>
-			<div class="windowbg">
+			<div class="panel-body">
 				
 				<div class="content">
 					<dl class="dl-horizontal">';
@@ -413,7 +413,7 @@ function template_modify_user_subscription()
 		<div class="cat_bar">
 			<h3>', $txt['pending_payments_value'], '</h3>
 		</div>
-		<div class="windowbg">
+		<div class="panel-body">
 			
 			<div class="content">
 				<ul class="pending_payments">';
@@ -529,8 +529,8 @@ function template_user_subscription()
 	echo '
 		</form>
 		<br />
-		<div class="title_bar">
-			<h3 class="titlebg">', $txt['paid_current'], '</h3>
+		<div class="panel panel-danger">
+			<h3 class="panel-heading">', $txt['paid_current'], '</h3>
 		</div>
 		<div class="information">
 			', $txt['paid_current_desc'], '
@@ -549,7 +549,7 @@ function template_user_subscription()
 
 	if (empty($context['current']))
 		echo '
-				<tr class="windowbg">
+				<tr class="panel-body">
 					<td align="center" colspan="4">
 						', $txt['paid_none_yet'], '
 					</td>
@@ -596,7 +596,7 @@ function template_choose_payment()
 		<div class="information">
 			', $txt['paid_confirm_desc'], '
 		</div>
-		<div class="windowbg">
+		<div class="panel-body">
 			
 			<div class="content">
 				<dl class="dl-horizontal">
@@ -624,7 +624,7 @@ function template_choose_payment()
 		<div class="cat_bar">
 			<h3>', $gateway['title'], '</h3>
 		</div>
-		<div class="windowbg">
+		<div class="panel-body">
 			
 			<div class="content">
 				', $gateway['desc'], '<br />
@@ -660,10 +660,10 @@ function template_paid_done()
 
 	echo '
 	<div id="paid_subscription">
-		<div class="title_bar">
-			<h3 class="titlebg">', $txt['paid_done'], '</h3>
+		<div class="panel panel-danger">
+			<h3 class="panel-heading">', $txt['paid_done'], '</h3>
 		</div>
-		<div class="windowbg2">
+		<div class="panel-body">
 			
 			<div class="content">
 				<p>', $txt['paid_done_desc'], '</p>

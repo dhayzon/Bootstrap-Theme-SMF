@@ -29,7 +29,7 @@ function template_editsets()
 		<div class="cat_bar">
 			<h3>', $txt['smiley_sets_latest'], '</h3>
 		</div>
-		<div class="windowbg">
+		<div class="panel-body">
 			
 			<div class="content">
 				<div id="smileysLatest">', $txt['smiley_sets_latest_fetch'], '</div>
@@ -103,7 +103,7 @@ function template_modifyset()
 		}
 
 		echo '
-			<div class="windowbg">
+			<div class="panel-body">
 				
 				<div class="content">
 					<dl class="dl-horizontal">
@@ -176,7 +176,7 @@ function template_modifysmiley()
 			<div class="cat_bar">
 				<h3>', $txt['smiley_modify_existing'], '</h3>
 			</div>
-			<div class="windowbg">
+			<div class="panel-body">
 				
 				<div class="content">
 					<dl class="dl-horizontal">
@@ -289,7 +289,7 @@ function template_addsmiley()
 			<div class="cat_bar">
 				<h3>', $txt['smileys_add_method'], '</h3>
 			</div>
-			<div class="windowbg">
+			<div class="panel-body">
 				
 				<div class="content">
 					<ul class="reset">
@@ -375,7 +375,7 @@ function template_addsmiley()
 			<div class="cat_bar">
 				<h3>', $txt['smiley_new'], '</h3>
 			</div>
-			<div class="windowbg">
+			<div class="panel-body">
 				
 				<div class="content">
 					<dl class="dl-horizontal">
@@ -443,7 +443,7 @@ function template_setorder()
 			<div class="information">
 				', $location['description'], '
 			</div>
-			<div class="windowbg">
+			<div class="panel-body">
 				
 				<div class="content">
 					<strong>', empty($context['move_smiley']) ? $txt['smileys_move_select_smiley'] : $txt['smileys_move_select_destination'], '...</strong><br />';
@@ -500,7 +500,7 @@ function template_editicon()
 					', $context['new_icon'] ? $txt['icons_new_icon'] : $txt['icons_edit_icon'], '
 				</h3>
 			</div>
-			<div class="windowbg">
+			<div class="panel-body">
 				
 				<div class="content">
 					<dl class="dl-horizontal">';

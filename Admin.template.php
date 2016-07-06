@@ -178,7 +178,7 @@ function template_admin()
 							%title%
 						</h3>
 					</div>
-					<div class="windowbg">
+					<div class="panel-body">
 						
 						<div class="content">
 							<div id="update_message" class="smalltext">
@@ -208,7 +208,7 @@ function template_credits()
 				', $txt['support_title'], '
 			</h3>
 		</div>
-		<div class="windowbg">
+		<div class="panel-body">
 			
 			<div class="content">
 				<strong>', $txt['support_versions'], ':</strong><br />
@@ -236,7 +236,7 @@ function template_credits()
 				', $txt['support_resources'], '
 			</h3>
 		</div>
-		<div class="windowbg2">
+		<div class="panel-body">
 			
 			<div class="content">
 				<p>', $txt['support_resources_p1'], '</p>
@@ -252,7 +252,7 @@ function template_credits()
 				<span class="ie6_header floatleft"><a href="', $scripturl, '?action=helpadmin;help=latest_support" onclick="return reqWin(this.href);" class="help"><img src="', $settings['images_url'], '/helptopics.gif" class="icon" alt="', $txt['help'], '" /></a> ', $txt['support_latest'], '</span>
 			</h3>
 		</div>
-		<div class="windowbg2">
+		<div class="panel-body">
 			
 			<div class="content">
 				<div id="latestSupport">', $txt['support_latest_fetch'], '</div>
@@ -267,7 +267,7 @@ function template_credits()
 				', $txt['admin_credits'], '
 			</h3>
 		</div>
-		<div class="windowbg">
+		<div class="panel-body">
 			
 			<div class="content">';
 
@@ -396,13 +396,13 @@ function template_view_versions()
 	// The current version of the core SMF package.
 	echo '
 					<tr>
-						<td class="windowbg">
+						<td class="panel-body">
 							', $txt['admin_smfpackage'], '
 						</td>
-						<td class="windowbg">
+						<td class="panel-body">
 							<em id="yourSMF">', $context['forum_version'], '</em>
 						</td>
-						<td class="windowbg">
+						<td class="panel-body">
 							<em id="currentSMF">??</em>
 						</td>
 					</tr>';
@@ -410,13 +410,13 @@ function template_view_versions()
 	// Now list all the source file versions, starting with the overall version (if all match!).
 	echo '
 					<tr>
-						<td class="windowbg">
+						<td class="panel-body">
 							<a href="#" id="Sources-link">', $txt['dvc_sources'], '</a>
 						</td>
-						<td class="windowbg">
+						<td class="panel-body">
 							<em id="yourSources">??</em>
 						</td>
-						<td class="windowbg">
+						<td class="panel-body">
 							<em id="currentSources">??</em>
 						</td>
 					</tr>
@@ -433,13 +433,13 @@ function template_view_versions()
 	foreach ($context['file_versions'] as $filename => $version)
 		echo '
 				<tr>
-					<td class="windowbg2" width="50%" style="padding-left: 3ex;">
+					<td class="panel-body" width="50%" style="padding-left: 3ex;">
 						', $filename, '
 					</td>
-					<td class="windowbg2" width="25%">
+					<td class="panel-body" width="25%">
 						<em id="yourSources', $filename, '">', $version, '</em>
 					</td>
-					<td class="windowbg2" width="25%">
+					<td class="panel-body" width="25%">
 						<em id="currentSources', $filename, '">??</em>
 					</td>
 				</tr>';
@@ -455,13 +455,13 @@ function template_view_versions()
 				<table  width="100%" class="table">
 				<tbody>
 					<tr>
-						<td class="windowbg" width="50%">
+						<td class="panel-body" width="50%">
 							<a href="#" id="Default-link">', $txt['dvc_default'], '</a>
 						</td>
-						<td class="windowbg" width="25%">
+						<td class="panel-body" width="25%">
 							<em id="yourDefault">??</em>
 						</td>
-						<td class="windowbg" width="25%">
+						<td class="panel-body" width="25%">
 							<em id="currentDefault">??</em>
 						</td>
 					</tr>
@@ -477,13 +477,13 @@ function template_view_versions()
 	foreach ($context['default_template_versions'] as $filename => $version)
 		echo '
 					<tr>
-						<td class="windowbg2" width="50%" style="padding-left: 3ex;">
+						<td class="panel-body" width="50%" style="padding-left: 3ex;">
 							', $filename, '
 						</td>
-						<td class="windowbg2" width="25%">
+						<td class="panel-body" width="25%">
 							<em id="yourDefault', $filename, '">', $version, '</em>
 						</td>
-						<td class="windowbg2" width="25%">
+						<td class="panel-body" width="25%">
 							<em id="currentDefault', $filename, '">??</em>
 						</td>
 					</tr>';
@@ -499,13 +499,13 @@ function template_view_versions()
 				<table  width="100%" class="table">
 				<tbody>
 					<tr>
-						<td class="windowbg" width="50%">
+						<td class="panel-body" width="50%">
 							<a href="#" id="Languages-link">', $txt['dvc_languages'], '</a>
 						</td>
-						<td class="windowbg" width="25%">
+						<td class="panel-body" width="25%">
 							<em id="yourLanguages">??</em>
 						</td>
-						<td class="windowbg" width="25%">
+						<td class="panel-body" width="25%">
 							<em id="currentLanguages">??</em>
 						</td>
 					</tr>
@@ -523,13 +523,13 @@ function template_view_versions()
 		foreach ($files as $filename => $version)
 			echo '
 					<tr>
-						<td class="windowbg2" width="50%" style="padding-left: 3ex;">
+						<td class="panel-body" width="50%" style="padding-left: 3ex;">
 							', $filename, '.<em>', $language, '</em>.php
 						</td>
-						<td class="windowbg2" width="25%">
+						<td class="panel-body" width="25%">
 							<em id="your', $filename, '.', $language, '">', $version, '</em>
 						</td>
-						<td class="windowbg2" width="25%">
+						<td class="panel-body" width="25%">
 							<em id="current', $filename, '.', $language, '">??</em>
 						</td>
 					</tr>';
@@ -549,13 +549,13 @@ function template_view_versions()
 				<table  width="100%" class="table">
 				<tbody>
 					<tr>
-						<td class="windowbg" width="50%">
+						<td class="panel-body" width="50%">
 							<a href="#" id="Templates-link">', $txt['dvc_templates'], '</a>
 						</td>
-						<td class="windowbg" width="25%">
+						<td class="panel-body" width="25%">
 							<em id="yourTemplates">??</em>
 						</td>
-						<td class="windowbg" width="25%">
+						<td class="panel-body" width="25%">
 							<em id="currentTemplates">??</em>
 						</td>
 					</tr>
@@ -571,13 +571,13 @@ function template_view_versions()
 		foreach ($context['template_versions'] as $filename => $version)
 			echo '
 					<tr>
-						<td class="windowbg2" width="50%" style="padding-left: 3ex;">
+						<td class="panel-body" width="50%" style="padding-left: 3ex;">
 							', $filename, '
 						</td>
-						<td class="windowbg2" width="25%">
+						<td class="panel-body" width="25%">
 							<em id="yourTemplates', $filename, '">', $version, '</em>
 						</td>
-						<td class="windowbg2" width="25%">
+						<td class="panel-body" width="25%">
 							<em id="currentTemplates', $filename, '">??</em>
 						</td>
 					</tr>';
@@ -631,7 +631,7 @@ function template_edit_censored()
 					', $txt['admin_censored_words'], '
 				</h3>
 			</div>
-			<div class="windowbg2">
+			<div class="panel-body">
 				
 				<div class="content">
 					<p>', $txt['admin_censored_where'], '</p>';
@@ -681,13 +681,13 @@ function template_edit_censored()
 					', $txt['censor_test'], '
 				</h3>
 			</div>
-			<div class="windowbg">
+			<div class="panel-body">
 				
 				<div class="content">
-					<p class="centertext">
+					<div class="alert alert-success" 
 						<input type="text" name="censortest" value="', empty($context['censor_test']) ? '' : $context['censor_test'], '" class="form-control" />
 						<input type="submit" value="', $txt['censor_test_save'], '" class="btn btn-default" />
-					</p>
+					</div>
 				</div>
 			</div>
 
@@ -709,7 +709,7 @@ function template_not_done()
 				', $txt['not_done_title'], '
 			</h3>
 		</div>
-		<div class="windowbg">
+		<div class="panel-body">
 			
 			<div class="content">
 				', $txt['not_done_reason'];
@@ -797,21 +797,24 @@ function template_show_settings()
 
 	echo '
 	<div id="admincenter">
-		<form action="', $context['post_url'], '" method="post" accept-charset="', $context['character_set'], '"', !empty($context['force_form_onsubmit']) ? ' onsubmit="' . $context['force_form_onsubmit'] . '"' : '', '>';
-
-	// Is there a custom title?
+	<div class="panel panel-default">';
+		// Is there a custom title?
 	if (isset($context['settings_title']))
 		echo '
-			<div class="cat_bar">
+			<div class="panel-heading">
 				<h3>
 					', $context['settings_title'], '
 				</h3>
 			</div>';
+		echo'	
+		<form action="', $context['post_url'], '" method="post" accept-charset="', $context['character_set'], '"', !empty($context['force_form_onsubmit']) ? ' onsubmit="' . $context['force_form_onsubmit'] . '"' : '', '>';
+
+
 
 	// Have we got some custom code to insert?
 	if (!empty($context['settings_message']))
 		echo '
-			<div class="information">', $context['settings_message'], '</div>';
+			<div class="alert alert-info uMarging">', $context['settings_message'], '</div>';
 
 	// Now actually loop through all the variables.
 	$is_open = false;
@@ -858,7 +861,7 @@ function template_show_settings()
 		{
 			$is_open = true;
 			echo '
-			<div class="windowbg2">
+			<div class="panel-body">
 				
 				<div class="content">
 					<dl class="dl-horizontal">';
@@ -915,8 +918,8 @@ function template_show_settings()
 				// Escape (via htmlspecialchars.) the text box.
 				elseif ($config_var['type'] == 'password')
 					echo '
-							<input type="password"', $disabled, $javascript, ' name="', $config_var['name'], '[0]"', ($config_var['size'] ? ' size="' . $config_var['size'] . '"' : ''), ' value="*#fakepass#*" onfocus="this.value = \'\'; this.form.', $config_var['name'], '.disabled = false;" class="input_password" /><br />
-							<input type="password" disabled="disabled" id="', $config_var['name'], '" name="', $config_var['name'], '[1]"', ($config_var['size'] ? ' size="' . $config_var['size'] . '"' : ''), ' class="input_password" />';
+							<input type="password"', $disabled, $javascript, ' name="', $config_var['name'], '[0]"', ($config_var['size'] ? ' size="' . $config_var['size'] . '"' : ''), ' value="*#fakepass#*" onfocus="this.value = \'\'; this.form.', $config_var['name'], '.disabled = false;" class="form-control" /><br />
+							<input type="password" disabled="disabled" id="', $config_var['name'], '" name="', $config_var['name'], '[1]"', ($config_var['size'] ? ' size="' . $config_var['size'] . '"' : ''), ' class="form-control" />';
 				// Show a selection box.
 				elseif ($config_var['type'] == 'select')
 				{
@@ -1090,7 +1093,7 @@ function template_edit_profile_field()
 					', $context['page_title'], '
 				</h3>
 			</div>
-			<div class="windowbg">
+			<div class="panel-body">
 				
 				<div class="content">
 					<fieldset>
@@ -1315,7 +1318,7 @@ function template_admin_search_results()
 	if (empty($context['search_results']))
 	{
 		echo '
-			<p class="centertext"><strong>', $txt['admin_search_results_none'], '</strong></p>';
+			<div class="alert alert-success"><strong>', $txt['admin_search_results_none'], '</strong></div>';
 	}
 	else
 	{
@@ -1342,7 +1345,7 @@ function template_admin_search_results()
 			else
 			{
 				echo '
-				<li class="windowbg">
+				<li class="panel-body">
 					<a href="', $result['url'], '"><strong>', $result['name'], '</strong></a> [', isset($txt['admin_search_section_' . $result['type']]) ? $txt['admin_search_section_' . $result['type']] : $result['type'] , ']';
 
 				if ($result['help'])
@@ -1469,7 +1472,7 @@ function template_add_language()
 					', $txt['add_language'], '
 				</h3>
 			</div>
-			<div class="windowbg">
+			<div class="panel-body">
 				
 				<div class="content">
 					<fieldset>
@@ -1513,7 +1516,7 @@ function template_add_language()
 
 		foreach ($context['smf_languages'] as $language)
 			echo '
-						<tr class="windowbg2">
+						<tr class="panel-body">
 							<td align="left">', $language['name'], '</td>
 							<td align="left">', $language['description'], '</td>
 							<td align="left">', $language['version'], '</td>
@@ -1549,7 +1552,7 @@ function template_download_language()
 				', $txt['languages_download_complete'], '
 			</h3>
 		</div>
-		<div class="windowbg">
+		<div class="panel-body">
 			
 			<div class="content">
 				', $context['install_complete'], '
@@ -1577,7 +1580,7 @@ function template_download_language()
 					', $txt['languages_download'], '
 				</h3>
 			</div>
-			<div class="windowbg">
+			<div class="panel-body">
 				
 				<div class="content">
 					<p>
@@ -1595,8 +1598,8 @@ function template_download_language()
 	// Now, all the images and the likes, hidden via javascript 'cause there are so fecking many.
 	echo '
 			<br />
-			<div class="title_bar">
-				<h3 class="titlebg">
+			<div class="panel panel-danger">
+				<h3 class="panel-heading">
 					', $txt['languages_download_theme_files'], '
 				</h3>
 			</div>
@@ -1674,7 +1677,7 @@ function template_download_language()
 					', $txt['package_ftp_necessary'], '
 				</h3>
 			</div>
-			<div class="windowbg">
+			<div class="panel-body">
 				
 				<div class="content">
 					<p>', $txt['package_ftp_why'],'</p>
@@ -1782,7 +1785,7 @@ function template_modify_language_entries()
 			<div class="information">
 				', $txt['edit_language_entries_primary'], '
 			</div>
-			<div class="windowbg">
+			<div class="panel-body">
 				
 				<div class="content">
 					<fieldset>
@@ -1836,8 +1839,8 @@ function template_modify_language_entries()
 		</form>
 
 		<form action="', $scripturl, '?action=admin;area=languages;sa=editlang;lid=', $context['lang_id'], ';entries" id="entry_form" method="post" accept-charset="', $context['character_set'], '">
-			<div class="title_bar">
-				<h3 class="titlebg">
+			<div class="panel panel-danger">
+				<h3 class="panel-heading">
 					', $txt['edit_language_entries'], '
 				</h3>
 			</div>
@@ -1871,7 +1874,7 @@ function template_modify_language_entries()
 	if (!empty($context['file_entries']))
 	{
 		echo '
-			<div class="windowbg2">
+			<div class="panel-body">
 				
 				<div class="content">
 					<dl class="dl-horizontal">';
@@ -2043,7 +2046,7 @@ function template_repair_boards()
 				$context['error_search'] ? $txt['errors_list'] : $txt['errors_fixing'] , '
 			</h3>
 		</div>
-		<div class="windowbg">
+		<div class="panel-body">
 			
 			<div class="content">';
 

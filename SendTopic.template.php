@@ -53,7 +53,7 @@ function template_main()
 					<span class="ie6_header floatleft"><img src="', $settings['images_url'], '/email_sm.gif" alt="" class="icon" />', $context['page_title'], '</span>
 				</h3>
 			</div>
-			<div class="windowbg2">
+			<div class="panel-body">
 			
 				<div class="content">
 					<fieldset id="sender" class="send_topic">
@@ -118,7 +118,7 @@ function template_custom_email()
 					<span class="ie6_header floatleft"><img src="', $settings['images_url'], '/email_sm.gif" alt="" class="icon" />', $context['page_title'], '</span>
 				</h3>
 			</div>
-			<div class="windowbg">
+			<div class="panel-body">
 				
 				<div class="content">
 					<dl class="settings send_mail">
@@ -211,7 +211,7 @@ function template_report()
 				<div class="cat_bar">
 					<h3>', $txt['report_to_mod'], '</h3>
 				</div>
-				<div class="windowbg">
+				<div class="panel-body">
 					
 					<div class="content">';
 

@@ -36,7 +36,7 @@ function template_edit_news()
 	// Loop through all the current news items so you can edit/remove them.
 	foreach ($context['admin_current_news'] as $admin_news)
 		echo '
-					<tr class="windowbg2">
+					<tr class="panel-body">
 						<td align="center">
 
 							<div style="margin-bottom: 2ex;"><textarea rows="3" cols="65" name="news[]" style="' . ($context['browser']['is_ie8'] ? 'width: 635px; max-width: 85%; min-width: 85%' : 'width: 85%') . ';">', $admin_news['unparsed'], '</textarea></div>
@@ -49,7 +49,7 @@ function template_edit_news()
 
 	// This provides an empty text box to add a news item to the site.
 	echo '
-					<tr id="moreNews" class="windowbg2" style="display: none;">
+					<tr id="moreNews" class="panel-body" style="display: none;">
 						<td align="center">
 							<div id="moreNewsItems"></div>
 						</td>
@@ -112,7 +112,7 @@ function template_email_members()
 			<div class="information">
 				', $txt['admin_news_select_recipients'], '
 			</div>
-			<div class="windowbg">
+			<div class="panel-body">
 				
 				<div class="content">
 					<dl class="dl-horizontal">
@@ -146,7 +146,7 @@ function template_email_members()
 				</h3>
 			</div>
 
-			<div class="windowbg2" id="advanced_settings_div" style="display: none;">
+			<div class="panel-body" id="advanced_settings_div" style="display: none;">
 				
 				<div class="content">
 					<dl class="dl-horizontal">
@@ -262,7 +262,7 @@ function template_email_members_compose()
 			<div class="information">
 				', $txt['email_variables'], '
 			</div>
-			<div class="windowbg">
+			<div class="panel-body">
 				
 				<div class="content">
 					<p>
@@ -308,7 +308,7 @@ function template_email_members_send()
 					<a href="', $scripturl, '?action=helpadmin;help=email_members" onclick="return reqWin(this.href);" class="help"><img src="', $settings['images_url'], '/helptopics.gif" alt="', $txt['help'], '" align="top" /></a> ', $txt['admin_newsletters'], '
 				</h3>
 			</div>
-			<div class="windowbg">
+			<div class="panel-body">
 				
 				<div class="content">
 					<p>

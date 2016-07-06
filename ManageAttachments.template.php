@@ -46,7 +46,7 @@ function template_browse()
 		<div class="cat_bar">
 			<h3>', $txt['attachment_manager_browse_files'], '</h3>
 		</div>
-		<div class="windowbg2">
+		<div class="panel-body">
 			
 			<div class="content">
 				<a href="', $scripturl, '?action=admin;area=manageattachments;sa=browse">', $context['browse_type'] === 'attachments' ? '<img src="' . $settings['images_url'] . '/selected.gif" alt="&gt;" /> ' : '', $txt['attachment_manager_attachments'], '</a> |
@@ -72,7 +72,7 @@ function template_maintenance()
 		<div class="cat_bar">
 			<h3>', $txt['attachment_stats'], '</h3>
 		</div>
-		<div class="windowbg">
+		<div class="panel-body">
 			
 			<div class="content">
 				<dl class="dl-horizontal">
@@ -87,7 +87,7 @@ function template_maintenance()
 		<div class="cat_bar">
 			<h3>', $txt['attachment_integrity_check'], '</h3>
 		</div>
-		<div class="windowbg">
+		<div class="panel-body">
 			
 			<div class="content">
 				<form action="', $scripturl, '?action=admin;area=manageattachments;sa=repair;', $context['session_var'], '=', $context['session_id'], '" method="post" accept-charset="', $context['character_set'], '">
@@ -100,7 +100,7 @@ function template_maintenance()
 		<div class="cat_bar">
 			<h3>', $txt['attachment_pruning'], '</h3>
 		</div>
-		<div class="windowbg">
+		<div class="panel-body">
 			
 			<div class="content">
 				<form action="', $scripturl, '?action=admin;area=manageattachments" method="post" accept-charset="', $context['character_set'], '" onsubmit="return confirm(\'', $txt['attachment_pruning_warning'], '\');" style="margin: 0 0 2ex 0;">
@@ -147,7 +147,7 @@ function template_attachment_repair()
 		<div class="cat_bar">
 			<h3>', $txt['repair_attachments_complete'], '</h3>
 		</div>
-		<div class="windowbg">
+		<div class="panel-body">
 			
 			<div class="content">
 				', $txt['repair_attachments_complete_desc'], '
@@ -166,7 +166,7 @@ function template_attachment_repair()
 		<div class="cat_bar">
 			<h3>', $txt['repair_attachments_complete'], '</h3>
 		</div>
-		<div class="windowbg">
+		<div class="panel-body">
 			
 			<div class="content">
 				', $txt['repair_attachments_no_errors'], '
@@ -185,7 +185,7 @@ function template_attachment_repair()
 			<div class="cat_bar">
 				<h3>', $txt['repair_attachments'], '</h3>
 			</div>
-			<div class="windowbg">
+			<div class="panel-body">
 				
 				<div class="content">
 					<p>', $txt['repair_attachments_error_desc'], '</p>';

@@ -54,7 +54,7 @@ function template_edit_holiday()
 			<div class="cat_bar">
 				<h3>', $context['page_title'], '</h3>
 			</div>
-			<div class="windowbg">
+			<div class="panel-body">
 				
 				<div class="content">
 					<dl class="dl-horizontal">

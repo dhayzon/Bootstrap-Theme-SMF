@@ -31,8 +31,8 @@ function template_permission_index()
 
 		if (!empty($context['profile']))
 			echo '
-			<div class="title_bar">
-				<h3 class="titlebg">', $txt['permissions_for_profile'], ': &quot;', $context['profile']['name'], '&quot;</h3>
+			<div class="panel panel-danger">
+				<h3 class="panel-heading">', $txt['permissions_for_profile'], ': &quot;', $context['profile']['name'], '&quot;</h3>
 			</div>';
 
 		echo '
@@ -109,7 +109,7 @@ function template_permission_index()
 					</span>
 				</h3>
 			</div>
-			<div id="permissions_panel_advanced" class="windowbg">
+			<div id="permissions_panel_advanced" class="panel-body">
 				
 				<div class="content">
 					<fieldset>
@@ -277,7 +277,7 @@ function template_by_board()
 		<div class="information">
 			', $txt['permissions_boards_desc'], '
 		</div>
-		<div class="title_bar">
+		<div class="panel panel-danger">
 			<h3 id="board_permissions" class="titlebg flow_hidden">
 				<span class="perm_name floatleft">', $txt['board_name'], '</span>
 				<span class="perm_profile floatleft">', $txt['permission_profile'], '</span>
@@ -299,7 +299,7 @@ function template_by_board()
 
 		if (!empty($category['boards']))
 			echo '
-		<div class="windowbg">
+		<div class="panel-body">
 			
 			<div class="content">
 				<ul class="perm_boards flow_hidden">';
@@ -371,8 +371,8 @@ function template_edit_profiles()
 	echo '
 	<div id="admincenter">
 		<form action="', $scripturl, '?action=admin;area=permissions;sa=profiles" method="post" accept-charset="', $context['character_set'], '">
-			<div class="title_bar">
-				<h3 class="titlebg">', $txt['permissions_profile_edit'], '</h3>
+			<div class="panel panel-danger">
+				<h3 class="panel-heading">', $txt['permissions_profile_edit'], '</h3>
 			</div>
 
 						<div class="table-responsive">
@@ -432,7 +432,7 @@ function template_edit_profiles()
 			<div class="cat_bar">
 				<h3>', $txt['permissions_profile_new'], '</h3>
 			</div>
-			<div class="windowbg">
+			<div class="panel-body">
 				
 				<div class="content">
 					<dl class="dl-horizontal">
@@ -517,7 +517,7 @@ function template_modify_group()
 	echo '
 				</h3>
 			</div>
-			<div class="windowbg">
+			<div class="panel-body">
 				
 				<div class="content">
 					', $txt['permissions_change_view'], ': ', ($context['view_type'] == 'simple' ? '<img src="' . $settings['images_url'] . '/selected.gif" alt="*" />' : ''), '<a href="', $scripturl, '?action=admin;area=permissions;sa=modify;group=', $context['group']['id'], ($context['permission_type'] == 'board' ? ';pid=' . $context['profile']['id'] : ''), ';view=simple">', $txt['permissions_view_simple'], '</a> |
@@ -618,7 +618,7 @@ function template_modify_group_simple($type)
 			if ($has_display_content)
 			{
 				echo '
-					<tr class="windowbg">
+					<tr class="panel-body">
 						<td colspan="2" width="100%" align="left">
 							<a href="#" onclick="return toggleBreakdown(\'', $id_group, '\');">
 								<img src="', $settings['images_url'], '/sort_down.gif" id="group_toggle_img_', $id_group, '" alt="*" />&nbsp;<strong>', $permissionGroup['name'], '</strong>
@@ -867,7 +867,7 @@ function template_modify_group_classic($type)
 	$disable_field = $context['profile']['can_modify'] ? '' : 'disabled="disabled" ';
 
 	echo '
-				<div class="windowbg2">
+				<div class="panel-body">
 					
 					<div class="content">';
 
@@ -1009,7 +1009,7 @@ function template_modify_group_classic($type)
 
 			if (!$permissionGroup['hidden'] && $has_display_content)
 				echo '
-							<tr class="windowbg2">
+							<tr class="panel-body">
 								<td colspan="5" width="100%"><!--separator--></td>
 							</tr>';
 		}
@@ -1101,8 +1101,8 @@ function template_postmod_permissions()
 	echo '
 	<div id="admincenter">
 		<form action="', $scripturl, '?action=admin;area=permissions;sa=postmod;', $context['session_var'], '=', $context['session_id'], '" method="post" name="postmodForm" id="postmodForm" accept-charset="', $context['character_set'], '">
-			<div class="title_bar">
-				<h3 class="titlebg">', $txt['permissions_post_moderation'], '</h3>
+			<div class="panel panel-danger">
+				<h3 class="panel-heading">', $txt['permissions_post_moderation'], '</h3>
 			</div>';
 
 	// Got advanced permissions - if so warn!
@@ -1166,7 +1166,7 @@ function template_postmod_permissions()
 	{
 		echo '
 					<tr>
-						<td width="40%" class="windowbg">
+						<td width="40%" class="panel-body">
 							<span ', ($group['color'] ? 'style="color: ' . $group['color'] . '"' : ''), '>', $group['name'], '</span>';
 			if (!empty($group['children']))
 				echo '
@@ -1174,18 +1174,18 @@ function template_postmod_permissions()
 
 			echo '
 						</td>
-						<td align="center" class="windowbg2"><input type="radio" name="new_topic[', $group['id'], ']" value="allow" ', $group['new_topic'] == 'allow' ? 'checked="checked"' : '', ' class="input_radio" /></td>
-						<td align="center" class="windowbg2"><input type="radio" name="new_topic[', $group['id'], ']" value="moderate" ', $group['new_topic'] == 'moderate' ? 'checked="checked"' : '', ' class="input_radio" /></td>
-						<td align="center" class="windowbg2"><input type="radio" name="new_topic[', $group['id'], ']" value="disallow" ', $group['new_topic'] == 'disallow' ? 'checked="checked"' : '', ' class="input_radio" /></td>
-						<td align="center" class="windowbg"><input type="radio" name="replies_own[', $group['id'], ']" value="allow" ', $group['replies_own'] == 'allow' ? 'checked="checked"' : '', ' class="input_radio" /></td>
-						<td align="center" class="windowbg"><input type="radio" name="replies_own[', $group['id'], ']" value="moderate" ', $group['replies_own'] == 'moderate' ? 'checked="checked"' : '', ' class="input_radio" /></td>
-						<td align="center" class="windowbg"><input type="radio" name="replies_own[', $group['id'], ']" value="disallow" ', $group['replies_own'] == 'disallow' ? 'checked="checked"' : '', ' class="input_radio" /></td>
-						<td align="center" class="windowbg2"><input type="radio" name="replies_any[', $group['id'], ']" value="allow" ', $group['replies_any'] == 'allow' ? 'checked="checked"' : '', ' class="input_radio" /></td>
-						<td align="center" class="windowbg2"><input type="radio" name="replies_any[', $group['id'], ']" value="moderate" ', $group['replies_any'] == 'moderate' ? 'checked="checked"' : '', ' class="input_radio" /></td>
-						<td align="center" class="windowbg2"><input type="radio" name="replies_any[', $group['id'], ']" value="disallow" ', $group['replies_any'] == 'disallow' ? 'checked="checked"' : '', ' class="input_radio" /></td>
-						<td align="center" class="windowbg"><input type="radio" name="attachment[', $group['id'], ']" value="allow" ', $group['attachment'] == 'allow' ? 'checked="checked"' : '', ' class="input_radio" /></td>
-						<td align="center" class="windowbg"><input type="radio" name="attachment[', $group['id'], ']" value="moderate" ', $group['attachment'] == 'moderate' ? 'checked="checked"' : '', ' class="input_radio" /></td>
-						<td align="center" class="windowbg"><input type="radio" name="attachment[', $group['id'], ']" value="disallow" ', $group['attachment'] == 'disallow' ? 'checked="checked"' : '', ' class="input_radio" /></td>
+						<td align="center" class="panel-body"><input type="radio" name="new_topic[', $group['id'], ']" value="allow" ', $group['new_topic'] == 'allow' ? 'checked="checked"' : '', ' class="input_radio" /></td>
+						<td align="center" class="panel-body"><input type="radio" name="new_topic[', $group['id'], ']" value="moderate" ', $group['new_topic'] == 'moderate' ? 'checked="checked"' : '', ' class="input_radio" /></td>
+						<td align="center" class="panel-body"><input type="radio" name="new_topic[', $group['id'], ']" value="disallow" ', $group['new_topic'] == 'disallow' ? 'checked="checked"' : '', ' class="input_radio" /></td>
+						<td align="center" class="panel-body"><input type="radio" name="replies_own[', $group['id'], ']" value="allow" ', $group['replies_own'] == 'allow' ? 'checked="checked"' : '', ' class="input_radio" /></td>
+						<td align="center" class="panel-body"><input type="radio" name="replies_own[', $group['id'], ']" value="moderate" ', $group['replies_own'] == 'moderate' ? 'checked="checked"' : '', ' class="input_radio" /></td>
+						<td align="center" class="panel-body"><input type="radio" name="replies_own[', $group['id'], ']" value="disallow" ', $group['replies_own'] == 'disallow' ? 'checked="checked"' : '', ' class="input_radio" /></td>
+						<td align="center" class="panel-body"><input type="radio" name="replies_any[', $group['id'], ']" value="allow" ', $group['replies_any'] == 'allow' ? 'checked="checked"' : '', ' class="input_radio" /></td>
+						<td align="center" class="panel-body"><input type="radio" name="replies_any[', $group['id'], ']" value="moderate" ', $group['replies_any'] == 'moderate' ? 'checked="checked"' : '', ' class="input_radio" /></td>
+						<td align="center" class="panel-body"><input type="radio" name="replies_any[', $group['id'], ']" value="disallow" ', $group['replies_any'] == 'disallow' ? 'checked="checked"' : '', ' class="input_radio" /></td>
+						<td align="center" class="panel-body"><input type="radio" name="attachment[', $group['id'], ']" value="allow" ', $group['attachment'] == 'allow' ? 'checked="checked"' : '', ' class="input_radio" /></td>
+						<td align="center" class="panel-body"><input type="radio" name="attachment[', $group['id'], ']" value="moderate" ', $group['attachment'] == 'moderate' ? 'checked="checked"' : '', ' class="input_radio" /></td>
+						<td align="center" class="panel-body"><input type="radio" name="attachment[', $group['id'], ']" value="disallow" ', $group['attachment'] == 'disallow' ? 'checked="checked"' : '', ' class="input_radio" /></td>
 					</tr>';
 	}
 

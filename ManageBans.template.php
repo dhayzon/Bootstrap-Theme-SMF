@@ -32,7 +32,7 @@ function template_ban_edit()
 		<div class="information">', $txt['ban_add_notes'], '</div>';
 
 	echo '
-		<div class="windowbg">
+		<div class="panel-body">
 			
 			<div class="content">
 				<form action="', $scripturl, '?action=admin;area=ban;sa=edit" method="post" accept-charset="', $context['character_set'], '" onsubmit="if (this.ban_name.value == \'\') {alert(\'', $txt['ban_name_empty'], '\'); return false;} if (this.partial_ban.checked &amp;&amp; !(this.cannot_post.checked || this.cannot_register.checked || this.cannot_login.checked)) {alert(\'', $txt['ban_restriction_empty'], '\'); return false;}">
@@ -196,7 +196,7 @@ function template_ban_edit()
 					<tbody>';
 		if (empty($context['ban_items']))
 			echo '
-						<tr class="windowbg2">
+						<tr class="panel-body">
 							<td colspan="4">(', $txt['ban_no_triggers'], ')</td>
 						</tr>';
 		else
@@ -204,7 +204,7 @@ function template_ban_edit()
 			foreach ($context['ban_items'] as $ban_item)
 			{
 				echo '
-						<tr class="windowbg2" align="left">
+						<tr class="panel-body" align="left">
 							<td>';
 				if ($ban_item['type'] == 'ip')
 					echo '		<strong>', $txt['ip'], ':</strong>&nbsp;', $ban_item['ip'];
@@ -216,9 +216,9 @@ function template_ban_edit()
 					echo '		<strong>', $txt['username'], ':</strong>&nbsp;', $ban_item['user']['link'];
 				echo '
 							</td>
-							<td class="windowbg" align="center">', $ban_item['hits'], '</td>
-							<td class="windowbg" align="center"><a href="', $scripturl, '?action=admin;area=ban;sa=edittrigger;bg=', $context['ban']['id'], ';bi=', $ban_item['id'], '">', $txt['ban_edit_trigger'], '</a></td>
-							<td align="center" class="windowbg2"><input type="checkbox" name="ban_items[]" value="', $ban_item['id'], '" class="input_check" /></td>
+							<td class="panel-body" align="center">', $ban_item['hits'], '</td>
+							<td class="panel-body" align="center"><a href="', $scripturl, '?action=admin;area=ban;sa=edittrigger;bg=', $context['ban']['id'], ';bi=', $ban_item['id'], '">', $txt['ban_edit_trigger'], '</a></td>
+							<td align="center" class="panel-body"><input type="checkbox" name="ban_items[]" value="', $ban_item['id'], '" class="input_check" /></td>
 						</tr>';
 			}
 		}
@@ -293,7 +293,7 @@ function template_ban_edit_trigger()
 					', $context['ban_trigger']['is_new'] ? $txt['ban_add_trigger'] : $txt['ban_edit_trigger_title'], '
 				</h3>
 			</div>
-			<div class="windowbg">
+			<div class="panel-body">
 				
 				<div class="content">
 					<fieldset>

@@ -133,7 +133,7 @@ function template_event_post()
 	}
 
 	echo '
-			<div class="windowbg">
+			<div class="panel-body">
 				<span class="upperframe"><span></span></span>
 				<div class="roundframe">
 					<fieldset id="event_main">
@@ -461,13 +461,13 @@ function template_show_week_grid($grid_name)
 			echo '
 					<tr>
 						<td colspan="2">
-							<div class="title_bar">
+							<div class="panel panel-danger">
 								<h4 class="titlebg">', $txt['days'][$day['day_of_week']], '</h4>
 							</div>
 						</td>
 					</tr>
 					<tr>
-						<td class="windowbg">';
+						<td class="panel-body">';
 
 			// Should the day number be a link?
 			if (!empty($modSettings['cal_daysaslink']) && $context['can_post'])
@@ -546,7 +546,7 @@ function template_bcd()
 				<div class="table-responsive">
 				<table  cellpadding="0" cellspacing="1" align="center">
 		<caption class="titlebg">BCD Clock</caption>
-		<tr class="windowbg">';
+		<tr class="panel-body">';
 
 	$alt = false;
 	foreach ($context['clockicons'] as $t => $v)

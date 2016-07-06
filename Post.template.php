@@ -118,7 +118,7 @@ function template_main()
 						<span id="preview_subject">', empty($context['preview_subject']) ? '' : $context['preview_subject'], '</span>
 					</h3>
 				</div>
-				<div class="windowbg">
+				<div class="panel-body">
 					
 					<div class="content">
 						<div class="post" id="preview_body">
@@ -931,7 +931,7 @@ function template_spellcheck()
 		<form action="#" method="post" accept-charset="', $context['character_set'], '" name="spellingForm" id="spellingForm" onsubmit="return false;" style="margin: 0;">
 			<div id="spellview">&nbsp;</div>
 						<div class="table-responsive">
-				<table  border="0" cellpadding="4" cellspacing="0" width="100%"><tr class="windowbg">
+				<table  border="0" cellpadding="4" cellspacing="0" width="100%"><tr class="panel-body">
 				<td width="50%" valign="top">
 					', $txt['spellcheck_change_to'], '<br />
 					<input type="text" name="changeto" style="width: 98%;" class="form-control" />
@@ -1019,7 +1019,7 @@ function template_announce()
 			<div class="information">
 				', $txt['announce_desc'], '
 			</div>
-			<div class="windowbg2">
+			<div class="panel-body">
 				
 				<div class="content">
 					<p>
@@ -1059,7 +1059,7 @@ function template_announcement_send()
 	echo '
 	<div id="announcement">
 		<form action="' . $scripturl . '?action=announce;sa=send" method="post" accept-charset="', $context['character_set'], '" name="autoSubmit" id="autoSubmit">
-			<div class="windowbg2">
+			<div class="panel-body">
 				
 				<div class="content">
 					<p>', $txt['announce_sending'], ' <a href="', $scripturl, '?topic=', $context['current_topic'], '.0" target="_blank" class="new_win">', $context['topic_subject'], '</a></p>

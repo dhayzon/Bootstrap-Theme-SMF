@@ -22,8 +22,8 @@ function template_main()
 	// Table header.
 	echo '
 	<div id="manage_boards">
-		<div class="title_bar">
-			<h3 class="titlebg">', $txt['boardsEdit'], '</h3>
+		<div class="panel panel-danger">
+			<h3 class="panel-heading">', $txt['boardsEdit'], '</h3>
 		</div>';
 
 	if (!empty($context['move_board']))
@@ -35,7 +35,7 @@ function template_main()
 	// No categories so show a label.
 	if (empty($context['categories']))
 		echo '
-		<div class="windowbg">
+		<div class="panel-body">
 			
 			<div class="content centertext">
 				', $txt['mboards_no_cats'], '
@@ -57,7 +57,7 @@ function template_main()
 		// Boards table header.
 		echo '
 		<form action="', $scripturl, '?action=admin;area=manageboards;sa=newboard;cat=', $category['id'], '" method="post" accept-charset="', $context['character_set'], '">
-			<div class="windowbg">
+			<div class="panel-body">
 				
 				<div class="content">
 					<ul id="category_', $category['id'], '" style="float:left; width:100%;">';
@@ -127,7 +127,7 @@ function template_modify_category()
 					', isset($context['category']['is_new']) ? $txt['mboards_new_cat_name'] : $txt['catEdit'], '
 					</h3>
 				</div>
-				<div class="windowbg">
+				<div class="panel-body">
 					
 					<div class="content">
 						<dl class="dl-horizontal">';
@@ -205,7 +205,7 @@ function template_confirm_category_delete()
 			<div class="cat_bar">
 				<h3>', $txt['mboards_delete_cat'], '</h3>
 			</div>
-			<div class="windowbg">
+			<div class="panel-body">
 				
 				<div class="content">
 					<p>', $txt['mboards_delete_cat_contains'], ':</p>
@@ -222,7 +222,7 @@ function template_confirm_category_delete()
 			<div class="cat_bar">
 				<h3>', $txt['mboards_delete_what_do'], '</h3>
 			</div>
-			<div class="windowbg">
+			<div class="panel-body">
 				
 				<div class="content">
 					<p>
@@ -264,7 +264,7 @@ function template_modify_board()
 					', isset($context['board']['is_new']) ? $txt['mboards_new_board_name'] : $txt['boardsEdit'], '
 				</h3>
 			</div>
-			<div class="windowbg">
+			<div class="panel-body">
 				
 				<div class="content">
 					<dl class="dl-horizontal">';
@@ -583,7 +583,7 @@ function template_confirm_board_delete()
 			<div class="cat_bar">
 				<h3>', $txt['mboards_delete_board'], '</h3>
 			</div>
-			<div class="windowbg">
+			<div class="panel-body">
 				
 				<div class="content">
 					<p>', $txt['mboards_delete_board_contains'], '</p>
@@ -600,7 +600,7 @@ function template_confirm_board_delete()
 			<div class="cat_bar">
 				<h3>', $txt['mboards_delete_what_do'], '</h3>
 			</div>
-			<div class="windowbg">
+			<div class="panel-body">
 				
 				<div class="content">
 					<p>

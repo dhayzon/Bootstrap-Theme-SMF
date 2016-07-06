@@ -32,6 +32,9 @@ a:focus, a:hover {
     display: inline-block;
 }
 /**fix**/
+.dl-horizontal dt img {
+    margin-right: 10px;
+}
 .fix-margin {
     margin: 0;
     padding: 0;
@@ -67,7 +70,7 @@ select.form-control, .sfix {
     padding: 0;
     margin: 0;
 }
-.header h3, .header h3 a {
+.header h3, .header h3 a, .panel h3 {
     font-size: 14px;
     font-weight: bold;
 }
@@ -127,6 +130,7 @@ float:right;
 dt, dd {
     margin: 5px 0;
 }
+ 
 /**pagination**/
 .smfPagination {
     background: whitesmoke;
@@ -136,6 +140,6 @@ dt, dd {
     border-radius: 3px;
     border: 1px solid #dddddd;
 }
-.smfPagination{
-    
+.uMarging{
+    margin:15px;
 }

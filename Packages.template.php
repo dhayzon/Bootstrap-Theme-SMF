@@ -56,7 +56,7 @@ function template_view_package()
 			<div class="cat_bar">
 				<h3>', $txt['package_' . ($context['uninstalling'] ? 'un' : '') . 'install_readme'], '</h3>
 			</div>
-			<div class="windowbg2">
+			<div class="panel-body">
 				
 				<div class="content">
 					', $context['package_readme'], '
@@ -84,7 +84,7 @@ function template_view_package()
 	if ($context['uninstalling'] && !empty($context['database_changes']))
 	{
 		echo '
-			<div class="windowbg2">
+			<div class="panel-body">
 				
 				<div class="content">
 					<label for="do_db_changes"><input type="checkbox" name="do_db_changes" id="do_db_changes" class="input_check" />', $txt['package_db_uninstall'], '</label> [<a href="#" onclick="return swap_database_changes();">', $txt['package_db_uninstall_details'], '</a>]
@@ -408,7 +408,7 @@ function template_extract_package()
 			</div>';
 
 	echo '
-		<div class="windowbg">
+		<div class="panel-body">
 			
 			<div class="content">';
 
@@ -464,10 +464,10 @@ function template_list()
 		<div class="cat_bar">
 			<h3>', $txt['list_file'], '</h3>
 		</div>
-		<div class="title_bar">
-			<h3 class="titlebg">', $txt['files_archive'], ' ', $context['filename'], ':</h3>
+		<div class="panel panel-danger">
+			<h3 class="panel-heading">', $txt['files_archive'], ' ', $context['filename'], ':</h3>
 		</div>
-		<div class="windowbg">
+		<div class="panel-body">
 			
 			<div class="content">
 				<ol>';
@@ -496,10 +496,10 @@ function template_examine()
 		<div class="cat_bar">
 			<h3>', $txt['package_examine_file'], '</h3>
 		</div>
-		<div class="title_bar">
-			<h3 class="titlebg">', $txt['package_file_contents'], ' ', $context['filename'], ':</h3>
+		<div class="panel panel-danger">
+			<h3 class="panel-heading">', $txt['package_file_contents'], ' ', $context['filename'], ':</h3>
 		</div>
-		<div class="windowbg">
+		<div class="panel-body">
 			
 			<div class="content">
 				<pre class="file_content">', $context['filedata'], '</pre>
@@ -517,8 +517,8 @@ function template_view_installed()
 
 	echo '
 	<div id="admincenter">
-		<div class="title_bar">
-			<h3 class="titlebg">' . $txt['view_and_remove'] . '</h3>
+		<div class="panel panel-danger">
+			<h3 class="panel-heading">' . $txt['view_and_remove'] . '</h3>
 		</div>';
 
 	if (empty($context['installed_mods']))
@@ -581,7 +581,7 @@ function template_browse()
 				<span class="ie6_header floatleft"><a href="', $scripturl, '?action=helpadmin;help=latest_packages" onclick="return reqWin(this.href);" class="help"><img class="icon" src="', $settings['images_url'], '/helptopics.gif" alt="', $txt['help'], '" align="top" /></a> ', $txt['packages_latest'], '</span>
 			</h3>
 		</div>
-		<div class="windowbg2">
+		<div class="panel-body">
 			
 			<div class="content">
 				<div id="packagesLatest">', $txt['packages_latest_fetch'], '</div>
@@ -633,8 +633,8 @@ function template_browse()
 	{
 		echo '
 		<br />
-		<div class="title_bar">
-			<h3 class="titlebg">', $txt['modification_package'], '</h3>
+		<div class="panel panel-danger">
+			<h3 class="panel-heading">', $txt['modification_package'], '</h3>
 		</div>
 
 					<div class="table-responsive">
@@ -696,8 +696,8 @@ function template_browse()
 	{
 		echo '
 		<br />
-		<div class="title_bar">
-			<h3 class="titlebg">', $txt['avatar_package'], '</h3>
+		<div class="panel panel-danger">
+			<h3 class="panel-heading">', $txt['avatar_package'], '</h3>
 		</div>
 					<div class="table-responsive">
 				<table  class="table" width="100%">
@@ -714,7 +714,7 @@ function template_browse()
 		foreach ($context['available_avatars'] as $i => $package)
 		{
 			echo '
-			<tr class="windowbg2">
+			<tr class="panel-body">
 				<td>', ++$i, '.</td>
 				<td>', $package['name'], '</td>
 				<td>', $package['version'];
@@ -755,8 +755,8 @@ function template_browse()
 	{
 		echo '
 		<br />
-		<div class="title_bar">
-			<h3 class="titlebg">' . $txt['language_package'] . '</h3>
+		<div class="panel panel-danger">
+			<h3 class="panel-heading">' . $txt['language_package'] . '</h3>
 		</div>
 					<div class="table-responsive">
 				<table  class="table" width="100%">
@@ -773,7 +773,7 @@ function template_browse()
 		foreach ($context['available_languages'] as $i => $package)
 		{
 			echo '
-			<tr class="windowbg">
+			<tr class="panel-body">
 				<td>' . ++$i . '.</td>
 				<td>' . $package['name'] . '</td>
 				<td>' . $package['version'];
@@ -814,8 +814,8 @@ function template_browse()
 	{
 		echo '
 		<br />
-		<div class="title_bar">
-			<h3 class="titlebg">' . $txt['unknown_package'] . '</h3>
+		<div class="panel panel-danger">
+			<h3 class="panel-heading">' . $txt['unknown_package'] . '</h3>
 		</div>
 					<div class="table-responsive">
 				<table  class="table" width="100%">
@@ -832,7 +832,7 @@ function template_browse()
 		foreach ($context['available_other'] as $i => $package)
 		{
 			echo '
-			<tr class="windowbg2">
+			<tr class="panel-body">
 				<td>' . ++$i . '.</td>
 				<td>' . $package['name'] . '</td>
 				<td>' . $package['version'];
@@ -889,7 +889,7 @@ function template_browse()
 				<div class="cat_bar">
 					<h3>', $txt['package_advanced_options'], '</h3>
 				</div>
-				<div class="windowbg">
+				<div class="panel-body">
 					
 					<div class="content">
 						<p>
@@ -940,10 +940,10 @@ function template_servers()
 	if ($context['package_download_broken'])
 	{
 		echo '
-		<div class="title_bar">
-			<h3 class="titlebg">', $txt['package_ftp_necessary'], '</h3>
+		<div class="panel panel-danger">
+			<h3 class="panel-heading">', $txt['package_ftp_necessary'], '</h3>
 		</div>
-		<div class="windowbg">
+		<div class="panel-body">
 			
 			<div class="content">
 				<p>
@@ -968,7 +968,7 @@ function template_servers()
 							<label for="ftp_password">', $txt['package_ftp_password'], ':</label>
 						</dt>
 						<dd>
-							<input type="password" size="50" name="ftp_password" id="ftp_password" style="width: 99%;" class="input_password" />
+							<input type="password" size="50" name="ftp_password" id="ftp_password" style="width: 99%;" class="form-control" />
 						</dd>
 						<dt>
 							<label for="ftp_path">', $txt['package_ftp_path'], ':</label>
@@ -987,7 +987,7 @@ function template_servers()
 	}
 
 	echo '
-		<div class="windowbg2">
+		<div class="panel-body">
 			
 			<div class="content">
 				<fieldset>
@@ -1056,7 +1056,7 @@ function template_servers()
 		<div class="cat_bar">
 			<h3>' . $txt['package_upload_title'] . '</h3>
 		</div>
-		<div class="windowbg">
+		<div class="panel-body">
 			
 			<div class="content">
 				<form action="' . $scripturl . '?action=admin;area=packages;get;sa=upload" method="post" accept-charset="', $context['character_set'], '" enctype="multipart/form-data" style="margin-bottom: 0;">
@@ -1089,7 +1089,7 @@ function template_package_confirm()
 		<div class="cat_bar">
 			<h3>', $context['page_title'], '</h3>
 		</div>
-		<div class="windowbg">
+		<div class="panel-body">
 			
 			<div class="content">
 				<p>', $context['confirm_message'], '</p>
@@ -1110,7 +1110,7 @@ function template_package_list()
 		<div class="cat_bar">
 			<h3>' . $context['page_title'] . '</h3>
 		</div>
-		<div class="windowbg">
+		<div class="panel-body">
 			
 			<div class="content">';
 
@@ -1291,7 +1291,7 @@ function template_downloaded()
 		<div class="cat_bar">
 			<h3>', $context['page_title'], '</h3>
 		</div>
-		<div class="windowbg">
+		<div class="panel-body">
 			
 			<div class="content">
 				<p>', (empty($context['package_server']) ? $txt['package_uploaded_successfully'] : $txt['package_downloaded_successfully']), '</p>
@@ -1323,7 +1323,7 @@ function template_install_options()
 			', $txt['package_install_options_ftp_why'], '
 		</div>
 
-		<div class="windowbg">
+		<div class="panel-body">
 			
 			<div class="content">
 				<form action="', $scripturl, '?action=admin;area=packages;sa=options" method="post" accept-charset="', $context['character_set'], '">
@@ -1386,7 +1386,7 @@ function template_control_chmod()
 	}
 
 	echo '
-				<div class="bordercolor" id="ftp_error_div" style="', (!empty($context['package_ftp']['error']) ? '' : 'display:none;'), 'padding: 1px; margin: 1ex;"><div class="windowbg2" id="ftp_error_innerdiv" style="padding: 1ex;">
+				<div class="bordercolor" id="ftp_error_div" style="', (!empty($context['package_ftp']['error']) ? '' : 'display:none;'), 'padding: 1px; margin: 1ex;"><div class="panel-body" id="ftp_error_innerdiv" style="padding: 1ex;">
 					<tt id="ftp_error_message">', !empty($context['package_ftp']['error']) ? $context['package_ftp']['error'] : '', '</tt>
 				</div></div>';
 
@@ -1414,7 +1414,7 @@ function template_control_chmod()
 							<label for="ftp_password">', $txt['package_ftp_password'], ':</label>
 						</dt>
 						<dd>
-							<input type="password" size="50" name="ftp_password" id="ftp_password" style="width: 98%;" class="input_password" />
+							<input type="password" size="50" name="ftp_password" id="ftp_password" style="width: 98%;" class="form-control" />
 						</dd>
 						<dt>
 							<label for="ftp_path">', $txt['package_ftp_path'], ':</label>
@@ -1861,8 +1861,8 @@ function template_file_permissions()
 	</div>
 
 	<form action="', $scripturl, '?action=admin;area=packages;sa=perms;', $context['session_var'], '=', $context['session_id'], '" method="post" accept-charset="', $context['character_set'], '">
-		<div class="title_bar">
-			<h3 class="titlebg">
+		<div class="panel panel-danger">
+			<h3 class="panel-heading">
 				<span class="floatleft">', $txt['package_file_perms'], '</span><span class="fperm floatright">', $txt['package_file_perms_new_status'], '</span>
 			</h3>
 		</div>
@@ -1884,7 +1884,7 @@ function template_file_permissions()
 	{
 		echo '
 			<tbody>
-				<tr class="windowbg2">
+				<tr class="panel-body">
 					<td width="30%"><strong>';
 
 				if (!empty($dir['type']) && ($dir['type'] == 'dir' || $dir['type'] == 'dir_recursive'))
@@ -1919,7 +1919,7 @@ function template_file_permissions()
 		<div class="cat_bar">
 			<h3>', $txt['package_file_perms_change'], '</h3>
 		</div>
-		<div class="windowbg">
+		<div class="panel-body">
 			
 			<div class="content">
 				<fieldset>
@@ -1997,7 +1997,7 @@ function template_permission_show_contents($ident, $contents, $level, $has_more 
 
 			$cur_ident = preg_replace('~[^A-Za-z0-9_\-=:]~', ':-:', $ident . '/' . $name);
 			echo '
-			<tr class="windowbg" id="content_', $cur_ident, '">
+			<tr class="panel-body" id="content_', $cur_ident, '">
 				<td class="smalltext" width="30%">' . str_repeat('&nbsp;', $level * 5), '
 					', (!empty($dir['type']) && $dir['type'] == 'dir_recursive') || !empty($dir['list_contents']) ? '<a id="link_' . $cur_ident . '" href="' . $scripturl . '?action=admin;area=packages;sa=perms;find=' . base64_encode($ident . '/' . $name) . ';back_look=' . $context['back_look_data'] . ';' . $context['session_var'] . '=' . $context['session_id'] . '#fol_' . $cur_ident . '" onclick="return expandFolder(\'' . $cur_ident . '\', \'' . addcslashes($ident . '/' . $name, "'\\") . '\');">' : '';
 
@@ -2032,7 +2032,7 @@ function template_permission_show_contents($ident, $contents, $level, $has_more 
 	// We have more files to show?
 	if ($has_more)
 		echo '
-	<tr class="windowbg" id="content_', $js_ident, '_more">
+	<tr class="panel-body" id="content_', $js_ident, '_more">
 		<td class="smalltext" width="40%">' . str_repeat('&nbsp;', $level * 5), '
 			&#171; <a href="' . $scripturl . '?action=admin;area=packages;sa=perms;find=' . base64_encode($ident) . ';fileoffset=', ($context['file_offset'] + $context['file_limit']), ';' . $context['session_var'] . '=' . $context['session_id'] . '#fol_' . preg_replace('~[^A-Za-z0-9_\-=:]~', ':-:', $ident) . '">', $txt['package_file_perms_more_files'], '</a> &#187;
 		</td>
@@ -2087,7 +2087,7 @@ function template_action_permissions()
 	$progress_percent = round(($context['total_items'] - $remaining_items) / $context['total_items'] * 100, 1);
 
 	echo '
-			<div class="windowbg">
+			<div class="panel-body">
 				
 				<div class="content">
 					<div style="padding-left: 20%; padding-right: 20%; margin-top: 1ex;">

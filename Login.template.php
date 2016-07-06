@@ -49,7 +49,7 @@ function template_login()
 					<dt>', $txt['username'], ':</dt>
 					<dd><input type="text" name="user" size="20" value="', $context['default_username'], '" class="form-control" /></dd>
 					<dt>', $txt['password'], ':</dt>
-					<dd><input type="password" name="passwrd" value="', $context['default_password'], '" size="20" class="input_password" /></dd>
+					<dd><input type="password" name="passwrd" value="', $context['default_password'], '" size="20" class="form-control" /></dd>
 				</dl>';
 
 	if (!empty($modSettings['enableOpenID']))
@@ -120,7 +120,7 @@ function template_kick_guest()
 					<dt>', $txt['username'], ':</dt>
 					<dd><input type="text" name="user" size="20" class="form-control" /></dd>
 					<dt>', $txt['password'], ':</dt>
-					<dd><input type="password" name="passwrd" size="20" class="input_password" /></dd>';
+					<dd><input type="password" name="passwrd" size="20" class="form-control" /></dd>';
 
 	if (!empty($modSettings['enableOpenID']))
 		echo '
@@ -171,7 +171,7 @@ function template_maintenance()
 			<img class="floatleft" src="', $settings['images_url'], '/construction.png" width="40" height="40" alt="', $txt['in_maintain_mode'], '" />
 			', $context['description'], '<br class="clear" />
 		</p>
-		<div class="title_bar">
+		<div class="panel panel-danger">
 			<h4 class="titlebg">', $txt['admin_login'], '</h4>
 		</div>
 		<span class="upperframe"><span></span></span>
@@ -180,7 +180,7 @@ function template_maintenance()
 				<dt>', $txt['username'], ':</dt>
 				<dd><input type="text" name="user" size="20" class="form-control" /></dd>
 				<dt>', $txt['password'], ':</dt>
-				<dd><input type="password" name="passwrd" size="20" class="input_password" /></dd>
+				<dd><input type="password" name="passwrd" size="20" class="form-control" /></dd>
 				<dt>', $txt['mins_logged_in'], ':</dt>
 				<dd><input type="text" name="cookielength" size="4" maxlength="4" value="', $modSettings['cookieTime'], '" class="form-control" /></dd>
 				<dt>', $txt['always_logged_in'], ':</dt>
@@ -219,7 +219,7 @@ function template_admin_login()
 
 	echo '
 			<strong>', $txt['password'], ':</strong>
-			<input type="password" name="admin_pass" size="24" class="input_password" />
+			<input type="password" name="admin_pass" size="24" class="form-control" />
 			<a href="', $scripturl, '?action=helpadmin;help=securityDisable_why" onclick="return reqWin(this.href);" class="help"><img src="', $settings['images_url'], '/helptopics.gif" alt="', $txt['help'], '" /></a><br />
 			<input type="submit" style="margin-top: 1em;" value="', $txt['login'], '" class="btn btn-default" />';
 
@@ -246,8 +246,8 @@ function template_retry_activate()
 	// Just ask them for their code so they can try it again...
 	echo '
 		<form action="', $scripturl, '?action=activate;u=', $context['member_id'], '" method="post" accept-charset="', $context['character_set'], '">
-			<div class="title_bar">
-				<h3 class="titlebg">', $context['page_title'], '</h3>
+			<div class="panel panel-danger">
+				<h3 class="panel-heading">', $context['page_title'], '</h3>
 			</div>
 			<span class="upperframe"><span></span></span>
 			<div class="roundframe">';
@@ -277,8 +277,8 @@ function template_resend()
 	// Just ask them for their code so they can try it again...
 	echo '
 		<form action="', $scripturl, '?action=activate;sa=resend" method="post" accept-charset="', $context['character_set'], '">
-			<div class="title_bar">
-				<h3 class="titlebg">', $context['page_title'], '</h3>
+			<div class="panel panel-danger">
+				<h3 class="panel-heading">', $context['page_title'], '</h3>
 			</div>
 			<span class="upperframe"><span></span></span>
 			<div class="roundframe">
@@ -291,7 +291,7 @@ function template_resend()
 					<dt>', $txt['invalid_activation_new_email'], ':</dt>
 					<dd><input type="text" name="new_email" size="40" class="form-control" /></dd>
 					<dt>', $txt['invalid_activation_password'], ':</dt>
-					<dd><input type="password" name="passwd" size="30" class="input_password" /></dd>
+					<dd><input type="password" name="passwd" size="30" class="form-control" /></dd>
 				</dl>';
 
 	if ($context['can_activate'])

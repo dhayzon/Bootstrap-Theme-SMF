@@ -131,10 +131,10 @@ function template_registration_form()
 			<div class="cat_bar">
 				<h3>', $txt['registration_form'], '</h3>
 			</div>
-			<div class="title_bar">
+			<div class="panel panel-danger">
 				<h4 class="titlebg">', $txt['required_info'], '</h4>
 			</div>
-			<div class="windowbg2">
+			<div class="panel-body">
 				
 				<fieldset class="content">
 					<dl class="register_form">
@@ -183,7 +183,7 @@ function template_registration_form()
 					<dl class="register_form" id="password1_group">
 						<dt><strong><label for="smf_autov_pwmain">', $txt['choose_pass'], ':</label></strong></dt>
 						<dd>
-							<input type="password" name="passwrd1" id="smf_autov_pwmain" size="30" tabindex="', $context['tabindex']++, '" class="input_password" />
+							<input type="password" name="passwrd1" id="smf_autov_pwmain" size="30" tabindex="', $context['tabindex']++, '" class="form-control" />
 							<span id="smf_autov_pwmain_div" style="display: none;">
 								<img id="smf_autov_pwmain_img" src="', $settings['images_url'], '/icons/field_invalid.gif" alt="*" />
 							</span>
@@ -192,7 +192,7 @@ function template_registration_form()
 					<dl class="register_form" id="password2_group">
 						<dt><strong><label for="smf_autov_pwverify">', $txt['verify_pass'], ':</label></strong></dt>
 						<dd>
-							<input type="password" name="passwrd2" id="smf_autov_pwverify" size="30" tabindex="', $context['tabindex']++, '" class="input_password" />
+							<input type="password" name="passwrd2" id="smf_autov_pwverify" size="30" tabindex="', $context['tabindex']++, '" class="form-control" />
 							<span id="smf_autov_pwverify_div" style="display: none;">
 								<img id="smf_autov_pwverify_img" src="', $settings['images_url'], '/icons/field_valid.gif" alt="*" />
 							</span>
@@ -221,10 +221,10 @@ function template_registration_form()
 	if (!empty($context['profile_fields']) || !empty($context['custom_fields']))
 	{
 		echo '
-			<div class="title_bar">
+			<div class="panel panel-danger">
 				<h4 class="titlebg">', $txt['additional_information'], '</h4>
 			</div>
-			<div class="windowbg2">
+			<div class="panel-body">
 				
 				<fieldset class="content">
 					<dl class="register_form" id="custom_group">';
@@ -335,10 +335,10 @@ function template_registration_form()
 	if ($context['visual_verification'])
 	{
 		echo '
-			<div class="title_bar">
+			<div class="panel panel-danger">
 				<h4 class="titlebg">', $txt['verification'], '</h4>
 			</div>
-			<div class="windowbg2">
+			<div class="panel-body">
 				
 				<fieldset class="content centertext">
 					', template_control_verification($context['visual_verification_id'], 'all'), '
@@ -380,7 +380,7 @@ function template_after()
 			<div class="cat_bar">
 				<h3>', $context['title'], '</h3>
 			</div>
-			<div class="windowbg">
+			<div class="panel-body">
 				
 				<p class="content">', $context['description'], '</p>
 			</div>
@@ -394,10 +394,10 @@ function template_coppa()
 
 	// Formulate a nice complicated message!
 	echo '
-			<div class="title_bar">
-				<h3 class="titlebg">', $context['page_title'], '</h3>
+			<div class="panel panel-danger">
+				<h3 class="panel-heading">', $context['page_title'], '</h3>
 			</div>
-			<div class="windowbg2">
+			<div class="panel-body">
 				
 				<div class="content">
 					<p>', $context['coppa']['body'], '</p>
@@ -517,11 +517,11 @@ function template_admin_register()
 	global $context, $settings, $options, $scripturl, $txt, $modSettings;
 
 	echo '
-	<div id="admincenter">
-		<div class="cat_bar">
+	<div id="admincenter" class="panel panel-warning">
+		<div class="panel-heading">
 			<h3>', $txt['admin_browse_register_new'], '</h3>
 		</div>
-		<form class="windowbg2" action="', $scripturl, '?action=admin;area=regcenter" method="post" accept-charset="', $context['character_set'], '" name="postForm" id="postForm">
+		<form class="panel-body" action="', $scripturl, '?action=admin;area=regcenter" method="post" accept-charset="', $context['character_set'], '" name="postForm" id="postForm">
 			
 			<script type="text/javascript"><!-- // --><![CDATA[
 				function onCheckChange()
@@ -539,7 +539,7 @@ function template_admin_register()
 
 	if (!empty($context['registration_done']))
 		echo '
-				<div class="windowbg" id="profile_success">
+				<div class="panel-body" id="profile_success">
 					', $context['registration_done'], '
 				</div>';
 
@@ -564,7 +564,7 @@ function template_admin_register()
 						<span class="smalltext">', $txt['admin_register_password_desc'], '</span>
 					</dt>
 					<dd>
-						<input type="password" name="password" id="password_input" tabindex="', $context['tabindex']++, '" size="30" class="input_password" onchange="onCheckChange();" />
+						<input type="password" name="password" id="password_input" tabindex="', $context['tabindex']++, '" size="30" class="form-control" onchange="onCheckChange();" />
 					</dd>';
 
 	if (!empty($context['member_groups']))
@@ -630,7 +630,7 @@ function template_edit_agreement()
 		<p class="error">', $context['warning'], '</p>';
 
 	echo '
-		<div class="windowbg2" id="registration_agreement">
+		<div class="panel-body" id="registration_agreement">
 			
 			<div class="content">';
 
@@ -690,7 +690,7 @@ function template_edit_reserved_words()
 		<div class="cat_bar">
 			<h3>', $txt['admin_reserved_set'], '</h3>
 		</div>
-		<form id="registration_agreement" class="windowbg2" action="', $scripturl, '?action=admin;area=regcenter" method="post" accept-charset="', $context['character_set'], '">
+		<form id="registration_agreement" class="panel-body" action="', $scripturl, '?action=admin;area=regcenter" method="post" accept-charset="', $context['character_set'], '">
 			
 			<div class="content">
 				<h4>', $txt['admin_reserved_line'], '</h4>

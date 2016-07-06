@@ -25,8 +25,8 @@ function template_pm_above()
 	// Show the capacity bar, if available.
 	if (!empty($context['limit_bar']))
 		echo '
-		<div class="title_bar">
-			<h3 class="titlebg">
+		<div class="panel panel-danger">
+			<h3 class="panel-heading">
 				<span class="floatleft">', $txt['pm_capacity'], ':</span>
 				<span class="floatleft capacity_bar">
 					<span class="', $context['limit_bar']['percent'] > 85 ? 'full' : ($context['limit_bar']['percent'] > 40 ? 'filled' : 'empty'), '" style="width: ', $context['limit_bar']['percent'] / 10, 'em;"></span>
@@ -38,7 +38,7 @@ function template_pm_above()
 	// Message sent? Show a small indication.
 	if (isset($context['pm_sent']))
 		echo '
-		<div class="windowbg" id="profile_success">
+		<div class="panel-body" id="profile_success">
 			', $txt['pm_sent'], '
 		</div>';
 }
@@ -565,7 +565,7 @@ function template_subject_list()
 	<tbody>';
 	if (!$context['show_delete'])
 		echo '
-		<tr class="windowbg2">
+		<tr class="panel-body">
 			<td colspan="5">', $txt['msg_alert_none'], '</td>
 		</tr>';
 	$next_alternate = false;
@@ -751,7 +751,7 @@ function template_search()
 		<fieldset class="labels">
 			<span class="upperframe"><span></span></span>
 			<div class="roundframe">
-				<div class="title_bar">
+				<div class="panel panel-danger">
 					<h4 class="titlebg">
 						<span class="ie6_header floatleft"><a href="javascript:void(0);" onclick="expandCollapseLabels(); return false;"><img src="', $settings['images_url'], '/expand.gif" id="expandLabelsIcon" alt="" /></a> <a href="javascript:void(0);" onclick="expandCollapseLabels(); return false;"><strong>', $txt['pm_search_choose_label'], '</strong></a></span>
 					</h4>
@@ -815,8 +815,8 @@ function template_search_results()
 		if (!empty($context['search_params']['show_complete']))
 		{
 			echo '
-			<div class="title_bar">
-				<h3 class="titlebg">
+			<div class="panel panel-danger">
+				<h3 class="panel-heading">
 					<span class="floatright">', $txt['search_on'], ': ', $message['time'], '</span>
 					<span class="floatleft">', $message['counter'], '&nbsp;&nbsp;<a href="', $message['href'], '">', $message['subject'], '</a></span>
 				</h3>
@@ -887,7 +887,7 @@ function template_search_results()
 	// No results?
 	if (empty($context['personal_messages']))
 		echo '
-		<div class="windowbg">
+		<div class="panel-body">
 			
 			<div class="content">
 				<p class="centertext">', $txt['pm_search_none_found'], '</p>
@@ -913,7 +913,7 @@ function template_send()
 			<div class="cat_bar">
 				<h3>', $txt['pm_send_report'], '</h3>
 			</div>
-			<div class="windowbg">
+			<div class="panel-body">
 				
 				<div class="content">';
 				if (!empty($context['send_log']['sent']))
@@ -934,7 +934,7 @@ function template_send()
 		<div class="cat_bar">
 			<h3>', $context['preview_subject'], '</h3>
 		</div>
-		<div class="windowbg">
+		<div class="panel-body">
 			
 			<div class="content">
 				', $context['preview_message'], '
@@ -1074,7 +1074,7 @@ function template_send()
 	<div class="cat_bar">
 		<h3>', $txt['subject'], ': ', $context['quoted_message']['subject'], '</h3>
 	</div>
-	<div class="windowbg2">
+	<div class="panel-body">
 		
 		<div class="content">
 			<div class="clear">
@@ -1141,7 +1141,7 @@ function template_ask_delete()
 		<div class="cat_bar">
 			<h3>', ($context['delete_all'] ? $txt['delete_message'] : $txt['delete_all']), '</h3>
 		</div>
-		<div class="windowbg">
+		<div class="panel-body">
 			
 			<div class="content">
 				<p>', $txt['delete_all_confirm'], '</p><br />
@@ -1161,7 +1161,7 @@ function template_prune()
 		<div class="cat_bar">
 			<h3>', $txt['pm_prune'], '</h3>
 		</div>
-		<div class="windowbg">
+		<div class="panel-body">
 			
 			<div class="content">
 				<p>', $txt['pm_prune_desc1'], ' <input type="text" name="age" size="3" value="14" class="form-control" /> ', $txt['pm_prune_desc2'], '</p>
@@ -1208,7 +1208,7 @@ function template_labels()
 		<tbody>';
 	if (count($context['labels']) < 2)
 		echo '
-			<tr class="windowbg2">
+			<tr class="panel-body">
 				<td colspan="2" align="center">', $txt['pm_labels_no_exist'], '</td>
 			</tr>';
 	else
@@ -1250,7 +1250,7 @@ function template_labels()
 		<div class="cat_bar">
 			<h3>', $txt['pm_label_add_new'], '</h3>
 		</div>
-		<div class="windowbg">
+		<div class="panel-body">
 			
 			<div class="content">
 				<dl class="dl-horizontal">
@@ -1285,7 +1285,7 @@ function template_report_message()
 		<div class="description">
 			', $txt['pm_report_desc'], '
 		</div>
-		<div class="windowbg">
+		<div class="panel-body">
 			
 			<div class="content">
 				<dl class="dl-horizontal">';
@@ -1336,7 +1336,7 @@ function template_report_message_complete()
 		<div class="cat_bar">
 			<h3>', $txt['pm_report_title'], '</h3>
 		</div>
-		<div class="windowbg">
+		<div class="panel-body">
 			
 			<div class="content">
 				<p>', $txt['pm_report_done'], '</p>
@@ -1380,7 +1380,7 @@ function template_rules()
 
 	if (empty($context['rules']))
 		echo '
-			<tr class="windowbg2">
+			<tr class="panel-body">
 				<td colspan="2" align="center">
 					', $txt['pm_rules_none'], '
 				</td>
@@ -1603,7 +1603,7 @@ function template_add_rule()
 		<div class="cat_bar">
 			<h3>', $context['rid'] == 0 ? $txt['pm_add_rule'] : $txt['pm_edit_rule'], '</h3>
 		</div>
-		<div class="windowbg">
+		<div class="panel-body">
 			
 			<div class="content">
 				<dl class="addrules">

@@ -25,7 +25,7 @@ function template_ask()
 			<div class="cat_bar">
 				<h3>', $txt['split'], '</h3>
 			</div>
-			<div class="windowbg">
+			<div class="panel-body">
 				
 				<div class="content">
 					<p class="split_topics">
@@ -62,7 +62,7 @@ function template_main()
 		<div class="cat_bar">
 			<h3>', $txt['split'], '</h3>
 		</div>
-		<div class="windowbg">
+		<div class="panel-body">
 			
 			<div class="content">
 				<p>', $txt['split_successful'], '</p>
@@ -260,7 +260,7 @@ function template_merge_done()
 			<div class="cat_bar">
 				<h3>', $txt['merge'], '</h3>
 			</div>
-			<div class="windowbg">
+			<div class="panel-body">
 				
 				<div class="content">
 					<p>', $txt['merge_successful'], '</p>
@@ -291,7 +291,7 @@ function template_merge()
 			<div class="information">
 				', $txt['merge_desc'], '
 			</div>
-			<div class="windowbg">
+			<div class="panel-body">
 				
 				<div class="content">
 					<dl class="settings merge_topic">
@@ -348,7 +348,7 @@ function template_merge()
 			<div class="pagesection">
 				<strong>', $txt['pages'], ':</strong> ', $context['page_index'], '
 			</div>
-			<div class="windowbg2">
+			<div class="panel-body">
 				
 				<div class="content">
 					<ul class="reset merge_topics">';
@@ -380,8 +380,8 @@ function template_merge_extra_options()
 	echo '
 	<div id="merge_topics">
 		<form action="', $scripturl, '?action=mergetopics;sa=execute;" method="post" accept-charset="', $context['character_set'], '">
-			<div class="title_bar">
-				<h3 class="titlebg">', $txt['merge_topic_list'], '</h3>
+			<div class="panel panel-danger">
+				<h3 class="panel-heading">', $txt['merge_topic_list'], '</h3>
 			</div>
 						<div class="table-responsive">
 				<table  width="100%" class="bordercolor table_grid">
@@ -397,7 +397,7 @@ function template_merge_extra_options()
 				<tbody>';
 		foreach ($context['topics'] as $topic)
 			echo '
-					<tr class="windowbg2">
+					<tr class="panel-body">
 						<td align="center">
 							<input type="checkbox" class="input_check" name="topics[]" value="' . $topic['id'] . '" checked="checked" />
 						</td>
@@ -422,7 +422,7 @@ function template_merge_extra_options()
 			</div>
 			<!--tabla responsiva-->
 			<br />
-			<div class="windowbg">
+			<div class="panel-body">
 				
 				<div class="content">';
 

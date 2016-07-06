@@ -31,7 +31,7 @@ function template_report_type()
 			<div class="cat_bar">
 				<h3>', $txt['generate_reports_type'], '</h3>
 			</div>
-			<div class="windowbg">
+			<div class="panel-body">
 				
 				<div class="content">
 					<dl class="generate_report">';
@@ -74,8 +74,8 @@ function template_main()
 
 	echo '
 	<div id="admincenter">
-		<div class="title_bar">
-			<h3 class="titlebg">', $txt['results'], '</h3>
+		<div class="panel panel-danger">
+			<h3 class="panel-heading">', $txt['results'], '</h3>
 		</div>
 		<div id="report_buttons">';
 

@@ -203,7 +203,7 @@ function template_generic_menu_dropdown_above()
 
 	// This is the main table - we need it so we can keep the content to the right of it.
 	echo '
-<div id="admin_content">';
+<div id="admin_content" class="panel-body fix-padding">';
 
 	// It's possible that some pages have their own tabs they wanna force...
 	if (!empty($context['tabs']))
@@ -228,8 +228,8 @@ function template_generic_menu_tabs(&$menu_context)
 	$tab_context = &$menu_context['tab_data'];
 
 	echo '
-	<div class="cat_bar">
-		<h3>';
+	<div class="panel panel-success">
+		<h3 class="panel-heading">';
 
 	// Exactly how many tabs do we have?
 	foreach ($context['tabs'] as $id => $tab)
@@ -296,17 +296,15 @@ function template_generic_menu_tabs(&$menu_context)
 	}
 
 	echo '
-		</h3>
-	</div>';
+		</h3>	 
+	<div class="panel-body">';
 
 	// Shall we use the tabs?
 	if (!empty($settings['use_tabs']))
 	{
-		echo '
-	<p class="windowbg description">
-		', !empty($selected_tab['description']) ? $selected_tab['description'] : $tab_context['description'], '
-	</p>';
-
+		echo ' 
+		', !empty($selected_tab['description']) ? $selected_tab['description'] : $tab_context['description'], '';
+   echo'</div></div>';
 		// The admin tabs.
 		echo '
 	<div id="adm_submenus">

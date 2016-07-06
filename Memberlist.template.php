@@ -79,35 +79,35 @@ function template_main()
 		{
 			echo '
 				<tr ', empty($member['sort_letter']) ? '' : ' id="letter' . $member['sort_letter'] . '"', '>
-					<td class="windowbg2">
+					<td class="panel-body">
 						', $context['can_send_pm'] ? '<a href="' . $member['online']['href'] . '" title="' . $member['online']['text'] . '">' : '', $settings['use_image_buttons'] ? '<img src="' . $member['online']['image_href'] . '" alt="' . $member['online']['text'] . '" align="middle" />' : $member['online']['label'], $context['can_send_pm'] ? '</a>' : '', '
 					</td>
 					<td class="windowbg lefttext">', $member['link'], '</td>
-					<td class="windowbg2">', $member['show_email'] == 'no' ? '' : '<a href="' . $scripturl . '?action=emailuser;sa=email;uid=' . $member['id'] . '" rel="nofollow"><img src="' . $settings['images_url'] . '/email_sm.gif" alt="' . $txt['email'] . '" title="' . $txt['email'] . ' ' . $member['name'] . '" /></a>', '</td>';
+					<td class="panel-body">', $member['show_email'] == 'no' ? '' : '<a href="' . $scripturl . '?action=emailuser;sa=email;uid=' . $member['id'] . '" rel="nofollow"><img src="' . $settings['images_url'] . '/email_sm.gif" alt="' . $txt['email'] . '" title="' . $txt['email'] . ' ' . $member['name'] . '" /></a>', '</td>';
 
 		if (!isset($context['disabled_fields']['website']))
 			echo '
-					<td class="windowbg">', $member['website']['url'] != '' ? '<a href="' . $member['website']['url'] . '" target="_blank" class="new_win"><img src="' . $settings['images_url'] . '/www.gif" alt="' . $member['website']['title'] . '" title="' . $member['website']['title'] . '" /></a>' : '', '</td>';
+					<td class="panel-body">', $member['website']['url'] != '' ? '<a href="' . $member['website']['url'] . '" target="_blank" class="new_win"><img src="' . $settings['images_url'] . '/www.gif" alt="' . $member['website']['title'] . '" title="' . $member['website']['title'] . '" /></a>' : '', '</td>';
 
 		// ICQ?
 		if (!isset($context['disabled_fields']['icq']))
 			echo '
-					<td class="windowbg2">', $member['icq']['link'], '</td>';
+					<td class="panel-body">', $member['icq']['link'], '</td>';
 
 		// AIM?
 		if (!isset($context['disabled_fields']['aim']))
 			echo '
-					<td class="windowbg2">', $member['aim']['link'], '</td>';
+					<td class="panel-body">', $member['aim']['link'], '</td>';
 
 		// YIM?
 		if (!isset($context['disabled_fields']['yim']))
 			echo '
-					<td class="windowbg2">', $member['yim']['link'], '</td>';
+					<td class="panel-body">', $member['yim']['link'], '</td>';
 
 		// MSN?
 		if (!isset($context['disabled_fields']['msn']))
 			echo '
-					<td class="windowbg2">', $member['msn']['link'], '</td>';
+					<td class="panel-body">', $member['msn']['link'], '</td>';
 
 		// Group and date.
 		echo '
@@ -117,7 +117,7 @@ function template_main()
 		if (!isset($context['disabled_fields']['posts']))
 		{
 			echo '
-					<td class="windowbg2" style="white-space: nowrap" width="15">', $member['posts'], '</td>
+					<td class="panel-body" style="white-space: nowrap" width="15">', $member['posts'], '</td>
 					<td class="windowbg statsbar" width="120">';
 
 			if (!empty($member['post_percent']))
@@ -138,7 +138,7 @@ function template_main()
 	else
 		echo '
 				<tr>
-					<td colspan="', $context['colspan'], '" class="windowbg">', $txt['search_no_results'], '</td>
+					<td colspan="', $context['colspan'], '" class="panel-body">', $txt['search_no_results'], '</td>
 				</tr>';
 
 	// Show the page numbers again. (makes 'em easier to find!)

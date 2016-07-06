@@ -34,7 +34,7 @@ function template_new_group()
 			<div class="cat_bar">
 				<h3>', $txt['membergroups_new_group'], '</h3>
 			</div>
-			<div class="windowbg">
+			<div class="panel-body">
 				
 				<div class="content">
 					<dl class="dl-horizontal">
@@ -172,7 +172,7 @@ function template_edit_group()
 				<h3>', $txt['membergroups_edit_group'], ' - ', $context['group']['name'], '
 				</h3>
 			</div>
-			<div class="windowbg2">
+			<div class="panel-body">
 				
 				<div class="content">
 					<dl class="dl-horizontal">
@@ -398,7 +398,7 @@ function template_group_members()
 			<div class="cat_bar">
 				<h3>', $context['page_title'], '</h3>
 			</div>
-			<div class="windowbg">
+			<div class="panel-body">
 				
 				<div class="content">
 					<dl class="dl-horizontal">
@@ -447,7 +447,7 @@ function template_group_members()
 			</div>
 
 			<br />
-			<div class="title_bar">
+			<div class="panel panel-danger">
 				<h4 class="titlebg">', $txt['membergroups_members_group_members'], '</h4>
 			</div>
 			<br />
@@ -471,14 +471,14 @@ function template_group_members()
 
 	if (empty($context['members']))
 		echo '
-					<tr class="windowbg2">
+					<tr class="panel-body">
 						<td colspan="6" align="center">', $txt['membergroups_members_no_members'], '</td>
 					</tr>';
 
 	foreach ($context['members'] as $member)
 	{
 		echo '
-					<tr class="windowbg2">
+					<tr class="panel-body">
 						<td>', $member['name'], '</td>
 						<td', $member['show_email'] == 'no_through_forum' && $settings['use_image_buttons'] ? ' align="center"' : '', '>';
 
@@ -501,8 +501,8 @@ function template_group_members()
 
 		echo '
 						</td>
-						<td class="windowbg">', $member['last_online'], '</td>
-						<td class="windowbg">', $member['registered'], '</td>
+						<td class="panel-body">', $member['last_online'], '</td>
+						<td class="panel-body">', $member['registered'], '</td>
 						<td', empty($context['group']['assignable']) ? ' colspan="2"' : '', '>', $member['posts'], '</td>';
 		if (!empty($context['group']['assignable']))
 			echo '
@@ -532,7 +532,7 @@ function template_group_members()
 			<div class="cat_bar">
 				<h3>', $txt['membergroups_members_add_title'], '</h3>
 			</div>
-			<div class="windowbg">
+			<div class="panel-body">
 				
 				<div class="content">
 					<strong>', $txt['membergroups_members_add_desc'], ':</strong>
@@ -581,7 +581,7 @@ function template_group_request_reason()
 			<div class="cat_bar">
 				<h3>', $txt['mc_groups_reason_title'], '</h3>
 			</div>
-			<div class="windowbg">
+			<div class="panel-body">
 				
 				<div class="content">
 					<dl class="dl-horizontal">';
