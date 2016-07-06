@@ -3,6 +3,10 @@
  * Simple Machines Forum (SMF)
  *
  * @package SMF
+ * Tema Echo Echo con boostrap v3.3.6 para SMF 2.0.11, en este entonces la más estable
+ * Autor: Dhayzon 
+ * Contacto: Dhayzon.com
+ * Code licensed MIT, docs CC BY 3.0.
  * @author Simple Machines
  * @copyright 2011 Simple Machines
  * @license http://www.simplemachines.org/about/smf/license.php BSD
@@ -926,7 +930,8 @@ function template_spellcheck()
 	<body onload="nextWord(false);">
 		<form action="#" method="post" accept-charset="', $context['character_set'], '" name="spellingForm" id="spellingForm" onsubmit="return false;" style="margin: 0;">
 			<div id="spellview">&nbsp;</div>
-			<table border="0" cellpadding="4" cellspacing="0" width="100%"><tr class="windowbg">
+						<div class="table-responsive">
+				<table  border="0" cellpadding="4" cellspacing="0" width="100%"><tr class="windowbg">
 				<td width="50%" valign="top">
 					', $txt['spellcheck_change_to'], '<br />
 					<input type="text" name="changeto" style="width: 98%;" class="form-control" />
@@ -936,7 +941,9 @@ function template_spellcheck()
 					<select class="form-control" name="suggestions" style="width: 98%;" size="5" onclick="if (this.selectedIndex != -1) this.form.changeto.value = this.options[this.selectedIndex].text;" ondblclick="replaceWord();">
 					</select>
 				</td>
-			</tr></table>
+			</tr>			</table>
+			</div>
+			<!--tabla responsiva-->
 			<div class="righttext" style="padding: 4px;">
 				<input type="button" name="change" value="', $txt['spellcheck_change'], '" onclick="replaceWord();" class="btn btn-default" />
 				<input type="button" name="changeall" value="', $txt['spellcheck_change_all'], '" onclick="replaceAll();" class="btn btn-default" />

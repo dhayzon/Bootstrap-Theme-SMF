@@ -3,6 +3,10 @@
  * Simple Machines Forum (SMF)
  *
  * @package SMF
+ * Tema Echo Echo con boostrap v3.3.6 para SMF 2.0.11, en este entonces la más estable
+ * Autor: Dhayzon 
+ * Contacto: Dhayzon.com
+ * Code licensed MIT, docs CC BY 3.0.
  * @author Simple Machines
  * @copyright 2011 Simple Machines
  * @license http://www.simplemachines.org/about/smf/license.php BSD
@@ -125,8 +129,7 @@ function template_admin()
 
 	echo '
 				</ul>
-			</div>
-			<span class="botslice clear"><span></span></span>
+			</div> 
 		</div>
 	</div>
 	<br class="clear" />';
@@ -373,7 +376,8 @@ function template_view_versions()
 			</h3>
 		</div>
 		<div class="information">', $txt['version_check_desc'], '</div>
-			<table width="100%" class="table_grid">
+						<div class="table-responsive">
+				<table  width="100%" class="table">
 				<thead>
 					<tr align="left">
 						<th class="first_th" scope="col" width="50%">
@@ -417,9 +421,12 @@ function template_view_versions()
 						</td>
 					</tr>
 				</tbody>
-			</table>
+						</table>
+			</div>
+			<!--tabla responsiva-->
 
-			<table id="Sources" width="100%" class="table_grid">
+						<div class="table-responsive">
+				<table  id="Sources" width="100%" class="table">
 			<tbody>';
 
 	// Loop through every source file displaying its version - using javascript.
@@ -440,9 +447,12 @@ function template_view_versions()
 	// Default template files.
 	echo '
 			</tbody>
-			</table>
+						</table>
+			</div>
+			<!--tabla responsiva-->
 
-			<table width="100%" class="table_grid">
+						<div class="table-responsive">
+				<table  width="100%" class="table">
 				<tbody>
 					<tr>
 						<td class="windowbg" width="50%">
@@ -456,9 +466,12 @@ function template_view_versions()
 						</td>
 					</tr>
 				</tbody>
-			</table>
+						</table>
+			</div>
+			<!--tabla responsiva-->
 
-			<table id="Default" width="100%" class="table_grid">
+						<div class="table-responsive">
+				<table  id="Default" width="100%" class="table">
 				<tbody>';
 
 	foreach ($context['default_template_versions'] as $filename => $version)
@@ -478,9 +491,12 @@ function template_view_versions()
 	// Now the language files...
 	echo '
 				</tbody>
-			</table>
+						</table>
+			</div>
+			<!--tabla responsiva-->
 
-			<table width="100%" class="table_grid">
+						<div class="table-responsive">
+				<table  width="100%" class="table">
 				<tbody>
 					<tr>
 						<td class="windowbg" width="50%">
@@ -494,9 +510,12 @@ function template_view_versions()
 						</td>
 					</tr>
 				</tbody>
-			</table>
+						</table>
+			</div>
+			<!--tabla responsiva-->
 
-			<table id="Languages" width="100%" class="table_grid">
+						<div class="table-responsive">
+				<table  id="Languages" width="100%" class="table">
 				<tbody>';
 
 	foreach ($context['default_language_versions'] as $language => $files)
@@ -518,13 +537,16 @@ function template_view_versions()
 
 	echo '
 				</tbody>
-			</table>';
+						</table>
+			</div>
+			<!--tabla responsiva-->';
 
 	// Finally, display the version information for the currently selected theme - if it is not the default one.
 	if (!empty($context['template_versions']))
 	{
 		echo '
-			<table width="100%" class="table_grid">
+						<div class="table-responsive">
+				<table  width="100%" class="table">
 				<tbody>
 					<tr>
 						<td class="windowbg" width="50%">
@@ -538,9 +560,12 @@ function template_view_versions()
 						</td>
 					</tr>
 				</tbody>
-			</table>
+						</table>
+			</div>
+			<!--tabla responsiva-->
 
-			<table id="Templates" width="100%" class="table_grid">
+						<div class="table-responsive">
+				<table  id="Templates" width="100%" class="table">
 				<tbody>';
 
 		foreach ($context['template_versions'] as $filename => $version)
@@ -559,7 +584,9 @@ function template_view_versions()
 
 		echo '
 				</tbody>
-			</table>';
+						</table>
+			</div>
+			<!--tabla responsiva-->';
 	}
 
 	echo '
@@ -1471,7 +1498,8 @@ function template_add_language()
 		echo '
 			<div class="information">', $txt['add_language_smf_found'], '</div>
 
-				<table class="table_grid" cellspacing="0" width="100%">
+							<div class="table-responsive">
+				<table  class="table" cellspacing="0" width="100%">
 					<thead>
 						<tr>
 							<th class="first_th" scope="col">', $txt['name'], '</th>
@@ -1495,7 +1523,9 @@ function template_add_language()
 
 		echo '
 					</tbody>
-					</table>';
+								</table>
+			</div>
+			<!--tabla responsiva-->';
 	}
 
 	echo '
@@ -1570,7 +1600,8 @@ function template_download_language()
 					', $txt['languages_download_theme_files'], '
 				</h3>
 			</div>
-			<table class="table_grid" cellspacing="0" width="100%">
+						<div class="table-responsive">
+				<table  class="table" cellspacing="0" width="100%">
 				<thead>
 					<tr>
 						<th class="first_th" scope="col">
@@ -1624,7 +1655,9 @@ function template_download_language()
 
 	echo '
 			</tbody>
-			</table>';
+						</table>
+			</div>
+			<!--tabla responsiva-->';
 
 	// Do we want some FTP baby?
 	if (!empty($context['still_not_writable']))

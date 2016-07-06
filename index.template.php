@@ -3,6 +3,10 @@
  * Simple Machines Forum (SMF)
  *
  * @package SMF
+ * Tema Echo Echo con boostrap v3.3.6 para SMF 2.0.11, en este entonces la más estable
+ * Autor: Dhayzon 
+ * Contacto: Dhayzon.com
+ * Code licensed MIT, docs CC BY 3.0.
  * @author Simple Machines
  * @copyright 2011 Simple Machines
  * @license http://www.simplemachines.org/about/smf/license.php BSD
@@ -373,9 +377,11 @@ function template_body_below()
 	<footer id="footer_section"><div class="container text-center">
 		<ul class="list-inline">
 			<li class="copyright">', theme_copyright(), '</li>
+			<li class="last"><a id="button_wap2" href="http://dhayzon.com"  target="_blank" ><span>| ',$txt['Bcopyright'], ' |</span></a></li>
 			<li><a id="button_xhtml" href="http://validator.w3.org/check?uri=referer" target="_blank" class="new_win" title="', $txt['valid_xhtml'], '"><span>', $txt['xhtml'], '</span></a></li>
 			', !empty($modSettings['xmlnews_enable']) && (!empty($modSettings['allow_guestAccess']) || $context['user']['is_logged']) ? '<li><a id="button_rss" href="' . $scripturl . '?action=.xml;type=rss" class="new_win"><span>' . $txt['rss'] . '</span></a></li>' : '', '
 			<li class="last"><a id="button_wap2" href="', $scripturl , '?wap2" class="new_win"><span>', $txt['wap2'], '</span></a></li>
+
 		</ul>';
 
 	// Show the load time?

@@ -3,6 +3,10 @@
  * Simple Machines Forum (SMF)
  *
  * @package SMF
+ * Tema Echo Echo con boostrap v3.3.6 para SMF 2.0.11, en este entonces la más estable
+ * Autor: Dhayzon 
+ * Contacto: Dhayzon.com
+ * Code licensed MIT, docs CC BY 3.0.
  * @author Simple Machines
  * @copyright 2011 Simple Machines
  * @license http://www.simplemachines.org/about/smf/license.php BSD
@@ -179,7 +183,8 @@ function template_ban_edit()
 		echo '
 			<br />
 			<form action="', $scripturl, '?action=admin;area=ban;sa=edit" method="post" accept-charset="', $context['character_set'], '" style="padding: 0px;margin: 0px;" onsubmit="return confirm(\'', $txt['ban_remove_selected_triggers_confirm'], '\');">
-				<table class="table_grid" width="100%">
+							<div class="table-responsive">
+				<table  class="table" width="100%">
 					<thead>
 						<tr>
 							<th width="65%" align="left">', $txt['ban_banned_entity'], '</td>
@@ -220,7 +225,9 @@ function template_ban_edit()
 
 		echo '
 					</tbody>
-				</table>
+							</table>
+			</div>
+			<!--tabla responsiva-->
 				<div class="additional_rows">
 					<div class="floatleft">
 						[<a href="', $scripturl, '?action=admin;area=ban;sa=edittrigger;bg=', $context['ban']['id'], '">', $txt['ban_add_trigger'], '</a>]

@@ -3,6 +3,10 @@
  * Simple Machines Forum (SMF)
  *
  * @package SMF
+ * Tema Echo Echo con boostrap v3.3.6 para SMF 2.0.11, en este entonces la más estable
+ * Autor: Dhayzon 
+ * Contacto: Dhayzon.com
+ * Code licensed MIT, docs CC BY 3.0.
  * @author Simple Machines
  * @copyright 2011 Simple Machines
  * @license http://www.simplemachines.org/about/smf/license.php BSD
@@ -18,7 +22,8 @@ function template_edit_news()
 	echo '
 	<div id="admincenter">
 		<form action="', $scripturl, '?action=admin;area=news;sa=editnews" method="post" accept-charset="', $context['character_set'], '" name="postmodify" id="postmodify">
-			<table class="table_grid" width="100%">
+						<div class="table-responsive">
+				<table  class="table" width="100%">
 				<thead>
 					<tr>
 						<th class="first_th" width="50%">', $txt['admin_edit_news'], '</th>
@@ -54,7 +59,9 @@ function template_edit_news()
 						</td>
 					</tr>
 				</tbody>
-			</table>
+						</table>
+			</div>
+			<!--tabla responsiva-->
 			<div class="floatleftpadding">
 				<div id="moreNewsItems_link" style="display: none;"><a href="javascript:void(0);" onclick="addNewsItem(); return false;">', $txt['editnews_clickadd'], '</a></div>
 				<script type="text/javascript"><!-- // --><![CDATA[

@@ -124,6 +124,9 @@ float:right;
     border-radius: 15px;
 
 }
+dt, dd {
+    margin: 5px 0;
+}
 /**pagination**/
 .smfPagination {
     background: whitesmoke;

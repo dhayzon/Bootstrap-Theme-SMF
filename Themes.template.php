@@ -3,6 +3,10 @@
  * Simple Machines Forum (SMF)
  *
  * @package SMF
+ * Tema Echo Echo con boostrap v3.3.6 para SMF 2.0.11, en este entonces la más estable
+ * Autor: Dhayzon 
+ * Contacto: Dhayzon.com
+ * Code licensed MIT, docs CC BY 3.0.
  * @author Simple Machines
  * @copyright 2011 Simple Machines
  * @license http://www.simplemachines.org/about/smf/license.php BSD
@@ -863,7 +867,8 @@ function template_edit_browse()
 
 	echo '
 	<div id="admincenter">
-		<table width="100%" class="table_grid tborder">
+					<div class="table-responsive">
+				<table  width="100%" class="table_grid tborder">
 		<thead>
 			<tr>
 				<th class="lefttext first_th" scope="col" width="50%">', $txt['themeadmin_edit_filename'], '</th>
@@ -901,7 +906,9 @@ function template_edit_browse()
 
 	echo '
 		</tbody>
-		</table>
+					</table>
+			</div>
+			<!--tabla responsiva-->
 	</div>
 	<br class="clear" />';
 }

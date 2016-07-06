@@ -3,6 +3,10 @@
  * Simple Machines Forum (SMF)
  *
  * @package SMF
+ * Tema Echo Echo con boostrap v3.3.6 para SMF 2.0.11, en este entonces la más estable
+ * Autor: Dhayzon 
+ * Contacto: Dhayzon.com
+ * Code licensed MIT, docs CC BY 3.0.
  * @author Simple Machines
  * @copyright 2011 Simple Machines
  * @license http://www.simplemachines.org/about/smf/license.php BSD
@@ -440,7 +444,8 @@ function template_coppa_form()
 
 	// Show the form (As best we can)
 	echo '
-		<table border="0" width="100%" cellpadding="3" cellspacing="0" class="tborder" align="center">
+					<div class="table-responsive">
+				<table  border="0" width="100%" cellpadding="3" cellspacing="0" class="tborder" align="center">
 			<tr>
 				<td align="left">', $context['forum_contacts'], '</td>
 			</tr><tr>
@@ -460,7 +465,9 @@ function template_coppa_form()
 					', $context['coppa_body'], '
 				</td>
 			</tr>
-		</table>
+					</table>
+			</div>
+			<!--tabla responsiva-->
 		<br />';
 }
 

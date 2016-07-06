@@ -3,6 +3,10 @@
  * Simple Machines Forum (SMF)
  *
  * @package SMF
+ * Tema Echo Echo con boostrap v3.3.6 para SMF 2.0.11, en este entonces la más estable
+ * Autor: Dhayzon 
+ * Contacto: Dhayzon.com
+ * Code licensed MIT, docs CC BY 3.0.
  * @author Simple Machines
  * @copyright 2011 Simple Machines
  * @license http://www.simplemachines.org/about/smf/license.php BSD
@@ -283,7 +287,8 @@ function template_show_month_grid($grid_name)
 	}
 
 	echo '
-				<table cellspacing="1" class="calendar_table">';
+							<div class="table-responsive">
+				<table  cellspacing="1" class="calendar_table">';
 
 	// Show each day of the week.
 	if (empty($calendar_data['disable_day_titles']))
@@ -410,7 +415,9 @@ function template_show_month_grid($grid_name)
 	}
 
 	echo '
-				</table>';
+							</table>
+			</div>
+			<!--tabla responsiva-->';
 }
 
 // Or show a weekly one?
@@ -446,7 +453,8 @@ function template_show_week_grid($grid_name)
 		$done_title = true;
 
 		echo '
-				<table width="100%" class="calendar_table weeklist" cellspacing="1" cellpadding="0">';
+							<div class="table-responsive">
+				<table  width="100%" class="calendar_table weeklist" cellspacing="1" cellpadding="0">';
 
 		foreach ($month_data['days'] as $day)
 		{
@@ -524,7 +532,9 @@ function template_show_week_grid($grid_name)
 		}
 
 		echo '
-				</table>';
+							</table>
+			</div>
+			<!--tabla responsiva-->';
 	}
 }
 
@@ -533,7 +543,8 @@ function template_bcd()
 	global $context, $scripturl;
 
 	echo '
-	<table cellpadding="0" cellspacing="1" align="center">
+				<div class="table-responsive">
+				<table  cellpadding="0" cellspacing="1" align="center">
 		<caption class="titlebg">BCD Clock</caption>
 		<tr class="windowbg">';
 
@@ -555,7 +566,9 @@ function template_bcd()
 
 	echo '
 		</tr>
-	</table>
+				</table>
+			</div>
+			<!--tabla responsiva-->
 	<p align="center"><a href="', $scripturl, '?action=clock;rb">Are you hardcore?</a></p>
 
 		<script type="text/javascript"><!-- // --><![CDATA[
@@ -628,7 +641,8 @@ function template_hms()
 	global $context, $scripturl;
 
 	echo '
-<table cellpadding="0" cellspacing="1" align="center">
+			<div class="table-responsive">
+				<table  cellpadding="0" cellspacing="1" align="center">
 	<caption class="titlebg">Binary Clock</caption>';
 	$alt = false;
 	foreach ($context['clockicons'] as $t => $v)
@@ -647,7 +661,9 @@ function template_hms()
 	echo '
 	</tr>
 	<tr class="', $alt ? 'windowbg2' : 'windowbg', '"><td colspan="6" align="center"><a href="', $scripturl, '?action=clock">Too tough for you?</a></td></tr>
-</table>';
+			</table>
+			</div>
+			<!--tabla responsiva-->';
 
 	echo '
 	<script type="text/javascript"><!-- // --><![CDATA[
@@ -712,7 +728,8 @@ function template_omfg()
 	global $context, $scripturl;
 
 	echo '
-<table cellpadding="0" cellspacing="1" align="center">
+			<div class="table-responsive">
+				<table  cellpadding="0" cellspacing="1" align="center">
 	<caption class="titlebg">OMFG Binary Clock</caption>';
 	$alt = false;
 	foreach ($context['clockicons'] as $t => $v)
@@ -730,7 +747,9 @@ function template_omfg()
 
 	echo '
 	</tr>
-</table>';
+			</table>
+			</div>
+			<!--tabla responsiva-->';
 
 	echo '
 	<script type="text/javascript"><!-- // --><![CDATA[
@@ -799,7 +818,8 @@ function template_thetime()
 	global $context, $scripturl;
 
 	echo '
-<table cellpadding="0" cellspacing="0" border="1" align="center">
+			<div class="table-responsive">
+				<table  cellpadding="0" cellspacing="0" border="1" align="center">
 	<caption>The time you requested</caption>';
 	$alt = false;
 	foreach ($context['clockicons'] as $t => $v)
@@ -817,7 +837,9 @@ function template_thetime()
 
 	echo '
 	</tr>
-</table>';
+			</table>
+			</div>
+			<!--tabla responsiva-->';
 
 }
 

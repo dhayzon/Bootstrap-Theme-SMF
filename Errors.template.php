@@ -3,6 +3,10 @@
  * Simple Machines Forum (SMF)
  *
  * @package SMF
+ * Tema Echo Echo con boostrap v3.3.6 para SMF 2.0.11, en este entonces la más estable
+ * Autor: Dhayzon 
+ * Contacto: Dhayzon.com
+ * Code licensed MIT, docs CC BY 3.0.
  * @author Simple Machines
  * @copyright 2011 Simple Machines
  * @license http://www.simplemachines.org/about/smf/license.php BSD
@@ -56,7 +60,8 @@ function template_error_log()
 					</span>
 				</h3>
 			</div>
-			<table border="0" cellspacing="1" class="table_grid" id="error_log">
+						<div class="table-responsive">
+				<table  border="0" cellspacing="1" class="table" id="error_log">
 				<tr>
 					<td colspan="3" class="windowbg">
 						&nbsp;&nbsp;', $txt['apply_filter_of_type'], ':';
@@ -162,7 +167,9 @@ function template_error_log()
 						&nbsp;&nbsp;', $txt['pages'], ': ', $context['page_index'], '
 					</td>
 				</tr>
-			</table><br />';
+						</table>
+			</div>
+			<!--tabla responsiva--><br />';
 	if ($context['sort_direction'] == 'down')
 		echo '
 			<input type="hidden" name="desc" value="1" />';
@@ -183,7 +190,8 @@ function template_show_file()
 		<link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/css/index.css" />
 	</head>
 	<body>
-		<table border="0" cellpadding="0" cellspacing="3">';
+					<div class="table-responsive">
+				<table  border="0" cellpadding="0" cellspacing="3">';
 	foreach ($context['file_data']['contents'] as $index => $line)
 	{
 		$line_num = $index+$context['file_data']['min'];
@@ -195,7 +203,9 @@ function template_show_file()
 			</tr>';
 	}
 	echo '
-		</table>
+					</table>
+			</div>
+			<!--tabla responsiva-->
 	</body>
 </html>';
 }

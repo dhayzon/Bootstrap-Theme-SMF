@@ -3,6 +3,10 @@
  * Simple Machines Forum (SMF)
  *
  * @package SMF
+ * Tema Echo Echo con boostrap v3.3.6 para SMF 2.0.11, en este entonces la más estable
+ * Autor: Dhayzon 
+ * Contacto: Dhayzon.com
+ * Code licensed MIT, docs CC BY 3.0.
  * @author Simple Machines
  * @copyright 2011 Simple Machines
  * @license http://www.simplemachines.org/about/smf/license.php BSD
@@ -163,7 +167,8 @@ function template_search_members()
 				<h3 class="titlebg">', $txt['member_part_of_these_membergroups'], '</h3>
 			</div>
 			<div class="flow_hidden">
-				<table width="49%" class="table_grid floatleft">
+							<div class="table-responsive">
+				<table  width="49%" class="table_grid floatleft">
 					<thead>
 						<tr>
 							<th scope="col" class="first_th">', $txt['membergroups'], '</th>
@@ -198,9 +203,12 @@ function template_search_members()
 							</td>
 						</tr>
 					</tbody>
-				</table>
+							</table>
+			</div>
+			<!--tabla responsiva-->
 
-				<table width="49%" class="table_grid floatright">
+							<div class="table-responsive">
+				<table  width="49%" class="table_grid floatright">
 					<thead>
 						<tr>
 							<th scope="col" class="first_th">
@@ -232,7 +240,9 @@ function template_search_members()
 							</td>
 						</tr>
 					</tbody>
-				</table>
+							</table>
+			</div>
+			<!--tabla responsiva-->
 			</div><br />
 			<div class="righttext">
 				<input type="submit" value="', $txt['search'], '" class="btn btn-default" />

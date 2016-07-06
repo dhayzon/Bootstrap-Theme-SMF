@@ -3,6 +3,10 @@
  * Simple Machines Forum (SMF)
  *
  * @package SMF
+ * Tema Echo Echo con boostrap v3.3.6 para SMF 2.0.11, en este entonces la más estable
+ * Autor: Dhayzon 
+ * Contacto: Dhayzon.com
+ * Code licensed MIT, docs CC BY 3.0.
  * @author Simple Machines
  * @copyright 2011 Simple Machines
  * @license http://www.simplemachines.org/about/smf/license.php BSD
@@ -110,7 +114,8 @@ function template_view_package()
 		echo '
 					', $txt['perform_actions'], '
 			</div>
-			<table class="table_grid" width="100%">
+						<div class="table-responsive">
+				<table  class="table" width="100%">
 			<thead>
 				<tr>
 					<th scope="col" width="20"></th>
@@ -146,7 +151,8 @@ function template_view_package()
 				echo '
 				<tr id="operation_', $action_num, '">
 					<td colspan="5" class="windowbg3">
-						<table border="0" cellpadding="3" cellspacing="0" width="100%">';
+									<div class="table-responsive">
+				<table  border="0" cellpadding="3" cellspacing="0" width="100%">';
 
 				// Show the operations.
 				$alternate2 = true;
@@ -171,7 +177,9 @@ function template_view_package()
 				}
 
 				echo '
-						</table>
+									</table>
+			</div>
+			<!--tabla responsiva-->
 					</td>
 				</tr>';
 
@@ -182,7 +190,9 @@ function template_view_package()
 		}
 					echo '
 			</tbody>
-			</table>
+						</table>
+			</div>
+			<!--tabla responsiva-->
 			';
 
 		// What if we have custom themes we can install into? List them too!
@@ -199,7 +209,8 @@ function template_view_package()
 				<div class="information">
 					', $txt['package_other_themes_desc'], '
 				</div>
-				<table class="table_grid" width="100%">';
+							<div class="table-responsive">
+				<table  class="table" width="100%">';
 
 			// Loop through each theme and display it's name, and then it's details.
 			foreach ($context['theme_actions'] as $id => $theme)
@@ -241,7 +252,8 @@ function template_view_package()
 						echo '
 					<tr id="operation_', $action_num, '">
 						<td colspan="5" class="windowbg3">
-							<table border="0" cellpadding="3" cellspacing="0" width="100%">';
+										<div class="table-responsive">
+				<table  border="0" cellpadding="3" cellspacing="0" width="100%">';
 
 						$alternate2 = true;
 						$operation_num = 1;
@@ -264,7 +276,9 @@ function template_view_package()
 						}
 
 						echo '
-							</table>
+										</table>
+			</div>
+			<!--tabla responsiva-->
 						</td>
 					</tr>';
 
@@ -277,7 +291,9 @@ function template_view_package()
 			}
 
 			echo '
-				</table>
+							</table>
+			</div>
+			<!--tabla responsiva-->
 			</div>';
 		}
 	}
@@ -515,7 +531,8 @@ function template_view_installed()
 	else
 	{
 		echo '
-		<table class="table_grid" width="100%">
+					<div class="table-responsive">
+				<table  class="table" width="100%">
 		<thead>
 			<tr>
 				<th scope="col" width="32"></th>
@@ -541,7 +558,9 @@ function template_view_installed()
 
 		echo '
 		</tbody>
-		</table>
+					</table>
+			</div>
+			<!--tabla responsiva-->
 		<br />
 		<a href="', $scripturl, '?action=admin;area=packages;sa=flush;', $context['session_var'], '=', $context['session_id'], '">[ ', $txt['delete_list'], ' ]</a>';
 	}
@@ -618,7 +637,8 @@ function template_browse()
 			<h3 class="titlebg">', $txt['modification_package'], '</h3>
 		</div>
 
-		<table class="table_grid" width="100%">
+					<div class="table-responsive">
+				<table  class="table" width="100%">
 		<thead>
 			<tr>
 				<th class="first_th" width="32"></th>
@@ -667,7 +687,9 @@ function template_browse()
 
 		echo '
 		</tbody>
-		</table>';
+					</table>
+			</div>
+			<!--tabla responsiva-->';
 	}
 
 	if (!empty($context['available_avatars']))
@@ -677,7 +699,8 @@ function template_browse()
 		<div class="title_bar">
 			<h3 class="titlebg">', $txt['avatar_package'], '</h3>
 		</div>
-		<table class="table_grid" width="100%">
+					<div class="table-responsive">
+				<table  class="table" width="100%">
 		<thead>
 			<tr>
 				<th width="32"></th>
@@ -723,7 +746,9 @@ function template_browse()
 
 		echo '
 		</tbody>
-		</table>';
+					</table>
+			</div>
+			<!--tabla responsiva-->';
 	}
 
 	if (!empty($context['available_languages']))
@@ -733,7 +758,8 @@ function template_browse()
 		<div class="title_bar">
 			<h3 class="titlebg">' . $txt['language_package'] . '</h3>
 		</div>
-		<table class="table_grid" width="100%">
+					<div class="table-responsive">
+				<table  class="table" width="100%">
 		<thead>
 			<tr>
 				<th width="32"></th>
@@ -779,7 +805,9 @@ function template_browse()
 
 		echo '
 		</tbody>
-		</table>';
+					</table>
+			</div>
+			<!--tabla responsiva-->';
 	}
 
 	if (!empty($context['available_other']))
@@ -789,7 +817,8 @@ function template_browse()
 		<div class="title_bar">
 			<h3 class="titlebg">' . $txt['unknown_package'] . '</h3>
 		</div>
-		<table class="table_grid" width="100%">
+					<div class="table-responsive">
+				<table  class="table" width="100%">
 		<thead>
 			<tr>
 				<th width="32"></th>
@@ -835,7 +864,9 @@ function template_browse()
 
 		echo '
 		</tbody>
-		</table>';
+					</table>
+			</div>
+			<!--tabla responsiva-->';
 	}
 
 	if (empty($context['available_mods']) && empty($context['available_avatars']) && empty($context['available_languages']) && empty($context['available_other']))
@@ -1835,7 +1866,8 @@ function template_file_permissions()
 				<span class="floatleft">', $txt['package_file_perms'], '</span><span class="fperm floatright">', $txt['package_file_perms_new_status'], '</span>
 			</h3>
 		</div>
-		<table width="100%" class="table_grid">
+					<div class="table-responsive">
+				<table  width="100%" class="table">
 			<thead>
 				<tr>
 					<th class="first_th lefttext" width="30%">&nbsp;', $txt['package_file_perms_name'], '&nbsp;</th>
@@ -1880,7 +1912,9 @@ function template_file_permissions()
 
 	echo '
 
-		</table>
+					</table>
+			</div>
+			<!--tabla responsiva-->
 		<br />
 		<div class="cat_bar">
 			<h3>', $txt['package_file_perms_change'], '</h3>
@@ -1954,8 +1988,11 @@ function template_permission_show_contents($ident, $contents, $level, $has_more 
 			{
 				$drawn_div = true;
 				echo '
-			</table>
-			<table border="0" width="100%" class="table_grid" id="', $js_ident, '">';
+						</table>
+			</div>
+			<!--tabla responsiva-->
+						<div class="table-responsive">
+				<table  border="0" width="100%" class="table" id="', $js_ident, '">';
 			}
 
 			$cur_ident = preg_replace('~[^A-Za-z0-9_\-=:]~', ':-:', $ident . '/' . $name);
@@ -2014,10 +2051,13 @@ function template_permission_show_contents($ident, $contents, $level, $has_more 
 
 		if ($level > 1 && !$isFound)
 			echo '
-		</table><script type="text/javascript"><!-- // --><![CDATA[
+					</table>
+			</div>
+			<!--tabla responsiva--><script type="text/javascript"><!-- // --><![CDATA[
 			expandFolder(\'', $js_ident, '\', \'\');
 		// ]]></script>
-		<table border="0" width="100%" class="table_grid">
+					<div class="table-responsive">
+				<table  border="0" width="100%" class="table">
 			<tr style="display: none;"><td></td></tr>';
 	}
 }

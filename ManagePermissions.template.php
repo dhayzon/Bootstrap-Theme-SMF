@@ -3,6 +3,10 @@
  * Simple Machines Forum (SMF)
  *
  * @package SMF
+ * Tema Echo Echo con boostrap v3.3.6 para SMF 2.0.11, en este entonces la más estable
+ * Autor: Dhayzon 
+ * Contacto: Dhayzon.com
+ * Code licensed MIT, docs CC BY 3.0.
  * @author Simple Machines
  * @copyright 2011 Simple Machines
  * @license http://www.simplemachines.org/about/smf/license.php BSD
@@ -32,7 +36,8 @@ function template_permission_index()
 			</div>';
 
 		echo '
-			<table width="100%" class="table_grid">
+						<div class="table-responsive">
+				<table  width="100%" class="table">
 				<thead>
 					<tr>
 						<th class="first_th">', $txt['membergroups_name'], '</th>
@@ -88,7 +93,9 @@ function template_permission_index()
 
 	echo '
 				</tbody>
-			</table>
+						</table>
+			</div>
+			<!--tabla responsiva-->
 			<br />';
 
 	// Advanced stuff...
@@ -248,7 +255,9 @@ function template_permission_index()
 	}
 	else
 		echo '
-			</table>';
+						</table>
+			</div>
+			<!--tabla responsiva-->';
 
 	echo '
 		</form>
@@ -366,7 +375,8 @@ function template_edit_profiles()
 				<h3 class="titlebg">', $txt['permissions_profile_edit'], '</h3>
 			</div>
 
-			<table width="100%" class="table_grid">
+						<div class="table-responsive">
+				<table  width="100%" class="table">
 				<thead>
 					<tr>
 						<th class="first_th">', $txt['permissions_profile_name'], '</th>
@@ -403,7 +413,9 @@ function template_edit_profiles()
 
 	echo '
 				</tbody>
-			</table>
+						</table>
+			</div>
+			<!--tabla responsiva-->
 			<div class="righttext padding">
 				<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />';
 
@@ -571,7 +583,8 @@ function template_modify_group_simple($type)
 	$disable_field = $context['profile']['can_modify'] ? '' : 'disabled="disabled" ';
 
 	echo '
-			<table width="100%" class="table_grid">
+						<div class="table-responsive">
+				<table  width="100%" class="table">
 				<thead>
 					<tr>
 						<th colspan="2" width="100%" align="left" class="first_th"></th>';
@@ -685,7 +698,9 @@ function template_modify_group_simple($type)
 	}
 	echo '
 				</tbody>
-			</table>
+						</table>
+			</div>
+			<!--tabla responsiva-->
 	<script type="text/javascript"><!-- // --><![CDATA[';
 
 	if ($context['profile']['can_modify'] && empty($context['simple_javascript_displayed']))
@@ -859,7 +874,8 @@ function template_modify_group_classic($type)
 	foreach ($permission_type['columns'] as $column)
 	{
 		echo '
-						<table width="49%" class="table_grid perm_classic floatleft">';
+									<div class="table-responsive">
+				<table  width="49%" class="table_grid perm_classic floatleft">';
 
 		foreach ($column as $permissionGroup)
 		{
@@ -998,7 +1014,9 @@ function template_modify_group_classic($type)
 							</tr>';
 		}
 	echo '
-						</table>';
+									</table>
+			</div>
+			<!--tabla responsiva-->';
 	}
 	echo '
 				<br class="clear" />
@@ -1106,7 +1124,8 @@ function template_postmod_permissions()
 					</select>
 					<input type="submit" value="', $txt['go'], '" class="btn btn-default" />
 			</div>
-			<table width="100%" class="table_grid">
+						<div class="table-responsive">
+				<table  width="100%" class="table">
 				<thead>
 					<tr>
 						<th class="first_th"></th>
@@ -1172,7 +1191,9 @@ function template_postmod_permissions()
 
 	echo '
 				</tbody>
-			</table>
+						</table>
+			</div>
+			<!--tabla responsiva-->
 			<div class="righttext padding">
 				<input type="submit" name="save_changes" value="', $txt['permissions_commit'], '" class="btn btn-default" />
 			</div>

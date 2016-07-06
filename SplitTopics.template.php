@@ -3,6 +3,10 @@
  * Simple Machines Forum (SMF)
  *
  * @package SMF
+ * Tema Echo Echo con boostrap v3.3.6 para SMF 2.0.11, en este entonces la más estable
+ * Autor: Dhayzon 
+ * Contacto: Dhayzon.com
+ * Code licensed MIT, docs CC BY 3.0.
  * @author Simple Machines
  * @copyright 2011 Simple Machines
  * @license http://www.simplemachines.org/about/smf/license.php BSD
@@ -379,7 +383,8 @@ function template_merge_extra_options()
 			<div class="title_bar">
 				<h3 class="titlebg">', $txt['merge_topic_list'], '</h3>
 			</div>
-			<table width="100%" class="bordercolor table_grid">
+						<div class="table-responsive">
+				<table  width="100%" class="bordercolor table_grid">
 				<thead>
 					<tr>
 						<th scope="col" class="first_th" align="center" width="10px">', $txt['merge_check'], '</th>
@@ -413,7 +418,9 @@ function template_merge_extra_options()
 					</tr>';
 		echo '
 				</tbody>
-			</table>
+						</table>
+			</div>
+			<!--tabla responsiva-->
 			<br />
 			<div class="windowbg">
 				

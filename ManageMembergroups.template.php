@@ -3,6 +3,10 @@
  * Simple Machines Forum (SMF)
  *
  * @package SMF
+ * Tema Echo Echo con boostrap v3.3.6 para SMF 2.0.11, en este entonces la más estable
+ * Autor: Dhayzon 
+ * Contacto: Dhayzon.com
+ * Code licensed MIT, docs CC BY 3.0.
  * @author Simple Machines
  * @copyright 2011 Simple Machines
  * @license http://www.simplemachines.org/about/smf/license.php BSD
@@ -448,7 +452,8 @@ function template_group_members()
 			</div>
 			<br />
 			<div class="pagesection">', $txt['pages'], ': ', $context['page_index'], '</div>
-			<table width="100%" class="table_grid">
+						<div class="table-responsive">
+				<table  width="100%" class="table">
 				<thead>
 					<tr>
 						<th><a href="', $scripturl, '?action=', $context['current_action'], (isset($context['admin_area']) ? ';area=' . $context['admin_area'] : ''), ';sa=members;start=', $context['start'], ';sort=name', $context['sort_by'] == 'name' && $context['sort_direction'] == 'up' ? ';desc' : '', ';group=', $context['group']['id'], '">', $txt['name'], $context['sort_by'] == 'name' ? ' <img src="' . $settings['images_url'] . '/sort_' . $context['sort_direction'] . '.gif" alt="" />' : '', '</a></th>
@@ -508,7 +513,9 @@ function template_group_members()
 
 	echo '
 				</tbody>
-			</table>
+						</table>
+			</div>
+			<!--tabla responsiva-->
 			<div class="pagesection flow_hidden">
 				<div class="floatleft">', $txt['pages'], ': ', $context['page_index'], '</div>';
 

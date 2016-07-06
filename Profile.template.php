@@ -3,6 +3,10 @@
  * Simple Machines Forum (SMF)
  *
  * @package SMF
+ * Tema Echo Echo con boostrap v3.3.6 para SMF 2.0.11, en este entonces la más estable
+ * Autor: Dhayzon 
+ * Contacto: Dhayzon.com
+ * Code licensed MIT, docs CC BY 3.0.
  * @author Simple Machines
  * @copyright 2011 Simple Machines
  * @license http://www.simplemachines.org/about/smf/license.php BSD
@@ -415,7 +419,8 @@ function template_showPosts()
 	else
 	{
 		echo '
-		<table border="0" width="100%" cellspacing="1" cellpadding="2" class="table_grid" align="center">
+					<div class="table-responsive">
+				<table  border="0" width="100%" cellspacing="1" cellpadding="2" class="table" align="center">
 			<thead>
 				<tr class="titlebg">
 					<th class="first_th lefttext" scope="col" width="25%">
@@ -471,7 +476,9 @@ function template_showPosts()
 
 		echo '
 			</tbody>
-		</table>';
+					</table>
+			</div>
+			<!--tabla responsiva-->';
 	}
 	// Show more page numbers.
 	echo '
@@ -491,7 +498,8 @@ function template_editBuddies()
 				<span class="ie6_header floatleft"><img src="', $settings['images_url'], '/icons/online.gif" alt="" class="icon" />', $txt['editBuddies'], '</span>
 			</h3>
 		</div>
-		<table border="0" width="100%" cellspacing="1" cellpadding="4" class="table_grid" align="center">
+					<div class="table-responsive">
+				<table  border="0" width="100%" cellspacing="1" cellpadding="4" class="table" align="center">
 			<tr>
 				<th class="first_th lefttext" scope="col" width="20%">', $txt['name'], '</th>
 				<th scope="col">', $txt['status'], '</th>
@@ -530,7 +538,9 @@ function template_editBuddies()
 	}
 
 	echo '
-		</table>';
+					</table>
+			</div>
+			<!--tabla responsiva-->';
 
 	// Add a new buddy?
 	echo '
@@ -577,7 +587,8 @@ function template_editIgnoreList()
 				<span class="ie6_header floatleft"><img src="', $settings['images_url'], '/icons/profile_sm.gif" alt="" class="icon" />', $txt['editIgnoreList'], '</span>
 			</h3>
 		</div>
-		<table border="0" width="100%" cellspacing="1" cellpadding="4" class="table_grid" align="center">
+					<div class="table-responsive">
+				<table  border="0" width="100%" cellspacing="1" cellpadding="4" class="table" align="center">
 			<tr>
 				<th class="first_th" scope="col" width="20%">', $txt['name'], '</th>
 				<th scope="col">', $txt['status'], '</th>
@@ -616,7 +627,9 @@ function template_editIgnoreList()
 	}
 
 	echo '
-		</table>';
+					</table>
+			</div>
+			<!--tabla responsiva-->';
 
 	// Add a new buddy?
 	echo '
@@ -760,7 +773,8 @@ function template_trackIP()
 	else
 	{
 		echo '
-		<table class="table_grid" cellspacing="0" width="100%">
+					<div class="table-responsive">
+				<table  class="table" cellspacing="0" width="100%">
 			<thead>
 				<tr>
 					<th class="first_th" scope="col">', $txt['ip_address'], '</th>
@@ -779,7 +793,9 @@ function template_trackIP()
 
 		echo '
 			</tbody>
-		</table>
+					</table>
+			</div>
+			<!--tabla responsiva-->
 		<br />';
 	}
 
@@ -839,7 +855,8 @@ function template_showPermissions()
 		if (!empty($context['member']['permissions']['general']))
 		{
 			echo '
-					<table class="table_grid" width="100%" cellspacing="0">
+								<div class="table-responsive">
+				<table  class="table" width="100%" cellspacing="0">
 						<thead>
 							<tr class="titlebg">
 								<th class="lefttext first_th" scope="col" width="50%">', $txt['showPermissions_permission'], '</th>
@@ -870,7 +887,9 @@ function template_showPermissions()
 			}
 			echo '
 						</tbody>
-					</table>
+								</table>
+			</div>
+			<!--tabla responsiva-->
 				</div><br />';
 		}
 		else
@@ -903,7 +922,8 @@ function template_showPermissions()
 		if (!empty($context['member']['permissions']['board']))
 		{
 			echo '
-				<table class="table_grid" width="100%" cellspacing="0">
+							<div class="table-responsive">
+				<table  class="table" width="100%" cellspacing="0">
 					<thead>
 						<tr class="titlebg">
 							<th class="lefttext first_th" scope="col" width="50%">', $txt['showPermissions_permission'], '</th>
@@ -936,7 +956,9 @@ function template_showPermissions()
 			}
 			echo '
 					</tbody>
-				</table>';
+							</table>
+			</div>
+			<!--tabla responsiva-->';
 		}
 		else
 			echo '
@@ -1691,7 +1713,8 @@ function template_groupMembership()
 	else
 	{
 		echo '
-			<table border="0" width="100%" cellspacing="0" cellpadding="4" class="table_grid">
+						<div class="table-responsive">
+				<table  border="0" width="100%" cellspacing="0" cellpadding="4" class="table">
 				<thead>
 					<tr>
 						<th class="first_th" scope="col" ', $context['can_edit_primary'] ? ' colspan="2"' : '', '>', $txt['current_membergroups'], '</th>
@@ -1730,7 +1753,9 @@ function template_groupMembership()
 
 		echo '
 				</tbody>
-			</table>';
+						</table>
+			</div>
+			<!--tabla responsiva-->';
 
 		if ($context['can_edit_primary'])
 			echo '
@@ -1743,7 +1768,8 @@ function template_groupMembership()
 		{
 			echo '
 			<br />
-			<table border="0" width="100%" cellspacing="0" cellpadding="4" class="table_grid">
+						<div class="table-responsive">
+				<table  border="0" width="100%" cellspacing="0" cellpadding="4" class="table">
 				<thead>
 					<tr>
 						<th class="first_th" scope="col">
@@ -1781,7 +1807,9 @@ function template_groupMembership()
 			}
 			echo '
 				</tbody>
-			</table>';
+						</table>
+			</div>
+			<!--tabla responsiva-->';
 		}
 
 		// Javascript for the selector stuff.
@@ -2240,7 +2268,8 @@ function template_issueWarning()
 				', $txt['profile_warning_previous'], '
 			</h3>
 		</div>
-		<table border="0" width="100%" cellspacing="0" cellpadding="5" class="table_grid">
+					<div class="table-responsive">
+				<table  border="0" width="100%" cellspacing="0" cellpadding="5" class="table">
 			<thead>
 				<tr class="titlebg lefttext">
 					<th class="first_th" scope="col" width="20%">', $txt['profile_warning_previous_issued'], '</th>
@@ -2286,7 +2315,9 @@ function template_issueWarning()
 
 	echo '
 			</tbody>
-		</table>
+					</table>
+			</div>
+			<!--tabla responsiva-->
 		<div class="pagesection">', $txt['pages'], ': ', $context['page_index'], '</div>';
 
 	// Do our best to get pretty javascript enabled.

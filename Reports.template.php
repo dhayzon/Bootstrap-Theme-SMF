@@ -3,6 +3,10 @@
  * Simple Machines Forum (SMF)
  *
  * @package SMF
+ * Tema Echo Echo con boostrap v3.3.6 para SMF 2.0.11, en este entonces la más estable
+ * Autor: Dhayzon 
+ * Contacto: Dhayzon.com
+ * Code licensed MIT, docs CC BY 3.0.
  * @author Simple Machines
  * @copyright 2011 Simple Machines
  * @license http://www.simplemachines.org/about/smf/license.php BSD
@@ -85,7 +89,8 @@ function template_main()
 	foreach ($context['tables'] as $table)
 	{
 		echo '
-		<table class="table_grid" width="100%">';
+					<div class="table-responsive">
+				<table  class="table" width="100%">';
 
 		if (!empty($table['title']))
 			echo '
@@ -146,7 +151,9 @@ function template_main()
 		}
 		echo '
 			</tbody>
-		</table>';
+					</table>
+			</div>
+			<!--tabla responsiva-->';
 	}
 	echo '
 	</div>
@@ -177,7 +184,8 @@ function template_print()
 	{
 		echo '
 		<div style="overflow: visible;', $table['max_width'] != 'auto' ? ' width: ' . $table['max_width'] . 'px;' : '', '">
-			<table border="0" cellspacing="1" cellpadding="4" width="100%" class="bordercolor">';
+						<div class="table-responsive">
+				<table  border="0" cellspacing="1" cellpadding="4" width="100%" class="bordercolor">';
 
 		if (!empty($table['title']))
 			echo '
@@ -235,7 +243,9 @@ function template_print()
 			$alternate = !$alternate;
 		}
 		echo '
-			</table>
+						</table>
+			</div>
+			<!--tabla responsiva-->
 		</div><br />';
 	}
 }

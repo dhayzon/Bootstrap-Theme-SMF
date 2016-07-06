@@ -3,6 +3,10 @@
  * Simple Machines Forum (SMF)
  *
  * @package SMF
+ * Tema Echo Echo con boostrap v3.3.6 para SMF 2.0.11, en este entonces la más estable
+ * Autor: Dhayzon 
+ * Contacto: Dhayzon.com
+ * Code licensed MIT, docs CC BY 3.0.
  * @author Simple Machines
  * @copyright 2011 Simple Machines
  * @license http://www.simplemachines.org/about/smf/license.php BSD
@@ -39,7 +43,8 @@ function template_main()
 
 	echo '
 		<div id="mlist" class="tborder topic_table">
-			<table class="table_grid" cellspacing="0" width="100%">
+						<div class="table-responsive">
+				<table  class="table" cellspacing="0" width="100%">
 			<thead>
 				<tr>';
 
@@ -139,7 +144,9 @@ function template_main()
 	// Show the page numbers again. (makes 'em easier to find!)
 	echo '
 			</tbody>
-			</table>
+						</table>
+			</div>
+			<!--tabla responsiva-->
 		</div>';
 
 	echo '

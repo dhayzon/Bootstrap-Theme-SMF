@@ -3,6 +3,10 @@
  * Simple Machines Forum (SMF)
  *
  * @package SMF
+ * Tema Echo Echo con boostrap v3.3.6 para SMF 2.0.11, en este entonces la más estable
+ * Autor: Dhayzon 
+ * Contacto: Dhayzon.com
+ * Code licensed MIT, docs CC BY 3.0.
  * @author Simple Machines
  * @copyright 2011 Simple Machines
  * @license http://www.simplemachines.org/about/smf/license.php BSD
@@ -537,7 +541,8 @@ function template_subject_list()
 	global $context, $options, $settings, $modSettings, $txt, $scripturl;
 
 	echo '
-	<table width="100%" class="table_grid">
+				<div class="table-responsive">
+				<table  width="100%" class="table">
 	<thead>
 		<tr>
 			<th align="center" width="4%" class="first_th">
@@ -598,7 +603,9 @@ function template_subject_list()
 
 	echo '
 	</tbody>
-	</table>
+				</table>
+			</div>
+			<!--tabla responsiva-->
 	<div class="pagesection">
 		<div class="floatleft">', $txt['pages'], ': ', $context['page_index'], '</div>
 		<div class="floatright">&nbsp;';
@@ -789,7 +796,8 @@ function template_search_results()
 	// complete results ?
 	if (empty($context['search_params']['show_complete']) && !empty($context['personal_messages']))
 		echo '
-	<table width="100%" class="table_grid">
+				<div class="table-responsive">
+				<table  width="100%" class="table">
 	<thead>
 		<tr>
 			<th class="lefttext first_th" width="30%">', $txt['date'], '</th>
@@ -872,7 +880,9 @@ function template_search_results()
 	if (empty($context['search_params']['show_complete']) && !empty($context['personal_messages']))
 		echo '
 		</tbody>
-		</table>';
+					</table>
+			</div>
+			<!--tabla responsiva-->';
 
 	// No results?
 	if (empty($context['personal_messages']))
@@ -1178,7 +1188,8 @@ function template_labels()
 		<div class="description">
 			', $txt['pm_labels_desc'], '
 		</div>
-		<table width="100%" class="table_grid">
+					<div class="table-responsive">
+				<table  width="100%" class="table">
 		<thead>
 			<tr>
 				<th class="lefttext first_th">
@@ -1221,7 +1232,9 @@ function template_labels()
 	}
 	echo '
 		</tbody>
-		</table>';
+					</table>
+			</div>
+			<!--tabla responsiva-->';
 
 	if (!count($context['labels']) < 2)
 		echo '
@@ -1346,7 +1359,8 @@ function template_rules()
 		<div class="description">
 			', $txt['pm_manage_rules_desc'], '
 		</div>
-		<table width="100%" class="table_grid">
+					<div class="table-responsive">
+				<table  width="100%" class="table">
 		<thead>
 			<tr>
 				<th class="lefttext first_th">
@@ -1389,7 +1403,9 @@ function template_rules()
 
 	echo '
 		</tbody>
-		</table>
+					</table>
+			</div>
+			<!--tabla responsiva-->
 		<div class="righttext">
 			[<a href="', $scripturl, '?action=pm;sa=manrules;add;rid=0">', $txt['pm_add_rule'], '</a>]';
 
