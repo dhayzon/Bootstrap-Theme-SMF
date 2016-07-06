@@ -3,7 +3,7 @@
 and (min-device-width : 320px)
 and (max-device-width : 480px){
     .container-fluid{
-       padding: 0;
+       padding: 3px;
     }
     .container-fluid [class^=col-xs-] {
         /* padding: 0; */
@@ -22,6 +22,25 @@ and (max-device-width : 480px){
     .smfPagination {
     margin: 10px 0;
     }
+	.uIcon {
+	    position: absolute;
+	    right: 0;
+	    bottom: 30px;
+	    width: 50%;
+	    text-align: right;
+	}
+
+	.uLastpost {
+	    width: 100%;
+	}
+
+	.uInfo {
+	    width: 100%;
+	}
+
+	.uStats {
+	    width: 100%;
+	}
 }
 
 /* Smartphones (landscape) ----------- */

@@ -102,8 +102,8 @@ function template_main()
 			continue;
 
 		echo '
-			<div class="header" id="category_', $category['id'], '">
-				 <div class="cat_bar">
+			<div class="panel panel-default" id="category_', $category['id'], '">
+				 <div class="panel-heading">
 							<h3>';
 
 		// If this category even can collapse, show a link to collapse it.
@@ -118,15 +118,15 @@ function template_main()
 		echo '
 								', $category['link'], '
 							</h3>
-						</div> 
-			</div>';
+				</div> 
+			  ';
 
 		// Assuming the category hasn't been collapsed...
 		if (!$category['is_collapsed'])
 		{
 
 		echo '
-			<div class="content" id="category_', $category['id'], '_boards">';
+			<ul class="list-group" id="category_', $category['id'], '_boards">';
 			/* Each board in each category's boards has:
 			new (is it new?), id, name, description, moderators (see below), link_moderators (just a list.),
 			children (see below.), link_children (easier to use.), children_new (are they new?),
@@ -134,8 +134,8 @@ function template_main()
 			foreach ($category['boards'] as $board)
 			{
 				echo '
-				<div id="board_', $board['id'], '" class="col-xs-12 col-sm-12 panel-body">
-					<div class="col-xs-12 col-sm-1 icon  text-center ', !empty($board['children']) ? 'children' : '', '">
+				<li id="board_', $board['id'], '" class="list-group-item">
+					<div class="uIcon ', !empty($board['children']) ? 'children' : '', '">
 						<a href="', ($board['is_redirect'] || $context['user']['is_guest'] ? $board['href'] : $scripturl . '?action=unread;board=' . $board['id'] . '.0;children'), '">';
 
 				// If the board or children is new, show an indicator.
@@ -153,8 +153,7 @@ function template_main()
 
 				echo '
 						</a>
-					</div><!--fix icon
-			    --><div class="col-xs-12 col-sm-6 info">
+					</div><div class="uInfo">
 						<a class="subject" href="', $board['href'], '" id="b', $board['id'], '">', $board['name'], '</a>';
 
 				// Has it outstanding posts for approval?
@@ -173,13 +172,12 @@ function template_main()
 
 				// Show some basic information about the number of posts, etc.
 					echo '
-					</div><!--fix info
-				 --><div class="col-xs-12 col-sm-2 stats ">
-						<p>', comma_format($board['posts']), ' ', $board['is_redirect'] ? $txt['redirects'] : $txt['posts'], ' <br />
-						', $board['is_redirect'] ? '' : comma_format($board['topics']) . ' ' . $txt['board_topics'], '
-						</p>
-					</div><!--fix stats
-				--><div class="col-xs-12 col-sm-3 lastpost">';
+					</div><div class="uStats ">
+							<p><span class="glyphicon ', $board['is_redirect'] ? 'glyphicon-send':'glyphicon-comment' ,'" aria-hidden="true"></span> ', comma_format($board['posts']), ' ', $board['is_redirect'] ? $txt['redirects'] : $txt['posts'], ' <br />
+							<span class="glyphicon ', $board['is_redirect'] ? '':'glyphicon-object-align-right','"  aria-hidden="true"></span>
+							', $board['is_redirect'] ? '' : comma_format($board['topics']) . ' ' . $txt['board_topics'], '
+							</p>
+						</div><div class="uLastpost">';
 
 				/* The board's and children's 'last_post's have:
 				time, timestamp (a number that represents the time.), id (of the post), topic (topic id.),
@@ -193,7 +191,7 @@ function template_main()
 						</p>';
 				echo '
 					</div>
-				</div>';
+				</li>';
 				//end tr
 				// Show the "Child Boards: ". (there's a link_children but we're going to bold the new ones...)
 				if (!empty($board['children']))
@@ -216,16 +214,16 @@ function template_main()
 						$children[] = $child['new'] ? '<strong>' . $child['link'] . '</strong>' : $child['link'];
 					}
 					echo '
-					<div id="board_', $board['id'], '_children" class="col-xs-12 col-sm-12 sub-foros">
-						<div class="panel-body">
-							<strong>', $txt['parent_boards'], '</strong>: ', implode(', ', $children), '
-						</div>
-					</div>';
+					<li id="board_', $board['id'], '_children" class="list-group-item list-group-item-success">						 
+							<strong>', $txt['parent_boards'], '</strong>: ', implode(', ', $children), '						 
+					</li>';
 				}
 			}
 		echo '
-			</div>';
+			</ul>';
 		}
+
+		echo'</div>';
  
 	}
 	echo '

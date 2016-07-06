@@ -260,15 +260,16 @@ function template_body_above()
 							<input type="password" name="passwrd" size="10" placeholder="'. $txt['password'].'" class="input_password form-control" />
 	 					</div>					
 					</div>
-					<div class="col-xs-12 col-md-12 form-inline">
+					<div class="col-xs-12 col-md-12 fix-padding">
+					<div class="col-xs-7 col-sm-6">
 					<select class="form-control" name="cookielength" class="form-control">
 						<option value="60">', $txt['one_hour'], '</option>
 						<option value="1440">', $txt['one_day'], '</option>
 						<option value="10080">', $txt['one_week'], '</option>
 						<option value="43200">', $txt['one_month'], '</option>
 						<option value="-1" selected="selected">', $txt['forever'], '</option>
-					</select>
-					<input type="submit" value="', $txt['login'], '" class="btn btn-success btn-sm pull-right" /><br />
+					</select></div><div class="col-xs-5 col-sm-6">
+					<input type="submit" value="', $txt['login'], '" class="btn btn-success pull-right" /></div>
 					</div>';
 
 		if (!empty($modSettings['enableOpenID']))

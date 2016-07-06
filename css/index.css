@@ -75,30 +75,24 @@ select.form-control, .sfix {
     font-weight: bold;
 }
 /**board index**/
-#boardindex_table {
-    border: 1px solid #dddddd;
+.uIcon {
+    width: 5%;
+    text-align: center;
 }
 
-#boardindex_table .header {
-    background: whitesmoke;
-    padding: 15px;
-    border-bottom: 1px solid #dddddd;
-    border-top: 1px solid #dddddd;
-    overflow: hidden;
+.uLastpost {
+    width: 20%;
 }
-#boardindex_table .header:first-of-type {
-      border-top: none;
+
+.uInfo {
+    width: 61%;
+}
+
+.uStats {
+    width: 14%;
 }
  
-#boardindex_table .content {
-    /* background: #e4ebef; */
-    overflow: hidden;
-}
-.icon, .info, .stats, .lastpost{
-     display: inline-block;
-    vertical-align: middle;
-    float: none;
-}
+.uIcon, .uInfo, .uStats, .uLastpost{display: inline-block;vertical-align: middle;padding: 0 10px;}
 /** poter footer moderator links**/
 .uList .rLinks {
     display: inline-block;
