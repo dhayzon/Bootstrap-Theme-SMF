@@ -268,7 +268,7 @@ function template_body_above()
 						<option value="10080">', $txt['one_week'], '</option>
 						<option value="43200">', $txt['one_month'], '</option>
 						<option value="-1" selected="selected">', $txt['forever'], '</option>
-					</select></div><div class="col-xs-5 col-sm-6">
+					</select></div><div class="col-xs-5 col-sm-69">
 					<input type="submit" value="', $txt['login'], '" class="btn btn-success pull-right" /></div>
 					</div>';
 
@@ -381,7 +381,7 @@ function template_body_below()
 			<li class="last"><a id="button_wap2" href="http://dhayzon.com"  target="_blank" ><span>| ',$txt['Bcopyright'], ' |</span></a></li>
 			<li><a id="button_xhtml" href="http://validator.w3.org/check?uri=referer" target="_blank" class="new_win" title="', $txt['valid_xhtml'], '"><span>', $txt['xhtml'], '</span></a></li>
 			', !empty($modSettings['xmlnews_enable']) && (!empty($modSettings['allow_guestAccess']) || $context['user']['is_logged']) ? '<li><a id="button_rss" href="' . $scripturl . '?action=.xml;type=rss" class="new_win"><span>' . $txt['rss'] . '</span></a></li>' : '', '
-			<li class="last"><a id="button_wap2" href="', $scripturl , '?wap2" class="new_win"><span>', $txt['wap2'], '</span></a></li>
+			<li class="last"><a  href="', $scripturl , '?wap2" class="new_win"><span>', $txt['wap2'], '</span></a></li>
 
 		</ul>';
 

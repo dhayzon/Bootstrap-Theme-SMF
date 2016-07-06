@@ -33,7 +33,7 @@ function template_main()
 	<div id="newsfader" class="alert alert-warning"> 
 		<div class="cat_bar">
 			<h3>
-				<img id="newsupshrink" src="', $settings['images_url'], '/collapse.gif" alt="*" title="', $txt['upshrink_description'], '" align="bottom" style="display: none;"  class="pull-right"/>
+				<img id="newsupshrink" src="', $settings['images_url'], '/collapse.gif" alt="*" title="', $txt['upshrink_description'], '"  style="display: none;"  class="pull-right"/>
 				', $txt['news'], '
 			</h3>
 		</div>
