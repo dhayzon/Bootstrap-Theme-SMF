@@ -113,19 +113,17 @@ function template_main()
 	// If the user wants to see how their message looks - the preview section is where it's at!
 	echo '
 			<div id="preview_section"', isset($context['preview_message']) ? '' : ' style="display: none;"', '>
-				<div class="cat_bar">
+				<div class="panel-body">
 					<h3>
 						<span id="preview_subject">', empty($context['preview_subject']) ? '' : $context['preview_subject'], '</span>
 					</h3>
 				</div>
-				<div class="panel-body">
-					
+				<div class="panel-body">					
 					<div class="content">
 						<div class="post" id="preview_body">
 							', empty($context['preview_message']) ? '<br />' : $context['preview_message'], '
 						</div>
 					</div>
-					<span class="botslice"><span></span></span>
 				</div>
 			</div><br />';
 
@@ -134,27 +132,24 @@ function template_main()
 			<input type="hidden" name="eventid" value="', $context['event']['id'], '" />';
 
 	// Start the main table.
-	echo '
-			<div class="cat_bar">
+	echo '<div class="panel  panel-default">
+			<div class="panel-heading">
 				<h3>', $context['page_title'], '</h3>
 			</div>
-			<div>
-				<span class="upperframe"><span></span></span>
-				<div class="roundframe">', isset($context['current_topic']) ? '
+			<div class="panel-body">
+				<div class="col-sm-8">
+				', isset($context['current_topic']) ? '
 					<input type="hidden" name="topic" value="' . $context['current_topic'] . '" />' : '';
 
 	// If an error occurred, explain what happened.
 	echo '
-					<div class="errorbox"', empty($context['post_error']['messages']) ? ' style="display: none"' : '', ' id="errors">
-						<dl>
-							<dt>
-								<strong style="', empty($context['error_type']) || $context['error_type'] != 'serious' ? 'display: none;' : '', '" id="error_serious">', $txt['error_while_submitting'], '</strong>
-							</dt>
-							<dt class="error" id="error_list">
+					<div class="alert alert-danger" role="alert" ', empty($context['post_error']['messages']) ? ' style="display: none"' : '', ' id="errors">
+						 
+							<strong style="', empty($context['error_type']) || $context['error_type'] != 'serious' ? 'display: none;' : '', '" id="error_serious">', $txt['error_while_submitting'], '</strong>
+ 							<div class="error" id="error_list">
 								', empty($context['post_error']['messages']) ? '' : implode('<br />', $context['post_error']['messages']), '
-							</dt>
-						</dl>
-					</div>';
+							</div>
+ 					</div>';
 
 	// If this won't be approved let them know!
 	if (!$context['becomes_approved'])
@@ -168,13 +163,13 @@ function template_main()
 
 	// If it's locked, show a message to warn the replyer.
 	echo '
-					<p class="information"', $context['locked'] ? '' : ' style="display: none"', ' id="lock_warning">
+					<p class="alert alert-info" role="alert" ', $context['locked'] ? '' : ' style="display: none"', ' id="lock_warning">
 						', $txt['topic_locked_no_reply'], '
 					</p>';
 
 	// The post header... important stuff
 	echo '
-					<dl id="post_header">';
+					<dl id="post_header" class="dl-horizontal">';
 
 	// Guests have to put in their name and email...
 	if (isset($context['name']) && isset($context['email']))
@@ -218,9 +213,9 @@ function template_main()
 
 	echo '
 							</select>
-							<img src="', $context['icon_url'], '" name="icons" hspace="15" alt="" />
+							<img src="', $context['icon_url'], '" name="icons" hspace="15" alt="" class="pull-left"/>
 						</dd>
-					</dl><hr class="clear" />';
+					</dl>';
 
 	// Are you posting a calendar event?
 	if ($context['make_event'])
@@ -414,115 +409,116 @@ function template_main()
 						<strong>', $txt['last_edit'], ':</strong>
 						', $context['last_modified'], '
 					</div>';
+	//barra de opciones 
 
-	// If the admin has enabled the hiding of the additional options - show a link and image for it.
-	if (!empty($settings['additional_options_collapsable']))
-		echo '
-					<div id="postAdditionalOptionsHeader">
-						<img src="', $settings['images_url'], '/collapse.gif" alt="-" id="postMoreExpand" style="display: none;" /> <strong><a href="#" id="postMoreExpandLink">', $txt['post_additionalopt'], '</a></strong>
-					</div>';
+ echo '</div><div class="col-sm-4"><div class="panel panel-default">';				
+			// If the admin has enabled the hiding of the additional options - show a link and image for it.
+			if (!empty($settings['additional_options_collapsable']))
+				echo '
+							<div id="postAdditionalOptionsHeader" class="panel-heading">
+								<img src="', $settings['images_url'], '/collapse.gif" alt="-" id="postMoreExpand" style="display: none;" class="pull-right"/> <strong><a href="#" id="postMoreExpandLink">', $txt['post_additionalopt'], '</a></strong>
+							</div>';
 
-	// Display the check boxes for all the standard options - if they are available to the user!
-	echo '
-					<div id="postMoreOptions" class="smalltext">
-						<ul class="post_options">
-							', $context['can_notify'] ? '<li><input type="hidden" name="notify" value="0" /><label for="check_notify"><input type="checkbox" name="notify" id="check_notify"' . ($context['notify'] || !empty($options['auto_notify']) ? ' checked="checked"' : '') . ' value="1" class="input_check" /> ' . $txt['notify_replies'] . '</label></li>' : '', '
-							', $context['can_lock'] ? '<li><input type="hidden" name="lock" value="0" /><label for="check_lock"><input type="checkbox" name="lock" id="check_lock"' . ($context['locked'] ? ' checked="checked"' : '') . ' value="1" class="input_check" /> ' . $txt['lock_topic'] . '</label></li>' : '', '
-							<li><label for="check_back"><input type="checkbox" name="goback" id="check_back"' . ($context['back_to_topic'] || !empty($options['return_to_post']) ? ' checked="checked"' : '') . ' value="1" class="input_check" /> ' . $txt['back_to_topic'] . '</label></li>
-							', $context['can_sticky'] ? '<li><input type="hidden" name="sticky" value="0" /><label for="check_sticky"><input type="checkbox" name="sticky" id="check_sticky"' . ($context['sticky'] ? ' checked="checked"' : '') . ' value="1" class="input_check" /> ' . $txt['sticky_after'] . '</label></li>' : '', '
-							<li><label for="check_smileys"><input type="checkbox" name="ns" id="check_smileys"', $context['use_smileys'] ? '' : ' checked="checked"', ' value="NS" class="input_check" /> ', $txt['dont_use_smileys'], '</label></li>', '
-							', $context['can_move'] ? '<li><input type="hidden" name="move" value="0" /><label for="check_move"><input type="checkbox" name="move" id="check_move" value="1" class="input_check" ' . (!empty($context['move']) ? 'checked="checked" ' : '') . '/> ' . $txt['move_after2'] . '</label></li>' : '', '
-							', $context['can_announce'] && $context['is_first_post'] ? '<li><label for="check_announce"><input type="checkbox" name="announce_topic" id="check_announce" value="1" class="input_check" ' . (!empty($context['announce']) ? 'checked="checked" ' : '') . '/> ' . $txt['announce_topic'] . '</label></li>' : '', '
-							', $context['show_approval'] ? '<li><label for="approve"><input type="checkbox" name="approve" id="approve" value="2" class="input_check" ' . ($context['show_approval'] === 2 ? 'checked="checked"' : '') . ' /> ' . $txt['approve_this_post'] . '</label></li>' : '', '
-						</ul>
-					</div>';
+			// Display the check boxes for all the standard options - if they are available to the user!
+			echo ' 
+							 	<ul id="postMoreOptions" class="list-group">
+									', $context['can_notify'] ? '<li class="list-group-item"><input type="hidden" name="notify" value="0" /><label for="check_notify"><input type="checkbox" name="notify" id="check_notify"' . ($context['notify'] || !empty($options['auto_notify']) ? ' checked="checked"' : '') . ' value="1" class="input_check" /> ' . $txt['notify_replies'] . '</label></li>' : '', '
+									', $context['can_lock'] ? '<li class="list-group-item"><input type="hidden" name="lock" value="0" /><label for="check_lock"><input type="checkbox" name="lock" id="check_lock"' . ($context['locked'] ? ' checked="checked"' : '') . ' value="1" class="input_check" /> ' . $txt['lock_topic'] . '</label></li>' : '', '
+									<li class="list-group-item"><label for="check_back"><input type="checkbox" name="goback" id="check_back"' . ($context['back_to_topic'] || !empty($options['return_to_post']) ? ' checked="checked"' : '') . ' value="1" class="input_check" /> ' . $txt['back_to_topic'] . '</label></li>
+									', $context['can_sticky'] ? '<li class="list-group-item"><input type="hidden" name="sticky" value="0" /><label for="check_sticky"><input type="checkbox" name="sticky" id="check_sticky"' . ($context['sticky'] ? ' checked="checked"' : '') . ' value="1" class="input_check" /> ' . $txt['sticky_after'] . '</label></li>' : '', '
+									<li class="list-group-item"><label for="check_smileys"><input type="checkbox" name="ns" id="check_smileys"', $context['use_smileys'] ? '' : ' checked="checked"', ' value="NS" class="input_check" /> ', $txt['dont_use_smileys'], '</label></li>', '
+									', $context['can_move'] ? '<li class="list-group-item"><input type="hidden" name="move" value="0" /><label for="check_move"><input type="checkbox" name="move" id="check_move" value="1" class="input_check" ' . (!empty($context['move']) ? 'checked="checked" ' : '') . '/> ' . $txt['move_after2'] . '</label></li>' : '', '
+									', $context['can_announce'] && $context['is_first_post'] ? '<li class="list-group-item"><label for="check_announce"><input type="checkbox" name="announce_topic" id="check_announce" value="1" class="input_check" ' . (!empty($context['announce']) ? 'checked="checked" ' : '') . '/> ' . $txt['announce_topic'] . '</label></li>' : '', '
+									', $context['show_approval'] ? '<li class="list-group-item"><label for="approve"><input type="checkbox" name="approve" id="approve" value="2" class="input_check" ' . ($context['show_approval'] === 2 ? 'checked="checked"' : '') . ' /> ' . $txt['approve_this_post'] . '</label></li>' : '', '
+								</ul>
+							</div>';
 
-	// If this post already has attachments on it - give information about them.
-	if (!empty($context['current_attachments']))
-	{
-		echo '
-					<dl id="postAttachment">
-						<dt>
-							', $txt['attached'], ':
-						</dt>
-						<dd class="smalltext">
-							<input type="hidden" name="attach_del[]" value="0" />
-							', $txt['uncheck_unwatchd_attach'], ':
-						</dd>';
-		foreach ($context['current_attachments'] as $attachment)
-			echo '
-						<dd class="smalltext">
-							<label for="attachment_', $attachment['id'], '"><input type="checkbox" id="attachment_', $attachment['id'], '" name="attach_del[]" value="', $attachment['id'], '"', empty($attachment['unchecked']) ? ' checked="checked"' : '', ' class="input_check" /> ', $attachment['name'], (empty($attachment['approved']) ? ' (' . $txt['awaiting_approval'] . ')' : ''), '</label>
-						</dd>';
-		echo '
-					</dl>';
-	}
+			// If this post already has attachments on it - give information about them.
+			if (!empty($context['current_attachments']))
+			{
+				echo '
+							<dl id="postAttachment">
+								<dt>
+									', $txt['attached'], ':
+								</dt>
+								<dd class="smalltext">
+									<input type="hidden" name="attach_del[]" value="0" />
+									', $txt['uncheck_unwatchd_attach'], ':
+								</dd>';
+				foreach ($context['current_attachments'] as $attachment)
+					echo '
+								<dd class="smalltext">
+									<label for="attachment_', $attachment['id'], '"><input type="checkbox" id="attachment_', $attachment['id'], '" name="attach_del[]" value="', $attachment['id'], '"', empty($attachment['unchecked']) ? ' checked="checked"' : '', ' class="input_check" /> ', $attachment['name'], (empty($attachment['approved']) ? ' (' . $txt['awaiting_approval'] . ')' : ''), '</label>
+								</dd>';
+				echo '
+							</dl>';
+			}
 
-	// Is the user allowed to post any additional ones? If so give them the boxes to do it!
-	if ($context['can_post_attachment'])
-	{
-		echo '
-					<dl id="postAttachment2">
-						<dt>
-							', $txt['attach'], ':
-						</dt>
-						<dd class="smalltext">
-							<input type="file" size="60" name="attachment[]" id="attachment1" class="input_file" /> (<a href="javascript:void(0);" onclick="cleanFileInput(\'attachment1\');">', $txt['clean_attach'], '</a>)';
+			// Is the user allowed to post any additional ones? If so give them the boxes to do it!
+			if ($context['can_post_attachment'])
+			{
+				echo '
+							<dl id="postAttachment2">
+								<dt>
+									', $txt['attach'], ':
+								</dt>
+								<dd class="smalltext">
+									<input type="file" size="60" name="attachment[]" id="attachment1" class="input_file" /> (<a href="javascript:void(0);" onclick="cleanFileInput(\'attachment1\');">', $txt['clean_attach'], '</a>)';
 
-		// Show more boxes only if they aren't approaching their limit.
-		if ($context['num_allowed_attachments'] > 1)
-			echo '
-							<script type="text/javascript"><!-- // --><![CDATA[
-								var allowed_attachments = ', $context['num_allowed_attachments'], ';
-								var current_attachment = 1;
+				// Show more boxes only if they aren't approaching their limit.
+				if ($context['num_allowed_attachments'] > 1)
+					echo '
+									<script type="text/javascript"><!-- // --><![CDATA[
+										var allowed_attachments = ', $context['num_allowed_attachments'], ';
+										var current_attachment = 1;
 
-								function addAttachment()
-								{
-									allowed_attachments = allowed_attachments - 1;
-									current_attachment = current_attachment + 1;
-									if (allowed_attachments <= 0)
-										return alert("', $txt['more_attachments_error'], '");
+										function addAttachment()
+										{
+											allowed_attachments = allowed_attachments - 1;
+											current_attachment = current_attachment + 1;
+											if (allowed_attachments <= 0)
+												return alert("', $txt['more_attachments_error'], '");
 
-									setOuterHTML(document.getElementById("moreAttachments"), \'<dd class="smalltext"><input type="file" size="60" name="attachment[]" id="attachment\' + current_attachment + \'" class="input_file" /> (<a href="javascript:void(0);" onclick="cleanFileInput(\\\'attachment\' + current_attachment + \'\\\');">', $txt['clean_attach'], '</a>)\' + \'</dd><dd class="smalltext" id="moreAttachments"><a href="#" onclick="addAttachment(); return false;">(', $txt['more_attachments'], ')<\' + \'/a><\' + \'/dd>\');
+											setOuterHTML(document.getElementById("moreAttachments"), \'<dd class="smalltext"><input type="file" size="60" name="attachment[]" id="attachment\' + current_attachment + \'" class="input_file" /> (<a href="javascript:void(0);" onclick="cleanFileInput(\\\'attachment\' + current_attachment + \'\\\');">', $txt['clean_attach'], '</a>)\' + \'</dd><dd class="smalltext" id="moreAttachments"><a href="#" onclick="addAttachment(); return false;">(', $txt['more_attachments'], ')<\' + \'/a><\' + \'/dd>\');
 
-									return true;
-								}
-							// ]]></script>
-						</dd>
-						<dd class="smalltext" id="moreAttachments"><a href="#" onclick="addAttachment(); return false;">(', $txt['more_attachments'], ')</a></dd>';
+											return true;
+										}
+									// ]]></script>
+								</dd>
+								<dd class="smalltext" id="moreAttachments"><a href="#" onclick="addAttachment(); return false;">(', $txt['more_attachments'], ')</a></dd>';
 
-		echo '
-						<dd class="smalltext">';
+				echo '
+								<dd class="smalltext">';
 
-		// Show some useful information such as allowed extensions, maximum size and amount of attachments allowed.
-		if (!empty($modSettings['attachmentCheckExtensions']))
-			echo '
-							', $txt['allowed_types'], ': ', $context['allowed_extensions'], '<br />';
+				// Show some useful information such as allowed extensions, maximum size and amount of attachments allowed.
+				if (!empty($modSettings['attachmentCheckExtensions']))
+					echo '
+									', $txt['allowed_types'], ': ', $context['allowed_extensions'], '<br />';
 
-		if (!empty($context['attachment_restrictions']))
-			echo '
-							', $txt['attach_restrictions'], ' ', implode(', ', $context['attachment_restrictions']), '<br />';
+				if (!empty($context['attachment_restrictions']))
+					echo '
+									', $txt['attach_restrictions'], ' ', implode(', ', $context['attachment_restrictions']), '<br />';
 
-		if (!$context['can_post_attachment_unapproved'])
-			echo '
-							<span class="alert">', $txt['attachment_requires_approval'], '</span>', '<br />';
+				if (!$context['can_post_attachment_unapproved'])
+					echo '
+									<span class="alert">', $txt['attachment_requires_approval'], '</span>', '<br />';
 
-		echo '
-						</dd>
-					</dl>';
-	}
+				echo '
+								</dd>
+							</dl>';
+			}
 
-	// Is visual verification enabled?
-	if ($context['require_verification'])
-	{
-		echo '
-					<div class="post_verification">
-						<span', !empty($context['post_error']['need_qr_verification']) ? ' class="error"' : '', '>
-							<strong>', $txt['verification'], ':</strong>
-						</span>
-						', template_control_verification($context['visual_verification_id'], 'all'), '
-					</div>';
-	}
+			// Is visual verification enabled?
+			if ($context['require_verification'])
+			{
+				echo '
+							<div class="post_verification">
+								<span', !empty($context['post_error']['need_qr_verification']) ? ' class="error"' : '', '>
+									<strong>', $txt['verification'], ':</strong>
+								</span>
+								', template_control_verification($context['visual_verification_id'], 'all'), '
+							</div>';
+			}
 
 	// Finally, the submit buttons.
 	echo '
@@ -535,13 +531,12 @@ function template_main()
 	// Option to delete an event if user is editing one.
 	if ($context['make_event'] && !$context['event']['new'])
 		echo '
-						<input type="submit" name="deleteevent" value="', $txt['event_delete'], '" onclick="return confirm(\'', $txt['event_delete_confirm'], '\');" class="btn btn-default" />';
+						<input type="submit" name="deleteevent" value="', $txt['event_delete'], '" onclick="return confirm(\'', $txt['event_delete_confirm'], '\');" class="btn btn-danger" />';
 
 	echo '
 					</p>
-				</div>
-				<span class="lowerframe"><span></span></span>
-			</div>
+				
+		
 			<br class="clear" />';
 
 	// Assuming this isn't a new topic pass across the last message id.
@@ -553,6 +548,8 @@ function template_main()
 			<input type="hidden" name="additional_options" id="additional_options" value="', $context['show_additional_options'] ? '1' : '0', '" />
 			<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
 			<input type="hidden" name="seqnum" value="', $context['form_sequence_number'], '" />
+			
+		</div></div></div>
 		</form>';
 
 	echo '
@@ -697,7 +694,7 @@ function template_main()
 						if (newPosts[i].getElementsByTagName("is_ignored")[0].firstChild.nodeValue != 0)
 							ignored_replies[ignored_replies.length] = ignoring = newPosts[i].getAttribute("id");
 
-						newPostsHTML += \'<div class="windowbg\' + (++reply_counter % 2 == 0 ? \'2\' : \'\') + \' core_posts"><div class="content" id="msg\' + newPosts[i].getAttribute("id") + \'"><div class="floatleft"><h5>', $txt['posted_by'], ': \' + newPosts[i].getElementsByTagName("poster")[0].firstChild.nodeValue + \'</h5><span class="smalltext">&#171;&nbsp;<strong>', $txt['on'], ':</strong> \' + newPosts[i].getElementsByTagName("time")[0].firstChild.nodeValue + \'&nbsp;&#187;</span> <img src="\' + smf_images_url + \'/', $context['user']['language'], '/new.gif" alt="', $txt['preview_new'], '" id="image_new_\' + newPosts[i].getAttribute("id") + \'" /></div>\';';
+						newPostsHTML += \'<div class="windowbg\' + (++reply_counter % 2 == 0 ? \'2\' : \'\') + \' core_posts"><div class="content" id="msg\' + newPosts[i].getAttribute("id") + \'"><div class="pull-left"><h5>', $txt['posted_by'], ': \' + newPosts[i].getElementsByTagName("poster")[0].firstChild.nodeValue + \'</h5><span class="smalltext">&#171;&nbsp;<strong>', $txt['on'], ':</strong> \' + newPosts[i].getElementsByTagName("time")[0].firstChild.nodeValue + \'&nbsp;&#187;</span> <img src="\' + smf_images_url + \'/', $context['user']['language'], '/new.gif" alt="', $txt['preview_new'], '" id="image_new_\' + newPosts[i].getAttribute("id") + \'" /></div>\';';
 
 	if ($context['can_quote'])
 		echo '
@@ -746,7 +743,7 @@ function template_main()
 		echo '
 			var oSwapAdditionalOptions = new smc_Toggle({
 				bToggleEnabled: true,
-				bCurrentlyCollapsed: ', $context['show_additional_options'] ? 'false' : 'true', ',
+				bCurrentlyCollapsed: ', $context['show_additional_options'] ? 'true' : 'false', ',
 				funcOnBeforeCollapse: function () {
 					document.getElementById(\'additional_options\').value = \'0\';
 				},
@@ -785,7 +782,7 @@ function template_main()
 	{
 		echo '
 		<div id="recent" class="flow_hidden main_section">
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3>', $txt['topic_summary'], '</h3>
 			</div>
 			<span id="new_replies"></span>';
@@ -801,7 +798,7 @@ function template_main()
 				<div class="', $post['alternate'] == 0 ? 'windowbg' : 'windowbg2', ' core_posts">
 				
 				<div class="content" id="msg', $post['id'], '">
-					<div class="floatleft">
+					<div class="pull-left">
 						<h5>', $txt['posted_by'], ': ', $post['poster'], '</h5>
 						<span class="smalltext">&#171;&nbsp;<strong>', $txt['on'], ':</strong> ', $post['time'], '&nbsp;&#187;</span>
 					</div>';
@@ -931,8 +928,8 @@ function template_spellcheck()
 		<form action="#" method="post" accept-charset="', $context['character_set'], '" name="spellingForm" id="spellingForm" onsubmit="return false;" style="margin: 0;">
 			<div id="spellview">&nbsp;</div>
 						<div class="table-responsive">
-				<table  border="0" cellpadding="4" cellspacing="0" width="100%"><tr class="panel-body">
-				<td width="50%" valign="top">
+				<table  border="0" cellpadding="4" cellspacing="0" width="100%"><tr>
+				<td width="50%" v>
 					', $txt['spellcheck_change_to'], '<br />
 					<input type="text" name="changeto" style="width: 98%;" class="form-control" />
 				</td>
@@ -1013,7 +1010,7 @@ function template_announce()
 	echo '
 	<div id="announcement">
 		<form action="', $scripturl, '?action=announce;sa=send" method="post" accept-charset="', $context['character_set'], '">
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3>', $txt['announce_title'], '</h3>
 			</div>
 			<div class="information">

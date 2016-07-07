@@ -48,7 +48,7 @@ function template_main()
 	echo '
 	<div id="send_topic">
 		<form action="', $scripturl, '?action=emailuser;sa=sendtopic;topic=', $context['current_topic'], '.', $context['start'], '" method="post" accept-charset="', $context['character_set'], '">
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3>
 					<span class="ie6_header floatleft"><img src="', $settings['images_url'], '/email_sm.gif" alt="" class="icon" />', $context['page_title'], '</span>
 				</h3>
@@ -113,7 +113,7 @@ function template_custom_email()
 	echo '
 	<div id="send_topic">
 		<form action="', $scripturl, '?action=emailuser;sa=email" method="post" accept-charset="', $context['character_set'], '">
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3>
 					<span class="ie6_header floatleft"><img src="', $settings['images_url'], '/email_sm.gif" alt="" class="icon" />', $context['page_title'], '</span>
 				</h3>
@@ -208,7 +208,7 @@ function template_report()
 	<div id="report_topic">
 		<form action="', $scripturl, '?action=reporttm;topic=', $context['current_topic'], '.', $context['start'], '" method="post" accept-charset="', $context['character_set'], '">
 			<input type="hidden" name="msg" value="' . $context['message_id'] . '" />
-				<div class="cat_bar">
+				<div class="panel-body">
 					<h3>', $txt['report_to_mod'], '</h3>
 				</div>
 				<div class="panel-body">
@@ -271,8 +271,7 @@ function template_report()
 							<input type="submit" name="submit" value="', $txt['rtm10'], '" style="margin-left: 1ex;" class="btn btn-default" />
 						</div>
 					</div>
-					<span class="botslice"><span></span></span>
-				</div>
+									</div>
 			<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
 		</form>
 	</div>

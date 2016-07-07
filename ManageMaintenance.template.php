@@ -28,7 +28,7 @@ function template_maintain_database()
 
 	echo '
 	<div id="manage_maintenance">
-		<div class="cat_bar">
+		<div class="panel-body">
 			<h3>', $txt['maintain_optimize'], '</h3>
 		</div>
 		<div class="panel-body">
@@ -40,12 +40,11 @@ function template_maintain_database()
 					<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
 				</form>
 			</div>
-			<span class="botslice"><span></span></span>
-		</div>
+					</div>
 
-		<div class="cat_bar">
+		<div class="panel-body">
 			<h3>
-			<span class="ie6_header floatleft"><a href="', $scripturl, '?action=helpadmin;help=maintenance_backup" onclick="return reqWin(this.href);" class="help"><img src="', $settings['images_url'], '/helptopics.gif" alt="', $txt['help'], '" /></a> ', $txt['maintain_backup'], '</span>
+			<span class="ie6_header floatleft"><a href="', $scripturl, '?action=helpadmin;help=maintenance_backup" onclick="return reqWin(this.href);" ><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true" data-toggle="tooltip" title="', $txt['help'], '"></span> </a> ', $txt['maintain_backup'], '</span>
 			</h3>
 		</div>
 
@@ -69,14 +68,13 @@ function template_maintain_database()
 					<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
 				</form>
 			</div>
-			<span class="botslice"><span></span></span>
-		</div>';
+					</div>';
 
 	// Show an option to convert to UTF-8 if we're not on UTF-8 yet.
 	if ($context['convert_utf8'])
 	{
 		echo '
-		<div class="cat_bar">
+		<div class="panel-body">
 			<h3>', $txt['utf8_title'], '</h3>
 		</div>
 		<div class="panel-body">
@@ -89,15 +87,14 @@ function template_maintain_database()
 					<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
 				</form>
 			</div>
-			<span class="botslice"><span></span></span>
-		</div>';
+					</div>';
 	}
 
 	// We might want to convert entities if we're on UTF-8.
 	if ($context['convert_entities'])
 	{
 		echo '
-		<div class="cat_bar">
+		<div class="panel-body">
 			<h3>', $txt['entity_convert_title'], '</h3>
 		</div>
 		<div class="panel-body">
@@ -109,8 +106,7 @@ function template_maintain_database()
 					<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
 				</form>
 			</div>
-			<span class="botslice"><span></span></span>
-		</div>';
+					</div>';
 	}
 
 	echo '
@@ -147,9 +143,8 @@ function template_maintain_routine()
 					<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
 				</form>
 			</div>
-			<span class="botslice"><span></span></span>
-		</div>
-		<div class="cat_bar">
+					</div>
+		<div class="panel-body">
 			<h3>', $txt['maintain_errors'], '</h3>
 		</div>
 		<div class="panel-body">
@@ -161,9 +156,8 @@ function template_maintain_routine()
 					<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
 				</form>
 			</div>
-			<span class="botslice"><span></span></span>
-		</div>
-		<div class="cat_bar">
+					</div>
+		<div class="panel-body">
 			<h3>', $txt['maintain_recount'], '</h3>
 		</div>
 		<div class="panel-body">
@@ -175,9 +169,8 @@ function template_maintain_routine()
 					<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
 				</form>
 			</div>
-			<span class="botslice"><span></span></span>
-		</div>
-		<div class="cat_bar">
+					</div>
+		<div class="panel-body">
 			<h3>', $txt['maintain_logs'], '</h3>
 		</div>
 		<div class="panel-body">
@@ -189,9 +182,8 @@ function template_maintain_routine()
 					<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
 				</form>
 			</div>
-			<span class="botslice"><span></span></span>
-		</div>
-		<div class="cat_bar">
+					</div>
+		<div class="panel-body">
 			<h3>', $txt['maintain_cache'], '</h3>
 		</div>
 		<div class="panel-body">
@@ -203,8 +195,7 @@ function template_maintain_routine()
 					<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
 				</form>
 			</div>
-			<span class="botslice"><span></span></span>
-		</div>
+					</div>
 		</div>
 	</diV>
 	<br class="clear" />';
@@ -274,7 +265,7 @@ function template_maintain_members()
 		setTimeout("checkAttributeValidity();", 500);
 	// ]]></script>
 	<div id="manage_maintenance">
-		<div class="cat_bar">
+		<div class="panel-body">
 			<h3>', $txt['maintain_reattribute_posts'], '</h3>
 		</div>
 		<div class="panel-body">
@@ -312,12 +303,11 @@ function template_maintain_members()
 					<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
 				</form>
 			</div>
-			<span class="botslice"><span></span></span>
-		</div>
-		<div class="cat_bar">
+					</div>
+		<div class="panel-body">
 			<h3>
 				<span class="ie6_header floatleft">
-					<a href="', $scripturl, '?action=helpadmin;help=maintenance_members" onclick="return reqWin(this.href);" class="help"><img src="', $settings['images_url'], '/helptopics.gif" alt="', $txt['help'], '" /></a> ', $txt['maintain_members'], '
+					<a href="', $scripturl, '?action=helpadmin;help=maintenance_members" onclick="return reqWin(this.href);" ><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true" data-toggle="tooltip" title="', $txt['help'], '"></span> </a> ', $txt['maintain_members'], '
 				</span>
 			</h3>
 		</div>
@@ -345,8 +335,7 @@ function template_maintain_members()
 					<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
 				</form>
 			</div>
-			<span class="botslice"><span></span></span>
-		</div>
+					</div>
 	</div>
 	<br class="clear" />
 
@@ -405,7 +394,7 @@ function template_maintain_topics()
 
 	echo '
 	<div id="manage_maintenance">
-		<div class="cat_bar">
+		<div class="panel-body">
 			<h3>', $txt['maintain_old'], '</h3>
 		</div>
 		<div class="panel-body">
@@ -435,7 +424,7 @@ function template_maintain_topics()
 						<a href="#rotLink" onclick="swapRot();"><img src="', $settings['images_url'], '/expand.gif" alt="+" id="rotIcon" /></a> <a href="#rotLink" onclick="swapRot();" id="rotText" style="font-weight: bold;">', $txt['maintain_old_all'], '</a>
 					</p>
 					<div style="display: none;" id="rotPanel" class="flow_hidden">
-						<div class="floatleft" style="width: 49%">';
+						<div class="pull-left" style="width: 49%">';
 
 	// This is the "middle" of the list.
 	$middle = ceil(count($context['categories']) / 2);
@@ -461,7 +450,7 @@ function template_maintain_topics()
 		if (++$i == $middle)
 			echo '
 						</div>
-						<div class="floatright" style="width: 49%;">';
+						<div class="pull-right" style="width: 49%;">';
 	}
 
 	echo '
@@ -471,9 +460,8 @@ function template_maintain_topics()
 					<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
 				</form>
 			</div>
-			<span class="botslice"><span></span></span>
-		</div>
-		<div class="cat_bar">
+					</div>
+		<div class="panel-body">
 			<h3>', $txt['move_topics_maintenance'], '</h3>
 		</div>
 		<div class="panel-body">
@@ -521,8 +509,7 @@ function template_maintain_topics()
 					<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
 				</form>
 			</div>
-			<span class="botslice"><span></span></span>
-		</div>
+					</div>
 	</div>
 	<br class="clear" />';
 }
@@ -534,7 +521,7 @@ function template_optimize()
 
 	echo '
 	<div id="manage_maintenance">
-		<div class="cat_bar">
+		<div class="panel-body">
 			<h3>', $txt['maintain_optimize'], '</h3>
 		</div>
 		<div class="panel-body">
@@ -557,8 +544,7 @@ function template_optimize()
 				</p>
 				<p><a href="', $scripturl, '?action=admin;area=maintain">', $txt['maintain_return'], '</a></p>
 			</div>
-			<span class="botslice"><span></span></span>
-		</div>
+					</div>
 	</div>
 	<br class="clear" />';
 }
@@ -569,7 +555,7 @@ function template_convert_utf8()
 
 	echo '
 	<div id="manage_maintenance">
-		<div class="cat_bar">
+		<div class="panel-body">
 			<h3>', $txt['utf8_title'], '</h3>
 		</div>
 		<div class="panel-body">
@@ -597,8 +583,7 @@ function template_convert_utf8()
 					<input type="hidden" name="proceed" value="1" />
 				</form>
 			</div>
-			<span class="botslice"><span></span></span>
-		</div>
+					</div>
 	</div>
 	<br class="clear" />';
 }
@@ -609,7 +594,7 @@ function template_convert_entities()
 
 	echo '
 	<div id="manage_maintenance">
-		<div class="cat_bar">
+		<div class="panel-body">
 			<h3>', $txt['entity_convert_title'], '</h3>
 		</div>
 		<div class="panel-body">
@@ -620,8 +605,7 @@ function template_convert_entities()
 					<input type="submit" value="', $txt['entity_convert_proceed'], '" class="btn btn-default" />
 				</form>
 			</div>
-			<span class="botslice"><span></span></span>
-		</div>
+					</div>
 	</div>
 	<br class="clear" />';
 }

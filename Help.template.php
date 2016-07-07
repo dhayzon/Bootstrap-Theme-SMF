@@ -29,7 +29,7 @@ function template_popup()
 		<script type="text/javascript" src="', $settings['default_theme_url'], '/scripts/script.js"></script>
 	</head>
 	<body id="help_popup">
-		<div class="windowbg description">
+		<div class="description">
 			', $context['help_text'], '<br />
 			<br />
 			<a href="javascript:self.close();">', $txt['close_window'], '</a>
@@ -74,10 +74,9 @@ function template_find_members()
 	</head>
 	<body id="help_popup">
 		<form action="', $scripturl, '?action=findmember;', $context['session_var'], '=', $context['session_id'], '" method="post" accept-charset="', $context['character_set'], '" class="padding description">
-			<span class="upperframe"><span></span></span>
-			<div class="roundframe">
+						<div class="roundframe">
 				<div class="innerframe">
-					<div class="cat_bar">
+					<div class="panel-body">
 						<h3>', $txt['find_members'], '</h3>
 					</div>
 					<div class="padding">
@@ -98,12 +97,10 @@ function template_find_members()
 					</div>
 				</div>
 			</div>
-			<span class="lowerframe"><span></span></span>
-			<br />
-			<span class="upperframe"><span></span></span>
-			<div class="roundframe">
+						<br />
+						<div class="roundframe">
 				<div class="innerframe">
-					<div class="cat_bar">
+					<div class="panel-body">
 						<h3>', $txt['find_results'], '</h3>
 					</div>';
 
@@ -129,7 +126,7 @@ function template_find_members()
 
 		echo '
 					</ul>
-					<div class="pagesection">
+					<div class="panel-body smfPagination">
 						', $txt['pages'], ': ', $context['page_index'], '
 					</div>';
 	}
@@ -137,8 +134,7 @@ function template_find_members()
 	echo '
 				</div>
 			</div>
-			<span class="lowerframe"><span></span></span>
-			<input type="hidden" name="input" value="', $context['input_box_name'], '" />
+						<input type="hidden" name="input" value="', $context['input_box_name'], '" />
 			<input type="hidden" name="delim" value="', $context['delimiter'], '" />
 			<input type="hidden" name="quote" value="', $context['quote_results'] ? '1' : '0', '" />
 		</form>';
@@ -160,7 +156,7 @@ function template_manual()
 	global $context, $scripturl, $txt;
 
 	echo '
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3>', $txt['manual_smf_user_help'], '</h3>
 			</div>
 			<div id="help_container">
@@ -181,8 +177,7 @@ function template_manual()
 						</ul>
 						<p>', sprintf($txt['manual_docs_and_credits'], $context['wiki_url'], $scripturl . '?action=credits'), '</p>
 					</div>
-					<span class="botslice"><span></span></span>
-				</div>
+									</div>
 			</div>';
 }
 

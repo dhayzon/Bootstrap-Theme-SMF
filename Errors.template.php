@@ -27,21 +27,15 @@ function template_fatal_error()
 
 	echo '
 	<div id="fatal_error">
-		<div class="cat_bar">
-			<h3>
-				', $context['error_title'], '
-			</h3>
-		</div>
-		<div class="panel-body">
-			
-			<div class="padding">', $context['error_message'], '</div>
-			<span class="botslice"><span></span></span>
-		</div>
-	</div>';
+		<div class="alert alert-danger" role="alert">
+			<strong>', $context['error_title'], '</strong><br />
+			', $context['error_message'], '
+ 
+	</div></div>';
 
 	// Show a back button (using javascript.)
 	echo '
-	<div class="centertext"><a href="javascript:history.go(-1)">', $txt['back'], '</a></div>';
+	<div class="text-center"><a href="javascript:history.go(-1)" class="btn btn-danger">', $txt['back'], '</a></div>';
 }
 
 function template_error_log()
@@ -56,7 +50,7 @@ function template_error_log()
 			<div class="panel panel-danger">
 				<h3 class="panel-heading">
 					<span class="ie6_header">
-						<a href="', $scripturl, '?action=helpadmin;help=error_log" onclick="return reqWin(this.href);" class="help"><img src="', $settings['images_url'], '/helptopics.gif" alt="', $txt['help'], '" align="top" /></a> ', $txt['errlog'], '
+						<a href="', $scripturl, '?action=helpadmin;help=error_log" onclick="return reqWin(this.href);" ><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true" data-toggle="tooltip" title="', $txt['help'], '"></span> </a> ', $txt['errlog'], '
 					</span>
 				</h3> 
 				<div class="panel-body">

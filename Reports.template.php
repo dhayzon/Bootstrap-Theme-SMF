@@ -22,13 +22,13 @@ function template_report_type()
 	echo '
 	<div id="admincenter">
 		<form action="', $scripturl, '?action=admin;area=reports" method="post" accept-charset="', $context['character_set'], '">
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3>', $txt['generate_reports'], '</h3>
 			</div>
 			<div class="information">
 				', $txt['generate_reports_desc'], '
 			</div>
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3>', $txt['generate_reports_type'], '</h3>
 			</div>
 			<div class="panel-body">
@@ -96,7 +96,7 @@ function template_main()
 			echo '
 			<thead>
 				<tr>
-					<th scope="col" colspan="', $table['column_count'], '">', $table['title'], '</th>
+					<th  colspan="', $table['column_count'], '">', $table['title'], '</th>
 				</tr>
 			</thead>
 			<tbody>';
@@ -108,10 +108,10 @@ function template_main()
 		{
 			if ($row_number == 0 && !empty($table['shading']['top']))
 				echo '
-				<tr class="windowbg table_caption">';
+				<tr class="table_caption">';
 			else
 				echo '
-				<tr class="', !empty($row[0]['separator']) ? 'catbg' : ($alternate ? 'windowbg' : 'windowbg2'), '" valign="top">';
+				<tr class="', !empty($row[0]['separator']) ? 'catbg' : ($alternate ? 'windowbg' : 'windowbg2'), '" v>';
 
 			// Now do each column.
 			$column_number = 0;
@@ -202,10 +202,10 @@ function template_print()
 		{
 			if ($row_number == 0 && !empty($table['shading']['top']))
 				echo '
-				<tr class="titlebg" valign="top">';
+				<tr class="titlebg" v>';
 			else
 				echo '
-				<tr class="', $alternate ? 'windowbg' : 'windowbg2', '" valign="top">';
+				<tr class="', $alternate ? 'windowbg' : 'windowbg2', '" v>';
 
 			// Now do each column!!
 			$column_number = 0;

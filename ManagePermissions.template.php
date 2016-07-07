@@ -41,19 +41,19 @@ function template_permission_index()
 				<thead>
 					<tr>
 						<th class="first_th">', $txt['membergroups_name'], '</th>
-						<th width="10%" align="center" valign="middle">', $txt['membergroups_members_top'], '</th>';
+						<th width="10%" class="text-center" valign="middle">', $txt['membergroups_members_top'], '</th>';
 
 			if (empty($modSettings['permission_enable_deny']))
 				echo '
-						<th width="16%" align="center">', $txt['membergroups_permissions'], '</th>';
+						<th width="16%" class="text-center">', $txt['membergroups_permissions'], '</th>';
 			else
 				echo '
-						<th width="8%" align="center">', $txt['permissions_allowed'], '</th>
-						<th width="8%" align="center">', $txt['permissions_denied'], '</th>';
+						<th width="8%" class="text-center">', $txt['permissions_allowed'], '</th>
+						<th width="8%" class="text-center">', $txt['permissions_denied'], '</th>';
 
 			echo '
-						<th width="10%" align="center" valign="middle">', $context['can_modify'] ? $txt['permissions_modify'] : $txt['permissions_view'], '</th>
-						<th class="last_th" width="4%" align="center" valign="middle">
+						<th width="10%" class="text-center" valign="middle">', $context['can_modify'] ? $txt['permissions_modify'] : $txt['permissions_view'], '</th>
+						<th width="4%" class="text-center" valign="middle">
 							', $context['can_modify'] ? '<input type="checkbox" class="input_check" onclick="invertAll(this, this.form, \'group\');" />' : '', '
 						</th>
 					</tr>
@@ -75,19 +75,19 @@ function template_permission_index()
 
 		echo '
 						</td>
-						<td align="center">', $group['can_search'] ? $group['link'] : $group['num_members'], '</td>';
+						<td class="text-center">', $group['can_search'] ? $group['link'] : $group['num_members'], '</td>';
 
 		if (empty($modSettings['permission_enable_deny']))
 			echo '
-						<td width="16%" align="center">', $group['num_permissions']['allowed'], '</td>';
+						<td width="16%" class="text-center">', $group['num_permissions']['allowed'], '</td>';
 		else
 			echo '
-						<td width="8%" align="center"', $group['id'] == 1 ? ' style="font-style: italic;"' : '', '>', $group['num_permissions']['allowed'], '</td>
-						<td width="8%" align="center"', $group['id'] == 1 || $group['id'] == -1 ? ' style="font-style: italic;"' : (!empty($group['num_permissions']['denied']) ? ' style="color: red;"' : ''), '>', $group['num_permissions']['denied'], '</td>';
+						<td width="8%" class="text-center"', $group['id'] == 1 ? ' style="font-style: italic;"' : '', '>', $group['num_permissions']['allowed'], '</td>
+						<td width="8%" class="text-center"', $group['id'] == 1 || $group['id'] == -1 ? ' style="font-style: italic;"' : (!empty($group['num_permissions']['denied']) ? ' style="color: red;"' : ''), '>', $group['num_permissions']['denied'], '</td>';
 
 		echo '
-						<td align="center">', $group['allow_modify'] ? '<a href="' . $scripturl . '?action=admin;area=permissions;sa=modify;group=' . $group['id'] . (empty($context['profile']) ? '' : ';pid=' . $context['profile']['id']) . '">' . ($context['can_modify'] ? $txt['permissions_modify'] : $txt['permissions_view']). '</a>' : '', '</td>
-						<td align="center">', $group['allow_modify'] && $context['can_modify'] ? '<input type="checkbox" name="group[]" value="' . $group['id'] . '" class="input_check" />' : '', '</td>
+						<td class="text-center">', $group['allow_modify'] ? '<a href="' . $scripturl . '?action=admin;area=permissions;sa=modify;group=' . $group['id'] . (empty($context['profile']) ? '' : ';pid=' . $context['profile']['id']) . '">' . ($context['can_modify'] ? $txt['permissions_modify'] : $txt['permissions_view']). '</a>' : '', '</td>
+						<td class="text-center">', $group['allow_modify'] && $context['can_modify'] ? '<input type="checkbox" name="group[]" value="' . $group['id'] . '" class="input_check" />' : '', '</td>
 					</tr>';
 	}
 
@@ -102,7 +102,7 @@ function template_permission_index()
 	if ($context['can_modify'])
 	{
 		echo '
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3>
 					<span class="ie6_header floatleft">
 						<img src="', $settings['images_url'], '/', empty($context['show_advanced_options']) ? 'selected' : 'sort_down', '.gif" id="permissions_panel_toggle" alt="*" /> ', $txt['permissions_advanced_options'], '
@@ -271,7 +271,7 @@ function template_by_board()
 
 	echo '
 	<form id="admincenter" action="', $scripturl, '?action=admin;area=permissions;sa=board" method="post" accept-charset="', $context['character_set'], '">
-		<div class="cat_bar">
+		<div class="panel-body">
 			<h3>', $txt['permissions_boards'], '</h3>
 		</div>
 		<div class="information">
@@ -293,7 +293,7 @@ function template_by_board()
 	foreach ($context['categories'] as $category)
 	{
 		echo '
-		<div class="cat_bar">
+		<div class="panel-body">
 			<h3><strong>', $category['name'], '</strong></h3>
 		</div>';
 
@@ -342,8 +342,7 @@ function template_by_board()
 			echo '
 				</ul>
 			</div>
-			<span class="botslice"><span></span></span>
-		</div>';
+					</div>';
 	}
 
 	echo '
@@ -381,7 +380,7 @@ function template_edit_profiles()
 					<tr>
 						<th class="first_th">', $txt['permissions_profile_name'], '</th>
 						<th>', $txt['permissions_profile_used_by'], '</th>
-						<th class="last_th" width="5%">', $txt['delete'], '</th>
+						<th width="5%">', $txt['delete'], '</th>
 					</tr>
 				</thead>
 				<tbody>';
@@ -404,7 +403,7 @@ function template_edit_profiles()
 						<td>
 							', !empty($profile['boards_text']) ? $profile['boards_text'] : $txt['permissions_profile_used_by_none'], '
 						</td>
-						<td align="center">
+						<td class="text-center">
 							<input type="checkbox" name="delete_profile[]" value="', $profile['id'], '" ', $profile['can_delete'] ? '' : 'disabled="disabled"', ' class="input_check" />
 						</td>
 					</tr>';
@@ -429,7 +428,7 @@ function template_edit_profiles()
 		</form>
 		<br />
 		<form action="', $scripturl, '?action=admin;area=permissions;sa=profiles" method="post" accept-charset="', $context['character_set'], '">
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3>', $txt['permissions_profile_new'], '</h3>
 			</div>
 			<div class="panel-body">
@@ -506,7 +505,7 @@ function template_modify_group()
 			</div>';
 
 	echo '
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3>';
 	if ($context['permission_type'] == 'board')
 		echo '
@@ -540,7 +539,7 @@ function template_modify_group()
 	{
 		echo '
 			<br />
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3>', $txt['permissions_board'], '</h3>
 			</div>
 			<div class="information">
@@ -590,12 +589,12 @@ function template_modify_group_simple($type)
 						<th colspan="2" width="100%" align="left" class="first_th"></th>';
 				if (empty($modSettings['permission_enable_deny']) || $context['group']['id'] == -1)
 					echo '
-						<th colspan="3" width="9" class="last_th">&nbsp;</th>';
+						<th colspan="3" width="9" class="text-center">&nbsp;</th>';
 				else
 					echo '
 						<th>', $txt['permissions_option_on'], '</th>
 						<th>', $txt['permissions_option_off'], '</th>
-						<th class="last_th">', $txt['permissions_option_deny'], '</th>';
+						<th>', $txt['permissions_option_deny'], '</th>';
 					echo '
 					</tr>
 				</thead>
@@ -618,7 +617,7 @@ function template_modify_group_simple($type)
 			if ($has_display_content)
 			{
 				echo '
-					<tr class="panel-body">
+					<tr>
 						<td colspan="2" width="100%" align="left">
 							<a href="#" onclick="return toggleBreakdown(\'', $id_group, '\');">
 								<img src="', $settings['images_url'], '/sort_down.gif" id="group_toggle_img_', $id_group, '" alt="*" />&nbsp;<strong>', $permissionGroup['name'], '</strong>
@@ -633,17 +632,17 @@ function template_modify_group_simple($type)
 						</td>';
 				else
 					echo '
-						<td align="center">
+						<td class="text-center">
 							<div id="group_select_div_on_', $id_group, '">
 								<input type="radio" id="group_select_on_', $id_group, '" name="group_select_', $id_group, '" value="on" onclick="determineGroupState(\'', $id_group, '\', \'on\');" style="display: none;" ', $disable_field, ' class="input_radio" />
 							</div>
 						</td>
-						<td align="center">
+						<td class="text-center">
 							<div id="group_select_div_off_', $id_group, '">
 								<input type="radio" id="group_select_off_', $id_group, '" name="group_select_', $id_group, '" value="off" onclick="determineGroupState(\'', $id_group, '\', \'off\');" style="display: none;" ', $disable_field, ' class="input_radio" />
 							</div>
 						</td>
-						<td align="center">
+						<td class="text-center">
 							<div id="group_select_div_deny_', $id_group, '">
 								<input type="radio" id="group_select_deny_', $id_group, '" name="group_select_', $id_group, '" value="deny" onclick="determineGroupState(\'', $id_group, '\', \'deny\');" style="display: none;" ', $disable_field, ' class="input_radio" />
 							</div>
@@ -670,19 +669,19 @@ function template_modify_group_simple($type)
 			{
 				echo '
 					<tr id="perm_div_', $id_group, '_', $permission['id'], '" class="', $alternate ? 'windowbg' : 'windowbg2', '">
-						<td valign="top" width="10" style="padding-right: 1ex;">
-							', $permission['help_index'] ? '<a href="' . $scripturl . '?action=helpadmin;help=' . $permission['help_index'] . '" onclick="return reqWin(this.href);" class="help"><img src="' . $settings['images_url'] . '/helptopics.gif" alt="' . $txt['help'] . '" /></a>' : '', '
+						<td v width="10" style="padding-right: 1ex;">
+							', $permission['help_index'] ? '<a href="' . $scripturl . '?action=helpadmin;help=' . $permission['help_index'] . '" onclick="return reqWin(this.href);" ><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true" data-toggle="tooltip" title="'. $txt['help']. '"></span> </a>' : '', '
 						</td>
-						<td valign="top" width="100%" align="left" style="padding-bottom: 2px;">', $permission['name'], '</td>';
+						<td v width="100%" align="left" style="padding-bottom: 2px;">', $permission['name'], '</td>';
 
 					if (empty($modSettings['permission_enable_deny']) || $context['group']['id'] == -1)
 						echo '
-						<td valign="top" style="padding-bottom: 2px;"><input type="checkbox" id="select_', $permission['id'], '" name="perm[', $type, '][', $permission['id'], ']"', $permission['select'] == 'on' ? ' checked="checked"' : '', ' onclick="determineGroupState(\'', $id_group, '\');" value="on" class="input_check" ', $disable_field, '/></td>';
+						<td v style="padding-bottom: 2px;"><input type="checkbox" id="select_', $permission['id'], '" name="perm[', $type, '][', $permission['id'], ']"', $permission['select'] == 'on' ? ' checked="checked"' : '', ' onclick="determineGroupState(\'', $id_group, '\');" value="on" class="input_check" ', $disable_field, '/></td>';
 					else
 						echo '
-						<td valign="top" width="10" style="padding-bottom: 2px;"><input type="radio" id="select_on_', $permission['id'], '" name="perm[', $type, '][', $permission['id'], ']"', $permission['select'] == 'on' ? ' checked="checked"' : '', ' value="on" onclick="determineGroupState(\'', $id_group, '\');" class="input_radio" ', $disable_field, '/></td>
-						<td valign="top" width="10" style="padding-bottom: 2px;"><input type="radio" id="select_off_', $permission['id'], '" name="perm[', $type, '][', $permission['id'], ']"', $permission['select'] == 'off' ? ' checked="checked"' : '', ' value="off" onclick="determineGroupState(\'', $id_group, '\');" class="input_radio" ', $disable_field, '/></td>
-						<td valign="top" width="10" style="padding-bottom: 2px;"><input type="radio" id="select_deny_', $permission['id'], '" name="perm[', $type, '][', $permission['id'], ']"', $permission['select'] == 'denied' ? ' checked="checked"' : '', ' value="deny" onclick="window.smf_usedDeny = true; determineGroupState(\'', $id_group, '\');" class="input_radio" ', $disable_field, '/></td>';
+						<td v width="10" style="padding-bottom: 2px;"><input type="radio" id="select_on_', $permission['id'], '" name="perm[', $type, '][', $permission['id'], ']"', $permission['select'] == 'on' ? ' checked="checked"' : '', ' value="on" onclick="determineGroupState(\'', $id_group, '\');" class="input_radio" ', $disable_field, '/></td>
+						<td v width="10" style="padding-bottom: 2px;"><input type="radio" id="select_off_', $permission['id'], '" name="perm[', $type, '][', $permission['id'], ']"', $permission['select'] == 'off' ? ' checked="checked"' : '', ' value="off" onclick="determineGroupState(\'', $id_group, '\');" class="input_radio" ', $disable_field, '/></td>
+						<td v width="10" style="padding-bottom: 2px;"><input type="radio" id="select_deny_', $permission['id'], '" name="perm[', $type, '][', $permission['id'], ']"', $permission['select'] == 'denied' ? ' checked="checked"' : '', ' value="deny" onclick="window.smf_usedDeny = true; determineGroupState(\'', $id_group, '\');" class="input_radio" ', $disable_field, '/></td>';
 
 					echo '
 					</tr>';
@@ -901,9 +900,9 @@ function template_modify_group_classic($type)
 								<th colspan="3" width="10"></th>';
 					else
 						echo '
-								<th align="center"><div>', $txt['permissions_option_on'], '</div></th>
-								<th align="center"><div>', $txt['permissions_option_off'], '</div></th>
-								<th align="center"><div>', $txt['permissions_option_deny'], '</div></th>';
+								<th class="text-center"><div>', $txt['permissions_option_on'], '</div></th>
+								<th class="text-center"><div>', $txt['permissions_option_off'], '</div></th>
+								<th class="text-center"><div>', $txt['permissions_option_deny'], '</div></th>';
 					echo '
 							</tr>';
 				}
@@ -941,7 +940,7 @@ function template_modify_group_classic($type)
 					echo '
 							<tr class="', $alternate ? 'windowbg' : 'windowbg2', '">
 								<td width="10">
-									', $permission['show_help'] ? '<a href="' . $scripturl . '?action=helpadmin;help=permissionhelp_' . $permission['id'] . '" onclick="return reqWin(this.href);" class="help"><img src="' . $settings['images_url'] . '/helptopics.gif" alt="' . $txt['help'] . '" /></a>' : '', '
+									', $permission['show_help'] ? '<a href="' . $scripturl . '?action=helpadmin;help=permissionhelp_' . $permission['id'] . '" onclick="return reqWin(this.href);" ><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true" data-toggle="tooltip" title="'. $txt['help']. '"></span> </a>' : '', '
 								</td>';
 
 					if ($permission['has_own_any'])
@@ -1009,7 +1008,7 @@ function template_modify_group_classic($type)
 
 			if (!$permissionGroup['hidden'] && $has_display_content)
 				echo '
-							<tr class="panel-body">
+							<tr>
 								<td colspan="5" width="100%"><!--separator--></td>
 							</tr>';
 		}
@@ -1129,16 +1128,16 @@ function template_postmod_permissions()
 				<thead>
 					<tr>
 						<th class="first_th"></th>
-						<th align="center" colspan="3">
+						<th class="text-center" colspan="3">
 							', $txt['permissions_post_moderation_new_topics'], '
 						</th>
-						<th align="center" colspan="3">
+						<th class="text-center" colspan="3">
 							', $txt['permissions_post_moderation_replies_own'], '
 						</th>
-						<th align="center" colspan="3">
+						<th class="text-center" colspan="3">
 							', $txt['permissions_post_moderation_replies_any'], '
 						</th>
-						<th class="last_th" align="center" colspan="3">
+						<th class="text-center" colspan="3">
 							', $txt['permissions_post_moderation_attachments'], '
 						</th>
 					</tr>
@@ -1146,18 +1145,18 @@ function template_postmod_permissions()
 						<th width="30%">
 							', $txt['permissions_post_moderation_group'], '
 						</th>
-						<th align="center"><img src="', $settings['default_images_url'], '/admin/post_moderation_allow.gif" alt="', $txt['permissions_post_moderation_allow'], '" title="', $txt['permissions_post_moderation_allow'], '" /></th>
-						<th align="center"><img src="', $settings['default_images_url'], '/admin/post_moderation_moderate.gif" alt="', $txt['permissions_post_moderation_moderate'], '" title="', $txt['permissions_post_moderation_moderate'], '" /></th>
-						<th align="center"><img src="', $settings['default_images_url'], '/admin/post_moderation_deny.gif" alt="', $txt['permissions_post_moderation_disallow'], '" title="', $txt['permissions_post_moderation_disallow'], '" /></th>
-						<th align="center"><img src="', $settings['default_images_url'], '/admin/post_moderation_allow.gif" alt="', $txt['permissions_post_moderation_allow'], '" title="', $txt['permissions_post_moderation_allow'], '" /></th>
-						<th align="center"><img src="', $settings['default_images_url'], '/admin/post_moderation_moderate.gif" alt="', $txt['permissions_post_moderation_moderate'], '" title="', $txt['permissions_post_moderation_moderate'], '" /></th>
-						<th align="center"><img src="', $settings['default_images_url'], '/admin/post_moderation_deny.gif" alt="', $txt['permissions_post_moderation_disallow'], '" title="', $txt['permissions_post_moderation_disallow'], '" /></th>
-						<th align="center"><img src="', $settings['default_images_url'], '/admin/post_moderation_allow.gif" alt="', $txt['permissions_post_moderation_allow'], '" title="', $txt['permissions_post_moderation_allow'], '" /></th>
-						<th align="center"><img src="', $settings['default_images_url'], '/admin/post_moderation_moderate.gif" alt="', $txt['permissions_post_moderation_moderate'], '" title="', $txt['permissions_post_moderation_moderate'], '" /></th>
-						<th align="center"><img src="', $settings['default_images_url'], '/admin/post_moderation_deny.gif" alt="', $txt['permissions_post_moderation_disallow'], '" title="', $txt['permissions_post_moderation_disallow'], '" /></th>
-						<th align="center"><img src="', $settings['default_images_url'], '/admin/post_moderation_allow.gif" alt="', $txt['permissions_post_moderation_allow'], '" title="', $txt['permissions_post_moderation_allow'], '" /></th>
-						<th align="center"><img src="', $settings['default_images_url'], '/admin/post_moderation_moderate.gif" alt="', $txt['permissions_post_moderation_moderate'], '" title="', $txt['permissions_post_moderation_moderate'], '" /></th>
-						<th align="center"><img src="', $settings['default_images_url'], '/admin/post_moderation_deny.gif" alt="', $txt['permissions_post_moderation_disallow'], '" title="', $txt['permissions_post_moderation_disallow'], '" /></th>
+						<th class="text-center"><img src="', $settings['default_images_url'], '/admin/post_moderation_allow.gif" alt="', $txt['permissions_post_moderation_allow'], '" title="', $txt['permissions_post_moderation_allow'], '" /></th>
+						<th class="text-center"><img src="', $settings['default_images_url'], '/admin/post_moderation_moderate.gif" alt="', $txt['permissions_post_moderation_moderate'], '" title="', $txt['permissions_post_moderation_moderate'], '" /></th>
+						<th class="text-center"><img src="', $settings['default_images_url'], '/admin/post_moderation_deny.gif" alt="', $txt['permissions_post_moderation_disallow'], '" title="', $txt['permissions_post_moderation_disallow'], '" /></th>
+						<th class="text-center"><img src="', $settings['default_images_url'], '/admin/post_moderation_allow.gif" alt="', $txt['permissions_post_moderation_allow'], '" title="', $txt['permissions_post_moderation_allow'], '" /></th>
+						<th class="text-center"><img src="', $settings['default_images_url'], '/admin/post_moderation_moderate.gif" alt="', $txt['permissions_post_moderation_moderate'], '" title="', $txt['permissions_post_moderation_moderate'], '" /></th>
+						<th class="text-center"><img src="', $settings['default_images_url'], '/admin/post_moderation_deny.gif" alt="', $txt['permissions_post_moderation_disallow'], '" title="', $txt['permissions_post_moderation_disallow'], '" /></th>
+						<th class="text-center"><img src="', $settings['default_images_url'], '/admin/post_moderation_allow.gif" alt="', $txt['permissions_post_moderation_allow'], '" title="', $txt['permissions_post_moderation_allow'], '" /></th>
+						<th class="text-center"><img src="', $settings['default_images_url'], '/admin/post_moderation_moderate.gif" alt="', $txt['permissions_post_moderation_moderate'], '" title="', $txt['permissions_post_moderation_moderate'], '" /></th>
+						<th class="text-center"><img src="', $settings['default_images_url'], '/admin/post_moderation_deny.gif" alt="', $txt['permissions_post_moderation_disallow'], '" title="', $txt['permissions_post_moderation_disallow'], '" /></th>
+						<th class="text-center"><img src="', $settings['default_images_url'], '/admin/post_moderation_allow.gif" alt="', $txt['permissions_post_moderation_allow'], '" title="', $txt['permissions_post_moderation_allow'], '" /></th>
+						<th class="text-center"><img src="', $settings['default_images_url'], '/admin/post_moderation_moderate.gif" alt="', $txt['permissions_post_moderation_moderate'], '" title="', $txt['permissions_post_moderation_moderate'], '" /></th>
+						<th class="text-center"><img src="', $settings['default_images_url'], '/admin/post_moderation_deny.gif" alt="', $txt['permissions_post_moderation_disallow'], '" title="', $txt['permissions_post_moderation_disallow'], '" /></th>
 					</tr>
 				</thead>
 				<tbody>';
@@ -1174,18 +1173,18 @@ function template_postmod_permissions()
 
 			echo '
 						</td>
-						<td align="center" class="panel-body"><input type="radio" name="new_topic[', $group['id'], ']" value="allow" ', $group['new_topic'] == 'allow' ? 'checked="checked"' : '', ' class="input_radio" /></td>
-						<td align="center" class="panel-body"><input type="radio" name="new_topic[', $group['id'], ']" value="moderate" ', $group['new_topic'] == 'moderate' ? 'checked="checked"' : '', ' class="input_radio" /></td>
-						<td align="center" class="panel-body"><input type="radio" name="new_topic[', $group['id'], ']" value="disallow" ', $group['new_topic'] == 'disallow' ? 'checked="checked"' : '', ' class="input_radio" /></td>
-						<td align="center" class="panel-body"><input type="radio" name="replies_own[', $group['id'], ']" value="allow" ', $group['replies_own'] == 'allow' ? 'checked="checked"' : '', ' class="input_radio" /></td>
-						<td align="center" class="panel-body"><input type="radio" name="replies_own[', $group['id'], ']" value="moderate" ', $group['replies_own'] == 'moderate' ? 'checked="checked"' : '', ' class="input_radio" /></td>
-						<td align="center" class="panel-body"><input type="radio" name="replies_own[', $group['id'], ']" value="disallow" ', $group['replies_own'] == 'disallow' ? 'checked="checked"' : '', ' class="input_radio" /></td>
-						<td align="center" class="panel-body"><input type="radio" name="replies_any[', $group['id'], ']" value="allow" ', $group['replies_any'] == 'allow' ? 'checked="checked"' : '', ' class="input_radio" /></td>
-						<td align="center" class="panel-body"><input type="radio" name="replies_any[', $group['id'], ']" value="moderate" ', $group['replies_any'] == 'moderate' ? 'checked="checked"' : '', ' class="input_radio" /></td>
-						<td align="center" class="panel-body"><input type="radio" name="replies_any[', $group['id'], ']" value="disallow" ', $group['replies_any'] == 'disallow' ? 'checked="checked"' : '', ' class="input_radio" /></td>
-						<td align="center" class="panel-body"><input type="radio" name="attachment[', $group['id'], ']" value="allow" ', $group['attachment'] == 'allow' ? 'checked="checked"' : '', ' class="input_radio" /></td>
-						<td align="center" class="panel-body"><input type="radio" name="attachment[', $group['id'], ']" value="moderate" ', $group['attachment'] == 'moderate' ? 'checked="checked"' : '', ' class="input_radio" /></td>
-						<td align="center" class="panel-body"><input type="radio" name="attachment[', $group['id'], ']" value="disallow" ', $group['attachment'] == 'disallow' ? 'checked="checked"' : '', ' class="input_radio" /></td>
+						<td class="text-center" class="panel-body"><input type="radio" name="new_topic[', $group['id'], ']" value="allow" ', $group['new_topic'] == 'allow' ? 'checked="checked"' : '', ' class="input_radio" /></td>
+						<td class="text-center" class="panel-body"><input type="radio" name="new_topic[', $group['id'], ']" value="moderate" ', $group['new_topic'] == 'moderate' ? 'checked="checked"' : '', ' class="input_radio" /></td>
+						<td class="text-center" class="panel-body"><input type="radio" name="new_topic[', $group['id'], ']" value="disallow" ', $group['new_topic'] == 'disallow' ? 'checked="checked"' : '', ' class="input_radio" /></td>
+						<td class="text-center" class="panel-body"><input type="radio" name="replies_own[', $group['id'], ']" value="allow" ', $group['replies_own'] == 'allow' ? 'checked="checked"' : '', ' class="input_radio" /></td>
+						<td class="text-center" class="panel-body"><input type="radio" name="replies_own[', $group['id'], ']" value="moderate" ', $group['replies_own'] == 'moderate' ? 'checked="checked"' : '', ' class="input_radio" /></td>
+						<td class="text-center" class="panel-body"><input type="radio" name="replies_own[', $group['id'], ']" value="disallow" ', $group['replies_own'] == 'disallow' ? 'checked="checked"' : '', ' class="input_radio" /></td>
+						<td class="text-center" class="panel-body"><input type="radio" name="replies_any[', $group['id'], ']" value="allow" ', $group['replies_any'] == 'allow' ? 'checked="checked"' : '', ' class="input_radio" /></td>
+						<td class="text-center" class="panel-body"><input type="radio" name="replies_any[', $group['id'], ']" value="moderate" ', $group['replies_any'] == 'moderate' ? 'checked="checked"' : '', ' class="input_radio" /></td>
+						<td class="text-center" class="panel-body"><input type="radio" name="replies_any[', $group['id'], ']" value="disallow" ', $group['replies_any'] == 'disallow' ? 'checked="checked"' : '', ' class="input_radio" /></td>
+						<td class="text-center" class="panel-body"><input type="radio" name="attachment[', $group['id'], ']" value="allow" ', $group['attachment'] == 'allow' ? 'checked="checked"' : '', ' class="input_radio" /></td>
+						<td class="text-center" class="panel-body"><input type="radio" name="attachment[', $group['id'], ']" value="moderate" ', $group['attachment'] == 'moderate' ? 'checked="checked"' : '', ' class="input_radio" /></td>
+						<td class="text-center" class="panel-body"><input type="radio" name="attachment[', $group['id'], ']" value="disallow" ', $group['attachment'] == 'disallow' ? 'checked="checked"' : '', ' class="input_radio" /></td>
 					</tr>';
 	}
 

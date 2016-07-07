@@ -20,7 +20,7 @@ function template_main()
 
 	echo '
 	<form action="', $scripturl, '?action=search2" method="post" accept-charset="', $context['character_set'], '" name="searchform" id="searchform">
-		<div class="cat_bar">
+		<div class="panel-body">
 			<h3>
 				<span class="ie6_header floatleft">', !empty($settings['use_buttons']) ? '<img src="' . $settings['images_url'] . '/buttons/search.gif" alt="" class="icon" />' : ' ', $txt['set_parameters'], '</span>
 			</h3>
@@ -35,8 +35,7 @@ function template_main()
 	{
 		echo '
 		<fieldset id="simple_search">
-			<span class="upperframe"><span></span></span>
-			<div class="roundframe">
+						<div class="roundframe">
 				<div id="search_term_input">
 					<strong>', $txt['search_for'], ':</strong>
 					<input type="text" name="search"', !empty($context['search_params']['search']) ? ' value="' . $context['search_params']['search'] . '"' : '', ' maxlength="', $context['search_string_limit'], '" size="40" class="form-control" />
@@ -59,8 +58,7 @@ function template_main()
 				<a href="', $scripturl, '?action=search;advanced" onclick="this.href += \';search=\' + escape(document.forms.searchform.search.value);">', $txt['search_advanced'], '</a>
 				<input type="hidden" name="advanced" value="0" />
 			</div>
-			<span class="lowerframe"><span></span></span>
-		</fieldset>';
+					</fieldset>';
 	}
 
 	// Advanced search!
@@ -68,8 +66,7 @@ function template_main()
 	{
 		echo '
 		<fieldset id="advanced_search">
-			<span class="upperframe"><span></span></span>
-			<div class="roundframe">
+						<div class="roundframe">
 				<input type="hidden" name="advanced" value="1" />
 				<span class="enhanced">
 					<strong>', $txt['search_for'], ':</strong>
@@ -134,15 +131,13 @@ function template_main()
 
 		echo '
 			</div>
-			<span class="lowerframe"><span></span></span>
-		</fieldset>';
+					</fieldset>';
 
 		if (empty($context['search_params']['topic']))
 		{
 			echo '
 		<fieldset class="flow_hidden">
-			<span class="upperframe"><span></span></span>
-			<div class="roundframe">
+						<div class="roundframe">
 				<div class="panel panel-danger">
 					<h4 class="titlebg">
 						<a href="javascript:void(0);" onclick="expandCollapseBoards(); return false;"><img src="', $settings['images_url'], '/expand.gif" id="expandBoardsIcon" alt="" /></a> <a href="javascript:void(0);" onclick="expandCollapseBoards(); return false;"><strong>', $txt['choose_board'], '</strong></a>
@@ -192,13 +187,12 @@ function template_main()
 			echo '
 				<div class="padding">
 					<input type="checkbox" name="all" id="check_all" value=""', $context['boards_check_all'] ? ' checked="checked"' : '', ' onclick="invertAll(this, this.form, \'brd\');" class="input_check floatleft" />
-					<label for="check_all" class="floatleft">', $txt['check_all'], '</label>
+					<label for="check_all" class="pull-left">', $txt['check_all'], '</label>
 					<input type="submit" name="submit" value="', $txt['search'], '" class="button_submit floatright" />
 				</div>
 				<br class="clear" />
 			</div>
-			<span class="lowerframe"><span></span></span>
-		</fieldset>';
+					</fieldset>';
 		}
 
 	}
@@ -238,13 +232,12 @@ function template_results()
 	{
 		echo '
 	<div id="search_results">
-		<div class="cat_bar">
+		<div class="panel-body">
 			<h3>
 				', $txt['search_adjust_query'], '
 			</h3>
 		</div>
-		<span class="upperframe"><span></span></span>
-		<div class="roundframe">';
+				<div class="roundframe">';
 
 		// Did they make any typos or mistakes, perhaps?
 		if (isset($context['did_you_mean']))
@@ -272,8 +265,7 @@ function template_results()
 		echo '
 			</form>
 		</div>
-		<span class="lowerframe"><span></span></span>
-	</div><br />';
+			</div><br />';
 	}
 
 	if ($context['compact'])
@@ -284,9 +276,9 @@ function template_results()
 	<form action="', $scripturl, '?action=quickmod" method="post" accept-charset="', $context['character_set'], '" name="topicForm">';
 
 	echo '
-		<div class="cat_bar">
+		<div class="panel-body">
 			<h3>
-				<span class="floatright">';
+				<span class="pull-right">';
 					if (!empty($options['display_quick_mod']) && $options['display_quick_mod'] == 1)
 					echo '
 							<input type="checkbox" onclick="invertAll(this, this.form, \'topics[]\');" class="input_check" />';
@@ -295,7 +287,7 @@ function template_results()
 				<span class="ie6_header floatleft"><img src="' . $settings['images_url'] . '/buttons/search.gif" alt="" />&nbsp;', $txt['mlist_search_results'],':&nbsp;',$context['search_params']['search'],'</span>
 			</h3>
 		</div>
-		<div class="pagesection">
+		<div class="panel-body smfPagination">
 			<span>', $txt['pages'], ': ', $context['page_index'], '</span>
 		</div>';
 
@@ -325,7 +317,7 @@ function template_results()
 				if (!empty($options['display_quick_mod']))
 				{
 					echo '
-					<div class="floatright">';
+					<div class="pull-right">';
 
 					if ($options['display_quick_mod'] == 1)
 					{
@@ -373,7 +365,7 @@ function template_results()
 		}
 		if (!empty($context['topics']))
 		echo '
-		<div class="pagesection">
+		<div class="panel-body smfPagination">
 			<span>', $txt['pages'], ': ', $context['page_index'], '</span>
 		</div>';
 
@@ -381,7 +373,7 @@ function template_results()
 		{
 			echo '
 			<div class="middletext titlebg2" style="padding: 4px;">
-				<div class="floatright">
+				<div class="pull-right">
 					<select class="form-control" name="qaction"', $context['can_move'] ? ' onchange="this.form.moveItTo.disabled = (this.options[this.selectedIndex].value != \'move\');"' : '', '>
 						<option value="">--------</option>', $context['can_remove'] ? '
 						<option value="remove">' . $txt['quick_mod_remove'] . '</option>' : '', $context['can_lock'] ? '
@@ -429,12 +421,12 @@ function template_results()
 	else
 	{
 		echo '
-		<div class="cat_bar">
+		<div class="panel-body">
 			<h3>
 				<span class="ie6_header floatleft"><img src="' . $settings['images_url'] . '/buttons/search.gif" alt="" />&nbsp;', $txt['mlist_search_results'],':&nbsp;',$context['search_params']['search'],'</span>
 			</h3>
 		</div>
-		<div class="pagesection">
+		<div class="panel-body smfPagination">
 			<span>', $txt['pages'], ': ', $context['page_index'], '</span>
 		</div>';
 
@@ -485,14 +477,13 @@ function template_results()
 				echo '
 						<br class="clear" />
 					</div>
-					<span class="botslice"><span></span></span>
-				</div>
+									</div>
 			</div>';
 			}
 		}
 
 		echo '
-		<div class="pagesection">
+		<div class="panel-body smfPagination">
 			<span>', $txt['pages'], ': ', $context['page_index'], '</span>
 		</div>';
 	}

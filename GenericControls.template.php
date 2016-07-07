@@ -88,7 +88,7 @@ function template_control_richedit($editor_id, $smileyContainer = null, $bbcCont
 							</head>
 							<body id="help_popup">
 								<div class="padding windowbg">
-									<div class="cat_bar">
+									<div class="panel-body">
 										<h3>
 											' . $txt['more_smileys_pick'] . '
 										</h3>

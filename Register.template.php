@@ -21,15 +21,13 @@ function template_registration_agreement()
 
 	echo '
 		<form action="', $scripturl, '?action=register" method="post" accept-charset="', $context['character_set'], '" id="registration">
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3>', $txt['registration_agreement'], '</h3>
 			</div>
-			<span class="upperframe"><span></span></span>
-			<div class="roundframe">
+						<div class="roundframe">
 				<p>', $context['agreement'], '</p>
 			</div>
-			<span class="lowerframe"><span></span></span>
-			<div id="confirm_buttons">';
+						<div id="confirm_buttons">';
 
 	// Age restriction in effect?
 	if ($context['show_coppa'])
@@ -128,7 +126,7 @@ function template_registration_form()
 
 	echo '
 		<form action="', $scripturl, '?action=register2" method="post" accept-charset="', $context['character_set'], '" name="registration" id="registration" onsubmit="return verifyAgree();">
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3>', $txt['registration_form'], '</h3>
 			</div>
 			<div class="panel panel-danger">
@@ -164,7 +162,7 @@ function template_registration_form()
 					<dl class="register_form" id="authentication_group">
 						<dt>
 							<strong>', $txt['authenticate_label'], ':</strong>
-							<a href="', $scripturl, '?action=helpadmin;help=register_openid" onclick="return reqWin(this.href);" class="help">(?)</a>
+							<a href="', $scripturl, '?action=helpadmin;help=register_openid" onclick="return reqWin(this.href);" >(?)</a>
 						</dt>
 						<dd>
 							<label for="auth_pass" id="option_auth_pass">
@@ -377,7 +375,7 @@ function template_after()
 	// Not much to see here, just a quick... "you're now registered!" or what have you.
 	echo '
 		<div id="registration_success">
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3>', $context['title'], '</h3>
 			</div>
 			<div class="panel-body">
@@ -445,7 +443,7 @@ function template_coppa_form()
 	// Show the form (As best we can)
 	echo '
 					<div class="table-responsive">
-				<table  border="0" width="100%" cellpadding="3" cellspacing="0" class="tborder" align="center">
+				<table  border="0" width="100%" cellpadding="3" cellspacing="0" class="tborder" class="text-center">
 			<tr>
 				<td align="left">', $context['forum_contacts'], '</td>
 			</tr><tr>
@@ -606,8 +604,7 @@ function template_admin_register()
 					<input type="hidden" name="sa" value="register" />
 				</div>
 			</div>
-			<span class="botslice"><span></span></span>
-			<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
+						<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
 		</form>
 	</div>
 	<br class="clear" />';
@@ -620,7 +617,7 @@ function template_edit_agreement()
 
 	// Just a big box to edit the text file ;).
 	echo '
-		<div class="cat_bar">
+		<div class="panel-body">
 			<h3>', $txt['registration_agreement'], '</h3>
 		</div>';
 
@@ -677,8 +674,7 @@ function template_edit_agreement()
 					</div>
 				</form>
 			</div>
-			<span class="botslice"><span></span></span>
-		</div>
+					</div>
 		<br class="clear" />';
 }
 
@@ -687,7 +683,7 @@ function template_edit_reserved_words()
 	global $context, $settings, $options, $scripturl, $txt;
 
 	echo '
-		<div class="cat_bar">
+		<div class="panel-body">
 			<h3>', $txt['admin_reserved_set'], '</h3>
 		</div>
 		<form id="registration_agreement" class="panel-body" action="', $scripturl, '?action=admin;area=regcenter" method="post" accept-charset="', $context['character_set'], '">
@@ -707,8 +703,7 @@ function template_edit_reserved_words()
 					<input type="submit" value="', $txt['save'], '" name="save_reserved_names" tabindex="', $context['tabindex']++, '" style="margin: 1ex;" class="btn btn-default" />
 				</div>
 			</div>
-			<span class="botslice"><span></span></span>
-			<input type="hidden" name="sa" value="reservednames" />
+						<input type="hidden" name="sa" value="reservednames" />
 			<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
 		</form>
 		<br class="clear" />';

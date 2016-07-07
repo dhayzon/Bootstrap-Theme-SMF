@@ -31,7 +31,7 @@ function template_main()
 	{
 		echo '
 	<div id="newsfader" class="alert alert-warning"> 
-		<div class="cat_bar">
+		<div class="panel-body">
 			<h3>
 				<img id="newsupshrink" src="', $settings['images_url'], '/collapse.gif" alt="*" title="', $txt['upshrink_description'], '"  style="display: none;"  class="pull-right"/>
 				', $txt['news'], '
@@ -185,9 +185,9 @@ function template_main()
 				and member. (which has id, name, link, href, username in it.) */
 				if (!empty($board['last_post']['id']))
 					echo '
-						<p><strong>', $txt['last_post'], '</strong>  ', $txt['by'], ' ', $board['last_post']['member']['link'] , '<br />
-						', $txt['in'], ' ', $board['last_post']['link'], '<br />
-						', $txt['on'], ' ', $board['last_post']['time'],'
+						<p><strong><span class="glyphicon glyphicon-king"></span> ', $txt['last_post'], '</strong>  ', $txt['by'], ' ', $board['last_post']['member']['link'] , '<br />
+						<span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span> ', $txt['in'], ' ', $board['last_post']['link'], '<br />
+						<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> ', $txt['on'], ' ', $board['last_post']['time'],'
 						</p>';
 				echo '
 					</div>
@@ -251,9 +251,9 @@ function template_main()
 
 			echo '
 			<ul class="list-inline">
-				<li class="floatleft"><img src="', $settings['images_url'], '/', $context['theme_variant_url'], 'new_some.png" alt="" /> ', $txt['new_posts'], '</li>
-				<li class="floatleft"><img src="', $settings['images_url'], '/', $context['theme_variant_url'], 'new_none.png" alt="" /> ', $txt['old_posts'], '</li>
-				<li class="floatleft"><img src="', $settings['images_url'], '/', $context['theme_variant_url'], 'new_redirect.png" alt="" /> ', $txt['redirect_board'], '</li>
+				<li class="pull-left"><img src="', $settings['images_url'], '/', $context['theme_variant_url'], 'new_some.png" alt="" /> ', $txt['new_posts'], '</li>
+				<li class="pull-left"><img src="', $settings['images_url'], '/', $context['theme_variant_url'], 'new_none.png" alt="" /> ', $txt['old_posts'], '</li>
+				<li class="pull-left"><img src="', $settings['images_url'], '/', $context['theme_variant_url'], 'new_redirect.png" alt="" /> ', $txt['redirect_board'], '</li>
 			</ul>
 		 </div>';
 
@@ -264,8 +264,8 @@ function template_main()
 			echo '
 		<div id="posting_icons" class="flow_hidden panel-body">
 			<ul class="list-inline">
-				<li class="floatleft"><img src="', $settings['images_url'], '/new_none.png" alt="" /> ', $txt['old_posts'], '</li>
-				<li class="floatleft"><img src="', $settings['images_url'], '/new_redirect.png" alt="" /> ', $txt['redirect_board'], '</li>
+				<li class="pull-left"><img src="', $settings['images_url'], '/new_none.png" alt="" /> ', $txt['old_posts'], '</li>
+				<li class="pull-left"><img src="', $settings['images_url'], '/new_redirect.png" alt="" /> ', $txt['redirect_board'], '</li>
 			</ul>
 		</div>';
 	}

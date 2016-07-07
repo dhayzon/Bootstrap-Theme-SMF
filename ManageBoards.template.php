@@ -40,15 +40,14 @@ function template_main()
 			<div class="content centertext">
 				', $txt['mboards_no_cats'], '
 			</div>
-			<span class="botslice"><span></span></span>
-		</div>';
+					</div>';
 
 	// Loop through every category, listing the boards in each as we go.
 	foreach ($context['categories'] as $category)
 	{
 		// Link to modify the category.
 		echo '
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3>
 					<a href="' . $scripturl . '?action=admin;area=manageboards;sa=cat;cat=' . $category['id'] . '">', $category['name'], '</a> <a href="' . $scripturl . '?action=admin;area=manageboards;sa=cat;cat=' . $category['id'] . '">', $txt['catModify'], '</a>
 				</h3>
@@ -74,8 +73,8 @@ function template_main()
 			$alternate = !$alternate;
 
 			echo '
-						<li', !empty($modSettings['recycle_board']) && !empty($modSettings['recycle_enable']) && $modSettings['recycle_board'] == $board['id'] ? ' id="recycle_board"' : ' ', ' class="windowbg', $alternate ? '' : '2', '" style="padding-' . ($context['right_to_left'] ? 'right' : 'left') . ': ', 5 + 30 * $board['child_level'], 'px;', $board['move'] ? 'color: red;' : '', '"><span class="floatleft"><a href="', $scripturl, '?board=', $board['id'], '">', $board['name'], '</a>', !empty($modSettings['recycle_board']) && !empty($modSettings['recycle_enable']) && $modSettings['recycle_board'] == $board['id'] ? '<a href="' . $scripturl . '?action=admin;area=manageboards;sa=settings"> <img src="' . $settings['images_url'] . '/post/recycled.gif" alt="' . $txt['recycle_board'] . '" /></a></span>' : '</span>', '
-							<span class="floatright">', $context['can_manage_permissions'] ? '<span class="modify_boards"><a href="' . $scripturl . '?action=admin;area=permissions;sa=index;pid=' . $board['permission_profile'] . ';' . $context['session_var'] . '=' . $context['session_id'] . '">' . $txt['mboards_permissions'] . '</a></span>' : '', '
+						<li', !empty($modSettings['recycle_board']) && !empty($modSettings['recycle_enable']) && $modSettings['recycle_board'] == $board['id'] ? ' id="recycle_board"' : ' ', ' class="windowbg', $alternate ? '' : '2', '" style="padding-' . ($context['right_to_left'] ? 'right' : 'left') . ': ', 5 + 30 * $board['child_level'], 'px;', $board['move'] ? 'color: red;' : '', '"><span class="pull-left"><a href="', $scripturl, '?board=', $board['id'], '">', $board['name'], '</a>', !empty($modSettings['recycle_board']) && !empty($modSettings['recycle_enable']) && $modSettings['recycle_board'] == $board['id'] ? '<a href="' . $scripturl . '?action=admin;area=manageboards;sa=settings"> <img src="' . $settings['images_url'] . '/post/recycled.gif" alt="' . $txt['recycle_board'] . '" /></a></span>' : '</span>', '
+							<span class="pull-right">', $context['can_manage_permissions'] ? '<span class="modify_boards"><a href="' . $scripturl . '?action=admin;area=permissions;sa=index;pid=' . $board['permission_profile'] . ';' . $context['session_var'] . '=' . $context['session_id'] . '">' . $txt['mboards_permissions'] . '</a></span>' : '', '
 							<span class="modify_boards"><a href="', $scripturl, '?action=admin;area=manageboards;move=', $board['id'], '">', $txt['mboards_move'], '</a></span>
 							<span class="modify_boards"><a href="', $scripturl, '?action=admin;area=manageboards;sa=board;boardid=', $board['id'], '">', $txt['mboards_modify'], '</a></span></span><br style="clear: right;" />
 						</li>';
@@ -122,7 +121,7 @@ function template_modify_category()
 	<div id="manage_boards">
 		<form action="', $scripturl, '?action=admin;area=manageboards;sa=cat2" method="post" accept-charset="', $context['character_set'], '">
 			<input type="hidden" name="cat" value="', $context['category']['id'], '" />
-				<div class="cat_bar">
+				<div class="panel-body">
 					<h3>
 					', isset($context['category']['is_new']) ? $txt['mboards_new_cat_name'] : $txt['catEdit'], '
 					</h3>
@@ -202,7 +201,7 @@ function template_confirm_category_delete()
 	<div id="manage_boards">
 		<form action="', $scripturl, '?action=admin;area=manageboards;sa=cat2" method="post" accept-charset="', $context['character_set'], '">
 			<input type="hidden" name="cat" value="', $context['category']['id'], '" />
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3>', $txt['mboards_delete_cat'], '</h3>
 			</div>
 			<div class="panel-body">
@@ -219,7 +218,7 @@ function template_confirm_category_delete()
 					</ul>
 				</div>
 			</div>
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3>', $txt['mboards_delete_what_do'], '</h3>
 			</div>
 			<div class="panel-body">
@@ -259,7 +258,7 @@ function template_modify_board()
 	<div id="manage_boards">
 		<form action="', $scripturl, '?action=admin;area=manageboards;sa=board2" method="post" accept-charset="', $context['character_set'], '">
 			<input type="hidden" name="boardid" value="', $context['board']['id'], '" />
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3>
 					', isset($context['board']['is_new']) ? $txt['mboards_new_board_name'] : $txt['boardsEdit'], '
 				</h3>
@@ -580,7 +579,7 @@ function template_confirm_board_delete()
 		<form action="', $scripturl, '?action=admin;area=manageboards;sa=board2" method="post" accept-charset="', $context['character_set'], '">
 			<input type="hidden" name="boardid" value="', $context['board']['id'], '" />
 
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3>', $txt['mboards_delete_board'], '</h3>
 			</div>
 			<div class="panel-body">
@@ -597,7 +596,7 @@ function template_confirm_board_delete()
 						</ul>
 				</div>
 			</div>
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3>', $txt['mboards_delete_what_do'], '</h3>
 			</div>
 			<div class="panel-body">

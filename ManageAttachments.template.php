@@ -43,7 +43,7 @@ function template_browse()
 
 	echo '
 	<div id="manage_attachments">
-		<div class="cat_bar">
+		<div class="panel-body">
 			<h3>', $txt['attachment_manager_browse_files'], '</h3>
 		</div>
 		<div class="panel-body">
@@ -53,8 +53,7 @@ function template_browse()
 				<a href="', $scripturl, '?action=admin;area=manageattachments;sa=browse;avatars">', $context['browse_type'] === 'avatars' ? '<img src="' . $settings['images_url'] . '/selected.gif" alt="&gt;" /> ' : '', $txt['attachment_manager_avatars'], '</a> |
 				<a href="', $scripturl, '?action=admin;area=manageattachments;sa=browse;thumbs">', $context['browse_type'] === 'thumbs' ? '<img src="' . $settings['images_url'] . '/selected.gif" alt="&gt;" /> ' : '', $txt['attachment_manager_thumbs'], '</a>
 			</div>
-			<span class="botslice"><span></span></span>
-		</div>
+					</div>
 	</div>';
 
 	template_show_list('file_list');
@@ -69,7 +68,7 @@ function template_maintenance()
 
 	echo '
 	<div id="manage_attachments">
-		<div class="cat_bar">
+		<div class="panel-body">
 			<h3>', $txt['attachment_stats'], '</h3>
 		</div>
 		<div class="panel-body">
@@ -82,9 +81,8 @@ function template_maintenance()
 					<dt><strong>', $txt['attachment_space' . ($context['attach_multiple_dirs'] ? '_current' : '')], ':</strong></dt><dd>', isset($context['attachment_space']) ? $context['attachment_space'] . ' ' . $txt['kilobyte'] : $txt['attachmentdir_size_not_set'], '</dd>
 				</dl>
 			</div>
-			<span class="botslice"><span></span></span>
-		</div>
-		<div class="cat_bar">
+					</div>
+		<div class="panel-body">
 			<h3>', $txt['attachment_integrity_check'], '</h3>
 		</div>
 		<div class="panel-body">
@@ -95,9 +93,8 @@ function template_maintenance()
 					<input type="submit" name="submit" value="', $txt['attachment_check_now'], '" class="btn btn-default" />
 				</form>
 			</div>
-			<span class="botslice"><span></span></span>
-		</div>
-		<div class="cat_bar">
+					</div>
+		<div class="panel-body">
 			<h3>', $txt['attachment_pruning'], '</h3>
 		</div>
 		<div class="panel-body">
@@ -129,8 +126,7 @@ function template_maintenance()
 					<input type="hidden" name="sa" value="byAge" />
 				</form>
 			</div>
-			<span class="botslice"><span></span></span>
-		</div>
+					</div>
 	</div>
 	<br class="clear" />';
 }
@@ -144,7 +140,7 @@ function template_attachment_repair()
 	{
 		echo '
 	<div id="manage_attachments">
-		<div class="cat_bar">
+		<div class="panel-body">
 			<h3>', $txt['repair_attachments_complete'], '</h3>
 		</div>
 		<div class="panel-body">
@@ -152,8 +148,7 @@ function template_attachment_repair()
 			<div class="content">
 				', $txt['repair_attachments_complete_desc'], '
 			</div>
-			<span class="botslice"><span></span></span>
-		</div>
+					</div>
 	</div>
 	<br class="clear" />';
 	}
@@ -163,7 +158,7 @@ function template_attachment_repair()
 	{
 		echo '
 	<div id="manage_attachments">
-		<div class="cat_bar">
+		<div class="panel-body">
 			<h3>', $txt['repair_attachments_complete'], '</h3>
 		</div>
 		<div class="panel-body">
@@ -171,8 +166,7 @@ function template_attachment_repair()
 			<div class="content">
 				', $txt['repair_attachments_no_errors'], '
 			</div>
-			<span class="botslice"><span></span></span>
-		</div>
+					</div>
 	</div>
 	<br class="clear" />';
 	}
@@ -182,7 +176,7 @@ function template_attachment_repair()
 		echo '
 	<div id="manage_attachments">
 		<form action="', $scripturl, '?action=admin;area=manageattachments;sa=repair;fixErrors=1;step=0;substep=0;', $context['session_var'], '=', $context['session_id'], '" method="post" accept-charset="', $context['character_set'], '">
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3>', $txt['repair_attachments'], '</h3>
 			</div>
 			<div class="panel-body">

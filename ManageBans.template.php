@@ -21,7 +21,7 @@ function template_ban_edit()
 	echo '
 	<div id="manage_bans">
 
-		<div class="cat_bar">
+		<div class="panel-body">
 			<h3>
 				', $context['ban']['is_new'] ? $txt['ban_add_new'] : $txt['ban_edit'] . ' \'' . $context['ban']['name'] . '\'', '
 			</h3>
@@ -188,15 +188,15 @@ function template_ban_edit()
 					<thead>
 						<tr>
 							<th width="65%" align="left">', $txt['ban_banned_entity'], '</td>
-							<th width="15%" align="center">', $txt['ban_hits'], '</td>
-							<th width="15%" align="center">', $txt['ban_actions'], '</td>
-							<th width="5%" align="center"><input type="checkbox" onclick="invertAll(this, this.form, \'ban_items\');" class="input_check" /></td>
+							<th width="15%" class="text-center">', $txt['ban_hits'], '</td>
+							<th width="15%" class="text-center">', $txt['ban_actions'], '</td>
+							<th width="5%" class="text-center"><input type="checkbox" onclick="invertAll(this, this.form, \'ban_items\');" class="input_check" /></td>
 						</tr>
 					</thead>
 					<tbody>';
 		if (empty($context['ban_items']))
 			echo '
-						<tr class="panel-body">
+						<tr>
 							<td colspan="4">(', $txt['ban_no_triggers'], ')</td>
 						</tr>';
 		else
@@ -216,9 +216,9 @@ function template_ban_edit()
 					echo '		<strong>', $txt['username'], ':</strong>&nbsp;', $ban_item['user']['link'];
 				echo '
 							</td>
-							<td class="panel-body" align="center">', $ban_item['hits'], '</td>
-							<td class="panel-body" align="center"><a href="', $scripturl, '?action=admin;area=ban;sa=edittrigger;bg=', $context['ban']['id'], ';bi=', $ban_item['id'], '">', $txt['ban_edit_trigger'], '</a></td>
-							<td align="center" class="panel-body"><input type="checkbox" name="ban_items[]" value="', $ban_item['id'], '" class="input_check" /></td>
+							<td class="panel-body" class="text-center">', $ban_item['hits'], '</td>
+							<td class="panel-body" class="text-center"><a href="', $scripturl, '?action=admin;area=ban;sa=edittrigger;bg=', $context['ban']['id'], ';bi=', $ban_item['id'], '">', $txt['ban_edit_trigger'], '</a></td>
+							<td class="text-center" class="panel-body"><input type="checkbox" name="ban_items[]" value="', $ban_item['id'], '" class="input_check" /></td>
 						</tr>';
 			}
 		}
@@ -229,10 +229,10 @@ function template_ban_edit()
 			</div>
 			<!--tabla responsiva-->
 				<div class="additional_rows">
-					<div class="floatleft">
+					<div class="pull-left">
 						[<a href="', $scripturl, '?action=admin;area=ban;sa=edittrigger;bg=', $context['ban']['id'], '">', $txt['ban_add_trigger'], '</a>]
 					</div>
-					<div class="floatright">
+					<div class="pull-right">
 						<input type="submit" name="remove_selection" value="', $txt['ban_remove_selected_triggers'], '" class="btn btn-default" />
 					</div>
 				</div>
@@ -288,7 +288,7 @@ function template_ban_edit_trigger()
 	echo '
 	<div id="manage_bans">
 		<form action="', $scripturl, '?action=admin;area=ban;sa=edit" method="post" accept-charset="', $context['character_set'], '">
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3>
 					', $context['ban_trigger']['is_new'] ? $txt['ban_add_trigger'] : $txt['ban_edit_trigger_title'], '
 				</h3>

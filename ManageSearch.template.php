@@ -21,7 +21,7 @@ function template_modify_weights()
 	echo '
 	<div id="admincenter">
 		<form action="', $scripturl, '?action=admin;area=managesearch;sa=weights" method="post" accept-charset="', $context['character_set'], '">
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3>', $txt['search_weights'], '</h3>
 			</div>
 			<div class="panel-body">
@@ -29,7 +29,7 @@ function template_modify_weights()
 				<div class="content">
 					<dl class="dl-horizontal">
 						<dt class="large_caption">
-							<a href="', $scripturl, '?action=helpadmin;help=search_weight_frequency" onclick="return reqWin(this.href);" class="help"><img src="', $settings['images_url'], '/helptopics.gif" alt="', $txt['help'], '" align="top" /></a>
+							<a href="', $scripturl, '?action=helpadmin;help=search_weight_frequency" onclick="return reqWin(this.href);" ><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true" data-toggle="tooltip" title="', $txt['help'], '"></span> </a>
 							', $txt['search_weight_frequency'], ':
 						</dt>
 						<dd class="large_caption">
@@ -37,7 +37,7 @@ function template_modify_weights()
 							<span id="weight1" class="search_weight">', $context['relative_weights']['search_weight_frequency'], '%</span>
 						</dd>
 						<dt class="large_caption">
-							<a href="', $scripturl, '?action=helpadmin;help=search_weight_age" onclick="return reqWin(this.href);" class="help"><img src="', $settings['images_url'], '/helptopics.gif" alt="', $txt['help'], '" align="top" /></a>
+							<a href="', $scripturl, '?action=helpadmin;help=search_weight_age" onclick="return reqWin(this.href);" ><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true" data-toggle="tooltip" title="', $txt['help'], '"></span> </a>
 							', $txt['search_weight_age'], ':
 						</dt>
 						<dd class="large_caption">
@@ -45,7 +45,7 @@ function template_modify_weights()
 							<span id="weight2" class="search_weight">', $context['relative_weights']['search_weight_age'], '%</span>
 						</dd>
 						<dt class="large_caption">
-							<a href="', $scripturl, '?action=helpadmin;help=search_weight_length" onclick="return reqWin(this.href);" class="help"><img src="', $settings['images_url'], '/helptopics.gif" alt="', $txt['help'], '" align="top" /></a>
+							<a href="', $scripturl, '?action=helpadmin;help=search_weight_length" onclick="return reqWin(this.href);" ><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true" data-toggle="tooltip" title="', $txt['help'], '"></span> </a>
 							', $txt['search_weight_length'], ':
 						</dt>
 						<dd class="large_caption">
@@ -53,7 +53,7 @@ function template_modify_weights()
 							<span id="weight3" class="search_weight">', $context['relative_weights']['search_weight_length'], '%</span>
 						</dd>
 						<dt class="large_caption">
-							<a href="', $scripturl, '?action=helpadmin;help=search_weight_subject" onclick="return reqWin(this.href);" class="help"><img src="', $settings['images_url'], '/helptopics.gif" alt="', $txt['help'], '" align="top" /></a>
+							<a href="', $scripturl, '?action=helpadmin;help=search_weight_subject" onclick="return reqWin(this.href);" ><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true" data-toggle="tooltip" title="', $txt['help'], '"></span> </a>
 							', $txt['search_weight_subject'], ':
 						</dt>
 						<dd class="large_caption">
@@ -61,7 +61,7 @@ function template_modify_weights()
 							<span id="weight4" class="search_weight">', $context['relative_weights']['search_weight_subject'], '%</span>
 						</dd>
 						<dt class="large_caption">
-							<a href="', $scripturl, '?action=helpadmin;help=search_weight_first_message" onclick="return reqWin(this.href);" class="help"><img src="', $settings['images_url'], '/helptopics.gif" alt="', $txt['help'], '" align="top" /></a>
+							<a href="', $scripturl, '?action=helpadmin;help=search_weight_first_message" onclick="return reqWin(this.href);" ><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true" data-toggle="tooltip" title="', $txt['help'], '"></span> </a>
 							', $txt['search_weight_first_message'], ':
 						</dt>
 						<dd class="large_caption">
@@ -69,7 +69,7 @@ function template_modify_weights()
 							<span id="weight5" class="search_weight">', $context['relative_weights']['search_weight_first_message'], '%</span>
 						</dd>
 						<dt class="large_caption">
-							<a href="', $scripturl, '?action=helpadmin;help=search_weight_frequency" onclick="return reqWin(this.href);" class="help"><img src="', $settings['images_url'], '/helptopics.gif" alt="', $txt['help'], '" align="top" /></a>
+							<a href="', $scripturl, '?action=helpadmin;help=search_weight_frequency" onclick="return reqWin(this.href);" ><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true" data-toggle="tooltip" title="', $txt['help'], '"></span> </a>
 							', $txt['search_weight_sticky'], ':
 						</dt>
 						<dd class="large_caption">
@@ -115,7 +115,7 @@ function template_select_search_method()
 	echo '
 	<div id="admincenter">
 		<form action="', $scripturl, '?action=admin;area=managesearch;sa=method" method="post" accept-charset="', $context['character_set'], '">
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3>', $txt['search_method'], '</h3>
 			</div>
 			<div class="information">
@@ -244,7 +244,7 @@ function template_create_index()
 	echo '
 	<div id="admincenter">
 		<form action="', $scripturl, '?action=admin;area=managesearch;sa=createmsgindex;step=1" method="post" accept-charset="', $context['character_set'], '" name="create_index">
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3>', $txt['search_create_index'], '</h3>
 			</div>
 			<div class="panel-body">
@@ -278,7 +278,7 @@ function template_create_index_progress()
 	echo '
 	<div id="admincenter">
 		<form action="', $scripturl, '?action=admin;area=managesearch;sa=createmsgindex;step=1" name="autoSubmit" method="post" accept-charset="', $context['character_set'], '">
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3>', $txt['search_create_index'], '</h3>
 			</div>
 			<div class="panel-body">
@@ -325,7 +325,7 @@ function template_create_index_done()
 	global $context, $settings, $options, $scripturl, $txt;
 	echo '
 	<div id="admincenter">
-		<div class="cat_bar">
+		<div class="panel-body">
 			<h3>', $txt['search_create_index'], '</h3>
 		</div>
 		<div class="panel-body">
@@ -336,8 +336,7 @@ function template_create_index_done()
 					<strong><a href="', $scripturl, '?action=admin;area=managesearch;sa=method">', $txt['search_create_index_done_link'], '</a></strong>
 				</p>
 			</div>
-			<span class="botslice"><span></span></span>
-		</div>
+					</div>
 	</div>
 	<br class="clear" />';
 }
@@ -349,7 +348,7 @@ function template_spider_edit()
 	echo '
 	<div id="admincenter">
 		<form action="', $scripturl, '?action=admin;area=sengines;sa=editspiders;sid=', $context['spider']['id'], '" method="post" accept-charset="', $context['character_set'], '">
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3>', $context['page_title'], '</h3>
 			</div>
 			<div class="information">
@@ -403,7 +402,7 @@ function template_show_spider_logs()
 
 	echo '
 		<br />
-		<div class="cat_bar">
+		<div class="panel-body">
 			<h3>', $txt['spider_logs_delete'], '</h3>
 		</div>
 		<form action="', $scripturl, '?action=admin;area=sengines;sa=logs;', $context['session_var'], '=', $context['session_id'], '" method="post" accept-charset="', $context['character_set'], '">

@@ -24,13 +24,12 @@ function template_login()
 
 		<form action="', $scripturl, '?action=login2" name="frmLogin" id="frmLogin" method="post" accept-charset="', $context['character_set'], '" ', empty($context['disable_login_hashing']) ? ' onsubmit="hashLoginPassword(this, \'' . $context['session_id'] . '\');"' : '', '>
 		<div class="tborder login">
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3>
 					<span class="ie6_header floatleft"><img src="', $settings['images_url'], '/icons/login_sm.gif" alt="" class="icon" /> ', $txt['login'], '</span>
 				</h3>
 			</div>
-			<span class="upperframe"><span></span></span>
-			<div class="roundframe"><br class="clear" />';
+						<div class="roundframe"><br class="clear" />';
 
 	// Did they make a mistake last time?
 	if (!empty($context['login_errors']))
@@ -56,7 +55,7 @@ function template_login()
 		echo '<p><strong>&mdash;', $txt['or'], '&mdash;</strong></p>
 				<dl>
 					<dt>', $txt['openid'], ':</dt>
-					<dd><input type="text" name="openid_identifier" class="input_text openid_login" size="17" />&nbsp;<em><a href="', $scripturl, '?action=helpadmin;help=register_openid" onclick="return reqWin(this.href);" class="help">(?)</a></em></dd>
+					<dd><input type="text" name="openid_identifier" class="input_text openid_login" size="17" />&nbsp;<em><a href="', $scripturl, '?action=helpadmin;help=register_openid" onclick="return reqWin(this.href);" >(?)</a></em></dd>
 				</dl><hr />';
 
 	echo '
@@ -76,8 +75,7 @@ function template_login()
 				<p class="smalltext"><a href="', $scripturl, '?action=reminder">', $txt['forgot_your_password'], '</a></p>
 				<input type="hidden" name="hash_passwrd" value="" />
 			</div>
-			<span class="lowerframe"><span></span></span>
-		</div></form>';
+					</div></form>';
 
 	// Focus on the correct input - username or password.
 	echo '
@@ -96,7 +94,7 @@ function template_kick_guest()
 	<script type="text/javascript" src="', $settings['default_theme_url'], '/scripts/sha1.js"></script>
 	<form action="', $scripturl, '?action=login2" method="post" accept-charset="', $context['character_set'], '" name="frmLogin" id="frmLogin"', empty($context['disable_login_hashing']) ? ' onsubmit="hashLoginPassword(this, \'' . $context['session_id'] . '\');"' : '', '>
 		<div class="tborder login">
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3>', $txt['warning'], '</h3>
 			</div>';
 
@@ -109,13 +107,12 @@ function template_kick_guest()
 
 	// And now the login information.
 	echo '
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3>
 					<img src="', $settings['images_url'], '/icons/login_sm.gif" alt="" class="icon" /> ', $txt['login'], '
 				</h3>
 			</div>
-			<span class="upperframe"><span></span></span>
-			<div class="roundframe">
+						<div class="roundframe">
 				<dl>
 					<dt>', $txt['username'], ':</dt>
 					<dd><input type="text" name="user" size="20" class="form-control" /></dd>
@@ -142,8 +139,7 @@ function template_kick_guest()
 				<p class="centertext"><input type="submit" value="', $txt['login'], '" class="btn btn-default" /></p>
 				<p class="centertext smalltext"><a href="', $scripturl, '?action=reminder">', $txt['forgot_your_password'], '</a></p>
 			</div>
-			<span class="lowerframe"><span></span></span>
-			<input type="hidden" name="hash_passwrd" value="" />
+						<input type="hidden" name="hash_passwrd" value="" />
 		</div>
 	</form>';
 
@@ -164,18 +160,17 @@ function template_maintenance()
 <script type="text/javascript" src="', $settings['default_theme_url'], '/scripts/sha1.js"></script>
 <form action="', $scripturl, '?action=login2" method="post" accept-charset="', $context['character_set'], '"', empty($context['disable_login_hashing']) ? ' onsubmit="hashLoginPassword(this, \'' . $context['session_id'] . '\');"' : '', '>
 	<div class="tborder login" id="maintenance_mode">
-		<div class="cat_bar">
+		<div class="panel-body">
 			<h3>', $context['title'], '</h3>
 		</div>
 		<p class="description">
-			<img class="floatleft" src="', $settings['images_url'], '/construction.png" width="40" height="40" alt="', $txt['in_maintain_mode'], '" />
+			<img class="pull-left" src="', $settings['images_url'], '/construction.png" width="40" height="40" alt="', $txt['in_maintain_mode'], '" />
 			', $context['description'], '<br class="clear" />
 		</p>
 		<div class="panel panel-danger">
 			<h4 class="titlebg">', $txt['admin_login'], '</h4>
 		</div>
-		<span class="upperframe"><span></span></span>
-		<div class="roundframe">
+				<div class="roundframe">
 			<dl>
 				<dt>', $txt['username'], ':</dt>
 				<dd><input type="text" name="user" size="20" class="form-control" /></dd>
@@ -188,8 +183,7 @@ function template_maintenance()
 			</dl>
 			<p class="centertext"><input type="submit" value="', $txt['login'], '" class="btn btn-default" /></p>
 		</div>
-		<span class="lowerframe"><span></span></span>
-		<input type="hidden" name="hash_passwrd" value="" />
+				<input type="hidden" name="hash_passwrd" value="" />
 	</div>
 </form>';
 }
@@ -205,13 +199,12 @@ function template_admin_login()
 
 <form action="', $scripturl, $context['get_data'], '" method="post" accept-charset="', $context['character_set'], '" name="frmLogin" id="frmLogin" onsubmit="hashAdminPassword(this, \'', $context['user']['username'], '\', \'', $context['session_id'], '\');">
 	<div class="tborder login" id="admin_login">
-		<div class="cat_bar">
+		<div class="panel-body">
 			<h3>
 				<span class="ie6_header floatleft"><img src="', $settings['images_url'], '/icons/login_sm.gif" alt="" class="icon" /> ', $txt['login'], '</span>
 			</h3>
 		</div>
-		<span class="upperframe"><span></span></span>
-		<div class="roundframe centertext">';
+				<div class="roundframe centertext">';
 
 	if (!empty($context['incorrect_password']))
 		echo '
@@ -220,14 +213,13 @@ function template_admin_login()
 	echo '
 			<strong>', $txt['password'], ':</strong>
 			<input type="password" name="admin_pass" size="24" class="form-control" />
-			<a href="', $scripturl, '?action=helpadmin;help=securityDisable_why" onclick="return reqWin(this.href);" class="help"><img src="', $settings['images_url'], '/helptopics.gif" alt="', $txt['help'], '" /></a><br />
+			<a href="', $scripturl, '?action=helpadmin;help=securityDisable_why" onclick="return reqWin(this.href);" ><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true" data-toggle="tooltip" title="', $txt['help'], '"></span> </a><br />
 			<input type="submit" style="margin-top: 1em;" value="', $txt['login'], '" class="btn btn-default" />';
 
 	// Make sure to output all the old post data.
 	echo $context['post_data'], '
 		</div>
-		<span class="lowerframe"><span></span></span>
-	</div>
+			</div>
 	<input type="hidden" name="admin_hash_pass" value="" />
 </form>';
 
@@ -249,8 +241,7 @@ function template_retry_activate()
 			<div class="panel panel-danger">
 				<h3 class="panel-heading">', $context['page_title'], '</h3>
 			</div>
-			<span class="upperframe"><span></span></span>
-			<div class="roundframe">';
+						<div class="roundframe">';
 
 	// You didn't even have an ID?
 	if (empty($context['member_id']))
@@ -265,8 +256,7 @@ function template_retry_activate()
 				</dl>
 				<p><input type="submit" value="', $txt['invalid_activation_submit'], '" class="btn btn-default" /></p>
 			</div>
-			<span class="lowerframe"><span></span></span>
-		</form>';
+					</form>';
 }
 
 // Activate your account manually?
@@ -280,8 +270,7 @@ function template_resend()
 			<div class="panel panel-danger">
 				<h3 class="panel-heading">', $context['page_title'], '</h3>
 			</div>
-			<span class="upperframe"><span></span></span>
-			<div class="roundframe">
+						<div class="roundframe">
 				<dl>
 					<dt>', $txt['invalid_activation_username'], ':</dt>
 					<dd><input type="text" name="user" size="40" value="', $context['default_username'], '" class="form-control" /></dd>
@@ -305,8 +294,7 @@ function template_resend()
 	echo '
 				<p><input type="submit" value="', $txt['invalid_activation_resend'], '" class="btn btn-default" /></p>
 			</div>
-			<span class="lowerframe"><span></span></span>
-		</form>';
+					</form>';
 }
 
 ?>

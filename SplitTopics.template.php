@@ -22,7 +22,7 @@ function template_ask()
 	<div id="split_topics">
 		<form action="', $scripturl, '?action=splittopics;sa=execute;topic=', $context['current_topic'], '.0" method="post" accept-charset="', $context['character_set'], '">
 			<input type="hidden" name="at" value="', $context['message']['id'], '" />
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3>', $txt['split'], '</h3>
 			</div>
 			<div class="panel-body">
@@ -59,7 +59,7 @@ function template_main()
 
 	echo '
 	<div id="split_topics">
-		<div class="cat_bar">
+		<div class="panel-body">
 			<h3>', $txt['split'], '</h3>
 		</div>
 		<div class="panel-body">
@@ -78,8 +78,7 @@ function template_main()
 					</li>
 				</ul>
 			</div>
-			<span class="botslice"><span></span></span>
-		</div>
+					</div>
 	</div>';
 }
 
@@ -90,14 +89,14 @@ function template_select()
 	echo '
 	<div id="split_topics">
 		<form action="', $scripturl, '?action=splittopics;sa=splitSelection;board=', $context['current_board'], '.0" method="post" accept-charset="', $context['character_set'], '">
-			<div id="not_selected" class="floatleft">
-				<div class="cat_bar">
+			<div id="not_selected" class="pull-left">
+				<div class="panel-body">
 					<h3>', $txt['split'], ' - ', $txt['select_split_posts'], '</h3>
 				</div>
 				<div class="information">
 					', $txt['please_select_split'], '
 				</div>
-				<div class="pagesection">
+				<div class="panel-body smfPagination">
 					<strong>', $txt['pages'], ':</strong> <span id="pageindex_not_selected">', $context['not_selected']['page_index'], '</span>
 				</div>
 				<ul id="messages_not_selected" class="split_messages smalltext reset">';
@@ -114,15 +113,14 @@ function template_select()
 							</div>
 							<div class="post">', $message['body'], '</div>
 						</div>
-						<span class="botslice"><span></span></span>
-					</li>';
+											</li>';
 
 	echo '
 					<li class="dummy" />
 				</ul>
 			</div>
-			<div id="selected" class="floatright">
-				<div class="cat_bar">
+			<div id="selected" class="pull-right">
+				<div class="panel-body">
 					<h3>
 						', $txt['split_selected_posts'], ' (<a href="', $scripturl, '?action=splittopics;sa=selectTopics;subname=', $context['topic']['subject'], ';topic=', $context['topic']['id'], '.', $context['not_selected']['start'], ';start2=', $context['selected']['start'], ';move=reset;msg=0" onclick="return select(\'reset\', 0);">', $txt['split_reset_selection'], '</a>)
 					</h3>
@@ -130,7 +128,7 @@ function template_select()
 				<div class="information">
 					', $txt['split_selected_posts_desc'], '
 				</div>
-				<div class="pagesection">
+				<div class="panel-body smfPagination">
 					<strong>', $txt['pages'], ':</strong> <span id="pageindex_selected">', $context['selected']['page_index'], '</span>
 				</div>
 				<ul id="messages_selected" class="split_messages smalltext reset">';
@@ -148,8 +146,7 @@ function template_select()
 							</div>
 							<div class="post">', $message['body'], '</div>
 						</div>
-						<span class="botslice"><span></span></span>
-					</li>';
+											</li>';
 
 	echo '
 					<li class="dummy" />
@@ -257,7 +254,7 @@ function template_merge_done()
 
 	echo '
 		<div id="merge_topics">
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3>', $txt['merge'], '</h3>
 			</div>
 			<div class="panel-body">
@@ -285,7 +282,7 @@ function template_merge()
 
 	echo '
 		<div id="merge_topics">
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3>', $txt['merge'], '</h3>
 			</div>
 			<div class="information">
@@ -342,10 +339,10 @@ function template_merge()
 					</dl>
 				</div>
 			</div><br />
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3>', $txt['target_topic'], '</h3>
 			</div>
-			<div class="pagesection">
+			<div class="panel-body smfPagination">
 				<strong>', $txt['pages'], ':</strong> ', $context['page_index'], '
 			</div>
 			<div class="panel-body">
@@ -366,7 +363,7 @@ function template_merge()
 					</ul>
 				</div>
 			</div>
-			<div class="pagesection">
+			<div class="panel-body smfPagination">
 				<strong>', $txt['pages'], ':</strong> ', $context['page_index'], '
 			</div>
 		</div>
@@ -387,18 +384,18 @@ function template_merge_extra_options()
 				<table  width="100%" class="bordercolor table_grid">
 				<thead>
 					<tr>
-						<th scope="col" class="first_th" align="center" width="10px">', $txt['merge_check'], '</th>
-						<th scope="col" class="lefttext">', $txt['subject'], '</th>
-						<th scope="col" class="lefttext">', $txt['started_by'], '</th>
-						<th scope="col" class="lefttext">', $txt['last_post'], '</th>
-						<th scope="col" class="last_th" width="20px">' . $txt['merge_include_notifications'] . '</th>
+						<th  class="first_th" class="text-center" width="10px">', $txt['merge_check'], '</th>
+						<th  class="lefttext">', $txt['subject'], '</th>
+						<th  class="lefttext">', $txt['started_by'], '</th>
+						<th  class="lefttext">', $txt['last_post'], '</th>
+						<th  class="text-center" width="20px">' . $txt['merge_include_notifications'] . '</th>
 					</tr>
 				</thead>
 				<tbody>';
 		foreach ($context['topics'] as $topic)
 			echo '
-					<tr class="panel-body">
-						<td align="center">
+					<tr>
+						<td class="text-center">
 							<input type="checkbox" class="input_check" name="topics[]" value="' . $topic['id'] . '" checked="checked" />
 						</td>
 						<td>
@@ -412,7 +409,7 @@ function template_merge_extra_options()
 							' . $topic['updated']['link'] . '<br />
 							<span class="smalltext">', $topic['updated']['time'], '</span>
 						</td>
-						<td align="center">
+						<td class="text-center">
 							<input type="checkbox" class="input_check" name="notifications[]" value="' . $topic['id'] . '" checked="checked" />
 						</td>
 					</tr>';

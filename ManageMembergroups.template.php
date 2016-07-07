@@ -31,7 +31,7 @@ function template_new_group()
 	echo '
 	<div id="admincenter">
 		<form action="', $scripturl, '?action=admin;area=membergroups;sa=add" method="post" accept-charset="', $context['character_set'], '">
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3>', $txt['membergroups_new_group'], '</h3>
 			</div>
 			<div class="panel-body">
@@ -168,7 +168,7 @@ function template_edit_group()
 	echo '
 	<div id="admincenter">
 		<form action="', $scripturl, '?action=admin;area=membergroups;sa=edit;group=', $context['group']['id'], '" method="post" accept-charset="', $context['character_set'], '" name="groupForm" id="groupForm">
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3>', $txt['membergroups_edit_group'], ' - ', $context['group']['name'], '
 				</h3>
 			</div>
@@ -395,7 +395,7 @@ function template_group_members()
 	echo '
 	<div id="admincenter">
 		<form action="', $scripturl, '?action=', $context['current_action'], (isset($context['admin_area']) ? ';area=' . $context['admin_area'] : '') , ';sa=members;group=', $context['group']['id'], '" method="post" accept-charset="', $context['character_set'], '">
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3>', $context['page_title'], '</h3>
 			</div>
 			<div class="panel-body">
@@ -451,7 +451,7 @@ function template_group_members()
 				<h4 class="titlebg">', $txt['membergroups_members_group_members'], '</h4>
 			</div>
 			<br />
-			<div class="pagesection">', $txt['pages'], ': ', $context['page_index'], '</div>
+			<div class="panel-body smfPagination">', $txt['pages'], ': ', $context['page_index'], '</div>
 						<div class="table-responsive">
 				<table  width="100%" class="table">
 				<thead>
@@ -463,7 +463,7 @@ function template_group_members()
 						<th', empty($context['group']['assignable']) ? ' colspan="2"' : '', '><a href="', $scripturl, '?action=', $context['current_action'], (isset($context['admin_area']) ? ';area=' . $context['admin_area'] : ''), ';sa=members;start=', $context['start'], ';sort=posts', $context['sort_by'] == 'posts' && $context['sort_direction'] == 'up' ? ';desc' : '', ';group=', $context['group']['id'], '">', $txt['posts'], $context['sort_by'] == 'posts' ? ' <img src="' . $settings['images_url'] . '/sort_' . $context['sort_direction'] . '.gif" alt="" />' : '', '</a></th>';
 	if (!empty($context['group']['assignable']))
 		echo '
-						<td width="4%" align="center"><input type="checkbox" class="input_check" onclick="invertAll(this, this.form);" /></td>';
+						<td width="4%" class="text-center"><input type="checkbox" class="input_check" onclick="invertAll(this, this.form);" /></td>';
 	echo '
 					</tr>
 				</thead>
@@ -471,16 +471,16 @@ function template_group_members()
 
 	if (empty($context['members']))
 		echo '
-					<tr class="panel-body">
-						<td colspan="6" align="center">', $txt['membergroups_members_no_members'], '</td>
+					<tr>
+						<td colspan="6" class="text-center">', $txt['membergroups_members_no_members'], '</td>
 					</tr>';
 
 	foreach ($context['members'] as $member)
 	{
 		echo '
-					<tr class="panel-body">
+					<tr>
 						<td>', $member['name'], '</td>
-						<td', $member['show_email'] == 'no_through_forum' && $settings['use_image_buttons'] ? ' align="center"' : '', '>';
+						<td', $member['show_email'] == 'no_through_forum' && $settings['use_image_buttons'] ? ' class="text-center"' : '', '>';
 
 		// Is it totally hidden?
 		if ($member['show_email'] == 'no')
@@ -506,7 +506,7 @@ function template_group_members()
 						<td', empty($context['group']['assignable']) ? ' colspan="2"' : '', '>', $member['posts'], '</td>';
 		if (!empty($context['group']['assignable']))
 			echo '
-						<td align="center" width="4%"><input type="checkbox" name="rem[]" value="', $member['id'], '" class="input_check" ', ($context['user']['id'] == $member['id'] && $context['group']['id'] == 1 ? 'onclick="if (this.checked) return confirm(\'' . $txt['membergroups_members_deadmin_confirm'] . '\')" ' : ''), '/></td>';
+						<td class="text-center" width="4%"><input type="checkbox" name="rem[]" value="', $member['id'], '" class="input_check" ', ($context['user']['id'] == $member['id'] && $context['group']['id'] == 1 ? 'onclick="if (this.checked) return confirm(\'' . $txt['membergroups_members_deadmin_confirm'] . '\')" ' : ''), '/></td>';
 		echo '
 					</tr>';
 	}
@@ -517,11 +517,11 @@ function template_group_members()
 			</div>
 			<!--tabla responsiva-->
 			<div class="pagesection flow_hidden">
-				<div class="floatleft">', $txt['pages'], ': ', $context['page_index'], '</div>';
+				<div class="pull-left">', $txt['pages'], ': ', $context['page_index'], '</div>';
 
 	if (!empty($context['group']['assignable']))
 		echo '
-				<div class="floatright"><input type="submit" name="remove" value="', $txt['membergroups_members_remove'], '" class="btn btn-default" /></div>';
+				<div class="pull-right"><input type="submit" name="remove" value="', $txt['membergroups_members_remove'], '" class="btn btn-default" /></div>';
 	echo '
 			</div>
 			<br />';
@@ -529,7 +529,7 @@ function template_group_members()
 	if (!empty($context['group']['assignable']))
 	{
 		echo '
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3>', $txt['membergroups_members_add_title'], '</h3>
 			</div>
 			<div class="panel-body">
@@ -578,7 +578,7 @@ function template_group_request_reason()
 	echo '
 	<div id="moderationcenter">
 		<form action="', $scripturl, '?action=groups;sa=requests" method="post" accept-charset="', $context['character_set'], '">
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3>', $txt['mc_groups_reason_title'], '</h3>
 			</div>
 			<div class="panel-body">

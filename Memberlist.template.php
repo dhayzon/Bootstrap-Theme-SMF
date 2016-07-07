@@ -27,16 +27,16 @@ function template_main()
 
 	echo '
 	<div class="main_section" id="memberlist">
-		<div class="cat_bar">
+		<div class="panel-body">
 			<h4>
-				<span class="floatleft">', $txt['members_list'], '</span>';
+				<span class="pull-left">', $txt['members_list'], '</span>';
 		if (!isset($context['old_search']))
 				echo '
-				<span class="floatright">', $context['letter_links'], '</span>';
+				<span class="pull-right">', $context['letter_links'], '</span>';
 		echo '
 			</h4>
 		</div>
-		<div class="pagesection">
+		<div class="panel-body smfPagination">
 			', template_button_strip($memberlist_buttons, 'right'), '
 			<div class="pagelinks floatleft">', $txt['pages'], ': ', $context['page_index'], '</div>
 		</div>';
@@ -54,17 +54,17 @@ function template_main()
 		// We're not able (through the template) to sort the search results right now...
 		if (isset($context['old_search']))
 			echo '
-					<th scope="col" class="', isset($column['class']) ? ' ' . $column['class'] : '', '"', isset($column['width']) ? ' width="' . $column['width'] . '"' : '', isset($column['colspan']) ? ' colspan="' . $column['colspan'] . '"' : '', '>
+					<th  class="', isset($column['class']) ? ' ' . $column['class'] : '', '"', isset($column['width']) ? ' width="' . $column['width'] . '"' : '', isset($column['colspan']) ? ' colspan="' . $column['colspan'] . '"' : '', '>
 						', $column['label'], '</th>';
 		// This is a selected column, so underline it or some such.
 		elseif ($column['selected'])
 			echo '
-					<th scope="col" class="', isset($column['class']) ? ' ' . $column['class'] : '', '" style="width: auto;"' . (isset($column['colspan']) ? ' colspan="' . $column['colspan'] . '"' : '') . ' nowrap="nowrap">
+					<th  class="', isset($column['class']) ? ' ' . $column['class'] : '', '" style="width: auto;"' . (isset($column['colspan']) ? ' colspan="' . $column['colspan'] . '"' : '') . ' nowrap="nowrap">
 						<a href="' . $column['href'] . '" rel="nofollow">' . $column['label'] . ' <img src="' . $settings['images_url'] . '/sort_' . $context['sort_direction'] . '.gif" alt="" /></a></th>';
 		// This is just some column... show the link and be done with it.
 		else
 			echo '
-					<th scope="col" class="', isset($column['class']) ? ' ' . $column['class'] : '', '"', isset($column['width']) ? ' width="' . $column['width'] . '"' : '', isset($column['colspan']) ? ' colspan="' . $column['colspan'] . '"' : '', '>
+					<th  class="', isset($column['class']) ? ' ' . $column['class'] : '', '"', isset($column['width']) ? ' width="' . $column['width'] . '"' : '', isset($column['colspan']) ? ' colspan="' . $column['colspan'] . '"' : '', '>
 						', $column['link'], '</th>';
 	}
 	echo '
@@ -82,7 +82,7 @@ function template_main()
 					<td class="panel-body">
 						', $context['can_send_pm'] ? '<a href="' . $member['online']['href'] . '" title="' . $member['online']['text'] . '">' : '', $settings['use_image_buttons'] ? '<img src="' . $member['online']['image_href'] . '" alt="' . $member['online']['text'] . '" align="middle" />' : $member['online']['label'], $context['can_send_pm'] ? '</a>' : '', '
 					</td>
-					<td class="windowbg lefttext">', $member['link'], '</td>
+					<td class="lefttext">', $member['link'], '</td>
 					<td class="panel-body">', $member['show_email'] == 'no' ? '' : '<a href="' . $scripturl . '?action=emailuser;sa=email;uid=' . $member['id'] . '" rel="nofollow"><img src="' . $settings['images_url'] . '/email_sm.gif" alt="' . $txt['email'] . '" title="' . $txt['email'] . ' ' . $member['name'] . '" /></a>', '</td>';
 
 		if (!isset($context['disabled_fields']['website']))
@@ -111,14 +111,14 @@ function template_main()
 
 		// Group and date.
 		echo '
-					<td class="windowbg lefttext">', empty($member['group']) ? $member['post_group'] : $member['group'], '</td>
-					<td class="windowbg lefttext">', $member['registered_date'], '</td>';
+					<td class="lefttext">', empty($member['group']) ? $member['post_group'] : $member['group'], '</td>
+					<td class="lefttext">', $member['registered_date'], '</td>';
 
 		if (!isset($context['disabled_fields']['posts']))
 		{
 			echo '
 					<td class="panel-body" style="white-space: nowrap" width="15">', $member['posts'], '</td>
-					<td class="windowbg statsbar" width="120">';
+					<td class="statsbar" width="120">';
 
 			if (!empty($member['post_percent']))
 				echo '
@@ -150,13 +150,13 @@ function template_main()
 		</div>';
 
 	echo '
-		<div class="pagesection">
+		<div class="panel-body smfPagination">
 			<div class="pagelinks floatleft">', $txt['pages'], ': ', $context['page_index'], '</div>';
 
 	// If it is displaying the result of a search show a "search again" link to edit their criteria.
 	if (isset($context['old_search']))
 		echo '
-			<div class="floatright">
+			<div class="pull-right">
 				<a href="', $scripturl, '?action=mlist;sa=search;search=', $context['old_search_value'], '">', $txt['mlist_search_again'], '</a>
 			</div>';
 	echo '
@@ -180,24 +180,23 @@ function template_search()
 	echo '
 	<form action="', $scripturl, '?action=mlist;sa=search" method="post" accept-charset="', $context['character_set'], '">
 		<div id="memberlist">
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3 class="catbg mlist">
 					<span class="ie6_header floatleft">', !empty($settings['use_buttons']) ? '<img src="' . $settings['images_url'] . '/buttons/search.gif" alt="" class="icon" />' : '', $txt['mlist_search'], '</span>
 				</h3>
 			</div>
-			<div class="pagesection">
+			<div class="panel-body smfPagination">
 				', template_button_strip($memberlist_buttons, 'right'), '
 			</div>';
 	// Display the input boxes for the form.
 	echo '	<div id="memberlist_search" class="clear">
-				<span class="upperframe"><span></span></span>
-				<div class="roundframe">
+								<div class="roundframe">
 					<div id="mlist_search" class="flow_hidden">
 						<div id="search_term_input"><br />
 							<strong>', $txt['search_for'], ':</strong>
 							<input type="text" name="search" value="', $context['old_search'], '" size="35" class="form-control" /> <input type="submit" name="submit" value="' . $txt['search'] . '" class="btn btn-default" />
 						</div>
-						<span class="floatleft">';
+						<span class="pull-left">';
 
 	$count = 0;
 	foreach ($context['search_fields'] as $id => $title)
@@ -208,14 +207,13 @@ function template_search()
 		if (round(count($context['search_fields']) / 2) == ++$count)
 			echo '
 						</span>
-						<span class="floatleft">';
+						<span class="pull-left">';
 	}
 		echo '
 						</span>
 					</div>
 				</div>
-				<span class="lowerframe"><span></span></span>
-			</div>
+							</div>
 		</div>
 	</form>';
 }

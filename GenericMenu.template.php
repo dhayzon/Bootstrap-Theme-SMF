@@ -21,8 +21,9 @@ function template_generic_menu_sidebar_above()
 
 	// This is the main table - we need it so we can keep the content to the right of it.
 	echo '
-	<div id="main_container">
-		<div id="left_admsection"><span id="admin_menu"></span>';
+	<div id="main_container" class="col-sx-12 col-sm-3 fix-lPadding">
+		<div class="list-group">
+			<div><span id="admin_menu"></span></div>';
 
 	// What one are we rendering?
 	$context['cur_menu_id'] = isset($context['cur_menu_id']) ? $context['cur_menu_id'] + 1 : 1;
@@ -34,9 +35,8 @@ function template_generic_menu_sidebar_above()
 	{
 		// Show the section header - and pump up the line spacing for readability.
 		echo '
-			<div class="adm_section">
-				<div class="cat_bar">
-					<h4>';
+			<div class="panel panel-warning adm_section">
+					<h4 class="panel-heading">';
 
 		if ($firstSection && !empty($menu_context['can_toggle_drop_down']))
 		{
@@ -53,8 +53,7 @@ function template_generic_menu_sidebar_above()
 
 		echo '
 					</h4>
-				</div>
-				<ul class="list-inline">';
+				<ul class="list-group">';
 
 		// For every area of this section show a link to that area (bold if it's currently selected.)
 		foreach ($section['areas'] as $i => $area)
@@ -64,7 +63,7 @@ function template_generic_menu_sidebar_above()
 				continue;
 
 			echo '
-					<li>';
+					<li class="list-group-item">';
 
 			// Is this the current area, or just some area?
 			if ($i == $menu_context['current_area'])
@@ -91,9 +90,9 @@ function template_generic_menu_sidebar_above()
 	}
 
 	// This is where the actual "main content" area for the admin section starts.
-	echo '
+	echo '</div>
 		</div>
-		<div id="main_admsection">';
+		<div id="main_admsection" class="col-xs-12 col-sm-9 fix-padding">';
 
 	// If there are any "tabs" setup, this is the place to shown them.
 	if (!empty($context['tabs']) && empty($context['force_disable_tabs']))
@@ -284,7 +283,7 @@ function template_generic_menu_tabs(&$menu_context)
 			echo '<img src="', $settings['images_url'], '/icons/', !empty($selected_tab['icon']) ? $selected_tab['icon'] : $tab_context['icon'], '" alt="" class="icon" />';
 
 		if (!empty($selected_tab['help']) || !empty($tab_context['help']))
-			echo '<a href="', $scripturl, '?action=helpadmin;help=', !empty($selected_tab['help']) ? $selected_tab['help'] : $tab_context['help'], '" onclick="return reqWin(this.href);" class="help"><img src="', $settings['images_url'], '/helptopics.gif" alt="', $txt['help'], '" class="icon" /></a>';
+			echo '<a href="', $scripturl, '?action=helpadmin;help=', !empty($selected_tab['help']) ? $selected_tab['help'] : $tab_context['help'], '" onclick="return reqWin(this.href);" ><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true" data-toggle="tooltip" title="', $txt['help'], '"></span> </a>';
 
 		echo $tab_context['title'], '
 			</span>';
@@ -362,7 +361,7 @@ function template_generic_menu_tabs(&$menu_context)
 
 		echo '
 	</p>
-	<p class="windowbg description">', isset($selected_tab['description']) ? $selected_tab['description'] : $tab_context['description'], '</p>';
+	<p class="description">', isset($selected_tab['description']) ? $selected_tab['description'] : $tab_context['description'], '</p>';
 	}
 }
 

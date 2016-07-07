@@ -25,7 +25,7 @@ function template_view_package()
 
 	echo '
 	<div id="admincenter">
-		<div class="cat_bar">
+		<div class="panel-body">
 			<h3>', $txt[($context['uninstalling'] ? 'un' : '') . 'install_mod'], '</h3>
 		</div>
 		<div class="information">';
@@ -53,14 +53,14 @@ function template_view_package()
 	if (isset($context['package_readme']))
 	{
 		echo '
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3>', $txt['package_' . ($context['uninstalling'] ? 'un' : '') . 'install_readme'], '</h3>
 			</div>
 			<div class="panel-body">
 				
 				<div class="content">
 					', $context['package_readme'], '
-					<span class="floatright">', $txt['package_available_readme_language'], '
+					<span class="pull-right">', $txt['package_available_readme_language'], '
 						<select class="form-control" name="readme_language" id="readme_language" onchange="if (this.options[this.selectedIndex].value) window.location.href = smf_prepareScriptUrl(smf_scripturl + \'', '?action=admin;area=packages;sa=', $context['uninstalling'] ? 'uninstall' : 'install', ';package=', $context['filename'], ';readme=\' + this.options[this.selectedIndex].value);">';
 							foreach ($context['readmes'] as $a => $b)
 								echo '<option value="', $b, '"', $a === 'selected' ? ' selected="selected"' : '', '>', $b == 'default' ? $txt['package_readme_default'] : ucfirst($b), '</option>';
@@ -74,7 +74,7 @@ function template_view_package()
 
 	echo '
 		<form action="', $scripturl, '?action=admin;area=packages;sa=', $context['uninstalling'] ? 'uninstall' : 'install', $context['ftp_needed'] ? '' : '2', ';package=', $context['filename'], ';pid=', $context['install_id'], '" onsubmit="submitonce(this);" method="post" accept-charset="', $context['character_set'], '">
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3>
 					', $context['uninstalling'] ? $txt['package_uninstall_actions'] : $txt['package_install_actions'], ' &quot;', $context['package_name'], '&quot;
 				</h3>
@@ -118,11 +118,11 @@ function template_view_package()
 				<table  class="table" width="100%">
 			<thead>
 				<tr>
-					<th scope="col" width="20"></th>
-					<th scope="col" width="30"></th>
-					<th scope="col" class="lefttext">', $txt['package_install_type'], '</th>
-					<th scope="col" class="lefttext" width="50%">', $txt['package_install_action'], '</th>
-					<th scope="col" class="lefttext" width="20%">', $txt['package_install_desc'], '</th>
+					<th  width="20"></th>
+					<th  width="30"></th>
+					<th  class="lefttext">', $txt['package_install_type'], '</th>
+					<th  class="lefttext" width="50%">', $txt['package_install_action'], '</th>
+					<th  class="lefttext" width="20%">', $txt['package_install_desc'], '</th>
 				</tr>
 			</thead>
 			<tbody>';
@@ -200,7 +200,7 @@ function template_view_package()
 		{
 			echo '
 			<br />
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3>
 					', $context['uninstalling'] ? $txt['package_other_themes_uninstall'] : $txt['package_other_themes'], '
 				</h3>
@@ -221,7 +221,7 @@ function template_view_package()
 				echo '
 					<tr>
 						<td></td>
-						<td align="center">';
+						<td class="text-center">';
 				if (!empty($context['themes_locked']))
 					echo '
 							<input type="hidden" name="custom_theme[]" value="', $id, '" />';
@@ -238,7 +238,7 @@ function template_view_package()
 					echo '
 					<tr class="windowbg', $alternate ? '' : '2', '">
 						<td>', isset($packageaction['operations']) ? '<img id="operation_img_' . $action_num . '" src="' . $settings['images_url'] . '/sort_down.gif" alt="*" style="display: none;" />' : '', '</td>
-						<td width="30" align="center">
+						<td width="30" class="text-center">
 							<input type="checkbox" name="theme_changes[]" value="', !empty($action['value']) ? $action['value'] : '', '" id="dummy_theme_', $id, '" class="input_check" ', (!empty($action['not_mod']) ? '' : 'disabled="disabled"'), ' ', !empty($context['themes_locked']) ? 'checked="checked"' : '', '/>
 						</td>
 						<td>', $action['type'], '</td>
@@ -310,7 +310,7 @@ function template_view_package()
 	elseif ($context['ftp_needed'])
 	{
 		echo '
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3>', $txt['package_ftp_necessary'], '</h3>
 			</div>
 			<div>
@@ -396,14 +396,14 @@ function template_extract_package()
 	if (empty($context['redirect_url']))
 	{
 		echo '
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3>', $context['uninstalling'] ? $txt['uninstall'] : $txt['extracting'], '</h3>
 			</div>
 			<div class="information">', $txt['package_installed_extract'], '</div>';
 	}
 	else
 		echo '
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3>', $txt['package_installed_redirecting'], '</h3>
 			</div>';
 
@@ -440,8 +440,7 @@ function template_extract_package()
 
 	echo '
 			</div>
-			<span class="botslice"><span></span></span>
-		</div>';
+					</div>';
 
 	// Show the "restore permissions" screen?
 	if (function_exists('template_show_list') && !empty($context['restore_file_permissions']['rows']))
@@ -461,7 +460,7 @@ function template_list()
 
 	echo '
 	<div id="admincenter">
-		<div class="cat_bar">
+		<div class="panel-body">
 			<h3>', $txt['list_file'], '</h3>
 		</div>
 		<div class="panel panel-danger">
@@ -481,8 +480,7 @@ function template_list()
 				<br />
 				<a href="', $scripturl, '?action=admin;area=packages">[ ', $txt['back'], ' ]</a>
 			</div>
-			<span class="botslice"><span></span></span>
-		</div>
+					</div>
 	</div>
 	<br class="clear" />';
 }
@@ -493,7 +491,7 @@ function template_examine()
 
 	echo '
 	<div id="admincenter">
-		<div class="cat_bar">
+		<div class="panel-body">
 			<h3>', $txt['package_examine_file'], '</h3>
 		</div>
 		<div class="panel panel-danger">
@@ -505,8 +503,7 @@ function template_examine()
 				<pre class="file_content">', $context['filedata'], '</pre>
 				<a href="', $scripturl, '?action=admin;area=packages;sa=list;package=', $context['package'], '">[ ', $txt['list_files'], ' ]</a>
 			</div>
-			<span class="botslice"><span></span></span>
-		</div>
+					</div>
 	</div>
 	<br class="clear" />';
 }
@@ -535,10 +532,10 @@ function template_view_installed()
 				<table  class="table" width="100%">
 		<thead>
 			<tr>
-				<th scope="col" width="32"></th>
-				<th scope="col" width="25%">', $txt['mod_name'], '</th>
-				<th scope="col" width="25%">', $txt['mod_version'], '</th>
-				<th scope="col" width="49%"></th>
+				<th  width="32"></th>
+				<th  width="25%">', $txt['mod_name'], '</th>
+				<th  width="25%">', $txt['mod_version'], '</th>
+				<th  width="49%"></th>
 			</tr>
 		</thead>
 		<tbody>';
@@ -576,9 +573,9 @@ function template_browse()
 
 	echo '
 	<div id="admincenter">
-		<div class="cat_bar">
+		<div class="panel-body">
 			<h3>
-				<span class="ie6_header floatleft"><a href="', $scripturl, '?action=helpadmin;help=latest_packages" onclick="return reqWin(this.href);" class="help"><img class="icon" src="', $settings['images_url'], '/helptopics.gif" alt="', $txt['help'], '" align="top" /></a> ', $txt['packages_latest'], '</span>
+				<span class="ie6_header floatleft"><a href="', $scripturl, '?action=helpadmin;help=latest_packages" onclick="return reqWin(this.href);" ><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true" data-toggle="tooltip" title="', $txt['help'], '"></span> </a> ', $txt['packages_latest'], '</span>
 			</h3>
 		</div>
 		<div class="panel-body">
@@ -625,7 +622,7 @@ function template_browse()
 
 	echo '
 		<br />
-		<div class="cat_bar">
+		<div class="panel-body">
 			<h3>', $txt['browse_packages'], '</h3>
 		</div>';
 
@@ -644,7 +641,7 @@ function template_browse()
 				<th class="first_th" width="32"></th>
 				<th class="lefttext" width="25%">', $txt['mod_name'], '</th>
 				<th class="lefttext" width="25%">', $txt['mod_version'], '</th>
-				<th class="last_th" width="49%"></th>
+				<th width="49%"></th>
 			</tr>
 		</thead>
 		<tbody>';
@@ -714,7 +711,7 @@ function template_browse()
 		foreach ($context['available_avatars'] as $i => $package)
 		{
 			echo '
-			<tr class="panel-body">
+			<tr>
 				<td>', ++$i, '.</td>
 				<td>', $package['name'], '</td>
 				<td>', $package['version'];
@@ -773,7 +770,7 @@ function template_browse()
 		foreach ($context['available_languages'] as $i => $package)
 		{
 			echo '
-			<tr class="panel-body">
+			<tr>
 				<td>' . ++$i . '.</td>
 				<td>' . $package['name'] . '</td>
 				<td>' . $package['version'];
@@ -832,7 +829,7 @@ function template_browse()
 		foreach ($context['available_other'] as $i => $package)
 		{
 			echo '
-			<tr class="panel-body">
+			<tr>
 				<td>' . ++$i . '.</td>
 				<td>' . $package['name'] . '</td>
 				<td>' . $package['version'];
@@ -886,7 +883,7 @@ function template_browse()
 		</div>
 		<form action="', $scripturl, '?action=admin;area=packages;sa=browse" method="get">
 			<div id="advanced_box" style="display: none;">
-				<div class="cat_bar">
+				<div class="panel-body">
 					<h3>', $txt['package_advanced_options'], '</h3>
 				</div>
 				<div class="panel-body">
@@ -910,8 +907,7 @@ function template_browse()
 							<input type="submit" value="', $txt['package_apply'], '" class="btn btn-default" />
 						</div>
 					</div>
-					<span class="botslice"><span></span></span>
-				</div>
+									</div>
 			</div>
 			<input type="hidden" name="action" value="admin" />
 			<input type="hidden" name="area" value="packages" />
@@ -933,7 +929,7 @@ function template_servers()
 
 	echo '
 	<div id="admincenter">
-		<div class="cat_bar">
+		<div class="panel-body">
 			<h3>', $txt['download_new_package'], '</h3>
 		</div>';
 
@@ -982,8 +978,7 @@ function template_servers()
 					</div>
 				</form>
 			</div>
-			<span class="botslice"><span></span></span>
-		</div>';
+					</div>';
 	}
 
 	echo '
@@ -996,7 +991,7 @@ function template_servers()
 	foreach ($context['servers'] as $server)
 		echo '
 						<li class="flow_auto">
-							<span class="floatleft">' . $server['name'] . '</span>
+							<span class="pull-left">' . $server['name'] . '</span>
 							<span class="package_server floatright"><a href="' . $scripturl . '?action=admin;area=packages;get;sa=remove;server=' . $server['id'] . ';', $context['session_var'], '=', $context['session_id'], '">[ ' . $txt['delete'] . ' ]</a></span>
 							<span class="package_server floatright"><a href="' . $scripturl . '?action=admin;area=packages;get;sa=browse;server=' . $server['id'] . '">[ ' . $txt['package_browse'] . ' ]</a></span>
 						</li>';
@@ -1050,10 +1045,9 @@ function template_servers()
 					</form>
 				</fieldset>
 			</div>
-			<span class="botslice"><span></span></span>
-		</div>
+					</div>
 		<br />
-		<div class="cat_bar">
+		<div class="panel-body">
 			<h3>' . $txt['package_upload_title'] . '</h3>
 		</div>
 		<div class="panel-body">
@@ -1074,8 +1068,7 @@ function template_servers()
 					</div>
 				</form>
 			</div>
-			<span class="botslice"><span></span></span>
-		</div>
+					</div>
 	</div>
 	<br class="clear" />';
 }
@@ -1086,7 +1079,7 @@ function template_package_confirm()
 
 	echo '
 	<div id="admincenter">
-		<div class="cat_bar">
+		<div class="panel-body">
 			<h3>', $context['page_title'], '</h3>
 		</div>
 		<div class="panel-body">
@@ -1095,8 +1088,7 @@ function template_package_confirm()
 				<p>', $context['confirm_message'], '</p>
 				<a href="', $context['proceed_href'], '">[ ', $txt['package_confirm_proceed'], ' ]</a> <a href="JavaScript:history.go(-1);">[ ', $txt['package_confirm_go_back'], ' ]</a>
 			</div>
-			<span class="botslice"><span></span></span>
-		</div>
+					</div>
 	</div>
 	<br class="clear" />';
 }
@@ -1107,7 +1099,7 @@ function template_package_list()
 
 	echo '
 	<div id="admincenter">
-		<div class="cat_bar">
+		<div class="panel-body">
 			<h3>' . $context['page_title'] . '</h3>
 		</div>
 		<div class="panel-body">
@@ -1218,8 +1210,7 @@ function template_package_list()
 
 	echo '
 			</div>
-			<span class="botslice"><span></span></span>
-		</div>
+					</div>
 		<div class="padding smalltext floatleft">
 			', $txt['package_installed_key'], '
 			<img src="', $settings['images_url'], '/icons/package_installed.gif" alt="" align="middle" style="margin-left: 1ex;" /> ', $txt['package_installed_current'], '
@@ -1288,7 +1279,7 @@ function template_downloaded()
 
 	echo '
 	<div id="admincenter">
-		<div class="cat_bar">
+		<div class="panel-body">
 			<h3>', $context['page_title'], '</h3>
 		</div>
 		<div class="panel-body">
@@ -1296,7 +1287,7 @@ function template_downloaded()
 			<div class="content">
 				<p>', (empty($context['package_server']) ? $txt['package_uploaded_successfully'] : $txt['package_downloaded_successfully']), '</p>
 				<ul class="reset">
-					<li class="reset"><span class="floatleft"><strong>', $context['package']['name'], '</strong></span>
+					<li class="reset"><span class="pull-left"><strong>', $context['package']['name'], '</strong></span>
 						<span class="package_server floatright">', $context['package']['list_files']['link'], '</span>
 						<span class="package_server floatright">', $context['package']['install']['link'], '</span>
 					</li>
@@ -1304,8 +1295,7 @@ function template_downloaded()
 				<br /><br />
 				<p><a href="', $scripturl, '?action=admin;area=packages;get', (isset($context['package_server']) ? ';sa=browse;server=' . $context['package_server'] : ''), '">[ ', $txt['back'], ' ]</a></p>
 			</div>
-			<span class="botslice"><span></span></span>
-		</div>
+					</div>
 	</div>
 	<br class="clear" />';
 }
@@ -1316,7 +1306,7 @@ function template_install_options()
 
 	echo '
 	<div id="admincenter">
-		<div class="cat_bar">
+		<div class="panel-body">
 			<h3>', $txt['package_install_options'], '</h3>
 		</div>
 		<div class="information">
@@ -1354,8 +1344,7 @@ function template_install_options()
 					</div>
 				</form>
 			</div>
-			<span class="botslice"><span></span></span>
-		</div>
+					</div>
 	</div>
 	<br class="clear" />';
 }
@@ -1863,7 +1852,7 @@ function template_file_permissions()
 	<form action="', $scripturl, '?action=admin;area=packages;sa=perms;', $context['session_var'], '=', $context['session_id'], '" method="post" accept-charset="', $context['character_set'], '">
 		<div class="panel panel-danger">
 			<h3 class="panel-heading">
-				<span class="floatleft">', $txt['package_file_perms'], '</span><span class="fperm floatright">', $txt['package_file_perms_new_status'], '</span>
+				<span class="pull-left">', $txt['package_file_perms'], '</span><span class="fperm floatright">', $txt['package_file_perms_new_status'], '</span>
 			</h3>
 		</div>
 					<div class="table-responsive">
@@ -1872,11 +1861,11 @@ function template_file_permissions()
 				<tr>
 					<th class="first_th lefttext" width="30%">&nbsp;', $txt['package_file_perms_name'], '&nbsp;</th>
 					<th width="30%" class="lefttext">', $txt['package_file_perms_status'], '</th>
-					<th align="center" width="8%"><span class="filepermissions">', $txt['package_file_perms_status_read'], '</span></th>
-					<th align="center" width="8%"><span class="filepermissions">', $txt['package_file_perms_status_write'], '</span></th>
-					<th align="center" width="8%"><span class="filepermissions">', $txt['package_file_perms_status_execute'], '</span></th>
-					<th align="center" width="8%"><span class="filepermissions">', $txt['package_file_perms_status_custom'], '</span></th>
-					<th class="last_th" align="center" width="8%"><span class="filepermissions">', $txt['package_file_perms_status_no_change'], '</span></th>
+					<th class="text-center" width="8%"><span class="filepermissions">', $txt['package_file_perms_status_read'], '</span></th>
+					<th class="text-center" width="8%"><span class="filepermissions">', $txt['package_file_perms_status_write'], '</span></th>
+					<th class="text-center" width="8%"><span class="filepermissions">', $txt['package_file_perms_status_execute'], '</span></th>
+					<th class="text-center" width="8%"><span class="filepermissions">', $txt['package_file_perms_status_custom'], '</span></th>
+					<th class="text-center" width="8%"><span class="filepermissions">', $txt['package_file_perms_status_no_change'], '</span></th>
 				</tr>
 			</thead>';
 
@@ -1884,7 +1873,7 @@ function template_file_permissions()
 	{
 		echo '
 			<tbody>
-				<tr class="panel-body">
+				<tr>
 					<td width="30%"><strong>';
 
 				if (!empty($dir['type']) && ($dir['type'] == 'dir' || $dir['type'] == 'dir_recursive'))
@@ -1898,11 +1887,11 @@ function template_file_permissions()
 						<span style="color: ', ($dir['perms']['chmod'] ? 'green' : 'red'), '">', ($dir['perms']['chmod'] ? $txt['package_file_perms_writable'] : $txt['package_file_perms_not_writable']), '</span>
 						', ($dir['perms']['perms'] ? '&nbsp;(' . $txt['package_file_perms_chmod'] . ': ' . substr(sprintf('%o', $dir['perms']['perms']), -4) . ')' : ''), '
 					</td>
-					<td align="center" class="perm_read" width="8%"><input type="radio" name="permStatus[', $name, ']" value="read" class="input_radio" /></td>
-					<td align="center" class="perm_write" width="8%"><input type="radio" name="permStatus[', $name, ']" value="writable" class="input_radio" /></td>
-					<td align="center" class="perm_execute" width="8%"><input type="radio" name="permStatus[', $name, ']" value="execute" class="input_radio" /></td>
-					<td align="center" class="perm_custom" width="8%"><input type="radio" name="permStatus[', $name, ']" value="custom" class="input_radio" /></td>
-					<td align="center" class="perm_nochange" width="8%"><input type="radio" name="permStatus[', $name, ']" value="no_change" checked="checked" class="input_radio" /></td>
+					<td class="text-center" class="perm_read" width="8%"><input type="radio" name="permStatus[', $name, ']" value="read" class="input_radio" /></td>
+					<td class="text-center" class="perm_write" width="8%"><input type="radio" name="permStatus[', $name, ']" value="writable" class="input_radio" /></td>
+					<td class="text-center" class="perm_execute" width="8%"><input type="radio" name="permStatus[', $name, ']" value="execute" class="input_radio" /></td>
+					<td class="text-center" class="perm_custom" width="8%"><input type="radio" name="permStatus[', $name, ']" value="custom" class="input_radio" /></td>
+					<td class="text-center" class="perm_nochange" width="8%"><input type="radio" name="permStatus[', $name, ']" value="no_change" checked="checked" class="input_radio" /></td>
 				</tr>
 			</tbody>';
 
@@ -1916,7 +1905,7 @@ function template_file_permissions()
 			</div>
 			<!--tabla responsiva-->
 		<br />
-		<div class="cat_bar">
+		<div class="panel-body">
 			<h3>', $txt['package_file_perms_change'], '</h3>
 		</div>
 		<div class="panel-body">
@@ -1929,7 +1918,7 @@ function template_file_permissions()
 							<label for="method_individual"><strong>', $txt['package_file_perms_apply'], '</strong></label>
 						</dt>
 						<dd>
-							<em class="smalltext">', $txt['package_file_perms_custom'], ': <input type="text" name="custom_value" value="0755" maxlength="4" size="5" class="form-control" />&nbsp;<a href="', $scripturl, '?action=helpadmin;help=chmod_flags" onclick="return reqWin(this.href);" class="help">(?)</a></em>
+							<em class="smalltext">', $txt['package_file_perms_custom'], ': <input type="text" name="custom_value" value="0755" maxlength="4" size="5" class="form-control" />&nbsp;<a href="', $scripturl, '?action=helpadmin;help=chmod_flags" onclick="return reqWin(this.href);" >(?)</a></em>
 						</dd>
 						<dt>
 							<input type="radio" name="method" value="predefined" id="method_predefined" class="input_radio" />
@@ -1962,8 +1951,7 @@ function template_file_permissions()
 					<input type="submit" value="', $txt['package_file_perms_go'], '" name="go" class="btn btn-default" />
 				</div>
 			</div>
-			<span class="botslice"><span></span></span>
-		</div>';
+					</div>';
 
 	// Any looks fors we've already done?
 	foreach ($context['look_for'] as $path)
@@ -2013,11 +2001,11 @@ function template_permission_show_contents($ident, $contents, $level, $has_more 
 					<span class="', ($dir['perms']['chmod'] ? 'success' : 'error'), '">', ($dir['perms']['chmod'] ? $txt['package_file_perms_writable'] : $txt['package_file_perms_not_writable']), '</span>
 					', ($dir['perms']['perms'] ? '&nbsp;(' . $txt['package_file_perms_chmod'] . ': ' . substr(sprintf('%o', $dir['perms']['perms']), -4) . ')' : ''), '
 				</td>
-				<td align="center" width="8%" class="perm_read"><input type="radio" name="permStatus[', $ident . '/' . $name, ']" value="read" class="input_radio" /></td>
-				<td align="center" width="8%" class="perm_write"><input type="radio" name="permStatus[', $ident . '/' . $name, ']" value="writable" class="input_radio" /></td>
-				<td align="center" width="8%" class="perm_execute"><input type="radio" name="permStatus[', $ident . '/' . $name, ']" value="execute" class="input_radio" /></td>
-				<td align="center" width="8%" class="perm_custom"><input type="radio" name="permStatus[', $ident . '/' . $name, ']" value="custom" class="input_radio" /></td>
-				<td align="center" width="8%" class="perm_nochange"><input type="radio" name="permStatus[', $ident . '/' . $name, ']" value="no_change" checked="checked" class="input_radio" /></td>
+				<td class="text-center" width="8%" class="perm_read"><input type="radio" name="permStatus[', $ident . '/' . $name, ']" value="read" class="input_radio" /></td>
+				<td class="text-center" width="8%" class="perm_write"><input type="radio" name="permStatus[', $ident . '/' . $name, ']" value="writable" class="input_radio" /></td>
+				<td class="text-center" width="8%" class="perm_execute"><input type="radio" name="permStatus[', $ident . '/' . $name, ']" value="execute" class="input_radio" /></td>
+				<td class="text-center" width="8%" class="perm_custom"><input type="radio" name="permStatus[', $ident . '/' . $name, ']" value="custom" class="input_radio" /></td>
+				<td class="text-center" width="8%" class="perm_nochange"><input type="radio" name="permStatus[', $ident . '/' . $name, ']" value="no_change" checked="checked" class="input_radio" /></td>
 			</tr>
 			<tr id="insert_div_loc_' . $cur_ident . '" style="display: none;"><td></td></tr>';
 
@@ -2071,7 +2059,7 @@ function template_action_permissions()
 	echo '
 	<div id="admincenter">
 		<form action="', $scripturl, '?action=admin;area=packages;sa=perms;', $context['session_var'], '=', $context['session_id'], '" id="perm_submit" method="post" accept-charset="', $context['character_set'], '">
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3>', $txt['package_file_perms_applying'], '</h3>
 			</div>';
 

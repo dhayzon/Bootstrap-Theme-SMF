@@ -31,7 +31,16 @@ a:focus, a:hover {
     border-radius: 50%;
     display: inline-block;
 }
+ 
 /**fix**/
+.fix-lPadding {
+    padding-left: 0;
+}
+.breadcrumb .nav:after, .breadcrumb .nav:before {
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+}
 .dl-horizontal dt img {
     margin-right: 10px;
 }
@@ -91,7 +100,13 @@ select.form-control, .sfix {
 .uStats {
     width: 14%;
 }
- 
+.uLastpost .glyphicon {
+    color: rgb(167, 158, 156);
+}
+
+.uStats .glyphicon {
+    color: #a79e9c;
+} 
 .uIcon, .uInfo, .uStats, .uLastpost{display: inline-block;vertical-align: middle;padding: 0 10px;}
 /** poter footer moderator links**/
 .uList .rLinks {

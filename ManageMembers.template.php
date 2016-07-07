@@ -21,9 +21,9 @@ function template_search_members()
 	echo '
 	<div id="admincenter">
 		<form action="', $scripturl, '?action=admin;area=viewmembers" method="post" accept-charset="', $context['character_set'], '">
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3>
-					<span class="floatleft">', $txt['search_for'], '</span>
+					<span class="pull-left">', $txt['search_for'], '</span>
 					<span class="smalltext floatright">', $txt['wild_cards_allowed'], '</span>
 				</h3>
 			</div>
@@ -171,34 +171,34 @@ function template_search_members()
 				<table  width="49%" class="table_grid floatleft">
 					<thead>
 						<tr>
-							<th scope="col" class="first_th">', $txt['membergroups'], '</th>
-							<th scope="col">', $txt['primary'], '</th>
-							<th scope="col" class="last_th">', $txt['additional'], '</th>
+							<th  class="first_th">', $txt['membergroups'], '</th>
+							<th >', $txt['primary'], '</th>
+							<th  class="text-center">', $txt['additional'], '</th>
 						</tr>
 					</thead>
 					<tbody>';
 
 			foreach ($context['membergroups'] as $membergroup)
 				echo '
-						<tr class="panel-body">
+						<tr>
 							<td>', $membergroup['name'], '</td>
-							<td align="center">
+							<td class="text-center">
 								<input type="checkbox" name="membergroups[1][]" value="', $membergroup['id'], '" checked="checked" class="input_check" />
 							</td>
-							<td align="center">
+							<td class="text-center">
 								', $membergroup['can_be_additional'] ? '<input type="checkbox" name="membergroups[2][]" value="' . $membergroup['id'] . '" checked="checked" class="input_check" />' : '', '
 							</td>
 						</tr>';
 
 			echo '
-						<tr class="panel-body">
+						<tr>
 							<td>
 								<em>', $txt['check_all'], '</em>
 							</td>
-							<td align="center">
+							<td class="text-center">
 								<input type="checkbox" onclick="invertAll(this, this.form, \'membergroups[1]\');" checked="checked" class="input_check" />
 							</td>
-							<td align="center">
+							<td class="text-center">
 								<input type="checkbox" onclick="invertAll(this, this.form, \'membergroups[2]\');" checked="checked" class="input_check" />
 							</td>
 						</tr>
@@ -211,31 +211,31 @@ function template_search_members()
 				<table  width="49%" class="table_grid floatright">
 					<thead>
 						<tr>
-							<th scope="col" class="first_th">
+							<th  class="first_th">
 								', $txt['membergroups_postgroups'], '
 							</th>
-							<th class="last_th">&nbsp;</th>
+							<th>&nbsp;</th>
 						</tr>
 					</thead>
 					</tbody>';
 
 			foreach ($context['postgroups'] as $postgroup)
 				echo '
-						<tr class="panel-body">
+						<tr>
 							<td>
 								', $postgroup['name'], '
 							</td>
-							<td width="40" align="center">
+							<td width="40" class="text-center">
 								<input type="checkbox" name="postgroups[]" value="', $postgroup['id'], '" checked="checked" class="input_check" />
 							</td>
 						</tr>';
 
 			echo '
-						<tr class="panel-body">
+						<tr>
 							<td>
 								<em>', $txt['check_all'], '</em>
 							</td>
-							<td align="center">
+							<td class="text-center">
 								<input type="checkbox" onclick="invertAll(this, this.form, \'postgroups[]\');" checked="checked" class="input_check" />
 							</td>
 						</tr>
@@ -267,7 +267,7 @@ function template_admin_browse()
 		echo '
 		<br />
 		<form action="', $scripturl, '?action=admin;area=viewmembers" method="post" accept-charset="', $context['character_set'], '" name="postFormOutstanding" id="postFormOutstanding" onsubmit="return onOutstandingSubmit();">
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3>', $txt['admin_browse_outstanding'], '</h3>
 			</div>
 			<script type="text/javascript"><!-- // --><![CDATA[

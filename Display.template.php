@@ -37,7 +37,7 @@ function template_main()
 	{
 		echo '
 			<div id="poll">
-				<div class="cat_bar">
+				<div class="panel-body">
 					<h3>
 						<span class="ie6_header floatleft"><img src="', $settings['images_url'], '/topic/', $context['poll']['is_locked'] ? 'normal_poll_locked' : 'normal_poll', '.gif" alt="" class="icon" /> ', $txt['poll'], '</span>
 					</h3>
@@ -113,8 +113,7 @@ function template_main()
 
 		echo '
 					</div>
-					<span class="botslice"><span></span></span>
-				</div>
+									</div>
 			</div>
 			<div id="pollmoderation">';
 
@@ -156,8 +155,7 @@ function template_main()
 		echo '
 						</ul>
 					</div>
-					<span class="botslice"><span></span></span>
-				</div>
+									</div>
 			</div>';
 	}
 
@@ -583,15 +581,15 @@ function template_main()
 		if ($context['can_moderate_forum'] && !empty($message['member']['ip']))
 			echo '
 								<a  href="', $scripturl, '?action=', !empty($message['member']['is_guest']) ? 'trackip' : 'profile;area=tracking;sa=ip;u=' . $message['member']['id'], ';searchip=', $message['member']['ip'], '" data-toggle="tooltip" data-placement="top" title="', $message['member']['ip'], '"> <i class="fa fa-plug" aria-hidden="true"></i> </a>
-							  <a href="', $scripturl, '?action=helpadmin;help=see_admin_ip" onclick="return reqWin(this.href);" class="help"  data-toggle="tooltip" data-placement="top" title="', $message['member']['ip'], '"><i class="fa fa-question" aria-hidden="true"></i></a>';
+							  <a href="', $scripturl, '?action=helpadmin;help=see_admin_ip" onclick="return reqWin(this.href);"   data-toggle="tooltip" data-placement="top" title="', $message['member']['ip'], '"><i class="fa fa-question" aria-hidden="true"></i></a>';
 		// Or, should we show it because this is you?
 		elseif ($message['can_see_ip'])
 			echo '
-					<a href="', $scripturl, '?action=helpadmin;help=see_member_ip" onclick="return reqWin(this.href);" class="help" data-toggle="tooltip" data-placement="top" title=" ', $message['member']['ip'], '"><i class="fa fa-question" aria-hidden="true"></i></a>';
+					<a href="', $scripturl, '?action=helpadmin;help=see_member_ip" onclick="return reqWin(this.href);"  data-toggle="tooltip" data-placement="top" title=" ', $message['member']['ip'], '"><i class="fa fa-question" aria-hidden="true"></i></a>';
 		// Okay, are you at least logged in?  Then we can show something about why IPs are logged...
 		elseif (!$context['user']['is_guest'])
 			echo '
-								<a href="', $scripturl, '?action=helpadmin;help=see_member_ip" onclick="return reqWin(this.href);" class="help" data-toggle="tooltip" data-placement="top" title="', $txt['logged'], '"><i class="fa fa-question" aria-hidden="true"></i></a>';
+								<a href="', $scripturl, '?action=helpadmin;help=see_member_ip" onclick="return reqWin(this.href);"  data-toggle="tooltip" data-placement="top" title="', $txt['logged'], '"><i class="fa fa-question" aria-hidden="true"></i></a>';
 		// Otherwise, you see NOTHING!
 		else
 			echo '
@@ -712,8 +710,7 @@ function template_main()
 			<div class="tborder" id="quickreplybox">
 
 				<div id="quickReplyOptions"', $options['display_quick_reply'] == 2 ? '' : ' style="display: none"', '>
-					<span class="upperframe"><span></span></span>
-					<div class="roundframe">
+										<div class="roundframe">
 						<p class="alert alert-warning">', $txt['quick_reply_desc'], '</p>
 						', $context['is_locked'] ? '<p class="alert alert-warning">' . $txt['quick_reply_warning'] . '</p>' : '',
 						$context['oldTopicError'] ? '<p class="alert alert-danger">' . sprintf($txt['error_old_topic'], $modSettings['oldTopicDays']) . '</p>' : '', '
@@ -759,8 +756,7 @@ function template_main()
 							</div>
 						</form>
 					</div>
-					<span class="lowerframe"><span></span></span>
-				</div>
+									</div>
 			</div>';
 	}
 	else

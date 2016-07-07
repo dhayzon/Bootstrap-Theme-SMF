@@ -200,7 +200,7 @@ function template_body_above()
 	// the upshrink image, right-floated
 	echo '	<div class="col-xs-12 col-md-4"><div class="panel-body pull-right">
 
-			', empty($settings['site_slogan']) ? '<img id="smflogo" src="' . $settings['images_url'] . '/smflogo.png" alt="Simple Machines Forum" title="Simple Machines Forum" />' : '<div id="siteslogan" class="floatright">' . $settings['site_slogan'] . '</div>', '';
+			', empty($settings['site_slogan']) ? '<img id="smflogo" src="' . $settings['images_url'] . '/smflogo.png" alt="Simple Machines Forum" title="Simple Machines Forum" />' : '<div id="siteslogan" class="pull-right">' . $settings['site_slogan'] . '</div>', '';
 	echo '
 			<img id="upshrink" src="', $settings['images_url'], '/upshrink.png" alt="*" title="', $txt['upshrink_description'], '" style="display: none;" />
 			</div></div>
@@ -262,7 +262,7 @@ function template_body_above()
 					</div>
 					<div class="col-xs-12 col-md-12 fix-padding">
 					<div class="col-xs-7 col-sm-6">
-					<select class="form-control" name="cookielength" class="form-control">
+					<select class="form-control" name="cookielength" >
 						<option value="60">', $txt['one_hour'], '</option>
 						<option value="1440">', $txt['one_day'], '</option>
 						<option value="10080">', $txt['one_week'], '</option>
@@ -428,15 +428,11 @@ function theme_linktree($force_show = false)
 
 		// Show the link, including a URL if it should have one.
 		echo $settings['linktree_link'] && isset($tree['url']) ? '
-				<a href="' . $tree['url'] . '"><span>' . $tree['name'] . '</span></a>' : '<span>' . $tree['name'] . '</span>';
+				<a href="' . $tree['url'] . '">' . $tree['name'] . '</a>' : '' . $tree['name'] . '';
 
 		// Show something after the link...?
 		if (isset($tree['extra_after']))
 			echo $tree['extra_after'];
-
-		// Don't show a separator for the last one.
-		if ($link_num != count($context['linktree']) - 1)
-			echo ' &#187;';
 
 		echo '
 			</li>';

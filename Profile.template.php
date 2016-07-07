@@ -37,8 +37,8 @@ function template_profile_above()
 	// If the profile was update successfully, let the user know this.
 	if (!empty($context['profile_updated']))
 		echo '
-					<div class="panel-body" id="profile_success">
-						', $context['profile_updated'], '
+					<div class="panel-body fix-padding" id="profile_success">
+						<div class="alert alert-success" role="alert">', $context['profile_updated'], '</div>
 					</div>';
 }
 
@@ -54,10 +54,10 @@ function template_summary()
 
 	// Display the basic information about the user
 	echo '
-<div id="profileview" class="flow_auto">
-	<div class="cat_bar">
+<div id="profileview" class="panel panel-default">
+	<div class="panel-body">
 		<h3>
-			<span class="ie6_header floatleft"><img src="', $settings['images_url'], '/icons/profile_sm.gif" alt="" class="icon" />', $txt['summary'], '</span>
+			<span class="ie6_header floatleft"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> ', $txt['summary'], '</span>
 		</h3>
 	</div>
 	<div id="basicinfo">
@@ -116,14 +116,13 @@ function template_summary()
 
 	echo '
 			</div>
-			<span class="botslice"><span></span></span>
-		</div>
+					</div>
 	</div>
 	<div id="detailedinfo">
 		<div class="panel-body">
 			
 			<div class="content">
-				<dl>';
+				<dl class="dl-horizontal">';
 
 	if ($context['user']['is_owner'] || $context['user']['is_admin'])
 		echo '
@@ -197,7 +196,7 @@ function template_summary()
 			if (empty($shown))
 			{
 				echo '
-				<dl>';
+				<dl class="dl-horizontal">';
 				$shown = true;
 			}
 
@@ -323,8 +322,7 @@ function template_summary()
 
 	echo '
 			</div>
-			<span class="botslice"><span></span></span>
-		</div>
+					</div>
 	</div>
 <div class="clear"></div>
 </div>';
@@ -336,12 +334,12 @@ function template_showPosts()
 	global $context, $settings, $options, $scripturl, $modSettings, $txt;
 
 	echo '
-		<div class="cat_bar">
+		<div class="panel-body">
 			<h3>
 				', (!isset($context['attachments']) && empty($context['is_topics']) ? $txt['showMessages'] : (!empty($context['is_topics']) ? $txt['showTopics'] : $txt['showAttachments'])), ' - ', $context['member']['name'], '
 			</h3>
 		</div>
-		<div class="pagesection">
+		<div class="panel-body smfPagination">
 			<span>', $txt['pages'], ': ', $context['page_index'], '</span>
 		</div>';
 
@@ -382,7 +380,7 @@ function template_showPosts()
 
 			if ($post['can_reply'] || $post['can_mark_notify'] || $post['can_delete'])
 				echo '
-				<div class="floatright">
+				<div class="pull-right">
 					<ul class="reset smalltext quickbuttons">';
 
 			// If they *can* reply?
@@ -420,28 +418,28 @@ function template_showPosts()
 	{
 		echo '
 					<div class="table-responsive">
-				<table  border="0" width="100%" cellspacing="1" cellpadding="2" class="table" align="center">
+				<table  border="0" width="100%" cellspacing="1" cellpadding="2" class="table" class="text-center">
 			<thead>
 				<tr class="titlebg">
-					<th class="first_th lefttext" scope="col" width="25%">
+					<th class="first_th lefttext"  width="25%">
 						<a href="', $scripturl, '?action=profile;u=', $context['current_member'], ';area=showposts;sa=attach;sort=filename', ($context['sort_direction'] == 'down' && $context['sort_order'] == 'filename' ? ';asc' : ''), '">
 							', $txt['show_attach_filename'], '
 							', ($context['sort_order'] == 'filename' ? '<img src="' . $settings['images_url'] . '/sort_' . ($context['sort_direction'] == 'down' ? 'down' : 'up') . '.gif" alt="" />' : ''), '
 						</a>
 					</th>
-					<th scope="col" width="12%">
+					<th  width="12%">
 						<a href="', $scripturl, '?action=profile;u=', $context['current_member'], ';area=showposts;sa=attach;sort=downloads', ($context['sort_direction'] == 'down' && $context['sort_order'] == 'downloads' ? ';asc' : ''), '">
 							', $txt['show_attach_downloads'], '
 							', ($context['sort_order'] == 'downloads' ? '<img src="' . $settings['images_url'] . '/sort_' . ($context['sort_direction'] == 'down' ? 'down' : 'up') . '.gif" alt="" />' : ''), '
 						</a>
 					</th>
-					<th class="lefttext" scope="col" width="30%">
+					<th class="lefttext"  width="30%">
 						<a href="', $scripturl, '?action=profile;u=', $context['current_member'], ';area=showposts;sa=attach;sort=subject', ($context['sort_direction'] == 'down' && $context['sort_order'] == 'subject' ? ';asc' : ''), '">
 							', $txt['message'], '
 							', ($context['sort_order'] == 'subject' ? '<img src="' . $settings['images_url'] . '/sort_' . ($context['sort_direction'] == 'down' ? 'down' : 'up') . '.gif" alt="" />' : ''), '
 						</a>
 					</th>
-					<th class="last_th lefttext" scope="col">
+					<th class="last_th lefttext" >
 						<a href="', $scripturl, '?action=profile;u=', $context['current_member'], ';area=showposts;sa=attach;sort=posted', ($context['sort_direction'] == 'down' && $context['sort_order'] == 'posted' ? ';asc' : ''), '">
 						', $txt['show_attach_posted'], '
 						', ($context['sort_order'] == 'posted' ? '<img src="' . $settings['images_url'] . '/sort_' . ($context['sort_direction'] == 'down' ? 'down' : 'up') . '.gif" alt="" />' : ''), '
@@ -458,7 +456,7 @@ function template_showPosts()
 			echo '
 				<tr class="', $attachment['approved'] ? ($alternate ? 'windowbg' : 'windowbg2') : 'approvebg', '">
 					<td><a href="', $scripturl, '?action=dlattach;topic=', $attachment['topic'], '.0;attach=', $attachment['id'], '">', $attachment['filename'], '</a>', !$attachment['approved'] ? '&nbsp;<em>(' . $txt['awaiting_approval'] . ')</em>' : '', '</td>
-					<td align="center">', $attachment['downloads'], '</td>
+					<td class="text-center">', $attachment['downloads'], '</td>
 					<td><a href="', $scripturl, '?topic=', $attachment['topic'], '.msg', $attachment['msg'], '#msg', $attachment['msg'], '" rel="nofollow">', $attachment['subject'], '</a></td>
 					<td>', $attachment['posted'], '</td>
 				</tr>';
@@ -482,7 +480,7 @@ function template_showPosts()
 	}
 	// Show more page numbers.
 	echo '
-		<div class="pagesection" style="margin-bottom: 0;">
+		<div class="panel-body smfPagination" style="margin-bottom: 0;">
 			<span>', $txt['pages'], ': ', $context['page_index'], '</span>
 		</div>';
 }
@@ -499,23 +497,23 @@ function template_editBuddies()
 			</h3>
 		</div>
 					<div class="table-responsive">
-				<table  border="0" width="100%" cellspacing="1" cellpadding="4" class="table" align="center">
+				<table  border="0" width="100%" cellspacing="1" cellpadding="4" class="table" class="text-center">
 			<tr>
-				<th class="first_th lefttext" scope="col" width="20%">', $txt['name'], '</th>
-				<th scope="col">', $txt['status'], '</th>
-				<th scope="col">', $txt['email'], '</th>
-				<th scope="col">', $txt['icq'], '</th>
-				<th scope="col">', $txt['aim'], '</th>
-				<th scope="col">', $txt['yim'], '</th>
-				<th scope="col">', $txt['msn'], '</th>
-				<th class="last_th" scope="col"></th>
+				<th class="first_th lefttext"  width="20%">', $txt['name'], '</th>
+				<th >', $txt['status'], '</th>
+				<th >', $txt['email'], '</th>
+				<th >', $txt['icq'], '</th>
+				<th >', $txt['aim'], '</th>
+				<th >', $txt['yim'], '</th>
+				<th >', $txt['msn'], '</th>
+				<th ></th>
 			</tr>';
 
 	// If they don't have any buddies don't list them!
 	if (empty($context['buddies']))
 		echo '
-			<tr class="panel-body">
-				<td colspan="8" align="center"><strong>', $txt['no_buddies'], '</strong></td>
+			<tr>
+				<td colspan="8" class="text-center"><strong>', $txt['no_buddies'], '</strong></td>
 			</tr>';
 
 	// Now loop through each buddy showing info on each.
@@ -525,13 +523,13 @@ function template_editBuddies()
 		echo '
 			<tr class="', $alternate ? 'windowbg' : 'windowbg2', '">
 				<td>', $buddy['link'], '</td>
-				<td align="center"><a href="', $buddy['online']['href'], '"><img src="', $buddy['online']['image_href'], '" alt="', $buddy['online']['label'], '" title="', $buddy['online']['label'], '" /></a></td>
-				<td align="center">', ($buddy['show_email'] == 'no' ? '' : '<a href="' . $scripturl . '?action=emailuser;sa=email;uid=' . $buddy['id'] . '" rel="nofollow"><img src="' . $settings['images_url'] . '/email_sm.gif" alt="' . $txt['email'] . '" title="' . $txt['email'] . ' ' . $buddy['name'] . '" /></a>'), '</td>
-				<td align="center">', $buddy['icq']['link'], '</td>
-				<td align="center">', $buddy['aim']['link'], '</td>
-				<td align="center">', $buddy['yim']['link'], '</td>
-				<td align="center">', $buddy['msn']['link'], '</td>
-				<td align="center"><a href="', $scripturl, '?action=profile;area=lists;sa=buddies;u=', $context['id_member'], ';remove=', $buddy['id'], ';', $context['session_var'], '=', $context['session_id'], '"><img src="', $settings['images_url'], '/icons/delete.gif" alt="', $txt['buddy_remove'], '" title="', $txt['buddy_remove'], '" /></a></td>
+				<td class="text-center"><a href="', $buddy['online']['href'], '"><img src="', $buddy['online']['image_href'], '" alt="', $buddy['online']['label'], '" title="', $buddy['online']['label'], '" /></a></td>
+				<td class="text-center">', ($buddy['show_email'] == 'no' ? '' : '<a href="' . $scripturl . '?action=emailuser;sa=email;uid=' . $buddy['id'] . '" rel="nofollow"><img src="' . $settings['images_url'] . '/email_sm.gif" alt="' . $txt['email'] . '" title="' . $txt['email'] . ' ' . $buddy['name'] . '" /></a>'), '</td>
+				<td class="text-center">', $buddy['icq']['link'], '</td>
+				<td class="text-center">', $buddy['aim']['link'], '</td>
+				<td class="text-center">', $buddy['yim']['link'], '</td>
+				<td class="text-center">', $buddy['msn']['link'], '</td>
+				<td class="text-center"><a href="', $scripturl, '?action=profile;area=lists;sa=buddies;u=', $context['id_member'], ';remove=', $buddy['id'], ';', $context['session_var'], '=', $context['session_id'], '"><img src="', $settings['images_url'], '/icons/delete.gif" alt="', $txt['buddy_remove'], '" title="', $txt['buddy_remove'], '" /></a></td>
 			</tr>';
 
 		$alternate = !$alternate;
@@ -550,16 +548,14 @@ function template_editBuddies()
 			<div class="panel panel-danger">
 				<h3 class="panel-heading">', $txt['buddy_add'], '</h3>
 			</div>
-			<span class="upperframe"><span></span></span>
-			<div class="roundframe">
+						<div class="roundframe">
 					<label for="new_buddy">
 						<strong>', $txt['who_member'], ':</strong>
 					</label>
 					<input type="text" name="new_buddy" id="new_buddy" size="25" class="form-control" />
 					<input type="submit" value="', $txt['buddy_add_button'], '" class="btn btn-default" />
 			</div>
-			<span class="lowerframe"><span></span></span>
-		</div>
+					</div>
 	</form>
 	<script type="text/javascript" src="', $settings['default_theme_url'], '/scripts/suggest.js?fin20"></script>
 	<script type="text/javascript"><!-- // --><![CDATA[
@@ -584,27 +580,27 @@ function template_editIgnoreList()
 	echo '
 		<div class="panel panel-danger">
 			<h3 class="panel-heading">
-				<span class="ie6_header floatleft"><img src="', $settings['images_url'], '/icons/profile_sm.gif" alt="" class="icon" />', $txt['editIgnoreList'], '</span>
+				<span class="ie6_header floatleft"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> ', $txt['editIgnoreList'], '</span>
 			</h3>
 		</div>
 					<div class="table-responsive">
-				<table  border="0" width="100%" cellspacing="1" cellpadding="4" class="table" align="center">
+				<table  border="0" width="100%" cellspacing="1" cellpadding="4" class="table" class="text-center">
 			<tr>
-				<th class="first_th" scope="col" width="20%">', $txt['name'], '</th>
-				<th scope="col">', $txt['status'], '</th>
-				<th scope="col">', $txt['email'], '</th>
-				<th scope="col">', $txt['icq'], '</th>
-				<th scope="col">', $txt['aim'], '</th>
-				<th scope="col">', $txt['yim'], '</th>
-				<th scope="col">', $txt['msn'], '</th>
-				<th class="last_th" scope="col"></th>
+				<th class="first_th"  width="20%">', $txt['name'], '</th>
+				<th >', $txt['status'], '</th>
+				<th >', $txt['email'], '</th>
+				<th >', $txt['icq'], '</th>
+				<th >', $txt['aim'], '</th>
+				<th >', $txt['yim'], '</th>
+				<th >', $txt['msn'], '</th>
+				<th ></th>
 			</tr>';
 
 	// If they don't have anyone on their ignore list, don't list it!
 	if (empty($context['ignore_list']))
 		echo '
-			<tr class="panel-body">
-				<td colspan="8" align="center"><strong>', $txt['no_ignore'], '</strong></td>
+			<tr>
+				<td colspan="8" class="text-center"><strong>', $txt['no_ignore'], '</strong></td>
 			</tr>';
 
 	// Now loop through each buddy showing info on each.
@@ -614,13 +610,13 @@ function template_editIgnoreList()
 		echo '
 			<tr class="', $alternate ? 'windowbg' : 'windowbg2', '">
 				<td>', $member['link'], '</td>
-				<td align="center"><a href="', $member['online']['href'], '"><img src="', $member['online']['image_href'], '" alt="', $member['online']['label'], '" title="', $member['online']['label'], '" /></a></td>
-				<td align="center">', ($member['show_email'] == 'no' ? '' : '<a href="' . $scripturl . '?action=emailuser;sa=email;uid=' . $member['id'] . '" rel="nofollow"><img src="' . $settings['images_url'] . '/email_sm.gif" alt="' . $txt['email'] . '" title="' . $txt['email'] . ' ' . $member['name'] . '" /></a>'), '</td>
-				<td align="center">', $member['icq']['link'], '</td>
-				<td align="center">', $member['aim']['link'], '</td>
-				<td align="center">', $member['yim']['link'], '</td>
-				<td align="center">', $member['msn']['link'], '</td>
-				<td align="center"><a href="', $scripturl, '?action=profile;u=', $context['id_member'], ';area=lists;sa=ignore;remove=', $member['id'], ';', $context['session_var'], '=', $context['session_id'], '"><img src="', $settings['images_url'], '/icons/delete.gif" alt="', $txt['ignore_remove'], '" title="', $txt['ignore_remove'], '" /></a></td>
+				<td class="text-center"><a href="', $member['online']['href'], '"><img src="', $member['online']['image_href'], '" alt="', $member['online']['label'], '" title="', $member['online']['label'], '" /></a></td>
+				<td class="text-center">', ($member['show_email'] == 'no' ? '' : '<a href="' . $scripturl . '?action=emailuser;sa=email;uid=' . $member['id'] . '" rel="nofollow"><img src="' . $settings['images_url'] . '/email_sm.gif" alt="' . $txt['email'] . '" title="' . $txt['email'] . ' ' . $member['name'] . '" /></a>'), '</td>
+				<td class="text-center">', $member['icq']['link'], '</td>
+				<td class="text-center">', $member['aim']['link'], '</td>
+				<td class="text-center">', $member['yim']['link'], '</td>
+				<td class="text-center">', $member['msn']['link'], '</td>
+				<td class="text-center"><a href="', $scripturl, '?action=profile;u=', $context['id_member'], ';area=lists;sa=ignore;remove=', $member['id'], ';', $context['session_var'], '=', $context['session_id'], '"><img src="', $settings['images_url'], '/icons/delete.gif" alt="', $txt['ignore_remove'], '" title="', $txt['ignore_remove'], '" /></a></td>
 			</tr>';
 
 		$alternate = !$alternate;
@@ -639,16 +635,14 @@ function template_editIgnoreList()
 			<div class="panel panel-danger">
 				<h3 class="panel-heading">', $txt['ignore_add'], '</h3>
 			</div>
-			<span class="upperframe"><span></span></span>
-			<div class="roundframe">
+						<div class="roundframe">
 					<label for="new_buddy">
 						<strong>', $txt['who_member'], ':</strong>
 					</label>
 					<input type="text" name="new_ignore" id="new_ignore" size="25" class="form-control" />
 					<input type="submit" value="', $txt['ignore_add_button'], '" class="btn btn-default" />
 			</div>
-			<span class="lowerframe"><span></span></span>
-		</div>
+					</div>
 	</form>
 	<script type="text/javascript" src="', $settings['default_theme_url'], '/scripts/suggest.js?fin20"></script>
 	<script type="text/javascript"><!-- // --><![CDATA[
@@ -673,15 +667,15 @@ function template_trackActivity()
 	// The first table shows IP information about the user.
 	echo '
 			<div class="panel panel-danger">
-				<h3 class="panel-heading"><strong>', $txt['view_ips_by'], ' ', $context['member']['name'], '</strong></h3>
-			</div>';
+				<h3 class="panel-heading">', $txt['view_ips_by'], ' ', $context['member']['name'], '</h3>
+			<div class="panel-body">';
 
 	// The last IP the user used.
 	echo '
-			<div id="tracking" class="panel-body">
+			<div id="tracking">
 				
 				<div class="content">
-					<dl class="noborder">
+					<dl  >
 						<dt>', $txt['most_recent_ip'], ':
 							', (empty($context['last_ip2']) ? '' : '<br />
 							<span class="smalltext">(<a href="' . $scripturl . '?action=helpadmin;help=whytwoip" onclick="return reqWin(this.href);">' . $txt['why_two_ip_address'] . '</a>)</span>'), '
@@ -717,7 +711,7 @@ function template_trackActivity()
 					</dl>
 				</div>
 			</div>
-		<br />';
+		</div></div>';
 
 	// Show the track user list.
 	template_show_list('track_user_list');
@@ -731,7 +725,7 @@ function template_trackIP()
 	// This function always defaults to the last IP used by a member but can be set to track any IP.
 	// The first table in the template gives an input box to allow the admin to enter another IP to track.
 	echo '
-		<div class="cat_bar">
+		<div class="panel-body">
 			<h3>', $txt['trackIP'], '</h3>
 		</div>
 		<div class="panel-body">
@@ -739,8 +733,7 @@ function template_trackIP()
 			<form action="', $context['base_url'], '" method="post" accept-charset="', $context['character_set'], '">
 				<div class="padding">', $txt['enter_ip'], ':&nbsp;&nbsp;<input type="text" name="searchip" value="', $context['ip'], '" class="form-control" />&nbsp;&nbsp;<input type="submit" value="', $txt['trackIP'], '" class="btn btn-default" /></div>
 			</form>
-			<span class="botslice"><span></span></span>
-		</div>
+					</div>
 		<br />';
 
 	// The table inbetween the first and second table shows links to the whois server for every region.
@@ -777,8 +770,8 @@ function template_trackIP()
 				<table  class="table" cellspacing="0" width="100%">
 			<thead>
 				<tr>
-					<th class="first_th" scope="col">', $txt['ip_address'], '</th>
-					<th class="last_th" scope="col">', $txt['display_name'], '</th>
+					<th class="first_th" >', $txt['ip_address'], '</th>
+					<th >', $txt['display_name'], '</th>
 				</tr>
 			</thead>
 			<tbody>';
@@ -810,46 +803,45 @@ function template_showPermissions()
 {
 	global $context, $settings, $options, $scripturl, $txt;
 
-	echo '
-		<div class="cat_bar">
+	echo '<div class="panel panel-default">
+		<div class="panel-heading">
 			<h3>
-				<span class="ie6_header floatleft"><img src="', $settings['images_url'], '/icons/profile_sm.gif" alt="" class="icon" />', $txt['showPermissions'], '</span>
+				<span class="ie6_header floatleft"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> ', $txt['showPermissions'], '</span>
 			</h3>
-		</div>';
+		</div>
+	<div class="panel-body">';
 
 	if ($context['member']['has_all_permissions'])
 	{
 		echo '
-		<p class="windowbg description">', $txt['showPermissions_all'], '</p>';
+		<p class="alert alert-info"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>', $txt['showPermissions_all'], '</p>';
 	}
 	else
 	{
 		echo '
-		<p class="description">',$txt['showPermissions_help'],'</p>
+		<p class="alert alert-info"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>',$txt['showPermissions_help'],'</p>
 		<div id="permissions" class="flow_hidden">';
 
 		if (!empty($context['no_access_boards']))
 		{
 			echo '
-				<div class="cat_bar">
+				<div class="panel-body">
 					<h3>', $txt['showPermissions_restricted_boards'], '</h3>
 				</div>
-				<div class="windowbg smalltext">
-					
+				<div class="smalltext">					
 					<div class="content">', $txt['showPermissions_restricted_boards_desc'], ':<br />';
 				foreach ($context['no_access_boards'] as $no_access_board)
 					echo '
 						<a href="', $scripturl, '?board=', $no_access_board['id'], '.0">', $no_access_board['name'], '</a>', $no_access_board['is_last'] ? '' : ', ';
 				echo '
 					</div>
-					<span class="botslice"><span></span></span>
 				</div>';
 		}
 
 		// General Permissions section.
 		echo '
 				<div class="tborder">
-					<div class="cat_bar">
+					<div class="panel-body">
 						<h3>', $txt['showPermissions_general'], '</h3>
 					</div>';
 		if (!empty($context['member']['permissions']['general']))
@@ -859,8 +851,8 @@ function template_showPermissions()
 				<table  class="table" width="100%" cellspacing="0">
 						<thead>
 							<tr class="titlebg">
-								<th class="lefttext first_th" scope="col" width="50%">', $txt['showPermissions_permission'], '</th>
-								<th class="lefttext last_th" scope="col" width="50%">', $txt['showPermissions_status'], '</th>
+								<th class="lefttext first_th"  width="50%">', $txt['showPermissions_permission'], '</th>
+								<th class="lefttext last_th"  width="50%">', $txt['showPermissions_status'], '</th>
 							</tr>
 						</thead>
 						<tbody>';
@@ -900,7 +892,7 @@ function template_showPermissions()
 		echo '
 			<div class="tborder">
 				<form action="' . $scripturl . '?action=profile;u=', $context['id_member'], ';area=permissions#board_permissions" method="post" accept-charset="', $context['character_set'], '">
-					<div class="cat_bar">
+					<div class="panel-body">
 						<h3><span class="ie6_header floatleft">
 							<a id="board_permissions"></a>', $txt['showPermissions_select'], ':
 							<select class="form-control" name="board" onchange="if (this.options[this.selectedIndex].value) this.form.submit();">
@@ -926,8 +918,8 @@ function template_showPermissions()
 				<table  class="table" width="100%" cellspacing="0">
 					<thead>
 						<tr class="titlebg">
-							<th class="lefttext first_th" scope="col" width="50%">', $txt['showPermissions_permission'], '</th>
-							<th class="lefttext last_th" scope="col" width="50%">', $txt['showPermissions_status'], '</th>
+							<th class="lefttext first_th"  width="50%">', $txt['showPermissions_permission'], '</th>
+							<th class="lefttext last_th"  width="50%">', $txt['showPermissions_status'], '</th>
 						</tr>
 					</thead>
 					<tbody>';
@@ -967,6 +959,7 @@ function template_showPermissions()
 			</div>
 		</div>';
 	}
+	echo'</div></div>';
 }
 
 // Template for user statistics, showing graphs and the like.
@@ -976,9 +969,9 @@ function template_statPanel()
 
 	// First, show a few text statistics such as post/topic count.
 	echo '
-	<div id="profileview">
+	<div id="profileview" class="panel panel-default">
 		<div id="generalstats">
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3>
 					<span class="ie6_header floatleft"><img src="', $settings['images_url'], '/stats_info.gif" alt="" class="icon" />
 					', $txt['statPanel_generalStats'], ' - ', $context['member']['name'], '
@@ -988,7 +981,7 @@ function template_statPanel()
 			<div class="panel-body">
 				
 				<div class="content">
-					<dl>
+					<dl class="dl-horizontal">
 						<dt>', $txt['statPanel_total_time_online'], ':</dt>
 						<dd>', $context['time_logged_in'], '</dd>
 						<dt>', $txt['statPanel_total_posts'], ':</dt>
@@ -1007,7 +1000,7 @@ function template_statPanel()
 	// This next section draws a graph showing what times of day they post the most.
 	echo '
 		<div id="activitytime" class="flow_hidden">
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3>
 				<span class="ie6_header floatleft"><img src="', $settings['images_url'], '/stats_history.gif" alt="" class="icon" />', $txt['statPanel_activityTime'], '</span>
 				</h3>
@@ -1055,7 +1048,7 @@ function template_statPanel()
 	echo '
 		<div class="flow_hidden">
 			<div id="popularposts">
-				<div class="cat_bar">
+				<div class="panel-body">
 					<h3>
 						<span class="ie6_header floatleft"><img src="', $settings['images_url'], '/stats_replies.gif" alt="" class="icon" />', $txt['statPanel_topBoards'], '</span>
 					</h3>
@@ -1071,7 +1064,7 @@ function template_statPanel()
 	else
 	{
 		echo '
-						<dl>';
+						<dl class="dl-horizontal">';
 
 		// Draw a bar for every board.
 		foreach ($context['popular_boards'] as $board)
@@ -1091,12 +1084,11 @@ function template_statPanel()
 	}
 	echo '
 					</div>
-					<span class="botslice"><span></span></span>
-				</div>
+									</div>
 			</div>';
 	echo '
 			<div id="popularactivity">
-				<div class="cat_bar">
+				<div class="panel-body">
 					<h3>
 					<span class="ie6_header floatleft"><img src="', $settings['images_url'], '/stats_replies.gif" alt="" class="icon" />', $txt['statPanel_topBoardsActivity'], '</span>
 					</h3>
@@ -1111,7 +1103,7 @@ function template_statPanel()
 	else
 	{
 		echo '
-						<dl>';
+						<dl class="dl-horizontal">';
 
 		// Draw a bar for every board.
 		foreach ($context['board_activity'] as $activity)
@@ -1131,8 +1123,7 @@ function template_statPanel()
 	}
 	echo '
 					</div>
-					<span class="botslice"><span></span></span>
-				</div>
+									</div>
 			</div>
 		</div>';
 
@@ -1147,11 +1138,11 @@ function template_edit_options()
 	global $context, $settings, $options, $scripturl, $modSettings, $txt;
 
 	// The main header!
-	echo '
-		<form action="', (!empty($context['profile_custom_submit_url']) ? $context['profile_custom_submit_url'] : $scripturl . '?action=profile;area=' . $context['menu_item_selected'] . ';u=' . $context['id_member'] . ';save'), '" method="post" accept-charset="', $context['character_set'], '" name="creator" id="creator" enctype="multipart/form-data" onsubmit="return checkProfileSubmit();">
-			<div class="cat_bar">
+	echo '<div class="panel panel-default uPerfil">
+			<div class="panel-heading">
 				<h3>
-					<span class="ie6_header floatleft"><img src="', $settings['images_url'], '/icons/profile_sm.gif" alt="" class="icon" />';
+					<span class="ie6_header floatleft"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> 
+				';
 
 		// Don't say "Profile" if this isn't the profile...
 		if (!empty($context['profile_header_text']))
@@ -1166,15 +1157,19 @@ function template_edit_options()
 				</h3>
 			</div>';
 
+
+		echo'<form action="', (!empty($context['profile_custom_submit_url']) ? $context['profile_custom_submit_url'] : $scripturl . '?action=profile;area=' . $context['menu_item_selected'] . ';u=' . $context['id_member'] . ';save'), '" method="post" accept-charset="', $context['character_set'], '" name="creator" id="creator" enctype="multipart/form-data" onsubmit="return checkProfileSubmit();">
+			';
+
+
+	echo '
+			<div class="panel-body">				
+				<div class="content">';
 	// Have we some description?
 	if ($context['page_desc'])
 		echo '
-			<p class="windowbg description">', $context['page_desc'], '</p>';
+			<p class="alert alert-info"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> ', $context['page_desc'], '</p>';
 
-	echo '
-			<div class="panel-body">
-				
-				<div class="content">';
 
 	// Any bits at the start?
 	if (!empty($context['profile_prehtml']))
@@ -1183,7 +1178,7 @@ function template_edit_options()
 
 	if (!empty($context['profile_fields']))
 		echo '
-					<dl>';
+					<dl class="dl-horizontal">';
 
 	// Start the big old loop 'of love.
 	$lastItem = 'hr';
@@ -1199,7 +1194,7 @@ function template_edit_options()
 			echo '
 					</dl>
 					<hr width="100%" size="1" class="hrcolor clear" />
-					<dl>';
+					<dl class="dl-horizontal">';
 		}
 		elseif ($field['type'] == 'callback')
 		{
@@ -1289,7 +1284,7 @@ function template_edit_options()
 					<hr width="100%" size="1" class="hrcolor clear" />';
 
 		echo '
-					<dl>';
+					<dl class="dl-horizontal">';
 
 		foreach ($context['custom_fields'] as $field)
 		{
@@ -1319,7 +1314,7 @@ function template_edit_options()
 	// Only show the password box if it's actually needed.
 	if ($context['require_password'])
 		echo '
-					<dl>
+					<dl class="dl-horizontal">
 						<dt>
 							<strong', isset($context['modify_error']['bad_password']) || isset($context['modify_error']['no_password']) ? ' class="error"' : '', '>', $txt['current_password'], ': </strong><br />
 							<span class="smalltext">', $txt['required_security_reasons'], '</span>
@@ -1386,6 +1381,7 @@ function template_edit_options()
 	if (!empty($context['show_spellchecking']))
 		echo '
 		<form name="spell_form" id="spell_form" method="post" accept-charset="', $context['character_set'], '" target="spellWindow" action="', $scripturl, '?action=spellcheck"><input type="hidden" name="spellstring" value="" /></form>';
+	echo'</div>';
 }
 
 // Personal Message settings.
@@ -1413,7 +1409,7 @@ function template_profile_pm_settings()
 								</dd>
 						</dl>
 						<hr />
-						<dl>
+						<dl class="dl-horizontal">
 								<dt>
 										<label for="pm_receive_from">', $txt['pm_receive_from'], '</label>
 								</dt>
@@ -1454,7 +1450,7 @@ function template_profile_pm_settings()
 								</dd>
 						</dl>
 						<hr />
-						<dl>
+						<dl class="dl-horizontal">
 								<dt>
 										<label for="copy_to_outbox"> ', $txt['copy_to_outbox'], '</label>
 								</dt>
@@ -1594,7 +1590,7 @@ function template_profile_theme_settings()
 								</select>
 							</li>
 						</ul>
-						<dl>
+						<dl class="dl-horizontal">
 							<dd></dd>';
 }
 
@@ -1604,12 +1600,12 @@ function template_notification()
 
 	// The main containing header.
 	echo '
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3>
-					<span class="ie6_header floatleft"><img src="', $settings['images_url'], '/icons/profile_sm.gif" alt="" class="icon" />', $txt['profile'], '</span>
+					<span class="ie6_header floatleft"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> ', $txt['profile'], '</span>
 				</h3>
 			</div>
-			<p class="windowbg description">', $txt['notification_info'], '</p>
+			<p class="alert alert-info"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>', $txt['notification_info'], '</p>
 			<div class="panel-body">
 				
 				<div class="content">
@@ -1674,20 +1670,20 @@ function template_groupMembership()
 	global $context, $settings, $options, $scripturl, $modSettings, $txt;
 
 	// The main containing header.
-	echo '
+	echo '<div class="panel panel-default uPerfil">
 		<form action="', $scripturl, '?action=profile;area=groupmembership;save" method="post" accept-charset="', $context['character_set'], '" name="creator" id="creator">
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3>
-					<span class="ie6_header floatleft"><img src="', $settings['images_url'], '/icons/profile_sm.gif" alt="" class="icon" />', $txt['profile'], '</span>
+					<span class="ie6_header floatleft"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> ', $txt['profile'], '</span>
 				</h3>
 			</div>
-			<p class="description">', $txt['groupMembership_info'], '</p>';
+			<p class="alert alert-info"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>', $txt['groupMembership_info'], '</p>';
 
 	// Do we have an update message?
 	if (!empty($context['update_message']))
 		echo '
-			<div id="profile_success">
-				', $context['update_message'], '.
+			<div id="profile_success" class="panel-body fix-padding">
+				<div class="alert alert-success" role="alert">', $context['update_message'], '.</div>
 			</div>';
 
 	// Requesting membership to a group?
@@ -1695,11 +1691,10 @@ function template_groupMembership()
 	{
 		echo '
 			<div class="groupmembership">
-				<div class="cat_bar">
+				<div class="panel-body">
 					<h3>', $txt['request_group_membership'], '</h3>
 				</div>
-				<span class="upperframe"><span></span></span>
-				<div class="roundframe"><div class="innerframe">
+								<div class="roundframe"><div class="innerframe">
 					', $txt['request_group_membership_desc'], ':
 					<textarea name="reason" rows="4" style="' . ($context['browser']['is_ie8'] ? 'width: 635px; max-width: 99%; min-width: 99%' : 'width: 99%') . ';"></textarea>
 					<div class="righttext" style="margin: 0.5em 0.5% 0 0.5%;">
@@ -1707,8 +1702,7 @@ function template_groupMembership()
 						<input type="submit" name="req" value="', $txt['submit_request'], '" class="btn btn-default" />
 					</div>
 				</div></div>
-				<span class="lowerframe"><span></span></span>
-			</div>';
+							</div>';
 	}
 	else
 	{
@@ -1717,8 +1711,8 @@ function template_groupMembership()
 				<table  border="0" width="100%" cellspacing="0" cellpadding="4" class="table">
 				<thead>
 					<tr>
-						<th class="first_th" scope="col" ', $context['can_edit_primary'] ? ' colspan="2"' : '', '>', $txt['current_membergroups'], '</th>
-						<th class="last_th" scope="col"></th>
+						<th class="first_th"  ', $context['can_edit_primary'] ? ' colspan="2"' : '', '>', $txt['current_membergroups'], '</th>
+						<th ></th>
 					</tr>
 				</thead>
 				<tbody>';
@@ -1772,10 +1766,10 @@ function template_groupMembership()
 				<table  border="0" width="100%" cellspacing="0" cellpadding="4" class="table">
 				<thead>
 					<tr>
-						<th class="first_th" scope="col">
+						<th class="first_th" >
 							', $txt['available_groups'], '
 						</th>
-						<th class="last_th" scope="col"></th>
+						<th ></th>
 					</tr>
 				</thead>
 				<tbody>';
@@ -1838,7 +1832,7 @@ function template_groupMembership()
 	echo '
 				<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
 				<input type="hidden" name="u" value="', $context['id_member'], '" />
-			</form>';
+			</form></div>';
 }
 
 function template_ignoreboards()
@@ -1858,14 +1852,14 @@ function template_ignoreboards()
 				document.forms.creator["ignore_brd" + ids[i]].checked = !toggle;
 		}
 	// ]]></script>
-
+	<div class="panel panel-default uPerfil">
 	<form action="', $scripturl, '?action=profile;area=ignoreboards;save" method="post" accept-charset="', $context['character_set'], '" name="creator" id="creator">
-		<div class="cat_bar">
+		<div class="panel-body">
 			<h3>
-				<span class="ie6_header floatleft"><img src="', $settings['images_url'], '/icons/profile_sm.gif" alt="" class="icon" />', $txt['profile'], '</span>
+				<span class="ie6_header floatleft"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> ', $txt['profile'], '</span>
 			</h3>
 		</div>
-		<p class="description">', $txt['ignoreboards_info'], '</p>
+		<p class="alert alert-info"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>', $txt['ignoreboards_info'], '</p>
 		<div class="panel-body">
 			
 			<div class="content flow_hidden">
@@ -1922,10 +1916,9 @@ function template_ignoreboards()
 
 	echo '
 			</div>
-			<span class="botslice"><span></span></span>
 		</div>
 	</form>
-	<br />';
+	<br /></div>';
 }
 
 // Simple load some theme variables common to several warning templates.
@@ -1959,7 +1952,7 @@ function template_viewWarning()
 	echo '
 		<div class="panel panel-danger">
 			<h3 class="panel-heading">
-				<span class="ie6_header floatleft"><img src="', $settings['images_url'], '/icons/profile_sm.gif" alt="" class="icon" />
+				<span class="ie6_header floatleft"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> 
 				', sprintf($txt['profile_viewwarning_for_user'], $context['member']['name']), '
 				</span>
 			</h3>
@@ -2001,8 +1994,7 @@ function template_viewWarning()
 		echo '
 				</dl>
 			</div>
-			<span class="botslice"><span></span></span>
-		</div>';
+					</div>';
 
 	template_show_list('view_warnings');
 }
@@ -2143,9 +2135,9 @@ function template_issueWarning()
 
 	echo '
 	<form action="', $scripturl, '?action=profile;u=', $context['id_member'], ';area=issuewarning" method="post" class="flow_hidden" accept-charset="', $context['character_set'], '">
-		<div class="cat_bar">
+		<div class="panel-body">
 			<h3>
-				<span class="ie6_header floatleft"><img src="', $settings['images_url'], '/icons/profile_sm.gif" alt="" class="icon" />
+				<span class="ie6_header floatleft"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> 
 				', $context['user']['is_owner'] ? $txt['profile_warning_level'] : $txt['profile_issue_warning'], '
 				</span>
 			</h3>
@@ -2153,7 +2145,7 @@ function template_issueWarning()
 
 	if (!$context['user']['is_owner'])
 		echo '
-		<p class="description">', $txt['profile_warning_desc'], '</p>';
+		<p class="alert alert-info"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>', $txt['profile_warning_desc'], '</p>';
 
 	echo '
 		<div class="panel-body">
@@ -2184,12 +2176,12 @@ function template_issueWarning()
 					<dd>
 						<div id="warndiv1" style="display: none;">
 							<div>
-								<span class="floatleft" style="padding: 0 0.5em"><a href="#" onclick="changeWarnLevel(-5); return false;">[-]</a></span>
-								<div class="floatleft" id="warning_contain" style="font-size: 8pt; height: 12pt; width: ', $context['warningBarWidth'], 'px; border: 1px solid black; background-color: white; padding: 1px; position: relative;" onmousedown="setWarningBarPos(event, true);" onmousemove="setWarningBarPos(event, true);" onclick="setWarningBarPos(event);">
+								<span class="pull-left" style="padding: 0 0.5em"><a href="#" onclick="changeWarnLevel(-5); return false;">[-]</a></span>
+								<div class="pull-left" id="warning_contain" style="font-size: 8pt; height: 12pt; width: ', $context['warningBarWidth'], 'px; border: 1px solid black; background-color: white; padding: 1px; position: relative;" onmousedown="setWarningBarPos(event, true);" onmousemove="setWarningBarPos(event, true);" onclick="setWarningBarPos(event);">
 									<div id="warning_text" style="padding-top: 1pt; width: 100%; z-index: 2; color: black; position: absolute; text-align: center; font-weight: bold;">', $context['member']['warning'], '%</div>
 									<div id="warning_progress" style="width: ', $context['member']['warning'], '%; height: 12pt; z-index: 1; background-color: ', $context['current_color'], ';">&nbsp;</div>
 								</div>
-								<span class="floatleft" style="padding: 0 0.5em"><a href="#" onclick="changeWarnLevel(5); return false;">[+]</a></span>
+								<span class="pull-left" style="padding: 0 0.5em"><a href="#" onclick="changeWarnLevel(5); return false;">[+]</a></span>
 								<div class="clear_left smalltext">', $txt['profile_warning_impact'], ': <span id="cur_level_div">', $context['level_effects'][$context['current_level']], '</span></div>
 							</div>
 							<input type="hidden" name="warning_level" id="warning_level" value="SAME" />
@@ -2257,13 +2249,12 @@ function template_issueWarning()
 					<input type="submit" name="save" value="', $context['user']['is_owner'] ? $txt['change_profile'] : $txt['profile_warning_issue'], '" class="btn btn-default" />
 				</div>
 			</div>
-			<span class="botslice"><span></span></span>
-		</div>
+					</div>
 	</form>';
 
 	// Previous warnings?
 	echo '<br />
-		<div class="cat_bar">
+		<div class="panel-body">
 			<h3>
 				', $txt['profile_warning_previous'], '
 			</h3>
@@ -2272,10 +2263,10 @@ function template_issueWarning()
 				<table  border="0" width="100%" cellspacing="0" cellpadding="5" class="table">
 			<thead>
 				<tr class="titlebg lefttext">
-					<th class="first_th" scope="col" width="20%">', $txt['profile_warning_previous_issued'], '</th>
-					<th scope="col" width="30%">', $txt['profile_warning_previous_time'], '</th>
-					<th scope="col">', $txt['profile_warning_previous_reason'], '</th>
-					<th class="last_th" scope="col" width="6%">', $txt['profile_warning_previous_level'], '</th>
+					<th class="first_th"  width="20%">', $txt['profile_warning_previous_issued'], '</th>
+					<th  width="30%">', $txt['profile_warning_previous_time'], '</th>
+					<th >', $txt['profile_warning_previous_reason'], '</th>
+					<th  width="6%">', $txt['profile_warning_previous_level'], '</th>
 				</tr>
 			</thead>
 			<tbody>';
@@ -2290,13 +2281,13 @@ function template_issueWarning()
 					<td class="smalltext">', $warning['issuer']['link'], '</td>
 					<td class="smalltext">', $warning['time'], '</td>
 					<td class="smalltext">
-						<div class="floatleft">
+						<div class="pull-left">
 							', $warning['reason'], '
 						</div>';
 
 		if (!empty($warning['id_notice']))
 			echo '
-						<div class="floatright">
+						<div class="pull-right">
 							<a href="', $scripturl, '?action=moderate;area=notice;nid=', $warning['id_notice'], '" onclick="window.open(this.href, \'\', \'scrollbars=yes,resizable=yes,width=400,height=250\');return false;" target="_blank" class="new_win" title="', $txt['profile_warning_previous_notice'], '"><img src="', $settings['images_url'], '/filter.gif" alt="" /></a>
 						</div>';
 		echo '
@@ -2307,8 +2298,8 @@ function template_issueWarning()
 
 	if (empty($context['previous_warnings']))
 		echo '
-				<tr class="panel-body">
-					<td align="center" colspan="4">
+				<tr>
+					<td class="text-center" colspan="4">
 						', $txt['profile_warning_previous_none'], '
 					</td>
 				</tr>';
@@ -2318,7 +2309,7 @@ function template_issueWarning()
 					</table>
 			</div>
 			<!--tabla responsiva-->
-		<div class="pagesection">', $txt['pages'], ': ', $context['page_index'], '</div>';
+		<div class="panel-body smfPagination">', $txt['pages'], ': ', $context['page_index'], '</div>';
 
 	// Do our best to get pretty javascript enabled.
 	echo '
@@ -2340,11 +2331,11 @@ function template_deleteAccount()
 	global $context, $settings, $options, $scripturl, $txt, $scripturl;
 
 	// The main containing header.
-	echo '
+	echo '<div class="panel panel-default uPerfil">
 		<form action="', $scripturl, '?action=profile;area=deleteaccount;save" method="post" accept-charset="', $context['character_set'], '" name="creator" id="creator">
 			<div class="panel panel-danger">
 				<h3 class="panel-heading">
-					<span class="ie6_header floatleft"><img src="', $settings['images_url'], '/icons/profile_sm.gif" alt="" class="icon" />', $txt['deleteAccount'], '</span>
+					<span class="ie6_header floatleft"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> ', $txt['deleteAccount'], '</span>
 				</h3>
 			</div>';
 	// If deleting another account give them a lovely info box.
@@ -2408,7 +2399,7 @@ function template_deleteAccount()
 				</div>
 			</div>
 			<br />
-		</form>';
+		</form></div>';
 }
 
 // Template for the password box/save button stuck at the bottom of every profile page.
@@ -2423,7 +2414,7 @@ function template_profile_save()
 	// Only show the password box if it's actually needed.
 	if ($context['require_password'])
 		echo '
-					<dl>
+					<dl class="dl-horizontal">
 						<dt>
 							<strong', isset($context['modify_error']['bad_password']) || isset($context['modify_error']['no_password']) ? ' class="error"' : '', '>', $txt['current_password'], ': </strong><br />
 							<span class="smalltext">', $txt['required_security_reasons'], '</span>
@@ -2604,7 +2595,7 @@ function template_profile_avatar_select()
 	// Start with the upper menu
 	echo '
 							<dt>
-								<strong id="personal_picture">', $txt['personal_picture'], '</strong>
+								<strong id="personal_picture">', $txt['personal_picture'], '</strong><br />
 								<input type="radio" onclick="swap_avatar(this); return true;" name="avatar_choice" id="avatar_choice_none" value="none"' . ($context['member']['avatar']['choice'] == 'none' ? ' checked="checked"' : '') . ' class="input_radio" /><label for="avatar_choice_none"' . (isset($context['modify_error']['bad_avatar']) ? ' class="error"' : '') . '>' . $txt['no_avatar'] . '</label><br />
 								', !empty($context['member']['avatar']['allow_server_stored']) ? '<input type="radio" onclick="swap_avatar(this); return true;" name="avatar_choice" id="avatar_choice_server_stored" value="server_stored"' . ($context['member']['avatar']['choice'] == 'server_stored' ? ' checked="checked"' : '') . ' class="input_radio" /><label for="avatar_choice_server_stored"' . (isset($context['modify_error']['bad_avatar']) ? ' class="error"' : '') . '>' . $txt['choose_avatar_gallery'] . '</label><br />' : '', '
 								', !empty($context['member']['avatar']['allow_external']) ? '<input type="radio" onclick="swap_avatar(this); return true;" name="avatar_choice" id="avatar_choice_external" value="external"' . ($context['member']['avatar']['choice'] == 'external' ? ' checked="checked"' : '') . ' class="input_radio" /><label for="avatar_choice_external"' . (isset($context['modify_error']['bad_avatar']) ? ' class="error"' : '') . '>' . $txt['my_own_pic'] . '</label><br />' : '', '
@@ -2617,7 +2608,7 @@ function template_profile_avatar_select()
 	{
 		echo '
 								<div id="avatar_server_stored">
-									<div>
+									<div class="col-sm-4">
 										<select class="form-control" name="cat" id="cat" size="10" onchange="changeSel(\'\');" onfocus="selectRadioByName(document.forms.creator.avatar_choice, \'server_stored\');">';
 		// This lists all the file catergories.
 		foreach ($context['avatars'] as $avatar)
@@ -2626,10 +2617,10 @@ function template_profile_avatar_select()
 		echo '
 										</select>
 									</div>
-									<div>
+									<div class="col-sm-6">
 										<select class="form-control" name="file" id="file" size="10" style="display: none;" onchange="showAvatar()" onfocus="selectRadioByName(document.forms.creator.avatar_choice, \'server_stored\');" disabled="disabled"><option></option></select>
 									</div>
-									<div><img name="avatar" id="avatar" src="', !empty($context['member']['avatar']['allow_external']) && $context['member']['avatar']['choice'] == 'external' ? $context['member']['avatar']['external'] : $modSettings['avatar_url'] . '/blank.gif', '" alt="Do Nothing" /></div>
+									<div class="col-sm-2 text-center"><img name="avatar" id="avatar" src="', !empty($context['member']['avatar']['allow_external']) && $context['member']['avatar']['choice'] == 'external' ? $context['member']['avatar']['external'] : $modSettings['avatar_url'] . '/blank.gif', '" alt="Do Nothing" /></div>
 									<script type="text/javascript"><!-- // --><![CDATA[
 										var files = ["' . implode('", "', $context['avatar_list']) . '"];
 										var avatar = document.getElementById("avatar");
@@ -2812,7 +2803,7 @@ function template_profile_timeformat_modify()
 	echo '
 							<dt>
 								<strong>', $txt['time_format'], ':</strong><br />
-								<a href="', $scripturl, '?action=helpadmin;help=time_format" onclick="return reqWin(this.href);" class="help"><img src="', $settings['images_url'], '/helptopics.gif" alt="', $txt['help'], '" class="floatleft" /></a>
+								<a href="', $scripturl, '?action=helpadmin;help=time_format" onclick="return reqWin(this.href);" ><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true" data-toggle="tooltip" title="', $txt['help'], '"></span> </a>
 								<span class="smalltext">&nbsp;', $txt['date_format'], '</span>
 							</dt>
 							<dd>
@@ -2871,7 +2862,7 @@ function template_profile_smiley_pick()
 		echo '
 									<option value="', $set['id'], '"', $set['selected'] ? ' selected="selected"' : '', '>', $set['name'], '</option>';
 	echo '
-								</select> <img id="smileypr" src="', $context['member']['smiley_set']['id'] != 'none' ? $modSettings['smileys_url'] . '/' . ($context['member']['smiley_set']['id'] != '' ? $context['member']['smiley_set']['id'] : (!empty($settings['smiley_sets_default']) ? $settings['smiley_sets_default'] : $modSettings['smiley_sets_default'])) . '/smiley.gif' : $settings['images_url'] . '/blank.gif', '" alt=":)" align="top" style="padding-left: 20px;" />
+								</select> <img id="smileypr" src="', $context['member']['smiley_set']['id'] != 'none' ? $modSettings['smileys_url'] . '/' . ($context['member']['smiley_set']['id'] != '' ? $context['member']['smiley_set']['id'] : (!empty($settings['smiley_sets_default']) ? $settings['smiley_sets_default'] : $modSettings['smiley_sets_default'])) . '/smiley.gif' : $settings['images_url'] . '/blank.gif', '" alt=":)"  style="padding-left: 20px;" />
 							</dd>';
 }
 
@@ -2881,21 +2872,21 @@ function template_authentication_method()
 	global $context, $settings, $options, $scripturl, $modSettings, $txt;
 
 	// The main header!
-	echo '
+	echo '<div class="panel panel-default uPerfil">
 		<script type="text/javascript" src="', $settings['default_theme_url'], '/scripts/register.js"></script>
 		<form action="', $scripturl, '?action=profile;area=authentication;save" method="post" accept-charset="', $context['character_set'], '" name="creator" id="creator" enctype="multipart/form-data">
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3>
-					<span class="ie6_header floatleft"><img src="', $settings['images_url'], '/icons/profile_sm.gif" alt="" class="icon" />', $txt['authentication'], '</span>
+					<span class="ie6_header floatleft"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> ', $txt['authentication'], '</span>
 				</h3>
 			</div>
-			<p class="windowbg description">', $txt['change_authentication'], '</p>
+			<p class="alert alert-info"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>', $txt['change_authentication'], '</p>
 			<div class="panel-body">
 				
 				<div class="content">
-					<dl>
+					<dl class="dl-horizontal">
 						<dt>
-							<input type="radio" onclick="updateAuthMethod();" name="authenticate" value="openid" id="auth_openid"', $context['auth_method'] == 'openid' ? ' checked="checked"' : '', ' class="input_radio" /><label for="auth_openid"><strong>', $txt['authenticate_openid'], '</strong></label>&nbsp;<em><a href="', $scripturl, '?action=helpadmin;help=register_openid" onclick="return reqWin(this.href);" class="help">(?)</a></em><br />
+							<input type="radio" onclick="updateAuthMethod();" name="authenticate" value="openid" id="auth_openid"', $context['auth_method'] == 'openid' ? ' checked="checked"' : '', ' class="input_radio" /><label for="auth_openid"><strong>', $txt['authenticate_openid'], '</strong></label>&nbsp;<em><a href="', $scripturl, '?action=helpadmin;help=register_openid" onclick="return reqWin(this.href);" >(?)</a></em><br />
 							<input type="radio" onclick="updateAuthMethod();" name="authenticate" value="passwd" id="auth_pass"', $context['auth_method'] == 'password' ? ' checked="checked"' : '', ' class="input_radio" /><label for="auth_pass"><strong>', $txt['authenticate_password'], '</strong></label>
 						</dt>
 						<dd>
@@ -2929,7 +2920,7 @@ function template_authentication_method()
 	if ($context['require_password'])
 		echo '
 					<hr width="100%" size="1" class="hrcolor clear" />
-					<dl>
+					<dl class="dl-horizontal">
 						<dt>
 							<strong', isset($context['modify_error']['bad_password']) || isset($context['modify_error']['no_password']) ? ' class="error"' : '', '>', $txt['current_password'], ': </strong><br />
 							<span class="smalltext">', $txt['required_security_reasons'], '</span>
@@ -2951,7 +2942,7 @@ echo '
 		</form>';
 
 	// The password stuff.
-	echo '
+	echo '</div>
 	<script type="text/javascript"><!-- // --><![CDATA[
 	var regTextStrings = {
 		"password_short": "', $txt['registration_password_short'], '",

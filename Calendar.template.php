@@ -111,7 +111,7 @@ function template_event_post()
 	// Start the main table.
 	echo '
 			<div id="post_event">
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3>
 					', $context['page_title'], '
 				</h3>
@@ -134,8 +134,7 @@ function template_event_post()
 
 	echo '
 			<div class="panel-body">
-				<span class="upperframe"><span></span></span>
-				<div class="roundframe">
+								<div class="roundframe">
 					<fieldset id="event_main">
 						<legend><span', isset($context['post_error']['no_event']) ? ' class="error"' : '', '>', $txt['calendar_event_title'], '</span></legend>
 						<input type="text" name="evtitle" maxlength="255" size="70" value="', $context['event']['title'], '" class="form-control" />
@@ -242,8 +241,7 @@ function template_event_post()
 						<input type="hidden" name="eventid" value="', $context['event']['eventid'], '" />
 					</div>
 				</div>
-				<span class="lowerframe"><span></span></span>
-			</div>
+							</div>
 			</div>
 		</form>
 		<br class="clear" />';
@@ -263,16 +261,16 @@ function template_show_month_grid($grid_name)
 	if (empty($calendar_data['disable_title']))
 	{
 		echo '
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3 class="catbg centertext" style="font-size: ', $calendar_data['size'] == 'large' ? 'large' : 'small', ';">';
 
 		if (empty($calendar_data['previous_calendar']['disabled']) && $calendar_data['show_next_prev'])
 			echo '
-					<span class="floatleft"><a href="', $calendar_data['previous_calendar']['href'], '">&#171;</a></span>';
+					<span class="pull-left"><a href="', $calendar_data['previous_calendar']['href'], '">&#171;</a></span>';
 
 		if (empty($calendar_data['next_calendar']['disabled']) && $calendar_data['show_next_prev'])
 			echo '
-					<span class="floatright"><a href="', $calendar_data['next_calendar']['href'], '">&#187;</a></span>';
+					<span class="pull-right"><a href="', $calendar_data['next_calendar']['href'], '">&#187;</a></span>';
 
 		if ($calendar_data['show_next_prev'])
 			echo '
@@ -303,7 +301,7 @@ function template_show_month_grid($grid_name)
 		foreach ($calendar_data['week_days'] as $day)
 		{
 			echo '
-						<th class="days" scope="col" ', $calendar_data['size'] == 'small' ? 'style="font-size: x-small;"' : '', '>', !empty($calendar_data['short_day_titles']) ? ($smcFunc['substr']($txt['days'][$day], 0, 1)) : $txt['days'][$day], '</th>';
+						<th class="days"  ', $calendar_data['size'] == 'small' ? 'style="font-size: x-small;"' : '', '>', !empty($calendar_data['short_day_titles']) ? ($smcFunc['substr']($txt['days'][$day], 0, 1)) : $txt['days'][$day], '</th>';
 		}
 		echo '
 					</tr>';
@@ -434,16 +432,16 @@ function template_show_week_grid($grid_name)
 	foreach ($calendar_data['months'] as $month_data)
 	{
 		echo '
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3 class="catbg weekly">';
 
 		if (empty($calendar_data['previous_calendar']['disabled']) && $calendar_data['show_next_prev'] && empty($done_title))
 			echo '
-					<span class="floatleft"><a href="', $calendar_data['previous_week']['href'], '">&#171;</a></span>';
+					<span class="pull-left"><a href="', $calendar_data['previous_week']['href'], '">&#171;</a></span>';
 
 		if (empty($calendar_data['next_calendar']['disabled']) && $calendar_data['show_next_prev'] && empty($done_title))
 			echo '
-					<span class="floatright"><a href="', $calendar_data['next_week']['href'], '">&#187;</a></span>';
+					<span class="pull-right"><a href="', $calendar_data['next_week']['href'], '">&#187;</a></span>';
 
 		echo '
 					<a href="', $scripturl, '?action=calendar;month=', $month_data['current_month'], ';year=', $month_data['current_year'], '">', $txt['months_titles'][$month_data['current_month']], ' ', $month_data['current_year'], '</a>', empty($done_title) && !empty($calendar_data['week_number']) ? (' - ' . $txt['calendar_week'] . ' ' . $calendar_data['week_number']) : '', '
@@ -544,9 +542,9 @@ function template_bcd()
 
 	echo '
 				<div class="table-responsive">
-				<table  cellpadding="0" cellspacing="1" align="center">
+				<table  cellpadding="0" cellspacing="1" class="text-center">
 		<caption class="titlebg">BCD Clock</caption>
-		<tr class="panel-body">';
+		<tr>';
 
 	$alt = false;
 	foreach ($context['clockicons'] as $t => $v)
@@ -569,7 +567,7 @@ function template_bcd()
 				</table>
 			</div>
 			<!--tabla responsiva-->
-	<p align="center"><a href="', $scripturl, '?action=clock;rb">Are you hardcore?</a></p>
+	<p class="text-center"><a href="', $scripturl, '?action=clock;rb">Are you hardcore?</a></p>
 
 		<script type="text/javascript"><!-- // --><![CDATA[
 		var icons = new Object();';
@@ -642,7 +640,7 @@ function template_hms()
 
 	echo '
 			<div class="table-responsive">
-				<table  cellpadding="0" cellspacing="1" align="center">
+				<table  cellpadding="0" cellspacing="1" class="text-center">
 	<caption class="titlebg">Binary Clock</caption>';
 	$alt = false;
 	foreach ($context['clockicons'] as $t => $v)
@@ -660,7 +658,7 @@ function template_hms()
 
 	echo '
 	</tr>
-	<tr class="', $alt ? 'windowbg2' : 'windowbg', '"><td colspan="6" align="center"><a href="', $scripturl, '?action=clock">Too tough for you?</a></td></tr>
+	<tr class="', $alt ? 'windowbg2' : 'windowbg', '"><td colspan="6" class="text-center"><a href="', $scripturl, '?action=clock">Too tough for you?</a></td></tr>
 			</table>
 			</div>
 			<!--tabla responsiva-->';
@@ -729,7 +727,7 @@ function template_omfg()
 
 	echo '
 			<div class="table-responsive">
-				<table  cellpadding="0" cellspacing="1" align="center">
+				<table  cellpadding="0" cellspacing="1" class="text-center">
 	<caption class="titlebg">OMFG Binary Clock</caption>';
 	$alt = false;
 	foreach ($context['clockicons'] as $t => $v)
@@ -819,7 +817,7 @@ function template_thetime()
 
 	echo '
 			<div class="table-responsive">
-				<table  cellpadding="0" cellspacing="0" border="1" align="center">
+				<table  cellpadding="0" cellspacing="0" border="1" class="text-center">
 	<caption>The time you requested</caption>';
 	$alt = false;
 	foreach ($context['clockicons'] as $t => $v)

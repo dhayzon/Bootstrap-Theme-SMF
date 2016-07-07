@@ -26,9 +26,9 @@ function template_edit_news()
 				<table  class="table" width="100%">
 				<thead>
 					<tr>
-						<th class="first_th" width="50%">', $txt['admin_edit_news'], '</th>
-						<th align="left" width="45%">', $txt['preview'], '</th>
-						<th class="last_th" align="center" width="5%"><input type="checkbox" class="input_check" onclick="invertAll(this, this.form);" /></th>
+						<th class="text-left" width="50%">', $txt['admin_edit_news'], '</th>
+						<th class="text-left" width="45%">', $txt['preview'], '</th>
+						<th class="text-center" width="5%"><input type="checkbox" class="input_check" onclick="invertAll(this, this.form);" /></th>
 					</tr>
 				</thead>
 				<tbody>';
@@ -36,13 +36,13 @@ function template_edit_news()
 	// Loop through all the current news items so you can edit/remove them.
 	foreach ($context['admin_current_news'] as $admin_news)
 		echo '
-					<tr class="panel-body">
-						<td align="center">
+					<tr>
+						<td class="text-center">
 
 							<div style="margin-bottom: 2ex;"><textarea rows="3" cols="65" name="news[]" style="' . ($context['browser']['is_ie8'] ? 'width: 635px; max-width: 85%; min-width: 85%' : 'width: 85%') . ';">', $admin_news['unparsed'], '</textarea></div>
-						</td><td align="left" valign="top">
+						</td><td align="left" v>
 							<div style="overflow: auto; width: 100%; height: 10ex;">', $admin_news['parsed'], '</div>
-						</td><td align="center">
+						</td><td class="text-center">
 							<input type="checkbox" name="remove[]" value="', $admin_news['id'], '" class="input_check" />
 						</td>
 					</tr>';
@@ -50,12 +50,12 @@ function template_edit_news()
 	// This provides an empty text box to add a news item to the site.
 	echo '
 					<tr id="moreNews" class="panel-body" style="display: none;">
-						<td align="center">
+						<td class="text-center">
 							<div id="moreNewsItems"></div>
 						</td>
-						<td align="center">
+						<td class="text-center">
 						</td>
-						<td align="center">
+						<td class="text-center">
 						</td>
 					</tr>
 				</tbody>
@@ -106,7 +106,7 @@ function template_email_members()
 	echo '
 	<div id="admincenter">
 		<form action="', $scripturl, '?action=admin;area=news;sa=mailingcompose" method="post" class="flow_hidden" accept-charset="', $context['character_set'], '">
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3>', $txt['admin_newsletters'], '</h3>
 			</div>
 			<div class="information">
@@ -137,7 +137,7 @@ function template_email_members()
 			</div>
 			<br />
 
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3 id="advanced_select_div" style="display: none;">
 					<span class="ie6_header floatleft">
 						<a href="#" onclick="toggleAdvanced(1); return false;" id="goadvanced"><img src="', $settings['images_url'], '/selected.gif" alt="', $txt['advanced'], '" />&nbsp;<strong>', $txt['advanced'], '</strong></a>
@@ -254,9 +254,9 @@ function template_email_members_compose()
 	echo '
 	<div id="admincenter">
 		<form action="', $scripturl, '?action=admin;area=news;sa=mailingsend" method="post" accept-charset="', $context['character_set'], '">
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3>
-					<a href="', $scripturl, '?action=helpadmin;help=email_members" onclick="return reqWin(this.href);" class="help"><img src="', $settings['images_url'], '/helptopics.gif" alt="', $txt['help'], '" class="icon" /></a> ', $txt['admin_newsletters'], '
+					<a href="', $scripturl, '?action=helpadmin;help=email_members" onclick="return reqWin(this.href);" ><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true" data-toggle="tooltip" title="', $txt['help'], '"></span> </a> ', $txt['admin_newsletters'], '
 				</h3>
 			</div>
 			<div class="information">
@@ -303,9 +303,9 @@ function template_email_members_send()
 	echo '
 	<div id="admincenter">
 		<form action="', $scripturl, '?action=admin;area=news;sa=mailingsend" method="post" accept-charset="', $context['character_set'], '" name="autoSubmit" id="autoSubmit">
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3>
-					<a href="', $scripturl, '?action=helpadmin;help=email_members" onclick="return reqWin(this.href);" class="help"><img src="', $settings['images_url'], '/helptopics.gif" alt="', $txt['help'], '" align="top" /></a> ', $txt['admin_newsletters'], '
+					<a href="', $scripturl, '?action=helpadmin;help=email_members" onclick="return reqWin(this.href);" ><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true" data-toggle="tooltip" title="', $txt['help'], '"></span> </a> ', $txt['admin_newsletters'], '
 				</h3>
 			</div>
 			<div class="panel-body">

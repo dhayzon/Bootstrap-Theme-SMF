@@ -22,13 +22,13 @@ function template_admin()
 	// Welcome message for the admin.
 	echo '
 	<div id="admincenter">
-		<div class="cat_bar">
+		<div class="panel-body">
 			<h3>';
 
 	if ($context['user']['is_admin'])
 		echo '
 			<object id="quick_search">
-				<form action="', $scripturl, '?action=admin;area=search" method="post" accept-charset="', $context['character_set'], '" class="floatright">
+				<form action="', $scripturl, '?action=admin;area=search" method="post" accept-charset="', $context['character_set'], '" class="pull-right">
 					<img src="', $settings['images_url'] , '/filter.gif" alt="" />
 					<input type="text" name="search_term" value="', $txt['admin_search'], '" onclick="if (this.value == \'', $txt['admin_search'], '\') this.value = \'\';" class="form-control" />
 					<select class="form-control" name="search_type">
@@ -43,8 +43,7 @@ function template_admin()
 	echo $txt['admin_center'], '
 			</h3>
 		</div>
-		<span class="upperframe"><span></span></span>
-		<div class="roundframe">
+				<div class="roundframe">
 			<div id="welcome">
 				<strong>', $txt['hello_guest'], ' ', $context['user']['name'], '!</strong>
 				', sprintf($txt['admin_main_welcome'], $txt['admin_center'], $txt['help'], $txt['help']), '
@@ -61,30 +60,29 @@ function template_admin()
 
 	// Display the "live news" from simplemachines.org.
 	echo '
-			<div id="live_news" class="floatleft">
-				<div class="cat_bar">
+			<div id="live_news" class="pull-left">
+				<div class="panel-body">
 					<h3>
-						<span class="ie6_header floatleft"><a href="', $scripturl, '?action=helpadmin;help=live_news" onclick="return reqWin(this.href);" class="help"><img src="', $settings['images_url'], '/helptopics.gif" class="icon" alt="', $txt['help'], '" /></a> ', $txt['live'], '</span>
+						<span class="ie6_header floatleft"><a href="', $scripturl, '?action=helpadmin;help=live_news" onclick="return reqWin(this.href);" ><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true" data-toggle="tooltip" title="', $txt['help'], '"></span> </a> ', $txt['live'], '</span>
 					</h3>
 				</div>
-				<div class="windowbg nopadding">
+				<div class="nopadding">
 					
 					<div class="content">
 						<div id="smfAnnouncements">', $txt['lfyi'], '</div>
 					</div>
-					<span class="botslice"><span></span></span>
-				</div>
+									</div>
 			</div>';
 
 	// Show the user version information from their server.
 	echo '
-			<div id="supportVersionsTable" class="floatright">
-				<div class="cat_bar">
+			<div id="supportVersionsTable" class="pull-right">
+				<div class="panel-body">
 					<h3>
 						<a href="', $scripturl, '?action=admin;area=credits">', $txt['support_title'], '</a>
 					</h3>
 				</div>
-				<div class="windowbg nopadding">
+				<div class="nopadding">
 					
 					<div class="content">
 						<div id="version_details">
@@ -108,8 +106,7 @@ function template_admin()
 	echo '
 						</div>
 					</div>
-					<span class="botslice"><span></span></span>
-				</div>
+									</div>
 			</div>
 		</div>';
 
@@ -173,7 +170,7 @@ function template_admin()
 				sUpdateNotificationDefaultTitle: ', JavaScriptEscape($txt['update_available']), ',
 				sUpdateNotificationDefaultMessage: ', JavaScriptEscape($txt['update_message']), ',
 				sUpdateNotificationTemplate: ', JavaScriptEscape('
-					<div class="cat_bar">
+					<div class="panel-body">
 						<h3 id="update_title">
 							%title%
 						</h3>
@@ -185,8 +182,7 @@ function template_admin()
 								%message%
 							</div>
 						</div>
-						<span class="botslice"><span></span></span>
-					</div>
+											</div>
 				'), ',
 				sUpdateNotificationLink: ', JavaScriptEscape($scripturl . '?action=admin;area=packages;pgdownload;auto;package=%package%;' . $context['session_var'] . '=' . $context['session_id']), '
 
@@ -203,7 +199,7 @@ function template_credits()
 	echo '
 
 	<div id="admincenter">
-		<div class="cat_bar">
+		<div class="panel-body">
 			<h3>
 				', $txt['support_title'], '
 			</h3>
@@ -225,13 +221,12 @@ function template_credits()
 
 	echo '
 			</div>
-			<span class="botslice"><span></span></span>
-		</div>
+					</div>
 	';
 
 	// Point the admin to common support resources.
 	echo '
-		<div class="cat_bar">
+		<div class="panel-body">
 			<h3>
 				', $txt['support_resources'], '
 			</h3>
@@ -242,14 +237,13 @@ function template_credits()
 				<p>', $txt['support_resources_p1'], '</p>
 				<p>', $txt['support_resources_p2'], '</p>
 			</div>
-			<span class="botslice"><span></span></span>
-		</div>';
+					</div>';
 
 	// Display latest support questions from simplemachines.org.
 	echo '
-		<div class="cat_bar">
+		<div class="panel-body">
 			<h3>
-				<span class="ie6_header floatleft"><a href="', $scripturl, '?action=helpadmin;help=latest_support" onclick="return reqWin(this.href);" class="help"><img src="', $settings['images_url'], '/helptopics.gif" class="icon" alt="', $txt['help'], '" /></a> ', $txt['support_latest'], '</span>
+				<span class="ie6_header floatleft"><a href="', $scripturl, '?action=helpadmin;help=latest_support" onclick="return reqWin(this.href);" ><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true" data-toggle="tooltip" title="', $txt['help'], '"></span> </a> ', $txt['support_latest'], '</span>
 			</h3>
 		</div>
 		<div class="panel-body">
@@ -257,12 +251,11 @@ function template_credits()
 			<div class="content">
 				<div id="latestSupport">', $txt['support_latest_fetch'], '</div>
 			</div>
-			<span class="botslice"><span></span></span>
-		</div>';
+					</div>';
 
 	// The most important part - the credits :P.
 	echo '
-		<div class="cat_bar">
+		<div class="panel-body">
 			<h3>
 				', $txt['admin_credits'], '
 			</h3>
@@ -302,8 +295,7 @@ function template_credits()
 
 	echo '
 			</div>
-			<span class="botslice"><span></span></span>
-		</div>
+					</div>
 	</div>
 	<br class="clear" />';
 
@@ -370,7 +362,7 @@ function template_view_versions()
 
 	echo '
 	<div id="admincenter">
-		<div class="cat_bar">
+		<div class="panel-body">
 			<h3>
 				', $txt['admin_version_check'], '
 			</h3>
@@ -380,13 +372,13 @@ function template_view_versions()
 				<table  width="100%" class="table">
 				<thead>
 					<tr align="left">
-						<th class="first_th" scope="col" width="50%">
+						<th class="first_th"  width="50%">
 							<strong>', $txt['admin_smffile'], '</strong>
 						</th>
-						<th scope="col" width="25%">
+						<th  width="25%">
 							<strong>', $txt['dvc_your'], '</strong>
 						</th>
-						<th class="last_th" scope="col"" width="25%">
+						<th " width="25%">
 							<strong>', $txt['dvc_current'], '</strong>
 						</th>
 					</tr>
@@ -626,7 +618,7 @@ function template_edit_censored()
 	echo '
 	<div id="admincenter">
 		<form action="', $scripturl, '?action=admin;area=postsettings;sa=censor" method="post" accept-charset="', $context['character_set'], '">
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3>
 					', $txt['admin_censored_words'], '
 				</h3>
@@ -676,7 +668,7 @@ function template_edit_censored()
 
 	// This table lets you test out your filters by typing in rude words and seeing what comes out.
 	echo '
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3>
 					', $txt['censor_test'], '
 				</h3>
@@ -704,7 +696,7 @@ function template_not_done()
 
 	echo '
 	<div id="admincenter">
-		<div class="cat_bar">
+		<div class="panel-body">
 			<h3>
 				', $txt['not_done_title'], '
 			</h3>
@@ -739,8 +731,7 @@ function template_not_done()
 					', $context['continue_post_data'], '
 				</form>
 			</div>
-			<span class="botslice"><span></span></span>
-		</div>
+					</div>
 	</div>
 	<br class="clear" />
 	<script type="text/javascript"><!-- // --><![CDATA[
@@ -837,9 +828,9 @@ function template_show_settings()
 			if ($config_var['type'] == 'title')
 			{
 				echo '
-					<div class="cat_bar">
+					<div class="panel-body">
 						<h3 class="', !empty($config_var['class']) ? $config_var['class'] : 'catbg', '"', !empty($config_var['force_div_id']) ? ' id="' . $config_var['force_div_id'] . '"' : '', '>
-							', ($config_var['help'] ? '<a href="' . $scripturl . '?action=helpadmin;help=' . $config_var['help'] . '" onclick="return reqWin(this.href);" class="help"><img src="' . $settings['images_url'] . '/helptopics.gif" class="icon" alt="' . $txt['help'] . '" /></a>' : ''), '
+	', ($config_var['help'] ? '<a href="' . $scripturl . '?action=helpadmin;help=' . $config_var['help'] . '" onclick="return reqWin(this.href);" ><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true" data-toggle="tooltip" title="'.$txt['help'].'"></span> </a>' : ''), '
 							', $config_var['label'], '
 						</h3>
 					</div>';
@@ -900,7 +891,7 @@ function template_show_settings()
 				// Show the [?] button.
 				if ($config_var['help'])
 					echo '
-							<a id="setting_', $config_var['name'], '" href="', $scripturl, '?action=helpadmin;help=', $config_var['help'], '" onclick="return reqWin(this.href);" class="help"><img src="', $settings['images_url'], '/helptopics.gif" class="icon" alt="', $txt['help'], '" /></a><span', ($config_var['disabled'] ? ' style="color: #777777;"' : ($config_var['invalid'] ? ' class="error"' : '')), '><label for="', $config_var['name'], '">', $config_var['label'], '</label>', $subtext, ($config_var['type'] == 'password' ? '<br /><em>' . $txt['admin_confirm_password'] . '</em>' : ''), '</span>
+							<a id="setting_', $config_var['name'], '" href="', $scripturl, '?action=helpadmin;help=', $config_var['help'], '" onclick="return reqWin(this.href);" ><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true" data-toggle="tooltip" title="', $txt['help'], '"></span> </a><span', ($config_var['disabled'] ? ' style="color: #777777;"' : ($config_var['invalid'] ? ' class="error"' : '')), '><label for="', $config_var['name'], '">', $config_var['label'], '</label>', $subtext, ($config_var['type'] == 'password' ? '<br /><em>' . $txt['admin_confirm_password'] . '</em>' : ''), '</span>
 						</dt>';
 				else
 					echo '
@@ -1088,7 +1079,7 @@ function template_edit_profile_field()
 	echo '
 	<div id="admincenter">
 		<form action="', $scripturl, '?action=admin;area=featuresettings;sa=profileedit;fid=', $context['fid'], ';', $context['session_var'], '=', $context['session_id'], '" method="post" accept-charset="', $context['character_set'], '">
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3>
 					', $context['page_title'], '
 				</h3>
@@ -1152,7 +1143,7 @@ function template_edit_profile_field()
 								</select>
 							</dd>
 							<dt>
-								<a id="field_show_enclosed" href="', $scripturl, '?action=helpadmin;help=field_show_enclosed" onclick="return reqWin(this.href);" class="help"><img src="', $settings['images_url'], '/helptopics.gif" class="icon" alt="', $txt['help'], '" align="top" /></a>
+								<a id="field_show_enclosed" href="', $scripturl, '?action=helpadmin;help=field_show_enclosed" onclick="return reqWin(this.href);" ><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true" data-toggle="tooltip" title="', $txt['help'], '"></span> </a>
 								<strong>', $txt['custom_edit_enclose'], ':</strong><br />
 								<span class="smalltext">', $txt['custom_edit_enclose_desc'], '</span>
 							</dt>
@@ -1197,7 +1188,7 @@ function template_edit_profile_field()
 								<input type="checkbox" name="bbc"', $context['field']['bbc'] ? ' checked="checked"' : '', ' class="input_check" />
 							</dd>
 							<dt id="options_dt">
-								<a href="', $scripturl, '?action=helpadmin;help=customoptions" onclick="return reqWin(this.href);" class="help"><img src="', $settings['images_url'], '/helptopics.gif" class="icon" alt="', $txt['help'], '" /></a>
+								<a href="', $scripturl, '?action=helpadmin;help=customoptions" onclick="return reqWin(this.href);" ><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true" data-toggle="tooltip" title="', $txt['help'], '"></span> </a>
 								<strong>', $txt['custom_edit_options'], ':</strong><br />
 								<span class="smalltext">', $txt['custom_edit_options_desc'], '</span>
 							</dt>
@@ -1226,7 +1217,7 @@ function template_edit_profile_field()
 						<legend>', $txt['custom_edit_advanced'], '</legend>
 						<dl class="dl-horizontal">
 							<dt id="mask_dt">
-								<a id="custom_mask" href="', $scripturl, '?action=helpadmin;help=custom_mask" onclick="return reqWin(this.href);" class="help"><img src="', $settings['images_url'], '/helptopics.gif" class="icon" alt="', $txt['help'], '" align="top" /></a>
+								<a id="custom_mask" href="', $scripturl, '?action=helpadmin;help=custom_mask" onclick="return reqWin(this.href);" ><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true" data-toggle="tooltip" title="', $txt['help'], '"></span> </a>
 								<strong>', $txt['custom_edit_mask'], ':</strong><br />
 								<span class="smalltext">', $txt['custom_edit_mask_desc'], '</span>
 							</dt>
@@ -1299,10 +1290,10 @@ function template_admin_search_results()
 	global $context, $txt, $settings, $options, $scripturl;
 
 	echo '
-		<div class="cat_bar">
+		<div class="panel-body">
 			<h3>
 				<object id="quick_search">
-					<form action="', $scripturl, '?action=admin;area=search" method="post" accept-charset="', $context['character_set'], '" class="floatright">
+					<form action="', $scripturl, '?action=admin;area=search" method="post" accept-charset="', $context['character_set'], '" class="pull-right">
 						<input type="text" name="search_term" value="', $context['search_term'], '" class="form-control" />
 						<input type="hidden" name="search_type" value="', $context['search_type'], '" />
 						<input type="submit" name="search_go" value="', $txt['admin_search_results_again'], '" class="btn btn-default" />
@@ -1311,7 +1302,7 @@ function template_admin_search_results()
 				<span class="ie6_header floatleft"><img src="' . $settings['images_url'] . '/buttons/search.gif" alt="" />&nbsp;', sprintf($txt['admin_search_results_desc'], $context['search_term']), '</span>
 			</h3>
 		</div>
-	<div class="windowbg nopadding">
+	<div class="nopadding">
 		
 		<div class="content">';
 
@@ -1362,8 +1353,7 @@ function template_admin_search_results()
 
 	echo '
 		</div>
-		<span class="botslice"><span></span></span>
-	</div>
+			</div>
 	<br class="clear" />';
 }
 
@@ -1393,7 +1383,7 @@ function template_core_features()
 	if ($context['is_new_install'])
 	{
 		echo '
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3>
 					', $txt['core_settings_welcome_msg'], '
 				</h3>
@@ -1405,7 +1395,7 @@ function template_core_features()
 
 	echo '
 		<form action="', $scripturl, '?action=admin;area=corefeatures;" method="post" accept-charset="', $context['character_set'], '">
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3>
 					', $txt['core_settings_title'], '
 				</h3>
@@ -1467,7 +1457,7 @@ function template_add_language()
 	echo '
 	<div id="admincenter">
 		<form action="', $scripturl, '?action=admin;area=languages;sa=add;', $context['session_var'], '=', $context['session_id'], '" method="post" accept-charset="', $context['character_set'], '">
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3>
 					', $txt['add_language'], '
 				</h3>
@@ -1505,22 +1495,22 @@ function template_add_language()
 				<table  class="table" cellspacing="0" width="100%">
 					<thead>
 						<tr>
-							<th class="first_th" scope="col">', $txt['name'], '</th>
-							<th scope="col">', $txt['add_language_smf_desc'], '</th>
-							<th scope="col">', $txt['add_language_smf_version'], '</th>
-							<th scope="col">', $txt['add_language_smf_utf8'], '</th>
-							<th class="last_th" scope="col">', $txt['add_language_smf_install'], '</th>
+							<th class="first_th" >', $txt['name'], '</th>
+							<th >', $txt['add_language_smf_desc'], '</th>
+							<th >', $txt['add_language_smf_version'], '</th>
+							<th >', $txt['add_language_smf_utf8'], '</th>
+							<th >', $txt['add_language_smf_install'], '</th>
 						</tr>
 					</thead>
 					<tbody>';
 
 		foreach ($context['smf_languages'] as $language)
 			echo '
-						<tr class="panel-body">
+						<tr>
 							<td align="left">', $language['name'], '</td>
 							<td align="left">', $language['description'], '</td>
 							<td align="left">', $language['version'], '</td>
-							<td align="center">', $language['utf8'] ? $txt['yes'] : $txt['no'], '</td>
+							<td class="text-center">', $language['utf8'] ? $txt['yes'] : $txt['no'], '</td>
 							<td align="left"><a href="', $language['link'], '">', $txt['add_language_smf_install'], '</a></td>
 						</tr>';
 
@@ -1547,7 +1537,7 @@ function template_download_language()
 	{
 		echo '
 	<div id="admincenter">
-		<div class="cat_bar">
+		<div class="panel-body">
 			<h3>
 				', $txt['languages_download_complete'], '
 			</h3>
@@ -1557,8 +1547,7 @@ function template_download_language()
 			<div class="content">
 				', $context['install_complete'], '
 			</div>
-			<span class="botslice"><span></span></span>
-		</div>
+					</div>
 	</div>
 	<br class="clear" />';
 		return;
@@ -1575,7 +1564,7 @@ function template_download_language()
 	echo '
 	<div id="admincenter">
 		<form action="', $scripturl, '?action=admin;area=languages;sa=downloadlang;did=', $context['download_id'], ';', $context['session_var'], '=', $context['session_id'], '" method="post" accept-charset="', $context['character_set'], '">
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3>
 					', $txt['languages_download'], '
 				</h3>
@@ -1607,16 +1596,16 @@ function template_download_language()
 				<table  class="table" cellspacing="0" width="100%">
 				<thead>
 					<tr>
-						<th class="first_th" scope="col">
+						<th class="first_th" >
 							', $txt['languages_download_filename'], '
 						</th>
-						<th scope="col" width="100">
+						<th  width="100">
 							', $txt['languages_download_writable'], '
 						</th>
-						<th scope="col" width="100">
+						<th  width="100">
 							', $txt['languages_download_exists'], '
 						</th>
-						<th class="last_th" scope="col" width="50">
+						<th  width="50">
 							', $txt['languages_download_copy'], '
 						</th>
 					</tr>
@@ -1672,7 +1661,7 @@ function template_download_language()
 			</div>';
 
 		echo '
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3>
 					', $txt['package_ftp_necessary'], '
 				</h3>
@@ -1686,7 +1675,7 @@ function template_download_language()
 							<label for="ftp_server">', $txt['package_ftp_server'], ':</label>
 						</dt>
 						<dd>
-							<div class="floatright" style="margin-right: 1px;"><label for="ftp_port" style="padding-top: 2px; padding-right: 2ex;">', $txt['package_ftp_port'], ':&nbsp;</label> <input type="text" size="3" name="ftp_port" id="ftp_port" value="', isset($context['package_ftp']['port']) ? $context['package_ftp']['port'] : (isset($modSettings['package_port']) ? $modSettings['package_port'] : '21'), '" class="form-control" /></div>
+							<div class="pull-right" style="margin-right: 1px;"><label for="ftp_port" style="padding-top: 2px; padding-right: 2ex;">', $txt['package_ftp_port'], ':&nbsp;</label> <input type="text" size="3" name="ftp_port" id="ftp_port" value="', isset($context['package_ftp']['port']) ? $context['package_ftp']['port'] : (isset($modSettings['package_port']) ? $modSettings['package_port'] : '21'), '" class="form-control" /></div>
 							<input type="text" size="30" name="ftp_server" id="ftp_server" value="', isset($context['package_ftp']['server']) ? $context['package_ftp']['server'] : (isset($modSettings['package_server']) ? $modSettings['package_server'] : 'localhost'), '" style="width: 70%;" class="form-control" />
 						</dd>
 
@@ -1768,7 +1757,7 @@ function template_modify_language_entries()
 	echo '
 	<div id="admincenter">
 		<form action="', $scripturl, '?action=admin;area=languages;sa=editlang;lid=', $context['lang_id'], '" method="post" accept-charset="', $context['character_set'], '">
-			<div class="cat_bar">
+			<div class="panel-body">
 				<h3>
 					', $txt['edit_languages'], '
 				</h3>
@@ -1844,7 +1833,7 @@ function template_modify_language_entries()
 					', $txt['edit_language_entries'], '
 				</h3>
 			</div>
-			<div id="taskpad" class="floatright">
+			<div id="taskpad" class="pull-right">
 				', $txt['edit_language_entries_file'], ':
 					<select class="form-control" name="tfid" onchange="if (this.value != -1) document.forms.entry_form.submit();">';
 	foreach ($context['possible_files'] as $id_theme => $theme)
@@ -2041,7 +2030,7 @@ function template_repair_boards()
 
 	echo '
 	<div id="admincenter">
-		<div class="cat_bar">
+		<div class="panel-body">
 			<h3>',
 				$context['error_search'] ? $txt['errors_list'] : $txt['errors_fixing'] , '
 			</h3>
@@ -2107,8 +2096,7 @@ function template_repair_boards()
 
 	echo '
 			</div>
-			<span class="botslice"><span></span></span>
-		</div>
+					</div>
 	</div>
 	<br class="clear" />';
 
